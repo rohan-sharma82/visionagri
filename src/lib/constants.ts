@@ -1,3 +1,4 @@
+
 export const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/crop-yield', label: 'Crop Yield Prediction' },
@@ -18,7 +19,7 @@ export const featuresData = [
     {
         title: 'AI Farmer Assistant',
         description: 'Your personal agricultural expert, available 24/7.',
-        imageUrl: 'https://picsum.photos/300/200?random=12',
+        imageUrl: '/images/ai-farmer.png',
         dataAiHint: 'ai assistant',
         href: '/ai-farmer'
     },
