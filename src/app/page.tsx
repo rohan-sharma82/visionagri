@@ -1,5 +1,5 @@
 'use client';
-import { FarmerIcon, TractorIcon } from '@/components/icons';
+import { FarmerIcon } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { newsData } from '@/lib/constants';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -17,7 +18,13 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8">
       <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-primary/10 flex items-center justify-center p-4 md:p-8 shadow-inner">
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 z-10">
-          <FarmerIcon className="h-24 w-24 md:h-32 md:w-32 text-accent" />
+          <Image
+            src="/farmer.png"
+            alt="Farmer in a field"
+            width={160}
+            height={160}
+            className="md:h-40 md:w-40"
+          />
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
@@ -35,12 +42,6 @@ export default function Home() {
               className="[animation:draw-line_2s_ease-out_1s_forwards]"
             />
           </svg>
-        </div>
-
-        <div
-          className="absolute top-1/2 -translate-y-1/2 z-0 [animation:move-tractor_12s_linear_infinite]"
-        >
-          <TractorIcon className="h-28 w-28 md:h-40 md:w-40 text-primary" />
         </div>
 
         <div className="absolute top-1/2 left-3/4 -translate-y-1/2 z-10">

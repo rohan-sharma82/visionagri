@@ -95,12 +95,6 @@ export default {
             height: '0',
           },
         },
-        'move-tractor': {
-          '0%': { transform: 'translateX(-200%)', opacity: '0' },
-          '20%': { opacity: '1' },
-          '80%': { opacity: '1' },
-          '100%': { transform: 'translateX(200%)', opacity: '0' },
-        },
         'draw-line': {
           to: { strokeDashoffset: 0 },
         },
