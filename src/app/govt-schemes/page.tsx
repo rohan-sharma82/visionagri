@@ -1,42 +1,31 @@
+
 'use client';
 import { schemesData } from '@/lib/constants';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Book, Newspaper, Handshake } from 'lucide-react';
 
-const SchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
+const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
+    // Simple logic to pick an icon based on the scheme name
+    const getIcon = () => {
+      if (scheme.name.toLowerCase().includes('bima') || scheme.name.toLowerCase().includes('insurance')) {
+        return <Handshake size={48} />;
+      }
+      if (scheme.name.toLowerCase().includes('card')) {
+        return <Newspaper size={48} />;
+      }
+      return <Book size={48} />;
+    };
+
   return (
-    <div className="scheme-card">
-      <div className="container-image">
-        <Image
-          src={scheme.imageUrl}
-          alt={scheme.name}
-          width={125}
-          height={125}
-          data-ai-hint={scheme.dataAiHint}
-          className="image-circle"
-        />
-      </div>
-      <div className="content">
-        <div className="detail">
-          <span>{scheme.shortName}</span>
-          <p>{scheme.description}</p>
-          <Link href={scheme.url} target="_blank" className="mt-auto">
-            <button>Read More</button>
-          </Link>
-        </div>
-        <div className="product-image">
-          <div className="box-image">
-            <Image
-              src={scheme.imageUrl}
-              alt={scheme.name}
-              width={112}
-              height={112}
-              data-ai-hint={scheme.dataAiHint}
-              className="img-product"
-            />
-          </div>
-        </div>
+    <div className="govt-scheme-card">
+      {getIcon()}
+      <div className="govt-scheme-card__content">
+        <p className="govt-scheme-card__title">{scheme.shortName}</p>
+        <p className="govt-scheme-card__description">{scheme.description}</p>
+        <Link href={scheme.url} target="_blank" rel="noopener noreferrer">
+          <button className="govt-scheme-card__button">Read More</button>
+        </Link>
       </div>
     </div>
   );
@@ -61,7 +50,7 @@ export default function GovtSchemesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <SchemeCard scheme={scheme} />
+            <GovtSchemeCard scheme={scheme} />
           </motion.div>
         ))}
       </div>
