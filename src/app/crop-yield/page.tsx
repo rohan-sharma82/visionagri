@@ -28,7 +28,6 @@ import { Input } from '@/components/ui/input';
 import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
-import FallingText from '@/components/falling-text';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -73,17 +72,13 @@ export default function CropYieldPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="text-center mb-12 h-48">
-        <FallingText
-          text="Crop Yield Prediction. Leverage AI to forecast your harvest and optimize your strategy."
-          highlightWords={["Crop", "Yield", "Prediction", "AI"]}
-          trigger="hover"
-          backgroundColor="transparent"
-          wireframes={false}
-          gravity={0.56}
-          fontSize="2rem"
-          mouseConstraintStiffness={0.2}
-        />
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold font-headline text-foreground">
+          Crop Yield Prediction
+        </h1>
+        <p className="mt-2 text-lg text-muted-foreground">
+          Leverage AI to forecast your harvest and optimize your strategy.
+        </p>
       </div>
 
       <div className="flex flex-col items-center gap-8 lg:gap-12">
