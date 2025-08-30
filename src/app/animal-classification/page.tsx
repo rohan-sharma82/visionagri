@@ -21,7 +21,19 @@ import { Loader2, PawPrint, Upload, BarChart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
-import AnimalGallery from '@/components/animal-gallery';
+import CircularGallery from '@/components/animal-gallery';
+
+const galleryImages = [
+    { image: 'https://images.pexels.com/photos/30649600/pexels-photo-30649600.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/5205221/pexels-photo-5205221.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/16967639/pexels-photo-16967639.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/33545852/pexels-photo-33545852.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/20120620/pexels-photo-20120620.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/20120619/pexels-photo-20120619.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/31959161/pexels-photo-31959161.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/31151141/pexels-photo-31151141.jpeg', text: 'Animal' },
+    { image: 'https://images.pexels.com/photos/21966880/pexels-photo-21966880.jpeg', text: 'Animal' },
+  ];
 
 export default function AnimalClassificationPage() {
   const [result, setResult] = useState<AnimalClassificationOutput | null>(null);
@@ -79,7 +91,9 @@ export default function AnimalClassificationPage() {
         </p>
       </div>
 
-      <AnimalGallery autoplay={true} pauseOnHover={true} />
+      <div style={{ height: '400px', position: 'relative' }}>
+        <CircularGallery items={galleryImages} bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mt-12">
         <Card className="shadow-lg">
