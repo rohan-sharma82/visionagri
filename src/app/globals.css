@@ -1248,7 +1248,7 @@
 
 .gallery-img {
   pointer-events: none;
-  height: 200px;
+  height: 120px;
   width: 400px;
   border-radius: 15px;
   border: 3px solid #fff;
@@ -1266,7 +1266,9 @@
     padding: 6%;
   }
   .gallery-img {
-    height: 130px;
+    height: 100px;
     width: 280px;
   }
 }
+
+    
