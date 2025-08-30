@@ -120,7 +120,32 @@ export const schemesData = [
     id: 1,
     name: 'Pradhan Mantri Kisan Samman Nidhi',
     shortName: 'PM-KISAN',
-    description: 'A government scheme with an objective to supplement the financial needs of all landholding farmers\' families in procuring various inputs to ensure proper crop health and appropriate yields, commensurate with the anticipated farm income.',
+    shortDescription: 'Provides income support to all landholding farmers\' families to supplement their financial needs for agriculture and domestic needs.',
+    description: `Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a new Central Sector Scheme to provide income support to all landholding farmers' families in the country to supplement their financial needs for procuring various inputs related to agriculture and allied activities as well as domestic needs.
+
+Eligibility
+All land holding eligible farmer families (subject to the prevalent exclusion criteria) are to avail of the benefits under this scheme.
+
+The following categories of beneficiaries of higher economic status shall not be eligible for benefit under the scheme.
+
+All Institutional Land holders.
+Farmer families in which one or more of its members belong to following categories
+Former and present holders of constitutional posts
+Former and present Ministers/ State Ministers and former/present Members of LokSabha/ RajyaSabha/ State Legislative Assemblies/ State Legislative Councils,former and present Mayors of Municipal Corporations, former and present Chairpersons of District Panchayats.
+All serving or retired officers and employees of Central/ State Government Ministries /Offices/Departments and its field units Central or State PSEs and Attached offices /Autonomous Institutions under Government as well as regular employees of the Local Bodies (Excluding Multi Tasking Staff /Class IV/Group D employees)
+All superannuated/retired pensioners whose monthly pension is Rs.10,000/-or more (Excluding Multi Tasking Staff / Class IV/Group D employees) of above category
+All Persons who paid Income Tax in last assessment year
+Professionals like Doctors, Engineers, Lawyers, Chartered Accountants, and Architects registered with Professional bodies and carrying out profession by undertaking practices.
+
+Benefits
+Under the PM-KISAN scheme, all landholding farmers' families shall be provided the financial benefit of Rs. 6000 per annum per family payable in three equal installments of Rs. 2000 each, every four months.
+
+How to apply
+The eligible farmers may apply with the village Patwaris, revenue officials or other designated officers / agencies and submit their required details to them.
+Farmers can also visit their nearest Common Service Centres (CSCs) for registration in the Scheme upon payment of fees.
+Farmers can also do their self-registration through the Farmers Corner in the PM KISAN portal. To check the status of the registration, click here.
+Details required for registration include Name, Age, Gender, Category(SC/ST), Aadhaar Number (in case Aadhaar Number has not been issued then Aadhaar Enrollment Number together with any other prescribed documents for purposes of the identification such as Driving Licence, Voters’ ID Card, NREGA Job Card, or any other identification documents issued by Central/State/UT Governments or their authorities,etc.), Bank Account Number and the Mobile Number of the beneficiaries.
+For more details visit PM KISAN portal.`,
     imageUrl: 'https://picsum.photos/200/200?random=1',
     dataAiHint: 'government building',
     url: '#',
@@ -129,6 +154,7 @@ export const schemesData = [
     id: 2,
     name: 'Pradhan Mantri Fasal Bima Yojana',
     shortName: 'PMFBY',
+    shortDescription: 'Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.',
     description: 'The scheme provides insurance coverage and financial support to the farmers in the event of failure of any of the notified crop as a result of natural calamities, pests & diseases.',
     imageUrl: 'https://picsum.photos/200/200?random=2',
     dataAiHint: 'crop insurance',
@@ -138,6 +164,7 @@ export const schemesData = [
     id: 3,
     name: 'Kisan Credit Card (KCC)',
     shortName: 'KCC',
+    shortDescription: 'Aims to provide adequate and timely credit support from the banking system to farmers for their cultivation and other needs.',
     description: 'The KCC scheme aims at providing adequate and timely credit support from the banking system under a single window with flexible and simplified procedure to the farmers for their cultivation and other needs.',
     imageUrl: 'https://picsum.photos/200/200?random=3',
     dataAiHint: 'credit card',
@@ -147,6 +174,7 @@ export const schemesData = [
     id: 4,
     name: 'National Mission for Sustainable Agriculture',
     shortName: 'NMSA',
+    shortDescription: 'Formulated for enhancing agricultural productivity, especially in rainfed areas, focusing on integrated farming and water use efficiency.',
     description: 'NMSA has been formulated for enhancing agricultural productivity especially in rainfed areas focusing on integrated farming, water use efficiency, soil health management and synergizing resource conservation.',
     imageUrl: 'https://picsum.photos/200/200?random=4',
     dataAiHint: 'sustainable agriculture',
