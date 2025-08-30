@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
@@ -510,7 +511,7 @@ class App {
     this.boundOnWheel = this.onWheel.bind(this);
     this.boundOnTouchDown = this.onTouchDown.bind(this);
     this.boundOnTouchMove = this.onTouchMove.bind(this);
-    this.boundOnTouchUp = this.onTouchUp.bind(_this);
+    this.boundOnTouchUp = this.onTouchUp.bind(this);
     window.addEventListener("resize", this.boundOnResize);
     window.addEventListener("mousewheel", this.boundOnWheel);
     window.addEventListener("wheel", this.boundOnWheel);
@@ -570,3 +571,4 @@ interface CircularGalleryProps {
     }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
     return <div className="circular-gallery" ref={containerRef} />;
   }
+    
