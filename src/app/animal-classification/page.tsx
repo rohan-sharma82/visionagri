@@ -102,9 +102,25 @@ export default function AnimalClassificationPage() {
             <CardDescription>Provide a clear image of the animal you want to identify.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <Label htmlFor="picture">Picture</Label>
-              <Input id="picture" type="file" accept="image/*" onChange={handleFileChange} />
+            <div className="flex justify-center items-center py-8">
+              <div className="folder-upload-container">
+                <div className="folder">
+                  <div className="back-side"></div>
+                  <div className="front-side">
+                    <div className="tip"></div>
+                    <div className="cover"></div>
+                  </div>
+                </div>
+                <label htmlFor="picture" className="custom-file-upload">
+                  Upload Image
+                  <input
+                    id="picture"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                  />
+                </label>
+              </div>
             </div>
             {preview && (
               <div className="mt-4 p-4 border-2 border-dashed rounded-lg flex justify-center items-center bg-muted/50">
