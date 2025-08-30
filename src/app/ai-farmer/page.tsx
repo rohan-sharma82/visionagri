@@ -232,16 +232,13 @@ export default function AiFarmerPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading} className="send-button-style" variant="ghost" size="lg">
+              <button type="submit" disabled={isLoading} className="send-button-style">
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <>
-                    <span className="text">Send</span>
-                    <Send />
-                  </>
+                  <span><Send /></span>
                 )}
-              </Button>
+              </button>
             </form>
           </Form>
         </div>

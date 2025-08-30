@@ -808,43 +808,71 @@
 /* Send button style */
 .send-button-style {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: hsl(var(--foreground));
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
   border: none;
-  background: transparent;
-  --primary: hsl(var(--primary));
-  --primary-foreground: hsl(var(--primary-foreground));
-  --font-size: 1.1rem;
-  --duration: 0.4s;
-  --move-hover: -4px;
-  --shadow: 0 2px 8px -1px hsla(var(--primary) / 0.3);
-  --shadow-hover: 0 4px 14px -2px hsla(var(--primary) / 0.5);
 }
 
-.send-button-style .text {
-  color: var(--primary);
-  font-weight: 600;
-  font-size: var(--font-size);
-  letter-spacing: 0.02em;
+.send-button-style:after {
+  content: " ";
+  width: 0%;
+  height: 100%;
+  background: hsl(var(--primary));
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  right: 0;
 }
 
-.send-button-style svg {
-  display: inline-block;
-  vertical-align: middle;
-  width: 16px;
-  height: 16px;
-  margin-left: 4px;
-  color: var(--primary);
-  transition: transform var(--duration) ease;
+.send-button-style:hover::after {
+  right: auto;
+  left: 0;
+  width: 100%;
 }
 
-.send-button-style:hover svg {
-  transform: translateX(2px);
+.send-button-style span {
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  padding: 18px 25px;
+  color: #fff;
+  font-size: 1.125em;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
 }
 
-.send-button-style:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
+.dark .send-button-style span {
+  color: hsl(var(--foreground));
 }
 
-.dark .send-button-style {
-   --primary-foreground: hsl(var(--background));
+
+.send-button-style:hover span {
+  color: hsl(var(--foreground));
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+.dark .send-button-style:hover span {
+   color: hsl(var(--background));
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
