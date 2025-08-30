@@ -14,6 +14,7 @@ import { newsData, newsCategories } from '@/lib/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import TextPressure from '@/components/text-pressure';
+import QuotesBox from '@/components/quotes-box';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
@@ -36,11 +37,11 @@ export default function Home() {
         </defs>
       </svg>
       <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex items-center justify-center p-4 md:p-8 shadow-inner">
-        <div className="absolute top-[30%] left-[10%] lg:left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
+        <div className="absolute top-[30%] left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-[30%] left-[calc(10%_+_8rem)] lg:left-[calc(25%_+_9rem)] -translate-y-1/2 z-0 w-[calc(80%_-_18rem)] lg:w-[calc(50%_-_18rem)]">
+        <div className="absolute top-[30%] left-[calc(25%_+_8rem)] -translate-y-1/2 z-0 w-[calc(50%-15rem)] lg:w-[calc(50%-18rem)]">
           <svg
             width="100%"
             height="4"
@@ -57,7 +58,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="absolute top-[30%] right-[10%] lg:right-1/4 -translate-y-1/2 z-10">
+        <div className="absolute top-[30%] right-1/4 -translate-y-1/2 z-10">
           <h1 className="text-5xl md:text-8xl font-bold text-primary font-headline animate-pulse">
             AI
           </h1>
@@ -74,7 +75,7 @@ export default function Home() {
           <div className='h-12'>
             <TextPressure
                 text="Smarter Fields, Better Yields."
-                minFontSize={24}
+                minFontSize={20}
                 textColor='hsl(var(--muted-foreground))'
                 weight={false}
               />
@@ -88,6 +89,10 @@ export default function Home() {
               />
           </div>
         </div>
+      </section>
+
+      <section className="mt-16">
+        <QuotesBox />
       </section>
 
       <section className="mt-16">
