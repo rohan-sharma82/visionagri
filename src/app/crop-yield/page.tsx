@@ -79,6 +79,7 @@ export default function CropYieldPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           Leverage AI to forecast your harvest and optimize your strategy.
         </p>
+        <p className="text-sm text-muted-foreground mt-2">Smarter Fields, Better Yields.</p>
       </div>
 
       <div className="flex flex-col items-center gap-8 lg:gap-12">

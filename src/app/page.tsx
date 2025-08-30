@@ -73,15 +73,7 @@ export default function Home() {
               textColor='hsl(var(--foreground))'
             />
           </div>
-          <div className='h-12 pb-2'>
-            <TextPressure
-                text="Smarter Fields, Better Yields."
-                minFontSize={20}
-                textColor='hsl(var(--muted-foreground))'
-                weight={false}
-              />
-          </div>
-           <div className='h-10'>
+           <div className='h-10 pb-2'>
             <TextPressure
                 text="Revolutionizing farming with the power of Artificial Intelligence."
                 minFontSize={18}
