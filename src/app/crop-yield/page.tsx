@@ -82,7 +82,7 @@ export default function CropYieldPage() {
         </p>
         <div className="mt-4 text-xl text-muted-foreground flex items-center justify-center space-x-2 font-merienda">
           <span>Growing</span>
-          <div className="w-48">
+          <div className="w-40">
             <RotatingText
               texts={[
                 'knowledge.',
