@@ -30,6 +30,7 @@ interface Message {
 export default function AiFarmerPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [location, setLocation] = useState<string | null>(null);
   const { toast } = useToast();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
@@ -47,6 +48,15 @@ export default function AiFarmerPage() {
     }
   }, [messages]);
 
+  useEffect(() => {
+    if (!location) {
+      const loc = window.prompt("To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):");
+      if (loc) {
+        setLocation(loc);
+      }
+    }
+  }, [location]);
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     const userMessage: Message = { role: 'user', content: values.query };
@@ -54,7 +64,10 @@ export default function AiFarmerPage() {
     form.reset();
 
     try {
-      const result: GetFarmingAdviceOutput = await getFarmingAdvice({ query: values.query });
+      const result: GetFarmingAdviceOutput = await getFarmingAdvice({
+        query: values.query,
+        location: location || undefined,
+      });
       const assistantMessage: Message = { role: 'assistant', content: result.advice };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
