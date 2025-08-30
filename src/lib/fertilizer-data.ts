@@ -2,27 +2,27 @@
 export const fertilizerExplanations = [
     {
       name: "Urea",
-      description: "A high-concentration nitrogen fertilizer (46% N). It's one of the most common nitrogen fertilizers used worldwide. It must be converted in the soil before plants can use it, a process that can lead to nitrogen loss if not managed properly."
+      description: "A high-concentration nitrogen fertilizer (46% N). It helps plants grow fast, makes them green, and increases leaf and stem growth. Note: If not managed well, some nitrogen can be lost, so it must be used carefully."
     },
     {
       name: "Diammonium Phosphate (DAP)",
-      description: "A popular phosphate fertilizer. It contains both nitrogen (18%) and phosphorus (46%). It is highly soluble and provides readily available phosphorus to plants."
+      description: "Contains both nitrogen (18%) for growth and greenness, and phosphorus (46%) for strong roots, flowers, and fruits. It dissolves quickly, so plants can use it fast."
     },
     {
       name: "Muriate of Potash (MOP)",
-      description: "Also known as Potassium Chloride. It is the most common potassium source used in agriculture, containing about 60-62% K₂O. It's suitable for most crops except those sensitive to chloride."
+      description: "Also known as Potassium Chloride (60-62% K₂O). It makes plants strong, improves resistance to drought and disease, and helps in fruit/seed development. It's not ideal for crops sensitive to chloride (like tobacco or grapes)."
     },
     {
       name: "Single Super Phosphate (SSP)",
-      description: "One of the earliest chemical fertilizers. It contains phosphorus (16%), calcium (19%), and sulfur (12%). It is particularly useful in soils deficient in sulfur."
+      description: "Contains phosphorus (16%) for root growth, calcium (19%) for strong cell walls, and sulfur (12%) for improving the quality of oilseeds and pulses. It's very good for soils that lack sulfur."
     },
     {
       name: "NPK Complexes",
-      description: "These are fertilizers that contain two or more of the primary nutrients: Nitrogen (N), Phosphorus (P), and Potassium (K). They are formulated in various ratios (e.g., 10-26-26, 12-32-16, 20-20-0) to meet the specific needs of different crops and soils."
+      description: "A mix of Nitrogen (N), Phosphorus (P), and Potassium (K) in various ratios (e.g., 10-26-26). It provides a balanced diet: N for growth, P for roots & flowers, and K for strength. The ratio is chosen based on crop needs."
     },
     {
       name: "Ammonium Sulphate",
-      description: "Contains nitrogen (21%) and a significant amount of sulfur (24%). It's a good choice for crops with high sulfur requirements, like oilseeds, and can help lower the pH of alkaline soils."
+      description: "Contains nitrogen (21%) and a large amount of sulfur. The sulfur helps improve the taste, quality, and oil content in crops like onions, garlic, and oilseeds."
     },
     {
       name: "Zinc Sulphate",
