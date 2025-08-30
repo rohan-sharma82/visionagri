@@ -6,7 +6,7 @@ import Image from 'next/image';
 const images = [
   '/dairy-farming-in-india_orig.png',
   '/Imageee.png',
-  '/cow baby.png',
+  '/cow_baby.png',
   '/dairy-farmingg.png',
   '/dairy-farming.png',
   '/bull.png',
@@ -16,7 +16,7 @@ const images = [
   '/Murrah_buffalo.png',
   '/cowcalf.png',
   '/Cow3.png',
-  '/cow 2.png',
+  '/cow_2.png',
   '/cow1.png',
 ];
 
