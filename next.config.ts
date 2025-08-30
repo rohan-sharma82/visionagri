@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
         hostname: 'timesofagriculture.in',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.shunya.live',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

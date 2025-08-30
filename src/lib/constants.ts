@@ -33,7 +33,7 @@ export const featuresData = [
     {
         title: 'Animal Classification',
         description: 'Identify animal species from an image, for livestock or wildlife.',
-        imageUrl: 'https://picsum.photos/300/200?random=14',
+        imageUrl: 'https://www.shunya.live/wp-content/uploads/2024/07/Farmer-dairy-economy-india-shunya-1024x579.png',
         dataAiHint: 'farm animals',
         href: '/animal-classification'
     },
