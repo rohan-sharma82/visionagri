@@ -175,12 +175,18 @@ export default function AiFarmerPage() {
   useEffect(() => {
     if (messages.length > 0) {
       try {
-        localStorage.setItem('ai-farmer-messages', JSON.stringify(messages));
+        const messagesToSave = messages.map(({ audioUrl, ...rest }) => rest);
+        localStorage.setItem('ai-farmer-messages', JSON.stringify(messagesToSave));
       } catch (error) {
         console.error("Failed to save messages to localStorage", error);
+        toast({
+          title: "Could not save chat history",
+          description: "The chat history is too large and could not be saved.",
+          variant: "destructive",
+        })
       }
     }
-  }, [messages]);
+  }, [messages, toast]);
 
 
   useEffect(() => {
@@ -504,5 +510,3 @@ export default function AiFarmerPage() {
     </div>
   );
 }
-
-    
