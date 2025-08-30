@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -347,6 +348,7 @@
 
 .feature-card-front {
   transform: rotateY(0deg);
+  overflow: hidden; /* This will ensure the image respects the border radius */
 }
 
 .feature-card-back {
