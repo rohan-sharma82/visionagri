@@ -26,6 +26,7 @@ const AnimalClassificationOutputSchema = z.object({
   confidence: z
     .number()
     .describe('The confidence level of the animal species identification.'),
+  description: z.string().describe('A short description of the animal, including if it is found in India and its typical habitat or region.'),
 });
 export type AnimalClassificationOutput = z.infer<typeof AnimalClassificationOutputSchema>;
 
@@ -43,7 +44,7 @@ const prompt = ai.definePrompt({
 
   Photo: {{media url=photoDataUri}}
   
-  Return the animal species and a confidence level (between 0 and 1) for your identification.
+  Return the animal species and a confidence level (between 0 and 1) for your identification. Also, provide a short description, including if the animal is typically found in India and in which regions or habitats.
 `,
 });
 

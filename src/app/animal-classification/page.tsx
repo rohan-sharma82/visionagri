@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Loader2, PawPrint, Upload, BarChart } from 'lucide-react';
+import { Loader2, PawPrint, Upload, BarChart, Info } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
@@ -188,6 +188,13 @@ export default function AnimalClassificationPage() {
                     <p className="text-right text-sm text-muted-foreground mt-1">
                       {(result.confidence * 100).toFixed(2)}%
                     </p>
+                  </div>
+                   <div>
+                    <div className="flex items-center space-x-3 mb-2">
+                       <Info className="h-5 w-5 text-accent" />
+                       <h3 className="font-semibold text-foreground">Description</h3>
+                    </div>
+                    <p className="text-muted-foreground text-sm">{result.description}</p>
                   </div>
                 </CardContent>
               </Card>
