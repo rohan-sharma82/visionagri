@@ -26,6 +26,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import AreaInfoDialog from '@/components/area-info-dialog';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -79,7 +80,7 @@ export default function CropYieldPage() {
 
       <div className="flex flex-col items-center gap-8 lg:gap-12">
         <div className="farm-data-form-container w-full max-w-2xl">
-           <button className="button type1 mb-8"></button>
+           <AreaInfoDialog />
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
