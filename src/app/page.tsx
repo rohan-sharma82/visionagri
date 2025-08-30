@@ -34,29 +34,29 @@ export default function Home() {
           </filter>
         </defs>
       </svg>
-      <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-primary/10 flex items-center justify-center p-4 md:p-8 shadow-inner">
-        <div className="absolute top-[30%] left-[20%] lg:left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
+      <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex items-center justify-center p-4 md:p-8 shadow-inner">
+        <div className="absolute top-1/4 left-[15%] lg:left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-[30%] left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
+        <div className="absolute top-1/4 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
           <svg
-            width="400"
+            width="600"
             height="4"
             className="overflow-visible"
           >
             <path
-              d="M0 2 H400"
+              d="M0 2 H600"
               stroke="hsl(var(--primary))"
               strokeWidth="3"
-              strokeDasharray="400"
-              strokeDashoffset="400"
+              strokeDasharray="600"
+              strokeDashoffset="600"
               className="[animation:draw-line_2s_ease-out_1s_forwards]"
             />
           </svg>
         </div>
 
-        <div className="absolute top-[30%] right-[20%] lg:right-1/4 -translate-y-1/2 z-10">
+        <div className="absolute top-1/4 right-[15%] lg:right-1/4 -translate-y-1/2 z-10">
           <h1 className="text-5xl md:text-8xl font-bold text-primary font-headline animate-pulse">
             AI
           </h1>
