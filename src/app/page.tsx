@@ -10,11 +10,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { newsData, newsCategories } from '@/lib/constants';
+import { newsData, newsCategories, featuresData } from '@/lib/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import TextPressure from '@/components/text-pressure';
 import QuotesBox from '@/components/quotes-box';
+import FeatureCards from '@/components/feature-cards';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
@@ -37,11 +38,11 @@ export default function Home() {
         </defs>
       </svg>
       <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex items-center justify-center p-4 md:p-8 shadow-inner">
-        <div className="absolute top-[30%] left-[5%] -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
+        <div className="absolute top-1/4 left-[5%] -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-[30%] left-[calc(5%_+_9rem)] -translate-y-1/2 z-0 w-[calc(90%-30rem)]">
+        <div className="absolute top-1/4 left-[calc(5%_+_9rem)] -translate-y-1/2 z-0 w-[calc(90%-24rem)]">
           <svg
             width="100%"
             height="4"
@@ -58,7 +59,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="absolute top-[30%] right-[5%] -translate-y-1/2 z-10">
+        <div className="absolute top-1/4 right-[5%] -translate-y-1/2 z-10">
           <h1 className="text-5xl md:text-8xl font-bold text-primary font-headline animate-pulse">
             AI
           </h1>
@@ -93,6 +94,10 @@ export default function Home() {
 
       <section className="mt-16">
         <QuotesBox />
+      </section>
+      
+      <section className="mt-16">
+        <FeatureCards />
       </section>
 
       <section className="mt-16">

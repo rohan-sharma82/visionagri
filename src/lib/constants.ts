@@ -7,6 +7,44 @@ export const navLinks = [
   { href: '/govt-schemes', label: 'Govt. Schemes' },
 ];
 
+export const featuresData = [
+    {
+        title: 'Crop Yield Prediction',
+        description: 'Leverage AI to forecast your harvest and optimize your strategy.',
+        imageUrl: 'https://picsum.photos/300/200?random=11',
+        dataAiHint: 'crop yield',
+        href: '/crop-yield'
+    },
+    {
+        title: 'AI Farmer Assistant',
+        description: 'Your personal agricultural expert, available 24/7.',
+        imageUrl: 'https://picsum.photos/300/200?random=12',
+        dataAiHint: 'ai assistant',
+        href: '/ai-farmer'
+    },
+    {
+        title: 'Disease Classification',
+        description: 'Upload an image of a crop leaf to detect diseases early.',
+        imageUrl: 'https://picsum.photos/300/200?random=13',
+        dataAiHint: 'plant disease',
+        href: '/disease-classification'
+    },
+    {
+        title: 'Animal Classification',
+        description: 'Identify animal species from an image, for livestock or wildlife.',
+        imageUrl: 'https://picsum.photos/300/200?random=14',
+        dataAiHint: 'farm animals',
+        href: '/animal-classification'
+    },
+    {
+        title: 'Govt. Schemes',
+        description: 'Explore beneficial programs and support from the government.',
+        imageUrl: 'https://picsum.photos/300/200?random=15',
+        dataAiHint: 'government building',
+        href: '/govt-schemes'
+    },
+];
+
 export const newsCategories = [
   'All Categories',
   'Market Prices',
