@@ -133,7 +133,7 @@ export default function AiFarmerPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-6 h-[calc(100vh-57px)] flex flex-col">
+    <div className="container mx-auto px-4 py-4 h-[calc(100vh-57px)] flex flex-col">
       <div className="text-center mb-4">
         <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
         <p className="mt-2 text-lg text-muted-foreground">
