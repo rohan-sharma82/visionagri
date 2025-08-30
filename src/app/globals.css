@@ -422,6 +422,11 @@
   box-shadow: 0px 0px 1px 3px #b4eeb4 inset, 0px 4px 4px 0px #18601a40; /* light green glow */
 }
 
+.farm-data-form label {
+  color: black !important;
+  font-weight: bold;
+}
+
 .farm-data-form .form-content:focus-visible {
   outline: none;
   text-decoration: none;
