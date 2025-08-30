@@ -236,7 +236,7 @@ export default function AiFarmerPage() {
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <span><Send /></span>
+                  <span><Send className="text-green-400" /></span>
                 )}
               </button>
             </form>
