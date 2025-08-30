@@ -1,5 +1,5 @@
 'use client';
-import { FarmerIcon } from '@/components/icons';
+import { User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -17,14 +17,8 @@ export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-primary/10 flex items-center justify-center p-4 md:p-8 shadow-inner">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 z-10">
-          <Image
-            src="/farmer.png"
-            alt="Farmer in a field"
-            width={160}
-            height={160}
-            className="md:h-40 md:w-40"
-          />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
+          <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
