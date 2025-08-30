@@ -40,7 +40,7 @@ export default function Home() {
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-[30%] left-1/2 -translate-y-1/2 -translate-x-1/2 z-0 w-[calc(50%-12rem)] lg:w-[calc(50%-16rem)]">
+        <div className="absolute top-[30%] left-1/2 -translate-y-1/2 -translate-x-1/2 z-0 w-[calc(50%-10.5rem)] lg:w-[calc(50%-14.5rem)]">
           <svg
             width="100%"
             height="4"
@@ -74,7 +74,7 @@ export default function Home() {
           <div className='h-12'>
             <TextPressure
                 text="Smarter Fields, Better Yields."
-                minFontSize={20}
+                minFontSize={18}
                 textColor='hsl(var(--muted-foreground))'
                 weight={false}
               />
