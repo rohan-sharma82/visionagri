@@ -3,23 +3,21 @@
 import { schemesData } from '@/lib/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Book, Newspaper, Handshake } from 'lucide-react';
+import Image from 'next/image';
 
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
-    // Simple logic to pick an icon based on the scheme name
-    const getIcon = () => {
-      if (scheme.name.toLowerCase().includes('bima') || scheme.name.toLowerCase().includes('insurance')) {
-        return <Handshake size={48} />;
-      }
-      if (scheme.name.toLowerCase().includes('card')) {
-        return <Newspaper size={48} />;
-      }
-      return <Book size={48} />;
-    };
-
   return (
     <div className="govt-scheme-card">
-      {getIcon()}
+      <div className="govt-scheme-card__image-container">
+        <Image
+          src={scheme.imageUrl}
+          alt={scheme.name}
+          width={150}
+          height={150}
+          data-ai-hint={scheme.dataAiHint}
+          className="rounded-lg object-cover"
+        />
+      </div>
       <div className="govt-scheme-card__content">
         <p className="govt-scheme-card__title">{scheme.shortName}</p>
         <p className="govt-scheme-card__description">{scheme.description}</p>
