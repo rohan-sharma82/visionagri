@@ -196,4 +196,11 @@ export default function AnimalClassificationPage() {
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
                 <Upload className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">Upload an image to identify an animal
+                <p className="mt-4 text-lg">Upload an image to identify an animal</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
