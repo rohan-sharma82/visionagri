@@ -12,8 +12,6 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -29,6 +27,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   historicalData: z.string().min(10, 'Please provide more detailed historical data.'),
@@ -81,93 +80,87 @@ export default function CropYieldPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>Farm Data</CardTitle>
-            <CardDescription>Enter the details of your farm for an accurate prediction.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <FormField
-                  control={form.control}
-                  name="cropType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Crop Type</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g., Wheat, Corn, Soybeans" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="location"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Location</FormLabel>
-                      <FormControl>
-                        <Input placeholder="e.g., Central Valley, California" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="farmSize"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Farm Size (in acres)</FormLabel>
-                      <FormControl>
-                        <Input type="number" placeholder="e.g., 500" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="historicalData"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Historical Data</FormLabel>
-                      <FormControl>
-                        <Textarea placeholder="Describe past yields, weather patterns, soil tests, etc." {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="currentData"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Current Data</FormLabel>
-                      <FormControl>
-                        <Textarea placeholder="Describe current weather, soil moisture, fertilization, etc." {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" disabled={isLoading} className="w-full">
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Predicting...
-                    </>
-                  ) : (
-                    'Predict Yield'
-                  )}
-                </Button>
-              </form>
-            </Form>
-          </CardContent>
-        </Card>
+        <div className="farm-data-form-container">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-6 farm-data-form"
+            >
+              <h2 className="form-label">Farm Data</h2>
+              <FormField
+                control={form.control}
+                name="cropType"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="e.g., Wheat, Corn, Soybeans" {...field} className="form-content" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="location"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="e.g., Central Valley, California" {...field} className="form-content" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="farmSize"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input type="number" placeholder="Farm Size (in acres) e.g., 500" {...field} className="form-content" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="historicalData"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Textarea placeholder="Historical Data: Past yields, weather, etc." {...field} className="form-content form-content-textarea" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="currentData"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Textarea placeholder="Current Data: Weather, soil moisture, etc." {...field} className="form-content form-content-textarea" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
+                    Predicting...
+                  </>
+                ) : (
+                  'Predict Yield'
+                )}
+              </button>
+            </form>
+          </Form>
+        </div>
+
 
         <div className="flex items-center justify-center">
           {isLoading && (
