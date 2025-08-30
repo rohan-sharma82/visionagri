@@ -90,7 +90,7 @@ export default function CropYieldPage() {
                 'prosperity.',
                 'India.',
               ]}
-              mainClassName="text-white bg-blue-500/80 overflow-hidden py-1 px-3 justify-center rounded-md"
+              mainClassName="text-white bg-[#2461F0]/80 overflow-hidden py-1 px-2 justify-center rounded-md"
               staggerFrom={'last'}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
