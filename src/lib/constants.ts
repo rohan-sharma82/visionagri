@@ -12,8 +12,8 @@ export const featuresData = [
     {
         title: 'Crop Yield Prediction',
         description: 'Leverage AI to forecast your harvest and optimize your strategy.',
-        imageUrl: 'https://picsum.photos/300/200?random=11',
-        dataAiHint: 'crop yield',
+        imageUrl: 'https://picsum.photos/seed/wheat-field/300/200',
+        dataAiHint: 'wheat field',
         href: '/crop-yield'
     },
     {
