@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: 'jcblagri.in',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn11.bigcommerce.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
