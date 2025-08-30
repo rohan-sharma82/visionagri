@@ -402,7 +402,7 @@
 
 .farm-data-form .form-label {
   text-align: center;
-  color: #8B0000;
+  color: #8B0000; /* DarkRed */
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 4px;
@@ -412,7 +412,7 @@
 .farm-data-form .form-content {
   height: 3em;
   padding: 1px 8px;
-  color: #8B0000;
+  color: black;
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: bold;
@@ -435,7 +435,7 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: #8B0000;
+  color: #8B0000; /* DarkRed */
   letter-spacing: 0.1rem;
 }
 
