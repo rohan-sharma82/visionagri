@@ -440,7 +440,7 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: #8B0000; /* DarkRed */
+  color: #000;
   letter-spacing: 0.1rem;
 }
 
@@ -464,13 +464,13 @@
 
 @keyframes float {
   0% {
-    top: 0;
+    transform: translateY(0px);
   }
   50% {
-    top: 20px;
+    transform: translateY(-20px);
   }
   100% {
-    top: 0;
+    transform: translateY(0px);
   }
 }
 
@@ -1183,3 +1183,5 @@
     transform: translateY(3rem) scale(0.2);
   }
 }
+
+    
