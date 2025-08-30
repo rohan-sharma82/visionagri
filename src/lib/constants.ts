@@ -26,7 +26,7 @@ export const featuresData = [
     {
         title: 'Disease Classification',
         description: 'Upload an image of a crop leaf to detect diseases early.',
-        imageUrl: 'https://picsum.photos/300/200?random=13',
+        imageUrl: 'https://picsum.photos/300/200?random=21',
         dataAiHint: 'plant disease',
         href: '/disease-classification'
     },
