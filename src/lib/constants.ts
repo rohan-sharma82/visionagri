@@ -12,14 +12,14 @@ export const featuresData = [
     {
         title: 'Crop Yield Prediction',
         description: 'Leverage AI to forecast your harvest and optimize your strategy.',
-        imageUrl: 'https://picsum.photos/seed/crop/300/200',
+        imageUrl: 'https://picsum.photos/seed/cropyield/300/200',
         dataAiHint: 'crop field',
         href: '/crop-yield'
     },
     {
         title: 'AI Farmer Assistant',
         description: 'Your personal agricultural expert, available 24/7.',
-        imageUrl: 'https://picsum.photos/seed/chatbot/300/200',
+        imageUrl: 'https://picsum.photos/seed/aichatbot/300/200',
         dataAiHint: 'chatbot robot',
         href: '/ai-farmer'
     },
