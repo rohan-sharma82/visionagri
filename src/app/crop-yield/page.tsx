@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -179,6 +180,7 @@ export default function CropYieldPage() {
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
               <p className="mt-4 text-lg">Your smart assistant is walking through the fields…</p>
+              <p className="text-md">Fetching live weather data</p>
             </div>
           )}
           {prediction && (
