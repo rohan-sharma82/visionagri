@@ -152,10 +152,6 @@ export default function AiFarmerPage() {
       };
       setMessages((prev) => [...prev, assistantMessage]);
   
-      if (audioRef.current && ttsResult?.media) {
-        audioRef.current.src = ttsResult.media;
-        audioRef.current.play().catch(e => console.error("Audio playback failed", e));
-      }
     } catch (error: any) {
        if (error.name !== 'AbortError') {
         console.error('Error getting farming advice:', error);
@@ -431,5 +427,3 @@ export default function AiFarmerPage() {
     </div>
   );
 }
-
-    
