@@ -776,23 +776,25 @@
 }
 
 /* From Uiverse.io by Cornerstone-04 - Clear Chat Button */
-.box {
+.clear-chat-button {
+  color: hsl(var(--foreground));
   width: auto;
   height: auto;
-  float: left;
+  border: none;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 900;
   transition: .5s linear;
   position: relative;
-  display: block;
+  display: inline-flex; /* Changed to inline-flex */
+  align-items: center; /* Align icon and text */
   overflow: hidden;
   padding: 15px;
   text-align: center;
   margin: 0 5px;
-  background: transparent;
-  text-transform: uppercase;
-  font-weight: 900;
 }
 
-.box:before {
+.clear-chat-button:before {
   position: absolute;
   content: '';
   left: 0;
@@ -805,7 +807,7 @@
   transform: translateX(100%);
 }
 
-.box:after {
+.clear-chat-button:after {
   position: absolute;
   content: '';
   top: 0;
@@ -818,38 +820,20 @@
   transform: translateX(-100%);
 }
 
-.box:hover {
+.clear-chat-button:hover {
   box-shadow: 0 5px 15px hsla(var(--foreground) / 0.2);
 }
 
-.box:hover:before {
+.clear-chat-button:hover:before {
   border-color: hsl(var(--foreground));
   height: 100%;
   transform: translateX(0);
   transition: .3s transform linear, .3s height linear .3s;
 }
 
-.box:hover:after {
+.clear-chat-button:hover:after {
   border-color: hsl(var(--foreground));
   height: 100%;
   transform: translateX(0);
   transition: .3s transform linear, .3s height linear .5s;
-}
-
-.box button {
-  color: hsl(var(--foreground));
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  background: transparent;
-  font-size: inherit; /* Inherit font size from parent */
-  font-weight: inherit; /* Inherit font weight from parent */
-  text-transform: inherit; /* Inherit text transform from parent */
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
-  width: 100%;
-  height: 100%;
-  padding: 0;
 }

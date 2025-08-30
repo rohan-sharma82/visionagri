@@ -129,12 +129,10 @@ export default function AiFarmerPage() {
 
        <div className="flex justify-start mb-4">
           {messages.length > 0 && (
-              <div className="box">
-                <button onClick={handleClearChat}>
-                  <Trash2 className="h-4 w-4 mr-2" />
-                  Clear Chat
-                </button>
-              </div>
+              <button onClick={handleClearChat} className="clear-chat-button">
+                <Trash2 className="h-4 w-4 mr-2" />
+                Clear Chat
+              </button>
           )}
         </div>
 
