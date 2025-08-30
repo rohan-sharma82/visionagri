@@ -12,7 +12,7 @@ export const featuresData = [
     {
         title: 'Crop Yield Prediction',
         description: 'Leverage AI to forecast your harvest and optimize your strategy.',
-        imageUrl: 'https://picsum.photos/seed/cropyield/300/200',
+        imageUrl: 'https://jcblagri.in/x_images/blog_pics/1667806089agri_blog.png',
         dataAiHint: 'crop field',
         href: '/crop-yield'
     },
