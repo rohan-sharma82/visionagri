@@ -51,6 +51,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.shunya.live',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

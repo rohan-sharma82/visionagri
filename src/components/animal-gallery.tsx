@@ -12,20 +12,15 @@ import {
 import Image from 'next/image';
 
 const images = [
-  '/dairy-farming-in-india_orig.png',
-  '/Imageee.png',
-  '/cow_baby.png',
-  '/dairy-farmingg.png',
-  '/dairy-farming.png',
-  '/bull.png',
-  '/brahman-bull.png',
-  '/Water_buffalo_bull.png',
-  '/buffalo.png',
-  '/Murrah_buffalo.png',
-  '/cowcalf.png',
-  '/Cow3.png',
-  '/cow_2.png',
-  '/cow1.png',
+  'https://images.pexels.com/photos/30649600/pexels-photo-30649600.jpeg',
+  'https://images.pexels.com/photos/5205221/pexels-photo-5205221.jpeg',
+  'https://images.pexels.com/photos/16967639/pexels-photo-16967639.jpeg',
+  'https://images.pexels.com/photos/33545852/pexels-photo-33545852.jpeg',
+  'https://images.pexels.com/photos/20120620/pexels-photo-20120620.jpeg',
+  'https://images.pexels.com/photos/20120619/pexels-photo-20120619.jpeg',
+  'https://images.pexels.com/photos/31959161/pexels-photo-31959161.jpeg',
+  'https://images.pexels.com/photos/31151141/pexels-photo-31151141.jpeg',
+  'https://images.pexels.com/photos/21966880/pexels-photo-21966880.jpeg',
 ];
 
 const AnimalGallery = ({
