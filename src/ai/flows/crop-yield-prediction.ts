@@ -17,6 +17,7 @@ const PredictCropYieldInputSchema = z.object({
   soilType: z.string().describe('The type of soil in the field (e.g., Loamy, Sandy, Clay).'),
   location: z.string().describe('The city or state for which to predict the crop yield. e.g. "Delhi, India"'),
   fertilizerUse: z.string().describe('The amount and type of fertilizer used, e.g., "NPK 120-60-60 kg/hectare".'),
+  irrigationMethod: z.string().describe('The irrigation method used (e.g., Drip, Sprinkler, Canal).'),
 });
 export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
 
@@ -48,6 +49,7 @@ const prompt = ai.definePrompt({
     fertilizerUse: z.string(),
     temperature: z.string(),
     rainfall: z.string(),
+    irrigationMethod: z.string(),
   })},
   output: {schema: PredictCropYieldOutputSchema},
   prompt: `You are an expert in agricultural science, specializing in crop yield prediction.
@@ -59,12 +61,14 @@ const prompt = ai.definePrompt({
   - Rainfall
   - Temperature
   - Fertilizer Use
+  - Irrigation Method (This is a crucial factor, especially for water-intensive crops. A good irrigation system can compensate for low rainfall).
 
   Crop Type: {{{cropType}}}
   Soil Type: {{{soilType}}}
   Annual Rainfall (mm): {{{rainfall}}}
   Average Temperature (°C): {{{temperature}}}
   Fertilizer Use: {{{fertilizerUse}}}
+  Irrigation Method: {{{irrigationMethod}}}
 
   Provide the predicted yield, the confidence level of the prediction, a list of factors influencing the yield, and suggested actions to improve the yield.
 `,

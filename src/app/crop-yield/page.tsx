@@ -33,6 +33,7 @@ const formSchema = z.object({
   soilType: z.string().min(2, 'Soil type is required.'),
   location: z.string().min(2, 'Location is required.'),
   fertilizerUse: z.string().min(2, 'Fertilizer use is required.'),
+  irrigationMethod: z.string().min(2, 'Irrigation method is required.'),
 });
 
 export default function CropYieldPage() {
@@ -47,6 +48,7 @@ export default function CropYieldPage() {
       soilType: '',
       location: '',
       fertilizerUse: '',
+      irrigationMethod: '',
     },
   });
 
@@ -132,6 +134,19 @@ export default function CropYieldPage() {
                     <FormLabel>Fertilizer Use (kg/hectare)</FormLabel>
                     <FormControl>
                      <Input placeholder="e.g., NPK 120-60-60" {...field} className="form-content" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="irrigationMethod"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Irrigation Method</FormLabel>
+                    <FormControl>
+                      <Input placeholder="e.g., Drip, Sprinkler, Canal" {...field} className="form-content" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
