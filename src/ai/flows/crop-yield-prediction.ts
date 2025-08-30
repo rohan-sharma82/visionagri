@@ -10,12 +10,12 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { getWeatherForLocation } from '@/ai/tools/weather';
 
 const PredictCropYieldInputSchema = z.object({
   cropType: z.string().describe('The type of crop being grown.'),
   soilType: z.string().describe('The type of soil in the field (e.g., Loamy, Sandy, Clay).'),
-  rainfall: z.string().describe('The annual rainfall in millimeters.'),
-  temperature: z.string().describe('The average temperature in Celsius.'),
+  location: z.string().describe('The city or state for which to predict the crop yield. e.g. "Delhi, India"'),
   fertilizerUse: z.string().describe('The amount and type of fertilizer used, e.g., "NPK 120-60-60 kg/hectare".'),
 });
 export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
@@ -42,7 +42,13 @@ export async function predictCropYield(input: PredictCropYieldInput): Promise<Pr
 
 const prompt = ai.definePrompt({
   name: 'predictCropYieldPrompt',
-  input: {schema: PredictCropYieldInputSchema},
+  input: {schema: z.object({
+    cropType: z.string(),
+    soilType: z.string(),
+    fertilizerUse: z.string(),
+    temperature: z.string(),
+    rainfall: z.string(),
+  })},
   output: {schema: PredictCropYieldOutputSchema},
   prompt: `You are an expert in agricultural science, specializing in crop yield prediction.
 
@@ -62,6 +68,7 @@ const prompt = ai.definePrompt({
 
   Provide the predicted yield, the confidence level of the prediction, a list of factors influencing the yield, and suggested actions to improve the yield.
 `,
+  tools: [getWeatherForLocation],
 });
 
 const predictCropYieldFlow = ai.defineFlow(
@@ -70,8 +77,13 @@ const predictCropYieldFlow = ai.defineFlow(
     inputSchema: PredictCropYieldInputSchema,
     outputSchema: PredictCropYieldOutputSchema,
   },
-  async input => {
-    const {output} = await prompt(input);
+  async (input) => {
+    const weather = await getWeatherForLocation(input.location);
+    const {output} = await prompt({
+      ...input,
+      temperature: `${weather.temp_c}°C`,
+      rainfall: `${weather.precip_mm} mm (current)`,
+    });
     return output!;
   }
 );

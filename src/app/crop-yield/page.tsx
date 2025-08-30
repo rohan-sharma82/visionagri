@@ -31,8 +31,7 @@ import AreaInfoDialog from '@/components/area-info-dialog';
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
   soilType: z.string().min(2, 'Soil type is required.'),
-  rainfall: z.string().min(1, 'Rainfall is required.'),
-  temperature: z.string().min(1, 'Temperature is required.'),
+  location: z.string().min(2, 'Location is required.'),
   fertilizerUse: z.string().min(2, 'Fertilizer use is required.'),
 });
 
@@ -46,8 +45,7 @@ export default function CropYieldPage() {
     defaultValues: {
       cropType: '',
       soilType: '',
-      rainfall: '',
-      temperature: '',
+      location: '',
       fertilizerUse: '',
     },
   });
@@ -115,25 +113,12 @@ export default function CropYieldPage() {
               />
               <FormField
                 control={form.control}
-                name="rainfall"
+                name="location"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Annual Rainfall (mm)</FormLabel>
+                    <FormLabel>Location</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="e.g., 750" {...field} className="form-content" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-               <FormField
-                control={form.control}
-                name="temperature"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Avg. Temperature (°C)</FormLabel>
-                    <FormControl>
-                      <Input type="number" placeholder="e.g., 25" {...field} className="form-content" />
+                      <Input placeholder="e.g., Delhi, India" {...field} className="form-content" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -171,7 +156,7 @@ export default function CropYieldPage() {
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-lg">Analyzing data and consulting the almanac...</p>
+              <p className="mt-4 text-lg">Fetching live weather data & consulting the almanac...</p>
             </div>
           )}
           {prediction && (
