@@ -117,7 +117,7 @@
 }
 
 .govt-scheme-card:hover .govt-scheme-card__image-container {
-  scale: 0;
+  transform: scale(1.2);
 }
 
 .govt-scheme-card__description {
@@ -1203,12 +1203,11 @@
 .slice {
   --c1: #202020;
   --c2: hsl(var(--primary));
-  --size-letter: 20px;
   padding: 0.5em 1em;
-  font-size: var(--size-letter);
+  font-size: 20px;
 
   background-color: transparent;
-  border: calc(var(--size-letter) / 6) solid var(--c2);
+  border: calc(20px / 6) solid var(--c2);
   border-radius: 0.2em;
   cursor: pointer;
 
