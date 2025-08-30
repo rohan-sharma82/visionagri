@@ -75,8 +75,8 @@ const useTypingEffect = (text: string, speed = 50) => {
   return displayedText;
 };
 
-const AssistantMessage = ({ message }: { message: Message }) => {
-  const typedContent = useTypingEffect(message.content);
+const AssistantMessage = ({ message, isTyping }: { message: Message, isTyping: boolean }) => {
+  const typedContent = useTypingEffect(message.content, 20);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleAudio = (audioUrl: string) => {
@@ -87,6 +87,8 @@ const AssistantMessage = ({ message }: { message: Message }) => {
       audio.pause();
       audio.currentTime = 0;
     } else {
+      // Pause other audio elements
+      document.querySelectorAll('audio').forEach(a => a.pause());
       audio.src = audioUrl;
       audio.play().catch(e => console.error("Audio playback failed", e));
     }
@@ -109,7 +111,7 @@ const AssistantMessage = ({ message }: { message: Message }) => {
       <div
         className='max-w-xl rounded-lg px-4 py-3 relative bg-muted'
       >
-        <p className="whitespace-pre-wrap">{typedContent}</p>
+        <p className="whitespace-pre-wrap">{isTyping ? typedContent : message.content}</p>
         {message.audioUrl && (
           <Button
             variant="ghost"
@@ -133,6 +135,8 @@ export default function AiFarmerPage() {
   const { toast } = useToast();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const [loadingMessage, setLoadingMessage] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+
 
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -186,7 +190,7 @@ export default function AiFarmerPage() {
         behavior: 'smooth',
       });
     }
-  }, [messages]);
+  }, [messages, isTyping]);
 
   // Cleanup effect to abort fetch on unmount
   useEffect(() => {
@@ -200,6 +204,7 @@ export default function AiFarmerPage() {
     if (isLoading) return;
 
     setIsLoading(true);
+    setIsTyping(true);
     setLoadingMessage(loadingMessages[Math.floor(Math.random() * loadingMessages.length)]);
     const userMessage: Message = { role: 'user', content: values.query };
     setMessages((prev) => [...prev, userMessage]);
@@ -215,7 +220,10 @@ export default function AiFarmerPage() {
       });
 
       const result: GetFarmingAdviceOutput = await advicePromise;
-      if (controller.signal.aborted) return;
+      if (controller.signal.aborted) {
+        setIsTyping(false);
+        return;
+      };
 
 
       let ttsResult;
@@ -229,7 +237,10 @@ export default function AiFarmerPage() {
          }
       }
   
-      if (controller.signal.aborted) return;
+      if (controller.signal.aborted) {
+        setIsTyping(false);
+        return;
+      };
 
       const assistantMessage: Message = {
         role: 'assistant',
@@ -251,6 +262,7 @@ export default function AiFarmerPage() {
     } finally {
        if (!controller.signal.aborted) {
         setIsLoading(false);
+        setIsTyping(false);
         abortControllerRef.current = null;
       }
     }
@@ -327,6 +339,7 @@ export default function AiFarmerPage() {
       abortControllerRef.current.abort();
       abortControllerRef.current = null;
       setIsLoading(false);
+      setIsTyping(false);
       setMessages((prev) => {
         // Remove the last user message that was in progress
         const lastMessage = prev[prev.length - 1];
@@ -385,7 +398,8 @@ export default function AiFarmerPage() {
             )}
             {messages.map((message, index) => {
                if (message.role === 'assistant') {
-                return <AssistantMessage key={index} message={message} />;
+                const isLastMessage = index === messages.length - 1;
+                return <AssistantMessage key={index} message={message} isTyping={isLastMessage && isTyping} />;
               }
               return (
               <motion.div
@@ -490,3 +504,5 @@ export default function AiFarmerPage() {
     </div>
   );
 }
+
+    
