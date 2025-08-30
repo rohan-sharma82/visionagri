@@ -325,7 +325,7 @@ export default function AiFarmerPage() {
                 )}
                 <div
                   className={cn(
-                    'max-w-xl rounded-lg px-4 py-3 relative group',
+                    'max-w-xl rounded-lg px-4 py-3 relative',
                     message.role === 'user'
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-muted'
@@ -336,7 +336,7 @@ export default function AiFarmerPage() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full transition-opacity"
                       onClick={() => playAudio(message.audioUrl!)}
                     >
                       <Volume2 className="h-4 w-4" />
@@ -429,5 +429,3 @@ export default function AiFarmerPage() {
     </div>
   );
 }
-
-    
