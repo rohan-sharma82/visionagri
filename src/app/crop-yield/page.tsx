@@ -9,7 +9,6 @@ import {
   predictCropYield,
   PredictCropYieldOutput,
 } from '@/ai/flows/crop-yield-prediction';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -109,6 +108,7 @@ export default function CropYieldPage() {
            <AreaInfoDialog />
           <Form {...form}>
             <form
+              id="crop-yield-form"
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-4 farm-data-form"
             >
@@ -178,8 +178,18 @@ export default function CropYieldPage() {
                   </FormItem>
                 )}
               />
-              <button type="submit" disabled={isLoading}>
-                {isLoading ? (
+            </form>
+          </Form>
+        </div>
+
+        <div className="w-full flex justify-center mt-4">
+            <div className="voltage-button">
+              <button 
+                type="submit" 
+                form="crop-yield-form" 
+                disabled={isLoading}
+              >
+                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
                     Predicting...
@@ -188,12 +198,21 @@ export default function CropYieldPage() {
                   'Predict Yield'
                 )}
               </button>
-            </form>
-          </Form>
+              <svg>
+                <path d="M 0 20 L 590 20" className="line-1" strokeWidth={5} />
+                <path d="M 0 20 L 590 20" className="line-2" strokeWidth={5} />
+              </svg>
+              <div className="dots">
+                <div className="dot dot-1"></div>
+                <div className="dot dot-2"></div>
+                <div className="dot dot-3"></div>
+                <div className="dot dot-4"></div>
+                <div className="dot dot-5"></div>
+              </div>
+            </div>
         </div>
 
-
-        <div className="flex items-center justify-center w-full max-w-2xl">
+        <div className="flex items-center justify-center w-full max-w-2xl mt-8">
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
