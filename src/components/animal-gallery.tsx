@@ -1,3 +1,4 @@
+
 'use client';
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -123,7 +124,7 @@ const AnimalGallery = () => {
                   width={300}
                   height={120}
                   className="gallery-img"
-                  unoptimized // Since we don't know the remote patterns
+                  unoptimized
                 />
               </div>
             );
