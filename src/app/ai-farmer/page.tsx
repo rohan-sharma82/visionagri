@@ -11,7 +11,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles, User, Bot } from 'lucide-react';
+import { Loader2, Sparkles, User, Bot, Trash2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -39,6 +39,38 @@ export default function AiFarmerPage() {
     defaultValues: { query: '' },
   });
 
+  // Load messages from localStorage on initial render
+  useEffect(() => {
+    try {
+      const savedMessages = localStorage.getItem('ai-farmer-messages');
+      if (savedMessages) {
+        setMessages(JSON.parse(savedMessages));
+      }
+    } catch (error) {
+      console.error("Failed to load messages from localStorage", error);
+    }
+    
+    if (!location) {
+      const loc = window.prompt("To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):");
+      if (loc) {
+        setLocation(loc);
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Save messages to localStorage whenever they change
+  useEffect(() => {
+    if (messages.length > 0) {
+      try {
+        localStorage.setItem('ai-farmer-messages', JSON.stringify(messages));
+      } catch (error) {
+        console.error("Failed to save messages to localStorage", error);
+      }
+    }
+  }, [messages]);
+
+
   useEffect(() => {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTo({
@@ -47,15 +79,6 @@ export default function AiFarmerPage() {
       });
     }
   }, [messages]);
-
-  useEffect(() => {
-    if (!location) {
-      const loc = window.prompt("To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):");
-      if (loc) {
-        setLocation(loc);
-      }
-    }
-  }, [location]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
@@ -82,14 +105,39 @@ export default function AiFarmerPage() {
     setIsLoading(false);
   }
 
+  const handleClearChat = () => {
+    setMessages([]);
+    try {
+      localStorage.removeItem('ai-farmer-messages');
+      toast({
+        title: 'Chat Cleared',
+        description: 'Your conversation history has been cleared.',
+      });
+    } catch (error) {
+       console.error("Failed to clear messages from localStorage", error);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-12 h-[calc(100vh-57px)] flex flex-col">
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
         <p className="mt-2 text-lg text-muted-foreground">
           Your personal agricultural expert, available 24/7.
         </p>
       </div>
+
+       <div className="flex justify-start mb-4">
+          {messages.length > 0 && (
+              <div className="box">
+                <button onClick={handleClearChat} className="flex items-center gap-2">
+                  <Trash2 className="h-4 w-4" />
+                  Clear Chat
+                </button>
+              </div>
+          )}
+        </div>
+
 
       <div className="flex-1 flex flex-col bg-card border rounded-xl shadow-lg overflow-hidden">
         <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
