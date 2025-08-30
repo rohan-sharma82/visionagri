@@ -178,7 +178,7 @@ export default function CropYieldPage() {
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-lg">Fetching live weather data & consulting the almanac...</p>
+              <p className="mt-4 text-lg">Your smart assistant is walking through the fields…</p>
             </div>
           )}
           {prediction && (
