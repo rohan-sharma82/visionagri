@@ -20,6 +20,7 @@ import { Loader2, PawPrint, Upload, BarChart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
+import AnimalGallery from '@/components/animal-gallery';
 
 export default function AnimalClassificationPage() {
   const [result, setResult] = useState<AnimalClassificationOutput | null>(null);
@@ -77,7 +78,9 @@ export default function AnimalClassificationPage() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <AnimalGallery />
+
+      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mt-12">
         <Card className="shadow-lg">
           <CardHeader>
             <CardTitle>Upload Animal Image</CardTitle>
