@@ -16,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
+import JumpingDotsLoader from '@/components/ui/jumping-dots-loader';
 
 const formSchema = z.object({
   query: z.string().min(10, 'Please ask a more detailed question.'),
@@ -137,7 +138,7 @@ export default function AiFarmerPage() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-muted rounded-lg px-4 py-3 flex items-center">
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <JumpingDotsLoader />
                 </div>
               </motion.div>
             )}
