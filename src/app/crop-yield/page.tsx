@@ -79,6 +79,7 @@ export default function CropYieldPage() {
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
         <div className="farm-data-form-container">
+           <button className="button type1 mb-8"></button>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
