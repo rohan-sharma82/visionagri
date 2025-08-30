@@ -13,6 +13,7 @@ import {
 import { newsData, newsCategories } from '@/lib/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import TextPressure from '@/components/text-pressure';
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
@@ -35,43 +36,57 @@ export default function Home() {
         </defs>
       </svg>
       <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex items-center justify-center p-4 md:p-8 shadow-inner">
-        <div className="absolute top-1/4 left-[15%] lg:left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
+        <div className="absolute top-1/2 left-[10%] lg:left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-1/4 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-0 w-[55%]">
           <svg
-            width="600"
+            width="100%"
             height="4"
             className="overflow-visible"
           >
             <path
-              d="M0 2 H600"
+              d="M0 2 H1000"
               stroke="hsl(var(--primary))"
               strokeWidth="3"
-              strokeDasharray="600"
-              strokeDashoffset="600"
+              strokeDasharray="1000"
+              strokeDashoffset="1000"
               className="[animation:draw-line_2s_ease-out_1s_forwards]"
             />
           </svg>
         </div>
 
-        <div className="absolute top-1/4 right-[15%] lg:right-1/4 -translate-y-1/2 z-10">
+        <div className="absolute top-1/2 right-[10%] lg:right-1/4 -translate-y-1/2 z-10">
           <h1 className="text-5xl md:text-8xl font-bold text-primary font-headline animate-pulse">
             AI
           </h1>
         </div>
         
         <div className="absolute bottom-8 text-center w-full px-4">
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground">
-            Welcome to AgriVision AI
-          </h2>
-          <p className="mt-4 text-xl text-muted-foreground font-semibold">
-            Smarter Fields, Better Yields.
-          </p>
-          <p className="mt-2 text-lg text-muted-foreground">
-            Revolutionizing farming with the power of Artificial Intelligence.
-          </p>
+          <div className='h-24'>
+            <TextPressure
+              text="Welcome to AgriVision AI"
+              minFontSize={48}
+              textColor='hsl(var(--foreground))'
+            />
+          </div>
+          <div className='h-12'>
+            <TextPressure
+                text="Smarter Fields, Better Yields."
+                minFontSize={24}
+                textColor='hsl(var(--muted-foreground))'
+                weight={false}
+              />
+          </div>
+           <div className='h-10'>
+            <TextPressure
+                text="Revolutionizing farming with the power of Artificial Intelligence."
+                minFontSize={18}
+                textColor='hsl(var(--muted-foreground))'
+                weight={false}
+              />
+          </div>
         </div>
       </section>
 
