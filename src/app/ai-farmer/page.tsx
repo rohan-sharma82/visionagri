@@ -107,23 +107,30 @@ export default function AiFarmerPage() {
     const userMessage: Message = { role: 'user', content: values.query };
     setMessages((prev) => [...prev, userMessage]);
     form.reset();
-
+  
     try {
       const result: GetFarmingAdviceOutput = await getFarmingAdvice({
         query: values.query,
         location: location || undefined,
       });
-
-      const ttsResult = await textToSpeech(result.advice);
-      
-      const assistantMessage: Message = { 
-        role: 'assistant', 
+  
+      let ttsResult;
+      try {
+        ttsResult = await textToSpeech(result.advice);
+      } catch (ttsError) {
+        console.error("Text-to-speech conversion failed:", ttsError);
+        // Do not toast here to avoid disrupting the user.
+        // The UI will still update with the text message.
+      }
+  
+      const assistantMessage: Message = {
+        role: 'assistant',
         content: result.advice,
-        audioUrl: ttsResult.media,
+        audioUrl: ttsResult?.media,
       };
       setMessages((prev) => [...prev, assistantMessage]);
-      
-      if (audioRef.current && ttsResult.media) {
+  
+      if (audioRef.current && ttsResult?.media) {
         audioRef.current.src = ttsResult.media;
         audioRef.current.play().catch(e => console.error("Audio playback failed", e));
       }
@@ -370,3 +377,5 @@ export default function AiFarmerPage() {
     </div>
   );
 }
+
+    
