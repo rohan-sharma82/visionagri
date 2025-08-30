@@ -1193,7 +1193,7 @@
 /* Animal Gallery */
 .gallery-container {
   position: relative;
-  height: 500px;
+  height: 400px;
   width: 100%;
   overflow: hidden;
 }
@@ -1270,5 +1270,3 @@
     width: 280px;
   }
 }
-
-    
