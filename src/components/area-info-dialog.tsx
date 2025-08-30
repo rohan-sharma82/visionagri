@@ -31,9 +31,9 @@ export default function AreaInfoDialog() {
             Use this information to fill out the form more accurately.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid md:grid-cols-2 gap-8 h-[calc(80vh-100px)]">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-semibold">Soil Type Explanations</h3>
+        <div className="grid md:grid-cols-2 gap-8 h-full overflow-hidden py-4">
+          <div className="flex flex-col gap-4 overflow-hidden">
+            <h3 className="text-lg font-semibold shrink-0">Soil Type Explanations</h3>
             <ScrollArea className="flex-1 pr-4">
               <div className="space-y-4">
                 {soilTypeExplanations.map((soil) => (
@@ -48,8 +48,8 @@ export default function AreaInfoDialog() {
               </div>
             </ScrollArea>
           </div>
-          <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-semibold">State-wise Information</h3>
+          <div className="flex flex-col gap-4 overflow-hidden">
+            <h3 className="text-lg font-semibold shrink-0">State-wise Information</h3>
             <ScrollArea className="flex-1 pr-4">
               <Accordion type="single" collapsible className="w-full">
                 {indianStatesData.map((state) => (
