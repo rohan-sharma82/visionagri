@@ -22,6 +22,7 @@ import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import CircularGallery from '@/components/animal-gallery';
+import { cn } from '@/lib/utils';
 
 const galleryImages = [
     { image: 'https://images.pexels.com/photos/30649600/pexels-photo-30649600.jpeg', text: 'Animal' },
@@ -96,57 +97,60 @@ export default function AnimalClassificationPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mt-12">
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>Upload Animal Image</CardTitle>
-            <CardDescription>Provide a clear image of the animal you want to identify.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex justify-center items-center py-8">
-              <div className="folder-upload-container">
-                <div className="folder">
-                  <div className="back-side"></div>
-                  <div className="front-side">
-                    <div className="tip"></div>
-                    <div className="cover"></div>
-                  </div>
+        <div className='flex flex-col items-center gap-4'>
+            <Card className="shadow-lg w-full">
+            <CardHeader>
+                <CardTitle>Upload Animal Image</CardTitle>
+                <CardDescription>Provide a clear image of the animal you want to identify.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <div className="flex justify-center items-center py-8">
+                <div className="folder-upload-container">
+                    <div className="folder">
+                    <div className="back-side"></div>
+                    <div className="front-side">
+                        <div className="tip"></div>
+                        <div className="cover"></div>
+                    </div>
+                    </div>
+                    <label htmlFor="picture" className="custom-file-upload">
+                    Upload Image
+                    <input
+                        id="picture"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                    />
+                    </label>
                 </div>
-                <label htmlFor="picture" className="custom-file-upload">
-                  Upload Image
-                  <input
-                    id="picture"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                </label>
-              </div>
-            </div>
-            {preview && (
-              <div className="mt-4 p-4 border-2 border-dashed rounded-lg flex justify-center items-center bg-muted/50">
-                <Image
-                  src={preview}
-                  alt="Animal preview"
-                  width={400}
-                  height={400}
-                  className="rounded-md max-h-[400px] w-auto"
-                />
-              </div>
-            )}
-          </CardContent>
-          <CardFooter>
-            <Button onClick={handleSubmit} disabled={isLoading || !preview} className="w-full">
-              {isLoading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Identifying...
-                </>
-              ) : (
-                'Classify Animal'
-              )}
-            </Button>
-          </CardFooter>
-        </Card>
+                </div>
+                {preview && (
+                <div className="mt-4 p-4 border-2 border-dashed rounded-lg flex justify-center items-center bg-muted/50">
+                    <Image
+                    src={preview}
+                    alt="Animal preview"
+                    width={400}
+                    height={400}
+                    className="rounded-md max-h-[400px] w-auto"
+                    />
+                </div>
+                )}
+            </CardContent>
+            </Card>
+            <button onClick={handleSubmit} disabled={isLoading || !preview} className="slice">
+                <span className="text">
+                    {isLoading ? (
+                    <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
+                        Identifying...
+                    </>
+                    ) : (
+                    'Classify Animal'
+                    )}
+                </span>
+            </button>
+        </div>
+
 
         <div className="flex items-center justify-center min-h-[400px]">
           {isLoading && (
@@ -192,11 +196,4 @@ export default function AnimalClassificationPage() {
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
                 <Upload className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">Upload an image to identify an animal.</p>
-              </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
+                <p className="mt-4 text-lg">Upload an image to identify an animal
