@@ -28,6 +28,7 @@ import { Input } from '@/components/ui/input';
 import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
+import RotatingText from '@/components/ui/rotating-text';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -79,7 +80,25 @@ export default function CropYieldPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           Leverage AI to forecast your harvest and optimize your strategy.
         </p>
-        <p className="text-sm text-muted-foreground mt-2">Smarter Fields, Better Yields.</p>
+        <div className="mt-2 text-sm text-muted-foreground flex justify-center">
+          <RotatingText
+            texts={[
+              'Growing knowledge.',
+              'growing crops.',
+              'growing prosperity.',
+              'growing India.',
+            ]}
+            mainClassName="text-muted-foreground overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center"
+            staggerFrom={'last'}
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-120%' }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
+        </div>
       </div>
 
       <div className="flex flex-col items-center gap-8 lg:gap-12">
