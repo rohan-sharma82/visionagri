@@ -11,7 +11,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles, User, Bot, Trash2 } from 'lucide-react';
+import { Loader2, Sparkles, User, Bot, Trash2, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -129,10 +129,10 @@ export default function AiFarmerPage() {
 
        <div className="flex justify-start mb-4">
           {messages.length > 0 && (
-              <button onClick={handleClearChat} className="clear-chat-button">
-                <Trash2 className="h-4 w-4 mr-2" />
-                Clear Chat
-              </button>
+            <button onClick={handleClearChat} className="clear-chat-button">
+              <Trash2 className="h-4 w-4 mr-2" />
+              Clear Chat
+            </button>
           )}
         </div>
 
@@ -232,11 +232,14 @@ export default function AiFarmerPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isLoading}>
+              <Button type="submit" disabled={isLoading} className="send-button-style" variant="ghost" size="lg">
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  'Send'
+                  <>
+                    <span className="text">Send</span>
+                    <Send />
+                  </>
                 )}
               </Button>
             </form>
@@ -246,5 +249,3 @@ export default function AiFarmerPage() {
     </div>
   );
 }
-
-    
