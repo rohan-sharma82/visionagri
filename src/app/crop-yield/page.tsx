@@ -24,17 +24,15 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
-  historicalData: z.string().min(10, 'Please provide more detailed historical data.'),
-  currentData: z.string().min(10, 'Please provide more detailed current data.'),
   cropType: z.string().min(2, 'Crop type is required.'),
-  location: z.string().min(2, 'Location is required.'),
-  farmSize: z.string().min(1, 'Farm size is required.'),
+  soilType: z.string().min(2, 'Soil type is required.'),
+  rainfall: z.string().min(1, 'Rainfall is required.'),
+  temperature: z.string().min(1, 'Temperature is required.'),
+  fertilizerUse: z.string().min(2, 'Fertilizer use is required.'),
 });
 
 export default function CropYieldPage() {
@@ -45,11 +43,11 @@ export default function CropYieldPage() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      historicalData: '',
-      currentData: '',
       cropType: '',
-      location: '',
-      farmSize: '',
+      soilType: '',
+      rainfall: '',
+      temperature: '',
+      fertilizerUse: '',
     },
   });
 
@@ -84,7 +82,7 @@ export default function CropYieldPage() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-6 farm-data-form"
+              className="space-y-4 farm-data-form"
             >
               <h2 className="form-label">Farm Data</h2>
               <FormField
@@ -92,6 +90,7 @@ export default function CropYieldPage() {
                 name="cropType"
                 render={({ field }) => (
                   <FormItem>
+                    <FormLabel>Crop Type</FormLabel>
                     <FormControl>
                       <Input placeholder="e.g., Wheat, Corn, Soybeans" {...field} className="form-content" />
                     </FormControl>
@@ -99,13 +98,14 @@ export default function CropYieldPage() {
                   </FormItem>
                 )}
               />
-              <FormField
+               <FormField
                 control={form.control}
-                name="location"
+                name="soilType"
                 render={({ field }) => (
                   <FormItem>
+                    <FormLabel>Soil Type</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., Central Valley, California" {...field} className="form-content" />
+                      <Input placeholder="e.g., Loamy, Sandy, Clay" {...field} className="form-content" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -113,11 +113,25 @@ export default function CropYieldPage() {
               />
               <FormField
                 control={form.control}
-                name="farmSize"
+                name="rainfall"
                 render={({ field }) => (
                   <FormItem>
+                    <FormLabel>Annual Rainfall (mm)</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="Farm Size (in acres) e.g., 500" {...field} className="form-content" />
+                      <Input type="number" placeholder="e.g., 750" {...field} className="form-content" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+               <FormField
+                control={form.control}
+                name="temperature"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Avg. Temperature (°C)</FormLabel>
+                    <FormControl>
+                      <Input type="number" placeholder="e.g., 25" {...field} className="form-content" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -125,23 +139,12 @@ export default function CropYieldPage() {
               />
               <FormField
                 control={form.control}
-                name="historicalData"
+                name="fertilizerUse"
                 render={({ field }) => (
                   <FormItem>
+                    <FormLabel>Fertilizer Use (kg/hectare)</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Historical Data: Past yields, weather, etc." {...field} className="form-content form-content-textarea" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="currentData"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormControl>
-                      <Textarea placeholder="Current Data: Weather, soil moisture, etc." {...field} className="form-content form-content-textarea" />
+                     <Input placeholder="e.g., NPK 120-60-60" {...field} className="form-content" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
