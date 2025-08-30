@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/layout/header';
 import { Toaster } from '@/components/ui/toaster';
+import Galaxy from '@/components/galaxy';
 
 export const metadata: Metadata = {
   title: 'AgriVision AI',
@@ -37,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
-            <div className="light-rays-container fixed inset-0 -z-10" />
+            <Galaxy transparent={false} className="fixed inset-0 -z-10" />
             <Header />
             <main className="flex-1">{children}</main>
           </div>

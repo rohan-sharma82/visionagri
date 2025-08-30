@@ -23,7 +23,6 @@
     --border: 52 20% 70%;
     --input: 52 20% 78%;
     --ring: 43 74% 49%;
-    --radius: 0.5rem;
   }
   .dark {
     --background: 24 20% 8%;
@@ -56,44 +55,6 @@
     @apply bg-background text-foreground;
   }
 }
-
-/* Light Rays Background */
-.light-rays-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  pointer-events: none;
-  z-index: 3;
-  overflow: hidden;
-}
-
-@keyframes ray-anim {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.light-rays-container::before, .light-rays-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200vw;
-    height: 200vh;
-    transform-origin: center center;
-    background-image:
-        radial-gradient(circle at center, hsla(var(--primary) / 0.15) 0%, transparent 40%),
-        repeating-conic-gradient(hsla(var(--primary) / 0.2) 0deg 1deg, transparent 2deg 20deg);
-    animation: ray-anim 180s linear infinite;
-    opacity: 0.5;
-    transform: translate(-50%, -50%);
-}
-
-.light-rays-container::after {
-    animation-delay: -90s;
-    animation-direction: reverse;
-    opacity: 0.3;
-}
-
 
 /* Home Page Animations */
 @keyframes draw-line {
