@@ -18,7 +18,6 @@ import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
-import JumpingDotsLoader from '@/components/ui/jumping-dots-loader';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -41,13 +40,99 @@ interface Message {
   audioUrl?: string;
 }
 
+const loadingMessages = [
+  "🌱 Growing your answer with AI fertilizer… please wait.",
+  "🔍 Scanning the soil of data… hold on a moment.",
+  "💡 Harvesting wisdom from the cloud… just a second.",
+  "📡 Connecting to the farming satellites… please wait.",
+  "🌱 Planting seeds of knowledge… your answer is sprouting, wait a bit.",
+  "🐄 Milking fresh answers… almost there, hold on.",
+  "📊 Counting grains before they grow… please wait.",
+  "🐓 Asking the hens for advice… they’ll reply soon, wait a moment.",
+  "🐄 Chasing cows off the keyboard… just a sec, your answer is coming.",
+  "🌾 Harvesting the right words… please wait.",
+];
+
+const useTypingEffect = (text: string, speed = 50) => {
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    setDisplayedText('');
+    if (text) {
+      let i = 0;
+      const intervalId = setInterval(() => {
+        if (i < text.length) {
+          setDisplayedText((prev) => prev + text.charAt(i));
+          i++;
+        } else {
+          clearInterval(intervalId);
+        }
+      }, speed);
+      return () => clearInterval(intervalId);
+    }
+  }, [text, speed]);
+
+  return displayedText;
+};
+
+const AssistantMessage = ({ message }: { message: Message }) => {
+  const typedContent = useTypingEffect(message.content);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleAudio = (audioUrl: string) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (!audio.paused && audio.src === audioUrl) {
+      audio.pause();
+      audio.currentTime = 0;
+    } else {
+      audio.src = audioUrl;
+      audio.play().catch(e => console.error("Audio playback failed", e));
+    }
+  };
+
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className='flex items-start gap-4 justify-start'
+    >
+       <audio ref={audioRef} className="hidden" />
+      <Avatar>
+        <AvatarFallback>
+          <Bot />
+        </AvatarFallback>
+      </Avatar>
+      <div
+        className='max-w-xl rounded-lg px-4 py-3 relative bg-muted'
+      >
+        <p className="whitespace-pre-wrap">{typedContent}</p>
+        {message.audioUrl && (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full"
+            onClick={() => toggleAudio(message.audioUrl!)}
+          >
+            <Volume2 className="h-4 w-4" />
+          </Button>
+        )}
+      </div>
+    </motion.div>
+  );
+};
+
+
 export default function AiFarmerPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState<string | null>(null);
   const { toast } = useToast();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [loadingMessage, setLoadingMessage] = useState('');
 
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -115,6 +200,7 @@ export default function AiFarmerPage() {
     if (isLoading) return;
 
     setIsLoading(true);
+    setLoadingMessage(loadingMessages[Math.floor(Math.random() * loadingMessages.length)]);
     const userMessage: Message = { role: 'user', content: values.query };
     setMessages((prev) => [...prev, userMessage]);
     form.reset();
@@ -236,19 +322,6 @@ export default function AiFarmerPage() {
     }
   };
 
-  const toggleAudio = (audioUrl: string) => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (!audio.paused && audio.src === audioUrl) {
-      audio.pause();
-      audio.currentTime = 0;
-    } else {
-      audio.src = audioUrl;
-      audio.play().catch(e => console.error("Audio playback failed", e));
-    }
-  };
-
   const handleStop = () => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
@@ -267,7 +340,6 @@ export default function AiFarmerPage() {
 
   return (
     <div className="container mx-auto px-4 h-[calc(100vh-57px)] flex flex-col pt-0">
-      <audio ref={audioRef} className="hidden" />
       <div className="text-center mb-4">
         <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
         <p className="mt-2 text-lg text-muted-foreground">
@@ -311,7 +383,11 @@ export default function AiFarmerPage() {
                 <p className="text-sm">e.g., "What are the best irrigation methods for sandy soil?"</p>
               </div>
             )}
-            {messages.map((message, index) => (
+            {messages.map((message, index) => {
+               if (message.role === 'assistant') {
+                return <AssistantMessage key={index} message={message} />;
+              }
+              return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
@@ -319,45 +395,24 @@ export default function AiFarmerPage() {
                 transition={{ duration: 0.3 }}
                 className={cn(
                   'flex items-start gap-4',
-                  message.role === 'user' ? 'justify-end' : 'justify-start'
+                  'justify-end'
                 )}
               >
-                {message.role === 'assistant' && (
-                  <Avatar>
-                    <AvatarFallback>
-                      <Bot />
-                    </AvatarFallback>
-                  </Avatar>
-                )}
                 <div
                   className={cn(
                     'max-w-xl rounded-lg px-4 py-3 relative',
-                    message.role === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted'
+                    'bg-primary text-primary-foreground'
                   )}
                 >
                   <p className="whitespace-pre-wrap">{message.content}</p>
-                   {message.role === 'assistant' && message.audioUrl && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full"
-                      onClick={() => toggleAudio(message.audioUrl!)}
-                    >
-                      <Volume2 className="h-4 w-4" />
-                    </Button>
-                  )}
                 </div>
-                {message.role === 'user' && (
-                  <Avatar>
+                <Avatar>
                     <AvatarFallback>
                       <User />
                     </AvatarFallback>
                   </Avatar>
-                )}
               </motion.div>
-            ))}
+            )})}
              {isLoading && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -371,7 +426,7 @@ export default function AiFarmerPage() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-muted rounded-lg px-4 py-3 flex items-center">
-                  <JumpingDotsLoader />
+                  <p className='text-sm text-muted-foreground'>{loadingMessage}</p>
                 </div>
               </motion.div>
             )}
