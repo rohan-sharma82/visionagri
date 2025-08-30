@@ -19,7 +19,7 @@ export const featuresData = [
     {
         title: 'AI Farmer Assistant',
         description: 'Your personal agricultural expert, available 24/7.',
-        imageUrl: 'https://picsum.photos/seed/aichatbot/300/200',
+        imageUrl: 'https://framerusercontent.com/images/g0YTRh7uRHpbWQgSZz62bO050.png?width=1378&height=880',
         dataAiHint: 'chatbot robot',
         href: '/ai-farmer'
     },
