@@ -66,14 +66,14 @@ export default function Home() {
         </div>
         
         <div className="absolute bottom-8 text-center w-full px-4">
-          <div className='h-24'>
+          <div className='h-24 pb-4'>
             <TextPressure
               text="Welcome to AgriVision AI"
               minFontSize={48}
               textColor='hsl(var(--foreground))'
             />
           </div>
-          <div className='h-12'>
+          <div className='h-12 pb-2'>
             <TextPressure
                 text="Smarter Fields, Better Yields."
                 minFontSize={20}
