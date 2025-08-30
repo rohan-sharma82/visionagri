@@ -1,3 +1,4 @@
+
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -171,6 +172,11 @@ export default function AiFarmerPage() {
       };
       
       recognition.onerror = (event: any) => {
+        if (event.error === 'no-speech') {
+          // This error is common if the user doesn't speak. Don't show a disruptive toast.
+          console.log('No speech detected.');
+          return;
+        }
         console.error('Speech recognition error', event.error);
         toast({ title: 'Voice Error', description: `Could not recognize speech: ${event.error}`, variant: 'destructive' });
       };
