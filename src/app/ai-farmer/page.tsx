@@ -143,10 +143,9 @@ export default function AiFarmerPage() {
 
        <div className="flex justify-start mb-4">
           {messages.length > 0 && (
-            <div className="box">
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <button className="clear-chat-button">
+                  <button className="clear-chat-button box">
                     <Trash2 className="h-4 w-4 mr-2" />
                     Clear Chat
                   </button>
@@ -164,7 +163,6 @@ export default function AiFarmerPage() {
                   </AlertDialogFooter>
                 </AlertDialogContent>
               </AlertDialog>
-            </div>
           )}
         </div>
 
