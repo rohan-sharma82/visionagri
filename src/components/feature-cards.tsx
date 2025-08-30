@@ -24,7 +24,7 @@ export default function FeatureCards() {
                     width={300}
                     height={200}
                     data-ai-hint={feature.dataAiHint}
-                    className="rounded-lg object-cover w-full h-full"
+                    className="rounded-lg object-cover h-full w-full"
                   />
                 </div>
                 <div className="feature-card-back">
