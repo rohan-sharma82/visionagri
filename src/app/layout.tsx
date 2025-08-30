@@ -47,10 +47,15 @@ export default function RootLayout({
                 <feBlend in="SourceGraphic" in2="goo" />
               </filter>
               <filter id="glow">
-                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                <feGaussianBlur className="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
+                <feTurbulence type="fractalNoise" baseFrequency="0.075" numOctaves="0.3" result="turbulence"></feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" result="displace"></feDisplacementMap>
                 <feMerge>
-                  <feMergeNode in="coloredBlur" />
-                  <feMergeNode in="SourceGraphic" />
+                  <feMergeNode in="coloredBlur"></feMergeNode>
+                  <feMergeNode in="coloredBlur"></feMergeNode>
+                  <feMergeNode in="coloredBlur"></feMergeNode>
+                  <feMergeNode in="displace"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
                 </feMerge>
               </filter>
             </defs>
