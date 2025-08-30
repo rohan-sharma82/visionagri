@@ -42,7 +42,7 @@ export default function Home() {
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-1/4 left-[calc(5%_+_9rem)] -translate-y-1/2 z-0 w-[calc(90%-24rem)]">
+        <div className="absolute top-[30%] left-[calc(5%_+_9rem)] -translate-y-1/2 z-0 w-[calc(90%-24.5rem)]">
           <svg
             width="100%"
             height="4"
