@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
         hostname: 'cdn11.bigcommerce.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'timesofagriculture.in',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

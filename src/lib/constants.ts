@@ -40,8 +40,8 @@ export const featuresData = [
     {
         title: 'Govt. Schemes',
         description: 'Explore beneficial programs and support from the government.',
-        imageUrl: '/images/govt-schemes.png',
-        dataAiHint: 'government building',
+        imageUrl: 'https://timesofagriculture.in/wp-content/uploads/2023/08/feature-image-2-1-1-1-scaled.jpg',
+        dataAiHint: 'government scheme',
         href: '/govt-schemes'
     },
 ];
