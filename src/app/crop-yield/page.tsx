@@ -77,8 +77,8 @@ export default function CropYieldPage() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-        <div className="farm-data-form-container">
+      <div className="flex flex-col items-center gap-8 lg:gap-12">
+        <div className="farm-data-form-container w-full max-w-2xl">
            <button className="button type1 mb-8"></button>
           <Form {...form}>
             <form
@@ -166,7 +166,7 @@ export default function CropYieldPage() {
         </div>
 
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center w-full max-w-2xl">
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
