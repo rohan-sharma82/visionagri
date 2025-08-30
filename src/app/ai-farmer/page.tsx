@@ -13,7 +13,7 @@ import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles, User, Bot, Trash2, Send, Mic, Volume2 } from 'lucide-react';
+import { Loader2, Sparkles, User, Bot, Trash2, Send, Mic, Volume2, StopCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -51,6 +51,7 @@ export default function AiFarmerPage() {
 
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -102,27 +103,48 @@ export default function AiFarmerPage() {
     }
   }, [messages]);
 
+  // Cleanup effect to abort fetch on unmount
+  useEffect(() => {
+    return () => {
+      abortControllerRef.current?.abort();
+    };
+  }, []);
+
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (isLoading) return;
+
     setIsLoading(true);
     const userMessage: Message = { role: 'user', content: values.query };
     setMessages((prev) => [...prev, userMessage]);
     form.reset();
+
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
   
     try {
-      const result: GetFarmingAdviceOutput = await getFarmingAdvice({
+      const advicePromise = getFarmingAdvice({
         query: values.query,
         location: location || undefined,
       });
-  
+
+      const result: GetFarmingAdviceOutput = await advicePromise;
+      if (controller.signal.aborted) return;
+
+
       let ttsResult;
       try {
-        ttsResult = await textToSpeech(result.advice);
-      } catch (ttsError) {
-        console.error("Text-to-speech conversion failed:", ttsError);
-        // Do not toast here to avoid disrupting the user.
-        // The UI will still update with the text message.
+        if (!controller.signal.aborted) {
+          ttsResult = await textToSpeech(result.advice);
+        }
+      } catch (ttsError: any) {
+         if (ttsError.name !== 'AbortError') {
+            console.error("Text-to-speech conversion failed:", ttsError);
+         }
       }
   
+      if (controller.signal.aborted) return;
+
       const assistantMessage: Message = {
         role: 'assistant',
         content: result.advice,
@@ -134,16 +156,22 @@ export default function AiFarmerPage() {
         audioRef.current.src = ttsResult.media;
         audioRef.current.play().catch(e => console.error("Audio playback failed", e));
       }
-    } catch (error) {
-      console.error('Error getting farming advice:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to get advice. Please try again.',
-        variant: 'destructive',
-      });
-      setMessages((prev) => prev.slice(0, -1)); // Remove user message on error
+    } catch (error: any) {
+       if (error.name !== 'AbortError') {
+        console.error('Error getting farming advice:', error);
+        toast({
+          title: 'Error',
+          description: 'Failed to get advice. Please try again.',
+          variant: 'destructive',
+        });
+        setMessages((prev) => prev.slice(0, -1)); // Remove user message on error
+      }
+    } finally {
+       if (!controller.signal.aborted) {
+        setIsLoading(false);
+        abortControllerRef.current = null;
+      }
     }
-    setIsLoading(false);
   }
 
   const handleClearChat = () => {
@@ -182,7 +210,6 @@ export default function AiFarmerPage() {
       
       recognition.onerror = (event: any) => {
         if (event.error === 'no-speech') {
-          // This error is common if the user doesn't speak. Don't show a disruptive toast.
           console.log('No speech detected.');
           return;
         }
@@ -205,6 +232,7 @@ export default function AiFarmerPage() {
   }, []);
 
   const toggleRecording = () => {
+    if (isLoading) return;
     if (isRecording) {
       recognitionRef.current?.stop();
     } else {
@@ -216,6 +244,22 @@ export default function AiFarmerPage() {
     if (audioRef.current) {
       audioRef.current.src = audioUrl;
       audioRef.current.play().catch(e => console.error("Audio playback failed", e));
+    }
+  };
+
+  const handleStop = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = null;
+      setIsLoading(false);
+      setMessages((prev) => {
+        // Remove the last user message that was in progress
+        const lastMessage = prev[prev.length - 1];
+        if (lastMessage.role === 'user') {
+          return prev.slice(0, -1);
+        }
+        return prev;
+      });
     }
   };
 
@@ -333,12 +377,20 @@ export default function AiFarmerPage() {
         </ScrollArea>
 
         <div className="border-t p-4 bg-background">
+          {isLoading ? (
+            <div className="flex justify-center">
+              <Button onClick={handleStop} variant="outline" className="w-full">
+                <StopCircle className="h-4 w-4 mr-2" />
+                Stop Generating
+              </Button>
+            </div>
+          ) : (
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
               className="flex items-center gap-4"
             >
-              <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")}>
+              <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading}>
                 <Mic className="h-4 w-4" />
               </Button>
               <FormField
@@ -352,12 +404,13 @@ export default function AiFarmerPage() {
                         className="resize-none no-scrollbar"
                         rows={1}
                         onKeyDown={(e) => {
-                          if (e.key === 'Enter' && !e.shiftKey) {
+                          if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
                             e.preventDefault();
                             form.handleSubmit(onSubmit)();
                           }
                         }}
                         {...field}
+                        disabled={isLoading}
                       />
                     </FormControl>
                   </FormItem>
@@ -372,6 +425,7 @@ export default function AiFarmerPage() {
               </button>
             </form>
           </Form>
+          )}
         </div>
       </div>
     </div>
