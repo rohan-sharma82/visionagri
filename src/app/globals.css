@@ -402,18 +402,17 @@
 
 .farm-data-form .form-label {
   text-align: center;
-  color: white;
+  color: black;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 4px;
-  text-shadow: 0px 0px 16px rgb(243, 243, 243);
-  margin-bottom: 1rem;
+  text-shadow: 0px 0px 16px rgb(20, 20, 20);
 }
 
 .farm-data-form .form-content {
   height: 3em;
   padding: 1px 8px;
-  color: white;
+  color: black;
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: bold;
@@ -421,11 +420,7 @@
   border: 2px solid #fff;
   background: rgba(173, 255, 173, 0.486); /* lighter green */
   box-shadow: 0px 0px 1px 3px #b4eeb4 inset, 0px 4px 4px 0px #18601a40; /* light green glow */
-  text-shadow: 0px 1px 4px rgb(243, 243, 243);
-}
-
-.farm-data-form .form-content-textarea {
-  min-height: 80px;
+  text-shadow: 0px 1px 4px rgb(20, 20, 20);
 }
 
 .farm-data-form .form-content:focus-visible {
@@ -441,7 +436,7 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: white;
+  color: black;
   letter-spacing: 0.1rem;
   text-shadow: 0px 1px 5px rgb(66, 66, 66);
 }
@@ -454,13 +449,13 @@
   font-size: 1.5em;
   letter-spacing: 0.3rem;
   border: 2px solid white;
-  background: linear-gradient(144deg, #50c878, #3cb371 50%, #98fb98); /* Emerald, MediumSeaGreen, PaleGreen */
+  background: linear-gradient(144deg, #d2b48c, #cd853f 50%, #f4a460); /* Tan, Peru, SandyBrown */
 }
 
 .farm-data-form button:hover {
   position: relative;
   bottom: 4px;
-  background: linear-gradient(144deg, #50c878, #3cb371 50%, #98fb98); /* Same as above for consistency */
+  background: linear-gradient(144deg, #d2b48c, #cd853f 50%, #f4a460); /* Same as above for consistency */
   box-shadow: 0px 0px 2px 2px #ffffff;
 }
 
