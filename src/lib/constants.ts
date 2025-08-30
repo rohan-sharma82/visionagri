@@ -146,7 +146,7 @@ Farmers can also visit their nearest Common Service Centres (CSCs) for registrat
 Farmers can also do their self-registration through the Farmers Corner in the PM KISAN portal. To check the status of the registration, click here.
 Details required for registration include Name, Age, Gender, Category(SC/ST), Aadhaar Number (in case Aadhaar Number has not been issued then Aadhaar Enrollment Number together with any other prescribed documents for purposes of the identification such as Driving Licence, Voters’ ID Card, NREGA Job Card, or any other identification documents issued by Central/State/UT Governments or their authorities,etc.), Bank Account Number and the Mobile Number of the beneficiaries.
 For more details visit PM KISAN portal.`,
-    imageUrl: 'https://picsum.photos/200/200?random=1',
+    imageUrl: 'https://cdn.tractorkarvan.com/tr:f-webp/images/Blogs/top-central-government-schemes-for-farmers-in-india/pm-kisan.jpg',
     dataAiHint: 'government building',
     url: '#',
   },

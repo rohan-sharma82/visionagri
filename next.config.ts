@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.pexels.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.tractorkarvan.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
