@@ -32,7 +32,7 @@ import {
 } from "@/components/ui/alert-dialog"
 
 const formSchema = z.object({
-  query: z.string().min(10, 'Please ask a more detailed question.'),
+  query: z.string().min(1, 'Please ask a question.'),
 });
 
 interface Message {
@@ -251,7 +251,7 @@ export default function AiFarmerPage() {
       setMessages((prev) => {
         // Remove the last user message that was in progress
         const lastMessage = prev[prev.length - 1];
-        if (lastMessage.role === 'user') {
+        if (lastMessage && lastMessage.role === 'user') {
           return prev.slice(0, -1);
         }
         return prev;
@@ -401,8 +401,10 @@ export default function AiFarmerPage() {
                         rows={1}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
-                            e.preventDefault();
-                            form.handleSubmit(onSubmit)();
+                            if (form.getValues("query").trim()) {
+                              e.preventDefault();
+                              form.handleSubmit(onSubmit)();
+                            }
                           }
                         }}
                         {...field}
@@ -412,7 +414,7 @@ export default function AiFarmerPage() {
                   </FormItem>
                 )}
               />
-              <button type="submit" disabled={isLoading} className="send-button-style">
+              <button type="submit" disabled={isLoading || !form.getValues("query").trim()} className="send-button-style">
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -427,3 +429,5 @@ export default function AiFarmerPage() {
     </div>
   );
 }
+
+    
