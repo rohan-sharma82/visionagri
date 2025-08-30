@@ -26,7 +26,7 @@ export const featuresData = [
     {
         title: 'Disease Classification',
         description: 'Upload an image of a crop leaf to detect diseases early.',
-        imageUrl: 'https://picsum.photos/300/200?random=21',
+        imageUrl: 'https://picsum.photos/seed/diseased-crop/300/200',
         dataAiHint: 'plant disease',
         href: '/disease-classification'
     },
@@ -40,7 +40,7 @@ export const featuresData = [
     {
         title: 'Govt. Schemes',
         description: 'Explore beneficial programs and support from the government.',
-        imageUrl: 'https://picsum.photos/300/200?random=15',
+        imageUrl: '/images/govt-schemes.png',
         dataAiHint: 'government building',
         href: '/govt-schemes'
     },
