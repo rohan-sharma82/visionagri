@@ -80,13 +80,14 @@ export default function CropYieldPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           Leverage AI to forecast your harvest and optimize your strategy.
         </p>
-        <div className="mt-2 text-sm text-muted-foreground flex justify-center">
+        <div className="mt-2 text-lg text-muted-foreground flex items-center justify-center space-x-2">
+          <span>Growing</span>
           <RotatingText
             texts={[
-              'Growing knowledge.',
-              'growing crops.',
-              'growing prosperity.',
-              'growing India.',
+              'knowledge.',
+              'crops.',
+              'prosperity.',
+              'India.',
             ]}
             mainClassName="text-muted-foreground overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center"
             staggerFrom={'last'}
