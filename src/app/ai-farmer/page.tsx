@@ -236,10 +236,16 @@ export default function AiFarmerPage() {
     }
   };
 
-  const playAudio = (audioUrl: string) => {
-    if (audioRef.current) {
-      audioRef.current.src = audioUrl;
-      audioRef.current.play().catch(e => console.error("Audio playback failed", e));
+  const toggleAudio = (audioUrl: string) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (!audio.paused && audio.src === audioUrl) {
+      audio.pause();
+      audio.currentTime = 0;
+    } else {
+      audio.src = audioUrl;
+      audio.play().catch(e => console.error("Audio playback failed", e));
     }
   };
 
@@ -336,8 +342,8 @@ export default function AiFarmerPage() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full transition-opacity"
-                      onClick={() => playAudio(message.audioUrl!)}
+                      className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full"
+                      onClick={() => toggleAudio(message.audioUrl!)}
                     >
                       <Volume2 className="h-4 w-4" />
                     </Button>
