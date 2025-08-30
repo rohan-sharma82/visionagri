@@ -63,9 +63,12 @@ export default function Home() {
         </div>
         
         <div className="absolute bottom-8 text-center w-full px-4">
-          <h2 className="text-2xl md:text-4xl font-bold font-headline text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground">
             Welcome to AgriVision AI
           </h2>
+          <p className="mt-4 text-xl text-muted-foreground font-semibold">
+            Smarter Fields, Better Yields.
+          </p>
           <p className="mt-2 text-lg text-muted-foreground">
             Revolutionizing farming with the power of Artificial Intelligence.
           </p>
