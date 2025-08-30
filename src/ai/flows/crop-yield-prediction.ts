@@ -29,11 +29,11 @@ const PredictCropYieldOutputSchema = z.object({
     .string()
     .describe('The confidence level of the prediction as a percentage.'),
   factorsInfluencingYield: z
-    .string()
+    .array(z.string())
     .describe('A list of factors that are influencing the predicted yield based on the provided data.'),
   suggestedActions: z
-    .string()
-    .describe('Suggested actions to improve the yield, such as adjusting fertilizer levels or irrigation.'),
+    .array(z.string())
+    .describe('A list of suggested actions to improve the yield, such as adjusting fertilizer levels or irrigation.'),
 });
 export type PredictCropYieldOutput = z.infer<typeof PredictCropYieldOutputSchema>;
 
@@ -70,7 +70,7 @@ const prompt = ai.definePrompt({
   Fertilizer Use: {{{fertilizerUse}}}
   Irrigation Method: {{{irrigationMethod}}}
 
-  Provide the predicted yield, the confidence level of the prediction, a list of factors influencing the yield, and suggested actions to improve the yield.
+  Provide the predicted yield, the confidence level of the prediction, a list of factors influencing the yield, and a list of suggested actions to improve the yield.
 `,
   tools: [getWeatherForLocation],
 });

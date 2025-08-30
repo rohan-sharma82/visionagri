@@ -204,17 +204,25 @@ export default function CropYieldPage() {
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
-                    <Wind className="h-6 w-6 text-accent mt-1" />
+                    <Wind className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-foreground">Influencing Factors</h3>
-                      <p className="text-muted-foreground">{prediction.factorsInfluencingYield}</p>
+                      <ul className="list-disc pl-5 mt-1 text-muted-foreground">
+                        {prediction.factorsInfluencingYield.map((factor, index) => (
+                          <li key={index}>{factor}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
-                    <Zap className="h-6 w-6 text-accent mt-1" />
+                    <Zap className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-foreground">Suggested Actions</h3>
-                      <p className="text-muted-foreground">{prediction.suggestedActions}</p>
+                      <ul className="list-disc pl-5 mt-1 text-muted-foreground">
+                        {prediction.suggestedActions.map((action, index) => (
+                          <li key={index}>{action}</li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </CardContent>
