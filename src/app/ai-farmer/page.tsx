@@ -167,8 +167,10 @@ export default function AiFarmerPage() {
       
       recognition.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript;
-        form.setValue('query', transcript);
-        form.handleSubmit(onSubmit)();
+        if (transcript.trim()) {
+          form.setValue('query', transcript);
+          form.handleSubmit(onSubmit)();
+        }
       };
       
       recognition.onerror = (event: any) => {
@@ -211,7 +213,7 @@ export default function AiFarmerPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 h-[calc(100vh-57px)] flex flex-col pt-4">
+    <div className="container mx-auto px-4 h-[calc(100vh-57px)] flex flex-col pt-0">
       <audio ref={audioRef} className="hidden" />
       <div className="text-center mb-4">
         <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
