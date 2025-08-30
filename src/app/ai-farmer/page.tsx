@@ -8,10 +8,11 @@ import {
   getFarmingAdvice,
   GetFarmingAdviceOutput,
 } from '@/ai/flows/ai-farmer-assistant';
+import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles, User, Bot, Trash2, Send } from 'lucide-react';
+import { Loader2, Sparkles, User, Bot, Trash2, Send, Mic, Volume2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -36,6 +37,7 @@ const formSchema = z.object({
 interface Message {
   role: 'user' | 'assistant';
   content: string;
+  audioUrl?: string;
 }
 
 export default function AiFarmerPage() {
@@ -44,6 +46,11 @@ export default function AiFarmerPage() {
   const [location, setLocation] = useState<string | null>(null);
   const { toast } = useToast();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const [isRecording, setIsRecording] = useState(false);
+  const recognitionRef = useRef<any>(null);
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -105,8 +112,20 @@ export default function AiFarmerPage() {
         query: values.query,
         location: location || undefined,
       });
-      const assistantMessage: Message = { role: 'assistant', content: result.advice };
+
+      const ttsResult = await textToSpeech(result.advice);
+      
+      const assistantMessage: Message = { 
+        role: 'assistant', 
+        content: result.advice,
+        audioUrl: ttsResult.media,
+      };
       setMessages((prev) => [...prev, assistantMessage]);
+      
+      if (audioRef.current && ttsResult.media) {
+        audioRef.current.src = ttsResult.media;
+        audioRef.current.play().catch(e => console.error("Audio playback failed", e));
+      }
     } catch (error) {
       console.error('Error getting farming advice:', error);
       toast({
@@ -132,8 +151,62 @@ export default function AiFarmerPage() {
     }
   };
 
+   const setupSpeechRecognition = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = 'en-US';
+      
+      recognition.onstart = () => {
+        setIsRecording(true);
+        toast({ title: 'Listening...' });
+      };
+      
+      recognition.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript;
+        form.setValue('query', transcript);
+        form.handleSubmit(onSubmit)();
+      };
+      
+      recognition.onerror = (event: any) => {
+        console.error('Speech recognition error', event.error);
+        toast({ title: 'Voice Error', description: `Could not recognize speech: ${event.error}`, variant: 'destructive' });
+      };
+
+      recognition.onend = () => {
+        setIsRecording(false);
+      };
+      
+      recognitionRef.current = recognition;
+    } else {
+      toast({ title: 'Voice not supported', description: 'Your browser does not support voice recognition.', variant: 'destructive' });
+    }
+  };
+
+  useEffect(() => {
+    setupSpeechRecognition();
+  }, []);
+
+  const toggleRecording = () => {
+    if (isRecording) {
+      recognitionRef.current?.stop();
+    } else {
+      recognitionRef.current?.start();
+    }
+  };
+
+  const playAudio = (audioUrl: string) => {
+    if (audioRef.current) {
+      audioRef.current.src = audioUrl;
+      audioRef.current.play().catch(e => console.error("Audio playback failed", e));
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 h-[calc(100vh-57px)] flex flex-col pt-4">
+      <audio ref={audioRef} className="hidden" />
       <div className="text-center mb-4">
         <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
         <p className="mt-2 text-lg text-muted-foreground">
@@ -197,13 +270,23 @@ export default function AiFarmerPage() {
                 )}
                 <div
                   className={cn(
-                    'max-w-xl rounded-lg px-4 py-3',
+                    'max-w-xl rounded-lg px-4 py-3 relative group',
                     message.role === 'user'
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-muted'
                   )}
                 >
                   <p className="whitespace-pre-wrap">{message.content}</p>
+                   {message.role === 'assistant' && message.audioUrl && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute -bottom-4 -right-4 h-8 w-8 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={() => playAudio(message.audioUrl!)}
+                    >
+                      <Volume2 className="h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
                 {message.role === 'user' && (
                   <Avatar>
@@ -240,6 +323,9 @@ export default function AiFarmerPage() {
               onSubmit={form.handleSubmit(onSubmit)}
               className="flex items-center gap-4"
             >
+              <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")}>
+                <Mic className="h-4 w-4" />
+              </Button>
               <FormField
                 control={form.control}
                 name="query"
