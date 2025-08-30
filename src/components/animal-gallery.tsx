@@ -1,13 +1,12 @@
 
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import {
   motion,
   useMotionValue,
   useAnimation,
   useTransform,
-  AnimatePresence,
 } from 'framer-motion';
 import Image from 'next/image';
 
@@ -72,7 +71,7 @@ const AnimalGallery = ({
       controls.stop();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoplay]);
+  }, [autoplay, controls, rotation]);
 
   const handleUpdate = (latest: any) => {
     if (typeof latest.rotateY === 'number') {
@@ -142,7 +141,7 @@ const AnimalGallery = ({
               <Image
                 src={url}
                 alt={`Animal ${i + 1}`}
-                width={300}
+                width={400}
                 height={120}
                 className="gallery-img"
                 unoptimized
