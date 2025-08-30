@@ -7,6 +7,15 @@ export const navLinks = [
   { href: '/govt-schemes', label: 'Govt. Schemes' },
 ];
 
+export const newsCategories = [
+  'All Categories',
+  'Market Prices',
+  'Weather Updates',
+  'Government Policies',
+  'Farming Techniques',
+  'Technology',
+];
+
 export const newsData = [
   {
     id: 1,
@@ -16,6 +25,7 @@ export const newsData = [
     snippet:
       'Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.',
     url: '#',
+    category: 'Technology',
   },
   {
     id: 2,
@@ -25,6 +35,7 @@ export const newsData = [
     snippet:
       'In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.',
     url: '#',
+    category: 'Government Policies',
   },
   {
     id: 3,
@@ -34,6 +45,34 @@ export const newsData = [
     snippet:
       'A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.',
     url: '#',
+    category: 'Weather Updates',
+  },
+    {
+    id: 4,
+    title: 'Corn Prices Surge Amidst Global Supply Concerns',
+    source: 'Agri-Investments Daily',
+    date: 'October 23, 2023',
+    snippet: 'Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.',
+    url: '#',
+    category: 'Market Prices',
+  },
+  {
+    id: 5,
+    title: 'The Rise of No-Till Farming: A Guide for Beginners',
+    source: 'Sustainable Farms',
+    date: 'October 22, 2023',
+    snippet: 'No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.',
+    url: '#',
+    category: 'Farming Techniques',
+  },
+  {
+    id: 6,
+    title: 'New AI-Powered App Helps Farmers Identify Pests Instantly',
+    source: 'TechCrunch Agriculture',
+    date: 'October 21, 2023',
+    snippet: 'A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.',
+    url: '#',
+    category: 'Technology',
   },
 ];
 
