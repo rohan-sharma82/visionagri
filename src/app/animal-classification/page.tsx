@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -78,7 +79,7 @@ export default function AnimalClassificationPage() {
         </p>
       </div>
 
-      <AnimalGallery />
+      <AnimalGallery autoplay={true} pauseOnHover={true} />
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mt-12">
         <Card className="shadow-lg">
