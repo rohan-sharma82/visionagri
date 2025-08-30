@@ -337,7 +337,7 @@
   height: 100%;
   backface-visibility: hidden;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: hsl(var(--card) / 0.5);
   border: 2px solid hsl(var(--foreground) / 0.5);
   display: flex;
   align-items: center;
@@ -354,4 +354,11 @@
   padding: 20px;
   font-size: 16px;
   text-align: center;
+  flex-direction: column;
+}
+
+.dark .feature-card-front,
+.dark .feature-card-back {
+  background-color: hsl(var(--card) / 0.2);
+  border: 2px solid hsl(var(--foreground) / 0.3);
 }
