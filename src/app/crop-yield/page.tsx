@@ -80,25 +80,27 @@ export default function CropYieldPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           Leverage AI to forecast your harvest and optimize your strategy.
         </p>
-        <div className="mt-2 text-lg text-muted-foreground flex items-center justify-center space-x-2">
+        <div className="mt-4 text-xl text-muted-foreground flex items-center justify-center space-x-2 font-merienda">
           <span>Growing</span>
-          <RotatingText
-            texts={[
-              'knowledge.',
-              'crops.',
-              'prosperity.',
-              'India.',
-            ]}
-            mainClassName="text-muted-foreground overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center"
-            staggerFrom={'last'}
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '-120%' }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-            transition={{ type: 'spring', damping: 30, stiffness: 400 }}
-            rotationInterval={2000}
-          />
+          <div className="w-48">
+            <RotatingText
+              texts={[
+                'knowledge.',
+                'crops.',
+                'prosperity.',
+                'India.',
+              ]}
+              mainClassName="text-white bg-blue-500/80 overflow-hidden py-1 px-3 justify-center rounded-md"
+              staggerFrom={'last'}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '-120%' }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5"
+              transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+            />
+          </div>
         </div>
       </div>
 

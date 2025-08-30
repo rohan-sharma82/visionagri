@@ -21,6 +21,7 @@ export default {
         headline: ['PT Sans', 'sans-serif'],
         display: ['Chicle', 'cursive'],
         margarine: ['Margarine', 'cursive'],
+        merienda: ['Merienda', 'cursive'],
         code: ['monospace'],
       },
       colors: {
