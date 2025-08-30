@@ -14,9 +14,20 @@ import { Textarea } from '@/components/ui/textarea';
 import { Loader2, Sparkles, User, Bot, Trash2, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 import JumpingDotsLoader from '@/components/ui/jumping-dots-loader';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 const formSchema = z.object({
   query: z.string().min(10, 'Please ask a more detailed question.'),
@@ -39,24 +50,27 @@ export default function AiFarmerPage() {
     defaultValues: { query: '' },
   });
 
-  // Load messages from localStorage on initial render
+  // Load messages and location from localStorage on initial render
   useEffect(() => {
     try {
       const savedMessages = localStorage.getItem('ai-farmer-messages');
       if (savedMessages) {
         setMessages(JSON.parse(savedMessages));
       }
-    } catch (error) {
-      console.error("Failed to load messages from localStorage", error);
-    }
-    
-    if (!location) {
-      const loc = window.prompt("To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):");
-      if (loc) {
-        setLocation(loc);
+      
+      const savedLocation = localStorage.getItem('ai-farmer-location');
+      if (savedLocation) {
+        setLocation(savedLocation);
+      } else {
+        const loc = window.prompt("To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):");
+        if (loc) {
+          setLocation(loc);
+          localStorage.setItem('ai-farmer-location', loc);
+        }
       }
+    } catch (error) {
+      console.error("Failed to load from localStorage", error);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Save messages to localStorage whenever they change
@@ -129,10 +143,26 @@ export default function AiFarmerPage() {
 
        <div className="flex justify-start mb-4">
           {messages.length > 0 && (
-             <button onClick={handleClearChat} className="clear-chat-button">
-                <Trash2 className="h-4 w-4 mr-2" />
-                Clear Chat
-              </button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <button className="clear-chat-button">
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  Clear Chat
+                </button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete your current chat history.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleClearChat}>Continue</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           )}
         </div>
 
@@ -140,7 +170,7 @@ export default function AiFarmerPage() {
       <div className="flex-1 flex flex-col bg-card border rounded-xl shadow-lg overflow-hidden">
         <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
           <div className="space-y-6">
-            {messages.length === 0 && (
+            {messages.length === 0 && !isLoading && (
               <div className="text-center text-muted-foreground p-8 flex flex-col items-center justify-center h-full">
                 <Sparkles className="mx-auto h-12 w-12 text-muted-foreground/50" />
                 <p className="mt-4 text-lg">Ask me anything about farming!</p>
@@ -236,7 +266,7 @@ export default function AiFarmerPage() {
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <span><Send /></span>
+                  <span><Send className="text-black" /></span>
                 )}
               </button>
             </form>
