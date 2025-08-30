@@ -86,7 +86,7 @@ export default function CropYieldPage() {
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-4 farm-data-form"
             >
-              <h2 className="form-label">Farm Data</h2>
+              <h2 className="form-label font-margarine">Get Crop Yield Prediction</h2>
               <FormField
                 control={form.control}
                 name="cropType"

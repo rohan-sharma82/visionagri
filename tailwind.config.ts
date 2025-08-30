@@ -20,6 +20,7 @@ export default {
         body: ['PT Sans', 'sans-serif'],
         headline: ['PT Sans', 'sans-serif'],
         display: ['Chicle', 'cursive'],
+        margarine: ['Margarine', 'cursive'],
         code: ['monospace'],
       },
       colors: {
