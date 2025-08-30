@@ -112,7 +112,7 @@ export default function AreaInfoDialog() {
                       <div key={fert.name}>
                         <p>
                           <strong className="text-foreground">{fert.name}:</strong>{' '}
-                          {fert.description}
+                          <span className="whitespace-pre-wrap">{fert.description}</span>
                         </p>
                         <Separator className="my-2" />
                       </div>
