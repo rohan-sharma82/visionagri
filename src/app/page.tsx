@@ -37,11 +37,11 @@ export default function Home() {
         </defs>
       </svg>
       <section className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex items-center justify-center p-4 md:p-8 shadow-inner">
-        <div className="absolute top-[30%] left-1/4 -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
+        <div className="absolute top-[30%] left-[15%] -translate-y-1/2 z-10 bg-card rounded-full p-4 shadow-lg">
           <User className="h-24 w-24 md:h-32 md:w-32 text-muted-foreground" />
         </div>
 
-        <div className="absolute top-[30%] left-[calc(25%_+_8rem)] -translate-y-1/2 z-0 w-[calc(50%-15rem)] lg:w-[calc(50%-18rem)]">
+        <div className="absolute top-[30%] left-[calc(15%_+_8rem)] -translate-y-1/2 z-0 w-[calc(70%-16rem)]">
           <svg
             width="100%"
             height="4"
@@ -58,7 +58,7 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="absolute top-[30%] right-1/4 -translate-y-1/2 z-10">
+        <div className="absolute top-[30%] right-[15%] -translate-y-1/2 z-10">
           <h1 className="text-5xl md:text-8xl font-bold text-primary font-headline animate-pulse">
             AI
           </h1>
