@@ -12,22 +12,22 @@ export const featuresData = [
     {
         title: 'Crop Yield Prediction',
         description: 'Leverage AI to forecast your harvest and optimize your strategy.',
-        imageUrl: 'https://picsum.photos/seed/wheat-field/300/200',
-        dataAiHint: 'wheat field',
+        imageUrl: 'https://picsum.photos/seed/crop/300/200',
+        dataAiHint: 'crop field',
         href: '/crop-yield'
     },
     {
         title: 'AI Farmer Assistant',
         description: 'Your personal agricultural expert, available 24/7.',
-        imageUrl: '/images/ai-farmer-illustration.png',
-        dataAiHint: 'farmer technology',
+        imageUrl: 'https://picsum.photos/seed/chatbot/300/200',
+        dataAiHint: 'chatbot illustration',
         href: '/ai-farmer'
     },
     {
         title: 'Disease Classification',
         description: 'Upload an image of a crop leaf to detect diseases early.',
         imageUrl: 'https://picsum.photos/seed/diseased-crop/300/200',
-        dataAiHint: 'plant disease',
+        dataAiHint: 'diseased crop',
         href: '/disease-classification'
     },
     {
