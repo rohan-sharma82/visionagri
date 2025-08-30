@@ -232,7 +232,7 @@ export default function CropYieldPage() {
           {!isLoading && !prediction && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
                 <TrendingUp className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">Your yield prediction will appear here.</p>
+                <p className="mt-4 text-lg">AI is ready to calculate your harvest — just hit predict.</p>
               </div>
           )}
         </div>
