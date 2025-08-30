@@ -2,11 +2,11 @@
 export const fertilizerExplanations = [
     {
       name: "Urea",
-      description: "A high-concentration nitrogen fertilizer (46% N). It helps plants grow fast, makes them green, and increases leaf and stem growth. Note: If not managed well, some nitrogen can be lost, so it must be used carefully."
+      description: "A high-concentration nitrogen fertilizer (46% N). It helps plants grow fast, makes them green, and increases leaf and stem growth. Note: If not managed well, some nitrogen can escape into the air or water, so it must be used carefully."
     },
     {
       name: "Diammonium Phosphate (DAP)",
-      description: "Contains both nitrogen (18%) for growth and greenness, and phosphorus (46%) for strong roots, flowers, and fruits. It dissolves quickly, so plants can use it fast."
+      description: "Contains both nitrogen (18%) for growth and greenness, and phosphorus (46%) for strong roots, better flowers, and fruits. It dissolves quickly, so plants can use it fast."
     },
     {
       name: "Muriate of Potash (MOP)",
