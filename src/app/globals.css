@@ -420,7 +420,6 @@
   border: 2px solid #fff;
   background: rgba(173, 255, 173, 0.486); /* lighter green */
   box-shadow: 0px 0px 1px 3px #b4eeb4 inset, 0px 4px 4px 0px #18601a40; /* light green glow */
-  text-shadow: 0px 1px 4px rgb(20, 20, 20);
 }
 
 .farm-data-form .form-content:focus-visible {
@@ -438,7 +437,6 @@
   font-weight: 300;
   color: black;
   letter-spacing: 0.1rem;
-  text-shadow: 0px 1px 5px rgb(66, 66, 66);
 }
 
 .farm-data-form button {
