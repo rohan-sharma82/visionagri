@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <header className="relative w-full py-4 flex items-center justify-between px-4">
-        <div className="absolute top-1/2 -translate-y-1/2 left-4">
+        <div className="absolute top-6 -translate-y-1/2 left-4 scale-90">
             <LanguageSwitcher onLanguageChange={setLanguage} />
         </div>
         <div className="flex-1 flex justify-center">
