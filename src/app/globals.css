@@ -1147,18 +1147,6 @@
   transition: color 700ms cubic-bezier(0.83, 0, 0.17, 1);
 }
 
-.slice::after {
-  content: "";
-  width: 0;
-  height: calc(300% + 1em);
-  position: absolute;
-  translate: -50% -50%;
-  inset: 50%;
-  rotate: 30deg;
-  background-color: var(--c2);
-  transition: 1000ms cubic-bezier(0.83, 0, 0.17, 1);
-}
-
 .slice:hover > .text {
   color: var(--c1);
 }
@@ -1253,4 +1241,15 @@
 
 .card5:hover .card5-content {
   transform: translate(-50%, -50%) scale(0.95);
+}
+
+.card-date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  background-color: hsla(var(--card) / 0.7);
+  padding: 2px 6px;
+  border-radius: 4px;
 }

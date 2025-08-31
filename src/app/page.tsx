@@ -137,6 +137,7 @@ export default function Home() {
               >
                 <div className="card5">
                   <div className="card5-content">
+                    <div className="card-date">{news.date}</div>
                     <div className='flex flex-col items-center justify-center h-full'>
                       <span className="card-title">{news.title}</span>
                       <p className="card-description">{news.snippet}</p>
