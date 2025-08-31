@@ -1,3 +1,4 @@
+
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -43,7 +44,6 @@ export default function Header() {
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
-            <LanguageSwitcher />
             <ThemeToggle />
             <Sheet>
               <SheetTrigger asChild>
@@ -68,10 +68,16 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                  <div className="pt-4">
+                    <LanguageSwitcher />
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
         </div>
+      </div>
+      <div className="container hidden md:flex justify-center py-2 border-t border-border/40">
+        <LanguageSwitcher />
       </div>
     </header>
   );
