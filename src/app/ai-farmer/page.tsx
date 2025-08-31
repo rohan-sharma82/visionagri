@@ -364,7 +364,7 @@ export default function AiFarmerPage() {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 h-[calc(100vh-109px)] flex flex-col pt-0">
+      <div className="container mx-auto px-4 h-[calc(100vh-109px)] flex flex-col pt-8">
         <div className="text-center mb-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">{t('aiFarmer.title')}</h1>
           <p className="mt-2 text-lg text-muted-foreground">
