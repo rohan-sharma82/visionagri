@@ -40,7 +40,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 - **Frontend:** Next.js, React, Tailwind CSS, ShadCN UI (for modern, responsive components)
 - **AI & Backend:** Google Genkit, Google AI Platform (Gemini for vision and language models)
 - **Database/Storage:** (Implicitly handled by platform, can be expanded to Firebase Firestore if needed)
-- **Hosting:** Firebase App Hosting (for scalable, serverless deployment)
+- **Hosting:** Vercel (for optimized Next.js deployment)
 - **APIs:** WeatherAPI for real-time weather data.
 
 **Methodology & Flowchart:**
@@ -66,7 +66,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 ### **Slide 4: Feasibility & Viability**
 
 **Analysis of Feasibility:**
-- **Technical Feasibility:** The tech stack (Next.js, Genkit, Firebase) is modern, well-documented, and designed for scalability. The use of managed services reduces infrastructure overhead.
+- **Technical Feasibility:** The tech stack (Next.js, Genkit, Vercel) is modern, well-documented, and designed for scalability. The use of managed services reduces infrastructure overhead.
 - **Economic Feasibility:** The operational cost is low due to the serverless architecture. The platform can be offered on a freemium model, with premium features for larger agricultural enterprises.
 - **Operational Feasibility:** The multilingual and voice-enabled interface ensures the platform is usable by the target demographic with minimal training.
 
