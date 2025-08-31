@@ -108,13 +108,13 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 ### **Slide 6: Research & References**
 
 - **Datasets:**
-  - PlantVillage Dataset (for disease classification model training).
-  - Government of India's open data portals (for schemes and agricultural statistics).
-- **Research Papers:**
-  - "A Survey on AI-based Crop Disease Detection" - (Link to relevant paper).
-  - "Deep Learning for Crop Yield Prediction" - (Link to relevant paper).
-- **APIs and Services:**
-  - Google Genkit Documentation: [https://firebase.google.com/docs/genkit](https://firebase.google.com/docs/genkit)
-  - WeatherAPI: [https://www.weatherapi.com/](https://www.weatherapi.com/)
+  -  Crop Diseases Classification Dataset (for disease classification model training).
+    - Government of India's open data portals (for schemes and agricultural statistics)(Data.gov.in,https://agriwelfare.gov.in/).
+    - **References:**
+      - "Image-based crop disease detection using machine learning" - (https://bsppjournals.onlinelibrary.wiley.com/doi/10.1111/ppa.14006).
+        - "Machine Learning for Crop Yield Prediction" - (https://link.springer.com/article/10.1007/s00521-024-10226-x).
+        - **APIs and Services:**
+          - Google Genkit Documentation: [https://firebase.google.com/docs/genkit](https://firebase.google.com/docs/genkit)
+            - WeatherAPI: [https://www.weatherapi.com/](https://www.weatherapi.com/)
 
 **Mission: Smarter Fields, Better Yields.**
