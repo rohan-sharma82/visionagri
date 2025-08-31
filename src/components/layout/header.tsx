@@ -11,6 +11,8 @@ import { Button } from '@/components/ui/button';
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import LanguageSwitcher from '../language-switcher';
@@ -58,6 +60,9 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
+                <SheetHeader className="text-left">
+                  <SheetTitle className="sr-only">Navigation</SheetTitle>
+                </SheetHeader>
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
                     <Link
