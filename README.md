@@ -37,11 +37,22 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 ### **Slide 3: Technical Approach**
 
 **Technologies Used:**
-- **Frontend:** Next.js, React, Tailwind CSS, ShadCN UI (for modern, responsive components)
-- **AI & Backend:** Google Genkit, Google AI Platform (Gemini for vision and language models)
-- **Database/Storage:** (Implicitly handled by platform, can be expanded to Firebase Firestore if needed)
-- **Hosting:** Vercel (for optimized Next.js deployment)
-- **APIs:** WeatherAPI for real-time weather data.
+- **Frontend:**
+  - **Next.js & React:** Chosen for its high-performance, server-first approach. We leverage Next.js App Router and Server Components to minimize client-side JavaScript, ensuring the app is fast and responsive even on low-bandwidth connections common in rural areas.
+  - **Tailwind CSS & ShadCN UI:** This combination allows for rapid development of a modern, accessible, and aesthetically pleasing user interface. ShadCN provides a library of pre-built, customizable components that accelerate UI development.
+
+- **AI & Backend:**
+  - **Google Genkit:** The core of our AI backend. Genkit enables us to create robust, observable, and tool-enabled AI flows. It orchestrates calls to various models and external APIs (like the WeatherAPI), making our AI agents more powerful and grounded in real-world data.
+  - **Google AI Platform (Gemini Models):** We use the powerful Gemini family of models for their state-of-the-art multi-modal capabilities, handling everything from complex reasoning for the AI Farmer Assistant to image analysis for disease and animal classification.
+
+- **Database/Storage:**
+  - Implicitly handled by the platform for now, with a clear path to expand to **Firebase Firestore** for scalable, real-time data storage as the user base grows.
+
+- **Hosting:**
+  - **Vercel:** The ideal platform for deploying Next.js applications. Vercel provides a seamless CI/CD pipeline, global CDN, and serverless functions, ensuring our application is scalable, reliable, and performant worldwide.
+
+- **APIs:**
+  - **WeatherAPI:** Used as a Genkit Tool to provide real-time, location-specific weather data, making our AI's advice more accurate and context-aware.
 
 **Methodology & Flowchart:**
 
