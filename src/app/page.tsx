@@ -98,15 +98,15 @@ export default function Home() {
           </filter>
         </defs>
       </svg>
-      <section ref={containerRef} className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex items-center justify-center p-4 md:p-8 shadow-inner">
+      <section ref={containerRef} className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex justify-center p-4 md:p-8 pt-16 shadow-inner">
 
-        <div className="flex w-full items-stretch justify-between gap-10 h-full max-w-lg">
-          <div className="flex flex-col justify-center items-center">
+        <div className="flex w-full items-stretch justify-between gap-10 max-w-lg">
+          <div className="flex flex-col justify-start items-center">
              <Circle ref={userIconRef}>
               <Icons.user />
             </Circle>
           </div>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-start items-center">
             <Circle ref={aiIconRef}>
               <Icons.openai />
             </Circle>
