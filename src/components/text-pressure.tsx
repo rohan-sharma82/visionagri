@@ -22,7 +22,7 @@ const TextPressure = ({
   className = '',
 
   minFontSize = 24,
-
+  maxFontSize,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -77,6 +77,10 @@ const TextPressure = ({
     const { width: containerW, height: containerH } = containerRef.current.getBoundingClientRect();
 
     let newFontSize = containerW / (chars.length / 2);
+    
+    if (maxFontSize) {
+      newFontSize = Math.min(newFontSize, maxFontSize);
+    }
     newFontSize = Math.max(newFontSize, minFontSize);
 
     setFontSize(newFontSize);
@@ -100,7 +104,7 @@ const TextPressure = ({
     window.addEventListener('resize', setSize);
     return () => window.removeEventListener('resize', setSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scale, text]);
+  }, [scale, text, maxFontSize]);
 
   useEffect(() => {
     let rafId: number;
@@ -148,7 +152,7 @@ const TextPressure = ({
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full overflow-hidden bg-transparent"
+      className={`relative w-full h-full overflow-hidden bg-transparent ${className}`}
     >
       <style>{`
         @font-face {
@@ -174,7 +178,7 @@ const TextPressure = ({
 
       <h1
         ref={titleRef}
-        className={`text-pressure-title ${className} ${flex ? 'flex justify-between' : ''
+        className={`text-pressure-title ${flex ? 'flex justify-between' : ''
           } ${stroke ? 'stroke' : ''} uppercase text-center`}
         style={{
           fontFamily,
