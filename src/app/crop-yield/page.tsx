@@ -1,6 +1,6 @@
 
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -29,7 +29,7 @@ import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
 import Header from '@/components/layout/header';
-import { useTranslation } from '@/hooks/use-translation';
+import { useTranslation, useLocation } from '@/hooks/use-translation';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -41,6 +41,7 @@ const formSchema = z.object({
 
 export default function CropYieldPage() {
   const { t } = useTranslation();
+  const { location } = useLocation();
   const [prediction, setPrediction] = useState<PredictCropYieldOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -50,11 +51,17 @@ export default function CropYieldPage() {
     defaultValues: {
       cropType: '',
       soilType: '',
-      location: '',
+      location: location || '',
       fertilizerUse: '',
       irrigationMethod: '',
     },
   });
+
+  useEffect(() => {
+    if (location) {
+        form.setValue('location', location);
+    }
+  }, [location, form])
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);

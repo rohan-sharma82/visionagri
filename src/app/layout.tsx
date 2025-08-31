@@ -5,7 +5,8 @@ import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import Galaxy from '@/components/galaxy';
-import { TranslationProvider } from '@/hooks/use-translation';
+import { AppProvider } from '@/hooks/use-app-provider';
+import LocationDialog from '@/components/location-dialog';
 
 export const metadata: Metadata = {
   title: 'AgriVision AI',
@@ -32,13 +33,14 @@ export default function RootLayout({
           'min-h-screen bg-background font-body antialiased',
         )}
       >
-        <TranslationProvider>
+        <AppProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
+            <LocationDialog />
             <Galaxy transparent={false} className="fixed inset-0 -z-10" />
             {/* SVG filters for gooey and glow effects */}
             <svg style={{ position: 'absolute', width: 0, height: 0 }}>
@@ -67,7 +69,7 @@ export default function RootLayout({
             </div>
             <Toaster />
           </ThemeProvider>
-        </TranslationProvider>
+        </AppProvider>
       </body>
     </html>
   );

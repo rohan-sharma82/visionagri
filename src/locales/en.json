@@ -482,5 +482,13 @@
                 "description": "Could not analyze the image. Please try another one."
             }
         }
+    },
+    "locationDialog": {
+        "title": "Enter Your Location",
+        "description": "If you want better results, enter your location for fetching today's weather data.",
+        "label": "Location",
+        "placeholder": "e.g., Delhi, India",
+        "ok": "OK",
+        "later": "Later"
     }
 }

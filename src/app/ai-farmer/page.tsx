@@ -30,7 +30,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Header from '@/components/layout/header';
-import { useTranslation } from '@/hooks/use-translation';
+import { useTranslation, useLocation } from '@/hooks/use-translation';
 
 const formSchema = z.object({
   query: z.string().min(1, 'Please ask a question.'),
@@ -119,9 +119,9 @@ const AssistantMessage = ({ message, isTyping }: { message: Message, isTyping: b
 
 export default function AiFarmerPage() {
   const { t } = useTranslation();
+  const { location } = useLocation();
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [location, setLocation] = useState<string | null>(null);
   const { toast } = useToast();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const [loadingMessage, setLoadingMessage] = useState('');
@@ -151,28 +151,18 @@ export default function AiFarmerPage() {
     defaultValues: { query: '' },
   });
 
-  // Load messages and location from localStorage on initial render
+  // Load messages from localStorage on initial render
   useEffect(() => {
     try {
       const savedMessages = localStorage.getItem('ai-farmer-messages');
       if (savedMessages) {
         setMessages(JSON.parse(savedMessages));
       }
-      
-      const savedLocation = localStorage.getItem('ai-farmer-location');
-      if (savedLocation) {
-        setLocation(savedLocation);
-      } else {
-        const loc = window.prompt(t('aiFarmer.locationPrompt'));
-        if (loc) {
-          setLocation(loc);
-          localStorage.setItem('ai-farmer-location', loc);
-        }
-      }
     } catch (error) {
-      console.error("Failed to load from localStorage", error);
+      console.error("Failed to load messages from localStorage", error);
     }
-  }, [t]);
+  }, []);
+
 
   // Save messages to localStorage whenever they change
   useEffect(() => {
