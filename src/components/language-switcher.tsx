@@ -33,8 +33,8 @@ export default function LanguageSwitcher() {
         <DropdownMenuItem onSelect={() => handleLanguageChange('en')}>
           English
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('hi')}>
-          हिंदी (Hindi)
+        <DropdownMenuItem onSelect={() => handleLanguageChange('pa')}>
+          ਪੰਜਾਬੀ (Punjabi)
         </DropdownMenuItem>
         <DropdownMenuItem onSelect={() => handleLanguageChange('ta')}>
           தமிழ் (Tamil)
