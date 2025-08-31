@@ -123,7 +123,7 @@ export default function Home() {
 
   return (
     <>
-    <Header onLanguageChange={handleLanguageChange} />
+    <Header onLanguageChange={handleLanguageChange} showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 pt-8">
       {/* SVG filter for gooey effect */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>

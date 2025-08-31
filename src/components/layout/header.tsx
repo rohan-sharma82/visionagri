@@ -22,7 +22,7 @@ interface HeaderProps {
   showLanguageSwitcher?: boolean;
 }
 
-export default function Header({ onLanguageChange, showLanguageSwitcher = true }: HeaderProps) {
+export default function Header({ onLanguageChange, showLanguageSwitcher = false }: HeaderProps) {
   const pathname = usePathname();
 
   return (
@@ -60,7 +60,7 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
-                <SheetHeader className="text-left">
+                <SheetHeader>
                   <SheetTitle className="sr-only">Navigation</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col space-y-4 mt-8">
