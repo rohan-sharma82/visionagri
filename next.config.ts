@@ -87,6 +87,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.gyan.bharatagri.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.imgur.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
