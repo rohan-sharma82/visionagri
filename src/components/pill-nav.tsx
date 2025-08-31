@@ -11,7 +11,7 @@ const PillNav = ({
   ease = "power3.easeOut",
   baseColor = "hsl(var(--foreground))",
   pillColor = "hsl(var(--background))",
-  hoveredPillTextColor = "hsl(var(--foreground))",
+  hoveredPillTextColor = "hsl(var(--background))",
   pillTextColor,
   initialLoadAnimation = true,
 }) => {
