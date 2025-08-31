@@ -67,3 +67,27 @@ Furthermore, our choice of a serverless architecture with **Next.js and Vercel**
 3.  **User Feedback Loop:** This is the most critical component for long-term accuracy. We will implement a simple feedback mechanism (e.g., a "Was this helpful?" thumbs up/down) on AI responses. For disease classification, we can ask farmers to confirm the diagnosis later. This feedback will be invaluable for:
     *   **Fine-tuning:** In the future, this collected and anonymized data can be used to fine-tune specialized models for specific regions or crop types, continuously improving their accuracy.
 4.  **Confidence Scores:** We always display a **confidence level** with our predictions. This is crucial for transparency. We are not positioning the app as an infallible oracle but as an intelligent assistant. A low confidence score would prompt the user to seek a second opinion from a local expert, mitigating the risk of an incorrect diagnosis.
+
+---
+
+### **5. Future Vision & Roadmap**
+
+**Q: This is an impressive prototype. Where do you see AgriVision AI going from here? What are the key features on your future roadmap, and how would you implement them?**
+
+**A:** Thank you. We see the current application as a powerful foundation, and our roadmap is focused on making it an even more indispensable tool for farmers. Our vision is to evolve from a set of tools into a proactive, personalized, and community-driven agricultural ecosystem.
+
+Here are our key roadmap pillars:
+
+1.  **Deeper Personalization & Historical Tracking:**
+    *   **Farmer Profiles:** We plan to introduce user authentication where farmers can create a profile and save their farm's data (location, primary crops, soil tests, etc.). This would eliminate repetitive data entry and create a personalized dashboard.
+    *   **Historical Analysis:** Once we have profiles, we can track data over seasons. A farmer could see their yield prediction history, past disease reports, and AI advice, allowing them to identify trends and make better long-term decisions. This would likely be implemented using a scalable NoSQL database like **Firebase Firestore**.
+
+2.  **Advanced AI & Predictive Capabilities:**
+    *   **Market Price Forecasting:** We will develop a new Genkit flow that analyzes historical market data (from public APIs) to provide short-term price forecasts. This would help farmers decide the most profitable time to sell their produce.
+    *   **Fine-Tuned Regional Models:** Leveraging the user feedback loop, we plan to collect anonymized image data for crop diseases. This dataset would be used to fine-tune a specialized Gemini vision model, making it hyper-accurate for specific agro-climatic zones in India.
+
+3.  **Enhanced Accessibility & Community:**
+    *   **Offline-First Mode:** As discussed, this is a top priority. We'll use service workers and client-side storage (like IndexedDB) to cache news, schemes, and previous conversations, making the app functional even with intermittent connectivity.
+    *   **Community Forum:** We envision a built-in community forum where farmers can connect with each other, share advice, and validate AI recommendations. A farmer could post a photo of a pest, and other experienced farmers in the region could weigh in, creating a powerful blend of AI and human expertise.
+
+By focusing on these areas, we believe AgriVision AI can grow from a powerful assistant into a trusted partner for farmers, directly contributing to more productive, profitable, and sustainable agriculture across India.
