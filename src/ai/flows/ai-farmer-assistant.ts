@@ -42,7 +42,7 @@ const prompt = ai.definePrompt({
 {{{query}}}
 
 {{#if location}}
-The user is located in {{{location}}}. Use the getWeatherForLocation tool to get the current weather and factor it into your advice. For example, if it's raining, you might advise against certain activities.
+The user is located in {{{location}}}. Only if a location is provided, use the getWeatherForLocation tool to get the current weather and factor it into your advice. For example, if it's raining, you might advise against certain activities.
 {{/if}}
 
 Provide helpful and practical advice to the farmer. Focus on providing specific, actionable steps the farmer can take to improve their farming practices. Return the advice in a concise and easy-to-understand manner.`,
