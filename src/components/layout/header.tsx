@@ -27,7 +27,7 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
   const pathname = usePathname();
 
   return (
-    <header className="relative w-full border-b border-border/40 bg-background/95 h-24 flex items-center justify-center">
+    <header className="relative w-full py-4 flex items-center justify-center">
         <PillNav
             items={navLinks}
             activeHref={pathname}
