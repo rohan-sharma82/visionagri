@@ -1642,3 +1642,23 @@
   background-color: var(--base);
   color: var(--hover-text, hsl(var(--background)));
 }
+
+.farm-school-page {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-image: url('/images/tractor.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.farm-school-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px); /* 60% blur is a bit tricky, 10px is a good start */
+}

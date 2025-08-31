@@ -48,7 +48,7 @@ const baseFeaturesData = [
         title: 'features.farmSchool.title',
         imageUrl: '/images/farmschool.jpeg',
         dataAiHint: 'farm school education',
-        href: '#', // The dialog is handled on the page, so no specific page needed yet
+        href: '/farm-school',
         description: 'features.farmSchool.description'
     }
 ];

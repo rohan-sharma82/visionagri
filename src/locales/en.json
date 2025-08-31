@@ -54,7 +54,8 @@
     "farmSchool": {
         "button": "Farm School",
         "title": "Welcome to Farm School!",
-        "description": "Gain knowledge about farming essentials. Click on a topic to learn more (functionality coming soon).",
+        "description": "Explore all our features in one place.",
+        "backToHome": "Back to Home",
         "tools": {
             "title": "Tools",
             "description": "Learn about essential farming tools and machinery."
