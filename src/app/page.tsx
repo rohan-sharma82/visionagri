@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from 'react';
 import { User } from 'lucide-react';
@@ -136,7 +137,7 @@ export default function Home() {
               >
                 <div className="card5">
                   <div className="card5-content">
-                    <div>
+                    <div className='flex flex-col items-center justify-center h-full'>
                       <span className="card-title">{news.title}</span>
                       <p className="card-description">{news.snippet}</p>
                     </div>
@@ -152,7 +153,7 @@ export default function Home() {
           </div>
 
           {selectedNews && (
-            <DialogContent className="max-w-2xl h-[70vh]">
+            <DialogContent className="max-w-4xl h-[80vh]">
               <DialogHeader>
                 <DialogTitle>{selectedNews.title}</DialogTitle>
                 <DialogDescription>
