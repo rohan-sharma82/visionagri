@@ -36,8 +36,8 @@ const Icons = {
     <Image
       src="/ai photo.png"
       alt="AI Icon"
-      width={48}
-      height={48}
+      width={60}
+      height={60}
       className="h-full w-full rounded-full object-cover"
       data-ai-hint="ai logo"
     />
@@ -46,8 +46,8 @@ const Icons = {
     <Image
       src="/images/farmers.png"
       alt="Farmer Icon"
-      width={48}
-      height={48}
+      width={60}
+      height={60}
       className="h-full w-full rounded-full object-cover"
       data-ai-hint="farmer icon"
     />
@@ -62,7 +62,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-24 items-center justify-center rounded-full border-2 bg-card p-0 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] overflow-hidden",
+        "z-10 flex size-28 items-center justify-center rounded-full border-2 bg-card p-0 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] overflow-hidden",
         className,
       )}
     >
