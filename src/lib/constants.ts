@@ -155,7 +155,22 @@ For more details visit PM KISAN portal.`,
     name: 'Pradhan Mantri Fasal Bima Yojana',
     shortName: 'PM fasal Yojna',
     shortDescription: 'Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.',
-    description: 'The scheme provides insurance coverage and financial support to the farmers in the event of failure of any of the notified crop as a result of natural calamities, pests & diseases.',
+    description: `The Pradhan Mantri Fasal Bima Yojana (PMFBY) is a crop insurance scheme launched by the Government of India in 2016. The scheme aims to provide financial protection to farmers against crop losses due to natural calamities, pests, and diseases.
+
+The scheme is mandatory for all farmers cultivating notified crops in notified areas. The premium for the scheme is shared between the government and the farmers. The government bears 50% of the premium for small and marginal farmers, while the farmers bear the remaining 50%.
+
+The scheme provides coverage against crop losses due to drought, flood, hailstorm, cyclone, pests, and disease. The scheme also provides coverage against post-harvest losses due to fire, theft, and other unforeseen events.
+
+The scheme is administered by the National Agricultural Insurance Company (NIAC) and its subsidiaries. The scheme has been well-received by farmers and has helped to reduce their vulnerability to crop losses.
+
+Here are some of the benefits of the PMFBY scheme:
+
+It provides financial protection to farmers against crop losses due to natural calamities, pests, and diseases.
+It helps to reduce farmers' vulnerability to crop losses.
+It helps to improve the income of farmers.
+It helps to stabilize the agricultural sector.
+It helps to promote sustainable agriculture.
+The PMFBY scheme is a major step towards ensuring food security in India. The scheme has helped to reduce farmers' vulnerability to crop losses and has helped to improve their income. The scheme is a major boost to the agricultural sector and is helping to promote sustainable agriculture.`,
     imageUrl: 'https://ik.imagekit.io/tractorkarvan/tr:f-webp/images/Articles/pradhan-mantri-fasal-bima-yojana/pradhan-Mantri-Fasal-Bima-Hindi-Blog1.jpg',
     dataAiHint: 'crop insurance',
     url: '#',
