@@ -17,11 +17,12 @@ import {
 } from '@/components/ui/sheet';
 import PillNav from '../pill-nav';
 import { useTranslation } from '@/hooks/use-translation';
+import LanguageSwitcher from '../language-switcher';
 
 
 export default function Header() {
   const pathname = usePathname();
-  const { t } = useTranslation();
+  const { t, setLanguage } = useTranslation();
 
   const translatedNavLinks = navLinks.map(link => ({
     ...link,
@@ -40,6 +41,7 @@ export default function Header() {
             pillTextColor="hsl(var(--foreground))"
         />
         <div className="absolute top-1/2 -translate-y-1/2 right-4 flex items-center space-x-2">
+            <LanguageSwitcher onLanguageChange={setLanguage} />
             <ThemeToggle />
         </div>
     </header>

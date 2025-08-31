@@ -19,7 +19,6 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnimatedBeam } from '@/components/magicui/animated-beam';
 import { cn } from '@/lib/utils';
-import LanguageSwitcher from '@/components/language-switcher';
 import Header from '@/components/layout/header';
 import FarmSchoolDialog from '@/components/farm-school-dialog';
 import { useTranslation } from '@/hooks/use-translation';
@@ -79,7 +78,7 @@ Circle.displayName = "Circle";
 
 
 export default function Home() {
-  const { t, setLanguage } = useTranslation();
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
 
@@ -91,7 +90,7 @@ export default function Home() {
   const translatedNewsCategories = newsCategories.map(c => t(c));
 
   const filteredNews: NewsArticle[] =
-    selectedCategory === 'All Categories' || selectedCategory === t('All Categories')
+    selectedCategory === 'All Categories' || selectedCategory === t('categories.all')
       ? translatedNewsData
       : translatedNewsData.filter((news) => t(news.category) === selectedCategory);
 
@@ -159,7 +158,6 @@ export default function Home() {
 
       <section className="my-16 flex justify-center gap-4">
         <FarmSchoolDialog />
-        <LanguageSwitcher onLanguageChange={setLanguage} />
       </section>
       
       <section className="mt-16">

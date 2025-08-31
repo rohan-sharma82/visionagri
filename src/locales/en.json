@@ -317,7 +317,7 @@
             "name": "E-NAM (National Agriculture Market)",
             "shortName": "E-NAM",
             "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
-            "description": "🌾 National Agriculture Market (eNAM)\n\neNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities. It was launched on April 14, 2016, by the Ministry of Agriculture and Farmers’ Welfare, Government of India, with the Small Farmers Agribusiness Consortium (SFAC) as the lead implementing agency.\n\n🎯 Vision\n\nTo promote uniformity in agricultural marketing by streamlining procedures across integrated markets.\n\nTo remove information gaps between buyers and sellers.\n\nTo enable real-time price discovery based on actual demand and supply.\n\n🚀 Mission\n\nIntegration of APMCs across the country through a common online market platform.\n\nFacilitate pan-India trade in agricultural commodities.\n\nEnsure better price discovery through a transparent auction process based on quality of produce.\n\nProvide timely online payments to farmers.\n\n🌟 Key Benefits of eNAM\n\n✅ Real-time price discovery based on demand & supply\n✅ Reduced transaction costs for farmers, traders, and buyers\n✅ Wider market access beyond local mandis\n✅ Transparent & accountable trading process\n✅ Improved mandi infrastructure and facilities\n✅ Faster payments through online system\n\n📊 eNAM in Numbers (as of March 8, 2023)\n\n1,260 mandis onboarded across 22 states & 3 union territories\n\nTrade facilitated: 120+ million MT of commodities\n\nValue of trade: ₹1.2 trillion+\n\n🛠 Key Features\n\nA single-window platform for all APMC-related information and services.\n\nOnline trading of agricultural commodities.\n\nTransparent auctions based on quality.\n\nBetter market linkages for farmers across India.\n\n🏬 India’s Largest Agriculture Market\n\nThe Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesale turmeric market in the world and one of the biggest agricultural markets in India.\n\n✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency."
+            "description": "🌾 National Agriculture Market (eNAM)\n\neNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities. It was launched on April 14, 2016, by the Ministry of Agriculture and Farmers’ Welfare, Government of India, with the Small Farmers Agribusiness Consortium (SFAC) as the lead implementing agency.\n\n🎯 Vision\n\nTo promote uniformity in agricultural marketing by streamlining procedures across integrated markets.\n\nTo remove information gaps between buyers and sellers.\n\nTo enable real-time price discovery based on actual demand and supply.\n\n🚀 Mission\n\nIntegration of APMCs across the country through a common online market platform.\n\nTo facilitate pan-India trade in agricultural commodities.\n\nTo ensure better price discovery through a transparent auction process based on quality of produce.\n\nTo provide timely online payments to farmers.\n\n🌟 Key Benefits of eNAM\n\n✅ Real-time price discovery based on demand & supply\n✅ Reduced transaction costs for farmers, traders, and buyers\n✅ Wider market access beyond local mandis\n✅ Transparent & accountable trading process\n✅ Improved mandi infrastructure and facilities\n✅ Faster payments through online system\n\n📊 eNAM in Numbers (as of March 8, 2023)\n\n1,260 mandis onboarded across 22 states & 3 union territories\n\nTrade facilitated: 120+ million MT of commodities\n\nValue of trade: ₹1.2 trillion+\n\n🛠 Key Features\n\nA single-window platform for all APMC-related information and services.\n\nOnline trading of agricultural commodities.\n\nTransparent auctions based on quality.\n\nBetter market linkages for farmers across India.\n\n🏬 India’s Largest Agriculture Market\n\nThe Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesale turmeric market in the world and one of the biggest agricultural markets in India.\n\n✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency."
         },
         "pmkmy": {
             "name": "Pradhan Mantri Kisan Maandhan Yojana",
@@ -326,84 +326,94 @@
             "description": "🌾 Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)\n\nPradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme for small and marginal farmers in India. It was launched on 12 September 2019 by Prime Minister Narendra Modi to ensure financial security for farmers in their old age.\n\n🎯 Objective\n\nTo provide a guaranteed monthly pension of ₹3,000 to small and marginal farmers after the age of 60 years.\n\n👩‍🌾 Eligibility\n\nSmall and marginal farmers with cultivable land up to 2 hectares\n\nAge group: 18 to 40 years\n\n💰 Contributions\n\nFarmers contribute a fixed amount (₹55 – ₹200 per month) depending on age.\n\nContribution continues for 20 years or until the farmer turns 60 years, whichever is earlier.\n\nGovernment matches the farmer’s contribution (up to ₹1,000/month).\n\n🏦 How to Join\n\nFarmers need to open a pension account with LIC (Life Insurance Corporation of India).\n\nLIC manages the pension funds and ensures payouts.\n\n📌 Benefits\n\n✅ Guaranteed ₹3,000 monthly pension after 60 years\n✅ Pension continues for the rest of the farmer’s life\n✅ Financial security in old age\n✅ Shared contribution between farmer & government\n\n✨ PM-KMY is a safety net for India’s small and marginal farmers, ensuring dignity and stability in their later years."
         }
     },
-    "soilTypes": {
-        "alluvial": {
-            "name": "Alluvial Soil",
-            "description": "Rich in humus and very fertile. Found in the Great Northern Plains, river valleys, and coastal plains. Suitable for a wide variety of crops like rice, wheat, sugarcane, and vegetables."
+    "aiFarmer": {
+        "title": "AI Farmer Assistant",
+        "subtitle": "Your personal agricultural expert, available 24/7.",
+        "locationPrompt": "To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):",
+        "buttons": {
+            "clearChat": "Clear Chat",
+            "stop": "Stop Generating"
         },
-        "black": {
-            "name": "Black Soil (Regur)",
-            "description": "Clayey, retains moisture. Ideal for cotton cultivation, also suitable for oilseeds, wheat, and millets. Found in the Deccan Plateau (Maharashtra, Madhya Pradesh, Gujarat)."
+        "clearChatDialog": {
+            "title": "Are you absolutely sure?",
+            "description": "This action cannot be undone. This will permanently delete your current chat history.",
+            "cancel": "Cancel",
+            "continue": "Continue"
         },
-        "red_yellow": {
-            "name": "Red and Yellow Soil",
-            "description": "Less fertile, rich in iron. Suitable for millets, pulses, and tobacco. Found in parts of the Deccan Plateau, Odisha, and Chhattisgarh. Requires fertilizers for good yields."
+        "idle": {
+            "prompt": "Ask me anything about farming!",
+            "example": "e.g., \"What are the best irrigation methods for sandy soil?\""
         },
-        "laterite": {
-            "name": "Laterite Soil",
-            "description": "Found in areas with high temperature and rainfall. Rich in iron and aluminum. Suitable for tea, coffee, rubber, and cashew nuts. Found in Western Ghats, Eastern Ghats, and parts of Assam."
+        "form": {
+            "placeholder": "Ask your farming question here..."
         },
-        "arid": {
-            "name": "Arid (Desert) Soil",
-            "description": "Sandy and saline. Low in moisture and humus. Suitable for drought-resistant crops like barley, millet, and some pulses with irrigation. Found in Western Rajasthan and parts of Gujarat."
+        "loadingMessages": {
+            "m1": "🌱 Growing your answer with AI fertilizer… please wait.",
+            "m2": "🔍 Scanning the soil of data… hold on a moment.",
+            "m3": "💡 Harvesting wisdom from the cloud… just a second.",
+            "m4": "📡 Connecting to the farming satellites… please wait.",
+            "m5": "🌱 Planting seeds of knowledge… your answer is sprouting, wait a bit.",
+            "m6": "🐄 Milking fresh answers… almost there, hold on.",
+            "m7": "📊 Counting grains before they grow… please wait.",
+            "m8": "🐓 Asking the hens for advice… they’ll reply soon, wait a moment.",
+            "m9": "🐄 Chasing cows off the keyboard… just a sec, your answer is coming.",
+            "m10": "🌾 Harvesting the right words… please wait."
         },
-        "forest_mountain": {
-            "name": "Forest and Mountain Soil",
-            "description": "Varies in composition. Generally acidic with low humus. Suitable for tea, coffee, spices, and temperate fruits. Found in the Himalayan region and other mountain areas."
-        },
-        "loamy": {
-            "name": "Loamy Soil",
-            "description": "A mix of sand, silt, and clay. Considered ideal for agriculture as it has good drainage and aeration, and retains moisture and nutrients. Suitable for most crops."
-        },
-        "sandy": {
-            "name": "Sandy Soil",
-            "description": "Large particles, poor water retention. Drains quickly and has low nutrient content. Best for crops that don't require much water, like cacti, or with heavy irrigation and fertilization."
-        },
-        "clay": {
-            "name": "Clay Soil",
-            "description": "Small particles, high water retention. Can become waterlogged. Rich in nutrients. Suitable for crops that thrive in wet conditions like rice."
+        "toast": {
+            "saveError": {
+                "title": "Could not save chat history",
+                "description": "The chat history is too large and could not be saved."
+            },
+            "adviceError": {
+                "title": "Error",
+                "description": "Failed to get advice. Please try again."
+            },
+            "chatCleared": {
+                "title": "Chat Cleared",
+                "description": "Your conversation history has been cleared."
+            },
+            "listening": "Listening...",
+            "voiceError": {
+                "title": "Voice Error",
+                "description": "Could not recognize speech: {error}"
+            },
+            "voiceNotSupported": {
+                "title": "Voice not supported",
+                "description": "Your browser does not support voice recognition."
+            }
         }
     },
-    "states": {
-        "andhra_pradesh": {
-            "name": "Andhra Pradesh",
-            "rainfall": "900 - 1100 mm",
-            "temperature": "25 - 35°C",
-            "soilTypes": "Red Soil, Black Soil, Alluvial Soil",
-            "notes": "Coastal areas are prone to cyclones, affecting rainfall patterns."
+    "diseaseClassification": {
+        "title": "Crop Disease Classification",
+        "subtitle": "Upload an image of a crop leaf to detect diseases early.",
+        "uploadCard": {
+            "title": "Upload Crop Image",
+            "description": "For best results, use a clear, close-up image of a single leaf.",
+            "button": "Upload Image"
         },
-        "arunachal_pradesh": {
-            "name": "Arunachal Pradesh",
-            "rainfall": "2000 - 4000 mm",
-            "temperature": "15 - 25°C",
-            "soilTypes": "Forest and Mountain Soil, Laterite Soil",
-            "notes": "Heavy rainfall during monsoon season. Mountainous terrain."
-        }
-    },
-    "fertilizers": {
-        "urea": {
-            "name": "Urea",
-            "description": "What it is: A fertilizer that has a lot of nitrogen (46%).\nWhy helpful: Nitrogen helps plants grow fast, makes them green, and increases leaf and stem growth.\nNote: If not managed well, some nitrogen can escape into the air or water, so farmers need to use it carefully."
+        "buttons": {
+            "classify": "Classify Disease",
+            "analyzing": "Analyzing..."
         },
-        "dap": {
-            "name": "Diammonium Phosphate (DAP)",
-            "description": "What it is: Fertilizer that gives both nitrogen (18%) and phosphorus (46%).\nWhy helpful:\nNitrogen = growth and greenness.\nPhosphorus = strong roots, better flowers, and fruits.\nIt dissolves quickly, so plants can use it fast."
+        "status": {
+            "loading": "AI is inspecting the leaf...",
+            "idle": "Upload an image to get a diagnosis."
         },
-        "mop": {
-            "name": "Muriate of Potash (MOP)",
-            "description": "What it is: Also called Potassium Chloride, with 60–62% potassium.\nWhy helpful: Potassium makes plants strong, improves resistance to drought and disease, and helps in fruit/seed development.\nNot good for: Crops sensitive to chloride (like tobacco, grapes)."
+        "reportCard": {
+            "title": "Diagnosis Report",
+            "diagnosis": "Diagnosis",
+            "confidence": "Confidence Level",
+            "details": "Additional Details & Recommendations"
         },
-        "ssp": {
-            "name": "Single Super Phosphate (SSP)",
-            "description": "What it is: An old but still useful fertilizer with 16% phosphorus, 19% calcium, and 12% sulfur.\nWhy helpful:\nPhosphorus → root growth.\nCalcium → strong cell walls.\nSulfur → better quality of oilseeds and pulses.\nVery good for soils lacking sulfur."
-        },
-        "npk": {
-            "name": "NPK Complex Fertilizers",
-            "description": "What it is: A mix of Nitrogen (N), Phosphorus (P), and Potassium (K) in different ratios (like 10-26-26).\nWhy helpful: Gives a balanced diet to plants—\nN = growth,\nP = roots & flowers,\nK = strength & disease resistance.\nFarmers choose the ratio depending on crop needs."
-        },
-        "ammonium_sulphate": {
-            "name": "Ammonium Sulphate",
-            "description": "What it is: Fertilizer with 21% nitrogen + lots of sulfur.\nWhy helpful:\nNitrogen = plant growth.\nSulfur = improves taste, quality, and oil content in crops.\nUseful for crops like onion, garlic, and oilseeds."
+        "toast": {
+            "noFile": {
+                "title": "No file selected",
+                "description": "Please upload an image of a crop leaf."
+            },
+            "failure": {
+                "title": "Classification Failed",
+                "description": "Could not analyze the image. Please try another one."
+            }
         }
     }
 }

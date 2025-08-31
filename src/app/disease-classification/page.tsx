@@ -20,8 +20,10 @@ import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import Header from '@/components/layout/header';
+import { useTranslation } from '@/hooks/use-translation';
 
 export default function DiseaseClassificationPage() {
+  const { t } = useTranslation();
   const [result, setResult] = useState<ClassifyCropDiseaseOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
@@ -44,8 +46,8 @@ export default function DiseaseClassificationPage() {
   const handleSubmit = async () => {
     if (!file || !preview) {
       toast({
-        title: 'No file selected',
-        description: 'Please upload an image of a crop leaf.',
+        title: t('diseaseClassification.toast.noFile.title'),
+        description: t('diseaseClassification.toast.noFile.description'),
         variant: 'destructive',
       });
       return;
@@ -60,8 +62,8 @@ export default function DiseaseClassificationPage() {
     } catch (error) {
       console.error('Error classifying crop disease:', error);
       toast({
-        title: 'Classification Failed',
-        description: 'Could not analyze the image. Please try another one.',
+        title: t('diseaseClassification.toast.failure.title'),
+        description: t('diseaseClassification.toast.failure.description'),
         variant: 'destructive',
       });
     }
@@ -79,20 +81,20 @@ export default function DiseaseClassificationPage() {
 
   return (
     <>
-    <Header showLanguageSwitcher={false} />
+    <Header />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold font-headline text-foreground">Crop Disease Classification</h1>
+        <h1 className="text-4xl font-bold font-headline text-foreground">{t('diseaseClassification.title')}</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Upload an image of a crop leaf to detect diseases early.
+          {t('diseaseClassification.subtitle')}
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle>Upload Crop Image</CardTitle>
-            <CardDescription>For best results, use a clear, close-up image of a single leaf.</CardDescription>
+            <CardTitle>{t('diseaseClassification.uploadCard.title')}</CardTitle>
+            <CardDescription>{t('diseaseClassification.uploadCard.description')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex justify-center items-center py-8">
@@ -105,7 +107,7 @@ export default function DiseaseClassificationPage() {
                       </div>
                   </div>
                   <label htmlFor="picture" className="custom-file-upload">
-                      Upload Image
+                      {t('diseaseClassification.uploadCard.button')}
                       <input id="picture" type="file" accept="image/*" onChange={handleFileChange} />
                   </label>
               </div>
@@ -127,10 +129,10 @@ export default function DiseaseClassificationPage() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Analyzing...
+                  {t('diseaseClassification.buttons.analyzing')}
                 </>
               ) : (
-                'Classify Disease'
+                t('diseaseClassification.buttons.classify')
               )}
             </Button>
           </CardFooter>
@@ -140,7 +142,7 @@ export default function DiseaseClassificationPage() {
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-lg">AI is inspecting the leaf...</p>
+              <p className="mt-4 text-lg">{t('diseaseClassification.status.loading')}</p>
             </div>
           )}
           {result && (
@@ -152,13 +154,13 @@ export default function DiseaseClassificationPage() {
             >
               <Card className="shadow-xl bg-gradient-to-br from-card to-secondary">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Diagnosis Report</CardTitle>
+                  <CardTitle className="text-2xl">{t('diseaseClassification.reportCard.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
                     {getDiseaseIcon(result.disease)}
                     <div>
-                      <h3 className="font-semibold text-foreground">Diagnosis</h3>
+                      <h3 className="font-semibold text-foreground">{t('diseaseClassification.reportCard.diagnosis')}</h3>
                       <p className="text-2xl font-bold text-primary capitalize">{result.disease}</p>
                     </div>
                   </div>
@@ -166,7 +168,7 @@ export default function DiseaseClassificationPage() {
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
                        <BarChart className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold text-foreground">Confidence Level</h3>
+                       <h3 className="font-semibold text-foreground">{t('diseaseClassification.reportCard.confidence')}</h3>
                     </div>
                     <Progress value={result.confidence * 100} className="w-full h-3" />
                     <p className="text-right text-sm text-muted-foreground mt-1">
@@ -176,7 +178,7 @@ export default function DiseaseClassificationPage() {
                   
                   {result.additionalDetails && (
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">Additional Details & Recommendations</h3>
+                      <h3 className="font-semibold text-foreground mb-1">{t('diseaseClassification.reportCard.details')}</h3>
                       <p className="text-muted-foreground">{result.additionalDetails}</p>
                     </div>
                   )}
@@ -187,7 +189,7 @@ export default function DiseaseClassificationPage() {
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
                 <Upload className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">Upload an image to get a diagnosis.</p>
+                <p className="mt-4 text-lg">{t('diseaseClassification.status.idle')}</p>
               </div>
           )}
         </div>

@@ -30,6 +30,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import Header from '@/components/layout/header';
+import { useTranslation } from '@/hooks/use-translation';
 
 const formSchema = z.object({
   query: z.string().min(1, 'Please ask a question.'),
@@ -40,19 +41,6 @@ interface Message {
   content: string;
   audioUrl?: string;
 }
-
-const loadingMessages = [
-  "🌱 Growing your answer with AI fertilizer… please wait.",
-  "🔍 Scanning the soil of data… hold on a moment.",
-  "💡 Harvesting wisdom from the cloud… just a second.",
-  "📡 Connecting to the farming satellites… please wait.",
-  "🌱 Planting seeds of knowledge… your answer is sprouting, wait a bit.",
-  "🐄 Milking fresh answers… almost there, hold on.",
-  "📊 Counting grains before they grow… please wait.",
-  "🐓 Asking the hens for advice… they’ll reply soon, wait a moment.",
-  "🐄 Chasing cows off the keyboard… just a sec, your answer is coming.",
-  "🌾 Harvesting the right words… please wait.",
-];
 
 const useTypingEffect = (text: string, speed = 50) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -130,6 +118,7 @@ const AssistantMessage = ({ message, isTyping }: { message: Message, isTyping: b
 
 
 export default function AiFarmerPage() {
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [location, setLocation] = useState<string | null>(null);
@@ -142,6 +131,19 @@ export default function AiFarmerPage() {
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+
+  const loadingMessages = [
+    t('aiFarmer.loadingMessages.m1'),
+    t('aiFarmer.loadingMessages.m2'),
+    t('aiFarmer.loadingMessages.m3'),
+    t('aiFarmer.loadingMessages.m4'),
+    t('aiFarmer.loadingMessages.m5'),
+    t('aiFarmer.loadingMessages.m6'),
+    t('aiFarmer.loadingMessages.m7'),
+    t('aiFarmer.loadingMessages.m8'),
+    t('aiFarmer.loadingMessages.m9'),
+    t('aiFarmer.loadingMessages.m10'),
+  ];
 
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -161,7 +163,7 @@ export default function AiFarmerPage() {
       if (savedLocation) {
         setLocation(savedLocation);
       } else {
-        const loc = window.prompt("To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):");
+        const loc = window.prompt(t('aiFarmer.locationPrompt'));
         if (loc) {
           setLocation(loc);
           localStorage.setItem('ai-farmer-location', loc);
@@ -170,7 +172,7 @@ export default function AiFarmerPage() {
     } catch (error) {
       console.error("Failed to load from localStorage", error);
     }
-  }, []);
+  }, [t]);
 
   // Save messages to localStorage whenever they change
   useEffect(() => {
@@ -181,13 +183,13 @@ export default function AiFarmerPage() {
       } catch (error) {
         console.error("Failed to save messages to localStorage", error);
         toast({
-          title: "Could not save chat history",
-          description: "The chat history is too large and could not be saved.",
+          title: t('aiFarmer.toast.saveError.title'),
+          description: t('aiFarmer.toast.saveError.description'),
           variant: "destructive",
         })
       }
     }
-  }, [messages, toast]);
+  }, [messages, toast, t]);
 
 
   useEffect(() => {
@@ -260,8 +262,8 @@ export default function AiFarmerPage() {
        if (error.name !== 'AbortError') {
         console.error('Error getting farming advice:', error);
         toast({
-          title: 'Error',
-          description: 'Failed to get advice. Please try again.',
+          title: t('aiFarmer.toast.adviceError.title'),
+          description: t('aiFarmer.toast.adviceError.description'),
           variant: 'destructive',
         });
         setMessages((prev) => prev.slice(0, -1)); // Remove user message on error
@@ -280,8 +282,8 @@ export default function AiFarmerPage() {
     try {
       localStorage.removeItem('ai-farmer-messages');
       toast({
-        title: 'Chat Cleared',
-        description: 'Your conversation history has been cleared.',
+        title: t('aiFarmer.toast.chatCleared.title'),
+        description: t('aiFarmer.toast.chatCleared.description'),
       });
     } catch (error) {
        console.error("Failed to clear messages from localStorage", error);
@@ -298,7 +300,7 @@ export default function AiFarmerPage() {
       
       recognition.onstart = () => {
         setIsRecording(true);
-        toast({ title: 'Listening...' });
+        toast({ title: t('aiFarmer.toast.listening') });
       };
       
       recognition.onresult = (event: any) => {
@@ -315,7 +317,7 @@ export default function AiFarmerPage() {
           return;
         }
         console.error('Speech recognition error', event.error);
-        toast({ title: 'Voice Error', description: `Could not recognize speech: ${event.error}`, variant: 'destructive' });
+        toast({ title: t('aiFarmer.toast.voiceError.title'), description: t('aiFarmer.toast.voiceError.description', { error: event.error }), variant: 'destructive' });
       };
 
       recognition.onend = () => {
@@ -324,13 +326,14 @@ export default function AiFarmerPage() {
       
       recognitionRef.current = recognition;
     } else {
-      toast({ title: 'Voice not supported', description: 'Your browser does not support voice recognition.', variant: 'destructive' });
+      toast({ title: t('aiFarmer.toast.voiceNotSupported.title'), description: t('aiFarmer.toast.voiceNotSupported.description'), variant: 'destructive' });
     }
   };
 
   useEffect(() => {
     setupSpeechRecognition();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t]);
 
   const toggleRecording = () => {
     if (isLoading) return;
@@ -360,12 +363,12 @@ export default function AiFarmerPage() {
 
   return (
     <>
-      <Header showLanguageSwitcher={false} />
+      <Header />
       <div className="container mx-auto px-4 h-[calc(100vh-109px)] flex flex-col pt-0">
         <div className="text-center mb-4">
-          <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
+          <h1 className="text-4xl font-bold font-headline text-foreground">{t('aiFarmer.title')}</h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            Your personal agricultural expert, available 24/7.
+            {t('aiFarmer.subtitle')}
           </p>
         </div>
 
@@ -375,19 +378,19 @@ export default function AiFarmerPage() {
                   <AlertDialogTrigger asChild>
                     <button className="clear-chat-button box">
                       <Trash2 className="h-4 w-4 mr-2" />
-                      Clear Chat
+                      {t('aiFarmer.buttons.clearChat')}
                     </button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
-                      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                      <AlertDialogTitle>{t('aiFarmer.clearChatDialog.title')}</AlertDialogTitle>
                       <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your current chat history.
+                        {t('aiFarmer.clearChatDialog.description')}
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction onClick={handleClearChat}>Continue</AlertDialogAction>
+                      <AlertDialogCancel>{t('aiFarmer.clearChatDialog.cancel')}</AlertDialogCancel>
+                      <AlertDialogAction onClick={handleClearChat}>{t('aiFarmer.clearChatDialog.continue')}</AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
@@ -401,8 +404,8 @@ export default function AiFarmerPage() {
               {messages.length === 0 && !isLoading && (
                 <div className="text-center text-muted-foreground p-8 flex flex-col items-center justify-center h-full">
                   <Sparkles className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                  <p className="mt-4 text-lg">Ask me anything about farming!</p>
-                  <p className="text-sm">e.g., "What are the best irrigation methods for sandy soil?"</p>
+                  <p className="mt-4 text-lg">{t('aiFarmer.idle.prompt')}</p>
+                  <p className="text-sm">{t('aiFarmer.idle.example')}</p>
                 </div>
               )}
               {messages.map((message, index) => {
@@ -461,7 +464,7 @@ export default function AiFarmerPage() {
               <div className="flex justify-center">
                 <Button onClick={handleStop} variant="outline" className="w-full">
                   <StopCircle className="h-4 w-4 mr-2" />
-                  Stop Generating
+                  {t('aiFarmer.buttons.stop')}
                 </Button>
               </div>
             ) : (
@@ -480,7 +483,7 @@ export default function AiFarmerPage() {
                     <FormItem className="flex-1">
                       <FormControl>
                         <Textarea
-                          placeholder="Ask your farming question here..."
+                          placeholder={t('aiFarmer.form.placeholder')}
                           className="resize-none no-scrollbar"
                           rows={1}
                           onKeyDown={(e) => {
