@@ -113,6 +113,15 @@ export const newsData = [
     url: '#',
     category: 'Technology',
   },
+  {
+    id: 7,
+    title: 'Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)',
+    source: 'Govt. of India',
+    date: 'October 27, 2023',
+    snippet: 'The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age.',
+    url: '/govt-schemes',
+    category: 'Government Policies',
+  },
 ];
 
 export const schemesData = [
