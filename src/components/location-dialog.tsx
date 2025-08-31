@@ -27,8 +27,8 @@ export default function LocationDialog() {
     // Always show the dialog for demonstration. The original check was `!savedLocation`.
     if (true) {
       setIsOpen(true);
-    } else {
-      setLocation(savedLocation!);
+    } else if (savedLocation) {
+      setLocation(savedLocation);
     }
   }, [setLocation]);
 
@@ -46,7 +46,7 @@ export default function LocationDialog() {
   
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px] bg-violet-100 dark:bg-violet-900/20">
+      <DialogContent className="sm:max-w-[425px] bg-amber-100/30 dark:bg-amber-950/30 backdrop-blur-sm">
         <DialogHeader>
           <DialogTitle>{t('locationDialog.title')}</DialogTitle>
           <DialogDescription>
