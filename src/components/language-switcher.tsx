@@ -49,7 +49,7 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="language-button-stars">
-          Farm in Your Language
+          Choose Language
           <div className="star-1">
             <Star />
           </div>

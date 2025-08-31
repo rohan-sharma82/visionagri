@@ -150,8 +150,9 @@ export default function Home() {
         <QuotesBox />
       </section>
 
-      <section className="my-16 flex justify-center">
+      <section className="my-16 flex justify-center gap-4">
         <FarmSchoolDialog />
+        <LanguageSwitcher />
       </section>
       
       <section className="mt-16">
