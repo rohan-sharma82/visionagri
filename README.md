@@ -46,7 +46,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
   - **Google AI Platform (Gemini Models):** We use the powerful Gemini family of models for their state-of-the-art multi-modal capabilities, handling everything from complex reasoning for the AI Farmer Assistant to image analysis for disease and animal classification.
 
 - **Database/Storage:**
-  - Implicitly handled by the platform for now, with a clear path to expand to **Firebase Firestore** for scalable, real-time data storage as the user base grows.
+  - The current prototype is designed to be **highly scalable and stateless**. It uses client-side `localStorage` for persisting non-critical data like chat history, minimizing backend dependencies. For a full-scale application, this architecture can be seamlessly extended with a robust database like **PostgreSQL** or **MongoDB** to manage user data and persistent storage.
 
 - **Hosting:**
   - **Vercel:** The ideal platform for deploying Next.js applications. Vercel provides a seamless CI/CD pipeline, global CDN, and serverless functions, ensuring our application is scalable, reliable, and performant worldwide.
