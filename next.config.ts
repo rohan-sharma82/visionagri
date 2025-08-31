@@ -59,7 +59,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https_now',
+        protocol: 'https',
         hostname: 'cdn.tractorkarvan.com',
         port: '',
         pathname: '/**',
