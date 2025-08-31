@@ -1,0 +1,89 @@
+
+{
+    "nav": {
+        "home": "Home",
+        "cropYield": "Pik Utpadan Andaj",
+        "aiFarmer": "AI Shetkari",
+        "diseaseClassification": "Rog Vargikaran",
+        "animalClassification": "Pashu Vargikaran",
+        "govtSchemes": "Sarkari Yojana"
+    },
+    "home": {
+        "welcome": "AgriVision AI madhye aaple swagat aahe",
+        "tagline": "Krishi kshetrat krantighadvinyasathi Artificial Intelligence cha vapar.",
+        "newsFeed": {
+            "title": "Krishi Batmya Feed",
+            "subtitle": "Krishi jagatatil navin ghadamodinsobat update raha.",
+            "readMore": "Adhik Vacha",
+            "source": "Strot",
+            "date": "Tarikh",
+            "noArticles": "Ya shrenit ekahi lekh sapadla nahi."
+        }
+    },
+    "features": {
+        "title": "Aamche Vaisishte",
+        "subtitle": "Aamche AI-adharit sadhan tumhala kashi madat karu shaktat te shodha."
+    },
+    "languageSwitcher": {
+        "button": "Bhasha Nivda"
+    },
+    "farmSchool": {
+        "button": "Shetkari Shala",
+        "title": "Shetkari Shalet Swagat!",
+        "description": "Shetichya garjeच्या goshtinbaddal dnyan milva. Adhik mahitisathi ekya vishayavar click kara (karyakshamata lavkarach yet aahe).",
+        "tools": {
+            "title": "Sadhan",
+            "description": "Aavashyak sheti sadhan aani yantrasamugri baddal shikha."
+        },
+        "fertilizers": {
+            "title": "Khate",
+            "description": "Vividh prakarche khate aani tyanche vapar samjha."
+        },
+        "areaCalculator": {
+            "title": "Kshetrafal Calculator",
+            "description": "Niyojan aani sansadhan vyavasthapanasathi aaplya shetache kshetrafal moza."
+        },
+        "profitMakingTips": {
+            "title": "Nafa Milvanyache Tips",
+            "description": "Aaplya shetichi nafashilta vadhvinyasathi yuktya shodha."
+        }
+    },
+    "quotes": {
+        "q1": "Sheti fakt ek kam nahi, ti ek jivan shaili aahe.",
+        "q2": "Shetkari aaplya arthavyavasthetil ekmev manus aahe jo sarva kahi retail madhye kharedi karto, sarva kahi wholesale madhye vikto, aani donhi bajunche bhade deto.",
+        "q3": "Shetkaryanshivay, ann nahi. Annashivay, jivan nahi."
+    },
+    "news": {
+        "n1_title": "New Drone Technology Revolutionizes Crop Monitoring",
+        "n1_snippet": "Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.",
+        "n2_title": "Government Announces Increased Subsidies for Organic Farming",
+        "n2_snippet": "In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.",
+        "n3_title": "Weather Patterns Shift: Farmers Adapt to a Changing Climate",
+        "n3_snippet": "A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.",
+        "n4_title": "Corn Prices Surge Amidst Global Supply Concerns",
+        "n4_snippet": "Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.",
+        "n5_title": "The Rise of No-Till Farming: A Guide for Beginners",
+        "n5_snippet": "No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.",
+        "n6_title": "New AI-Powered App Helps Farmers Identify Pests Instantly",
+        "n6_snippet": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.",
+        "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
+        "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age."
+    },
+    "categories": {
+        "all": "Sarva Kategori",
+        "marketPrices": "Bajar Bhav",
+        "weatherUpdates": "Havaaman Update",
+        "govtPolicies": "Sarkari Dhorane",
+        "farmingTechniques": "Sheti Tantra",
+        "technology": "Tantradnyan"
+    },
+    "sources": {
+        "agriTech": "AgriTech Today",
+        "farmersJournal": "Shetkari's Journal",
+        "globalFarming": "Global Farming Initiative",
+        "agriInvest": "Agri-Investments Daily",
+        "sustainableFarms": "Shashwat Sheti",
+        "techCrunch": "TechCrunch Agriculture",
+        "govtIndia": "Bharat Sarkar"
+    }
+}

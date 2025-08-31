@@ -22,6 +22,7 @@ import { cn } from '@/lib/utils';
 import LanguageSwitcher from '@/components/language-switcher';
 import Header from '@/components/layout/header';
 import FarmSchoolDialog from '@/components/farm-school-dialog';
+import { useTranslation } from '@/hooks/use-translation';
 
 interface NewsArticle {
   id: number;
@@ -78,6 +79,7 @@ Circle.displayName = "Circle";
 
 
 export default function Home() {
+  const { t, setLanguage } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
 
@@ -85,15 +87,18 @@ export default function Home() {
   const userIconRef = useRef<HTMLDivElement>(null);
   const aiIconRef = useRef<HTMLDivElement>(null);
 
+  const translatedNewsData = newsData.map(item => ({ ...item, title: t(item.title), snippet: t(item.snippet) }));
+  const translatedNewsCategories = newsCategories.map(c => t(c));
+
   const filteredNews: NewsArticle[] =
-    selectedCategory === 'All Categories'
-      ? newsData
-      : newsData.filter((news) => news.category === selectedCategory);
+    selectedCategory === 'All Categories' || selectedCategory === t('All Categories')
+      ? translatedNewsData
+      : translatedNewsData.filter((news) => t(news.category) === selectedCategory);
 
 
   return (
     <>
-    <Header showLanguageSwitcher={false} />
+    <Header />
     <div className="container mx-auto px-4 pt-8">
       {/* SVG filter for gooey effect */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
@@ -128,21 +133,23 @@ export default function Home() {
         />
 
         <div className="absolute inset-x-0 bottom-16 flex flex-col items-center justify-center gap-4 px-4">
-            <TextPressure
-              text="Welcome to AgriVision AI"
-              minFontSize={24}
-              maxFontSize={64}
-              textColor='hsl(var(--foreground))'
-              className="h-20"
-            />
-            <TextPressure
-                text="Revolutionizing farming with the power of Artificial Intelligence."
-                minFontSize={12}
-                maxFontSize={24}
-                textColor='hsl(var(--muted-foreground))'
-                weight={false}
-                className="h-10"
+            <div className="h-20 w-full pb-6">
+              <TextPressure
+                text={t('home.welcome')}
+                minFontSize={24}
+                maxFontSize={64}
+                textColor='hsl(var(--foreground))'
               />
+            </div>
+             <div className="h-10 w-full">
+              <TextPressure
+                  text={t('home.tagline')}
+                  minFontSize={12}
+                  maxFontSize={24}
+                  textColor='hsl(var(--muted-foreground))'
+                  weight={false}
+                />
+            </div>
         </div>
       </section>
 
@@ -152,7 +159,7 @@ export default function Home() {
 
       <section className="my-16 flex justify-center gap-4">
         <FarmSchoolDialog />
-        <LanguageSwitcher />
+        <LanguageSwitcher onLanguageChange={setLanguage} />
       </section>
       
       <section className="mt-16">
@@ -161,14 +168,14 @@ export default function Home() {
 
       <section className="mt-16">
         <h2 className="text-3xl font-bold text-center font-headline text-foreground">
-          Agriculture News Feed
+          {t('home.newsFeed.title')}
         </h2>
         <p className="mt-2 text-lg text-center text-muted-foreground mb-8">
-          Stay updated with the latest in the world of agriculture.
+          {t('home.newsFeed.subtitle')}
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {newsCategories.map((category) => (
+          {translatedNewsCategories.map((category) => (
              <button key={category} onClick={() => setSelectedCategory(category)} className="c-button c-button--gooey"> {category}
               <div className="c-button__blobs">
               <div></div>
@@ -191,14 +198,14 @@ export default function Home() {
               >
                 <div className="card5">
                   <div className="card5-content">
-                    <div className="card-date">{news.date}</div>
+                    <div className="card-date">{t(news.date)}</div>
                     <div className='flex flex-col items-center justify-center h-full'>
                       <span className="card-title">{news.title}</span>
                       <p className="card-description">{news.snippet}</p>
                     </div>
                     <DialogTrigger asChild>
                       <button onClick={() => setSelectedNews(news)} className="card-link">
-                        Read More
+                        {t('home.newsFeed.readMore')}
                       </button>
                     </DialogTrigger>
                   </div>
@@ -212,13 +219,13 @@ export default function Home() {
               <DialogHeader>
                 <DialogTitle>{selectedNews.title}</DialogTitle>
                 <DialogDescription>
-                  Source: {selectedNews.source} | Date: {selectedNews.date}
+                  {t('home.newsFeed.source')}: {t(selectedNews.source)} | {t('home.newsFeed.date')}: {t(selectedNews.date)}
                 </DialogDescription>
               </DialogHeader>
               <ScrollArea className="h-full pr-4">
                 <div
                   className="prose prose-sm dark:prose-invert"
-                  dangerouslySetInnerHTML={{ __html: selectedNews.article }}
+                  dangerouslySetInnerHTML={{ __html: t(selectedNews.article, { html: true }) }}
                 />
               </ScrollArea>
             </DialogContent>
@@ -226,7 +233,7 @@ export default function Home() {
         </Dialog>
         {filteredNews.length === 0 && (
           <p className="text-center text-muted-foreground mt-8">
-            No news articles found in this category.
+            {t('home.newsFeed.noArticles')}
           </p>
         )}
       </section>

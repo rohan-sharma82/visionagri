@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useTranslation } from '@/hooks/use-translation';
 
 interface LanguageSwitcherProps {
   onLanguageChange?: (lang: string) => void;
@@ -37,6 +38,7 @@ const Star = () => (
 );
 
 export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherProps) {
+  const { t } = useTranslation();
   const handleSelect = (lang: string) => {
     if (onLanguageChange) {
       onLanguageChange(lang);
@@ -49,7 +51,7 @@ export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherP
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="language-button-stars">
-          Choose Language
+          {t('languageSwitcher.button')}
           <div className="star-1">
             <Star />
           </div>

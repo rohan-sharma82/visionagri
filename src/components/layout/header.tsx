@@ -16,19 +16,23 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import PillNav from '../pill-nav';
+import { useTranslation } from '@/hooks/use-translation';
 
-interface HeaderProps {
-  onLanguageChange?: (lang: string) => void;
-  showLanguageSwitcher?: boolean;
-}
 
-export default function Header({ onLanguageChange, showLanguageSwitcher = true }: HeaderProps) {
+export default function Header() {
   const pathname = usePathname();
+  const { t } = useTranslation();
+
+  const translatedNavLinks = navLinks.map(link => ({
+    ...link,
+    label: t(link.label)
+  }));
+
 
   return (
     <header className="relative w-full py-4 flex items-center justify-center">
         <PillNav
-            items={navLinks}
+            items={translatedNavLinks}
             activeHref={pathname}
             baseColor="#35753D"
             pillColor="hsl(var(--background))"

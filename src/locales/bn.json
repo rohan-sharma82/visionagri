@@ -1,0 +1,89 @@
+
+{
+    "nav": {
+        "home": "হোম",
+        "cropYield": "ফসল ফলন ভবিষ্যদ্বাণী",
+        "aiFarmer": "এআই কৃষক",
+        "diseaseClassification": "রোগ সনাক্তকরণ",
+        "animalClassification": "पशु वर्गीकरण",
+        "govtSchemes": "सरकारी প্রকল্প"
+    },
+    "home": {
+        "welcome": "এগ্রিভিশন এআই-তে স্বাগতম",
+        "tagline": "কৃত্রিম बुद्धिमत्ता की शक्ति से खेती में क्रांति।",
+        "newsFeed": {
+            "title": "কৃষি সংবাদ فیڈ",
+            "subtitle": "কৃষি জগতের সর্বশেষ খবর নিয়ে আপডেট থাকুন।",
+            "readMore": "மேலும் படிக்க",
+            "source": "উৎস",
+            "date": "تاریخ",
+            "noArticles": "এই বিভাগে কোনো সংবাদ নিবন্ধ পাওয়া যায়নি।"
+        }
+    },
+    "features": {
+        "title": "আমাদের বৈশিষ্ট্য",
+        "subtitle": "আমাদের AI-চালিত সরঞ্জামগুলি কীভাবে আপনাকে সাহায্য করতে পারে তা আবিষ্কার করুন।"
+    },
+    "languageSwitcher": {
+        "button": "Choose Language"
+    },
+    "farmSchool": {
+        "button": "फार्म স্কুল",
+        "title": "फार्म স্কুলে স্বাগতম!",
+        "description": "खेती की अनिवार्यताओं के बारे में ज्ञान प्राप्त करें। আরও জানতে একটি বিষয়ে ক্লিক করুন (कार्यक्षमता விரைவில் আসছে)।",
+        "tools": {
+            "title": "সরঞ্জাম",
+            "description": "অপরিহার্য কৃষি সরঞ্জাম এবং যন্ত্রপাতি সম্পর্কে জানুন।"
+        },
+        "fertilizers": {
+            "title": "সার",
+            "description": "বিভিন্ন ধরণের সার এবং তাদের ব্যবহার বুঝুন।"
+        },
+        "areaCalculator": {
+            "title": "এলাকা ক্যালকুলেটর",
+            "description": "યોજના અને સંસાધન સંચાલન માટે તમારા ખેતરનો વિસ્તાર ગણતરી કરો."
+        },
+        "profitMakingTips": {
+            "title": "লাভ করার টিপস",
+            "description": "Discover strategies to increase your farm's profitability."
+        }
+    },
+    "quotes": {
+        "q1": "खेती केवल एक नौकरी नहीं है, यह जीवन का एक तरीका है।",
+        "q2": "किसान हमारी अर्थव्यवस्था में एकमात्र व्यक्ति है जो सब कुछ खुदरा में खरीदता है, सब कुछ थोक में बेचता है, और दोनों तरफ का भाड़ा चुकाता है।",
+        "q3": "किसानों के बिना, कोई भोजन नहीं है। भोजन के बिना, कोई जीवन नहीं है।"
+    },
+    "news": {
+        "n1_title": "New Drone Technology Revolutionizes Crop Monitoring",
+        "n1_snippet": "Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.",
+        "n2_title": "Government Announces Increased Subsidies for Organic Farming",
+        "n2_snippet": "In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.",
+        "n3_title": "Weather Patterns Shift: Farmers Adapt to a Changing Climate",
+        "n3_snippet": "A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.",
+        "n4_title": "Corn Prices Surge Amidst Global Supply Concerns",
+        "n4_snippet": "Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.",
+        "n5_title": "The Rise of No-Till Farming: A Guide for Beginners",
+        "n5_snippet": "No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.",
+        "n6_title": "New AI-Powered App Helps Farmers Identify Pests Instantly",
+        "n6_snippet": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.",
+        "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
+        "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age."
+    },
+    "categories": {
+        "all": "All Categories",
+        "marketPrices": "Market Prices",
+        "weatherUpdates": "Weather Updates",
+        "govtPolicies": "Government Policies",
+        "farmingTechniques": "Farming Techniques",
+        "technology": "Technology"
+    },
+    "sources": {
+        "agriTech": "AgriTech Today",
+        "farmersJournal": "Farmer's Journal",
+        "globalFarming": "Global Farming Initiative",
+        "agriInvest": "Agri-Investments Daily",
+        "sustainableFarms": "Sustainable Farms",
+        "techCrunch": "TechCrunch Agriculture",
+        "govtIndia": "Govt. of India"
+    }
+}

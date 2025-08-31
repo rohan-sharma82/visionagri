@@ -1,10 +1,13 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import { farmingQuotes } from '@/lib/constants';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/hooks/use-translation';
 
 export default function QuotesBox() {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -29,7 +32,7 @@ export default function QuotesBox() {
           className="text-center text-lg italic font-medium"
           style={{ color: '#2E7D32' }}
         >
-          &ldquo;{currentQuote}&rdquo;
+          &ldquo;{t(currentQuote)}&rdquo;
         </motion.p>
       </AnimatePresence>
     </div>

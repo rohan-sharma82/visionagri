@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dialog';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shovel, TestTube2, Calculator, Lightbulb } from 'lucide-react';
+import { useTranslation } from '@/hooks/use-translation';
 
 const Star = () => (
   <svg
@@ -34,35 +35,39 @@ const Star = () => (
   </svg>
 );
 
-const schoolTopics = [
+
+
+export default function FarmSchoolDialog() {
+  const { t } = useTranslation();
+  
+  const schoolTopics = [
     {
-        title: "Tools",
-        description: "Learn about essential farming tools and machinery.",
+        title: t('farmSchool.tools.title'),
+        description: t('farmSchool.tools.description'),
         icon: <Shovel className="h-8 w-8 text-accent" />
     },
     {
-        title: "Fertilizers",
-        description: "Understand different types of fertilizers and their uses.",
+        title: t('farmSchool.fertilizers.title'),
+        description: t('farmSchool.fertilizers.description'),
         icon: <TestTube2 className="h-8 w-8 text-accent" />
     },
     {
-        title: "Area Calculator",
-        description: "Calculate your farm's area for planning and resource management.",
+        title: t('farmSchool.areaCalculator.title'),
+        description: t('farmSchool.areaCalculator.description'),
         icon: <Calculator className="h-8 w-8 text-accent" />
     },
     {
-        title: "Profit Making Tips",
-        description: "Discover strategies to increase your farm's profitability.",
+        title: t('farmSchool.profitMakingTips.title'),
+        description: t('farmSchool.profitMakingTips.description'),
         icon: <Lightbulb className="h-8 w-8 text-accent" />
     }
 ]
 
-export default function FarmSchoolDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <button className="language-button-stars">
-            Farm School
+            {t('farmSchool.button')}
             <div className="star-1"><Star /></div>
             <div className="star-2"><Star /></div>
             <div className="star-3"><Star /></div>
@@ -73,9 +78,9 @@ export default function FarmSchoolDialog() {
       </DialogTrigger>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Welcome to Farm School!</DialogTitle>
+          <DialogTitle>{t('farmSchool.title')}</DialogTitle>
           <DialogDescription>
-            Gain knowledge about farming essentials. Click on a topic to learn more (functionality coming soon).
+            {t('farmSchool.description')}
           </DialogDescription>
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">

@@ -1,16 +1,20 @@
+
 'use client';
 import { featuresData } from '@/lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from '@/hooks/use-translation';
 
 export default function FeatureCards() {
+  const { t } = useTranslation();
+
   return (
     <>
       <h2 className="text-3xl font-bold text-center font-headline text-foreground">
-        Our Features
+        {t('features.title')}
       </h2>
       <p className="mt-2 text-lg text-center text-muted-foreground mb-8">
-        Discover how our AI-powered tools can help you.
+        {t('features.subtitle')}
       </p>
       <div className="flex flex-wrap justify-center gap-8">
         {featuresData.map((feature) => (
@@ -20,7 +24,7 @@ export default function FeatureCards() {
                 <div className="feature-card-front">
                   <Image
                     src={feature.imageUrl}
-                    alt={feature.title}
+                    alt={t(feature.title)}
                     width={300}
                     height={200}
                     data-ai-hint={feature.dataAiHint}
@@ -28,8 +32,8 @@ export default function FeatureCards() {
                   />
                 </div>
                 <div className="feature-card-back">
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p>{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-2">{t(feature.title)}</h3>
+                  <p>{t(feature.description)}</p>
                 </div>
               </div>
             </div>

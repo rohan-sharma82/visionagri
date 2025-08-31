@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import Galaxy from '@/components/galaxy';
+import { TranslationProvider } from '@/hooks/use-translation';
 
 export const metadata: Metadata = {
   title: 'AgriVision AI',
@@ -31,40 +32,42 @@ export default function RootLayout({
           'min-h-screen bg-background font-body antialiased',
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Galaxy transparent={false} className="fixed inset-0 -z-10" />
-          {/* SVG filters for gooey and glow effects */}
-          <svg style={{ position: 'absolute', width: 0, height: 0 }}>
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                <feBlend in="SourceGraphic" in2="goo" />
-              </filter>
-              <filter id="glow">
-                <feGaussianBlur className="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
-                <feTurbulence type="fractalNoise" baseFrequency="0.075" numOctaves="0.3" result="turbulence"></feTurbulence>
-                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" result="displace"></feDisplacementMap>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"></feMergeNode>
-                  <feMergeNode in="coloredBlur"></feMergeNode>
-                  <feMergeNode in="coloredBlur"></feMergeNode>
-                  <feMergeNode in="displace"></feMergeNode>
-                  <feMergeNode in="SourceGraphic"></feMergeNode>
-                </feMerge>
-              </filter>
-            </defs>
-          </svg>
-          <div className="relative flex min-h-screen flex-col">
-            <main className="flex-1">{children}</main>
-          </div>
-          <Toaster />
-        </ThemeProvider>
+        <TranslationProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Galaxy transparent={false} className="fixed inset-0 -z-10" />
+            {/* SVG filters for gooey and glow effects */}
+            <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+                <filter id="glow">
+                  <feGaussianBlur className="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
+                  <feTurbulence type="fractalNoise" baseFrequency="0.075" numOctaves="0.3" result="turbulence"></feTurbulence>
+                  <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="30" xChannelSelector="R" yChannelSelector="G" result="displace"></feDisplacementMap>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"></feMergeNode>
+                    <feMergeNode in="coloredBlur"></feMergeNode>
+                    <feMergeNode in="coloredBlur"></feMergeNode>
+                    <feMergeNode in="displace"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                  </feMerge>
+                </filter>
+              </defs>
+            </svg>
+            <div className="relative flex min-h-screen flex-col">
+              <main className="flex-1">{children}</main>
+            </div>
+            <Toaster />
+          </ThemeProvider>
+        </TranslationProvider>
       </body>
     </html>
   );

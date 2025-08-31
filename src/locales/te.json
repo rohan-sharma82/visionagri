@@ -1,0 +1,89 @@
+
+{
+    "nav": {
+        "home": "Home",
+        "cropYield": "పంట దిగుబడి అంచనా",
+        "aiFarmer": "AI రైతు",
+        "diseaseClassification": "వ్యాధి వర్గీకరణ",
+        "animalClassification": "జంతు వర్గీకరణ",
+        "govtSchemes": "ప్రభుత్వ పథకాలు"
+    },
+    "home": {
+        "welcome": "అగ్రివిజన్ AIకు స్వాగతం",
+        "tagline": "ఆర్టిఫిషియల్ ఇంటెలిజెన్స్ శక్తితో వ్యవసాయంలో విప్లవం.",
+        "newsFeed": {
+            "title": "వ్యవసాయ వార్తల ఫీడ్",
+            "subtitle": "వ్యవసాయ ప్రపంచంలోని తాజా వార్తలతో అప్‌డేట్‌గా ఉండండి.",
+            "readMore": "మరింత చదవండి",
+            "source": "మూలం",
+            "date": "தேதி",
+            "noArticles": "ఈ వర్గంలో వార్తా కథనాలు ఏవీ కనుగొనబడలేదు."
+        }
+    },
+    "features": {
+        "title": "మా ఫీచర్లు",
+        "subtitle": "మా AI-ఆధారిత సాధనాలు మీకు ఎలా సహాయపడతాయో కనుగొనండి."
+    },
+    "languageSwitcher": {
+        "button": "భాషను ఎంచుకోండి"
+    },
+    "farmSchool": {
+        "button": "ఫార్మ్ స్కూల్",
+        "title": "ఫార్మ్ స్కూల్‌కు స్వాగతం!",
+        "description": "వ్యవసాయ అవసరాల గురించి జ్ఞానం పొందండి. మరింత తెలుసుకోవడానికి ఒక అంశంపై క్లిక్ చేయండి ( కార్యాచరణ త్వరలో వస్తుంది).",
+        "tools": {
+            "title": "ఉపకరణాలు",
+            "description": "അத்தியாவசிய விவசாய கருவிகள் மற்றும் இயந்திரాలు பற்றி ತಿಳಿಯுங்கள்."
+        },
+        "fertilizers": {
+            "title": "ఎరువులు",
+            "description": "వివిధ రకాల ఎరువులు మరియు వాటి ఉపయోగాలను అర్థం చేసుకోండి."
+        },
+        "areaCalculator": {
+            "title": "ప్రాంతం కాల்குలేటర్",
+            "description": "ప్రణాళిక మరియు వనరుల నిర్వహణ కోసం మీ పొలం యొక్క ప్రాంతాన్ని లెక్కించండి."
+        },
+        "profitMakingTips": {
+            "title": "లాభం సంపాదించే చిట్కాలు",
+            "description": "మీ పొలం యొక్క లాభదాయకతను పెంచడానికి వ్యూహాలను కనుగొనండి."
+        }
+    },
+    "quotes": {
+        "q1": "వ్యవసాయం కేవలం ఉద్యోగం కాదు, అది ఒక जीवन విధానం.",
+        "q2": "రైతు మన ఆర్థిక వ్యవస్థలో ప్రతిదీ చిల్లరగా కొని, ప్రతిదీ மொத்தంగా విక్రయించి, రెండు వైపులా రవాణా ఛార్జీలు చెల్లించే ఏకైక వ్యక్తి.",
+        "q3": "రైతులు లేకుండా, ఆహారం లేదు. ఆహారం లేకుండా, జీవం లేదు."
+    },
+    "news": {
+        "n1_title": "New Drone Technology Revolutionizes Crop Monitoring",
+        "n1_snippet": "Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.",
+        "n2_title": "Government Announces Increased Subsidies for Organic Farming",
+        "n2_snippet": "In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.",
+        "n3_title": "Weather Patterns Shift: Farmers Adapt to a Changing Climate",
+        "n3_snippet": "A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.",
+        "n4_title": "Corn Prices Surge Amidst Global Supply Concerns",
+        "n4_snippet": "Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.",
+        "n5_title": "The Rise of No-Till Farming: A Guide for Beginners",
+        "n5_snippet": "No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.",
+        "n6_title": "New AI-Powered App Helps Farmers Identify Pests Instantly",
+        "n6_snippet": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.",
+        "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
+        "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age."
+    },
+    "categories": {
+        "all": "All Categories",
+        "marketPrices": "Market Prices",
+        "weatherUpdates": "Weather Updates",
+        "govtPolicies": "Government Policies",
+        "farmingTechniques": "Farming Techniques",
+        "technology": "Technology"
+    },
+    "sources": {
+        "agriTech": "AgriTech Today",
+        "farmersJournal": "Farmer's Journal",
+        "globalFarming": "Global Farming Initiative",
+        "agriInvest": "Agri-Investments Daily",
+        "sustainableFarms": "Sustainable Farms",
+        "techCrunch": "TechCrunch Agriculture",
+        "govtIndia": "Govt. of India"
+    }
+}

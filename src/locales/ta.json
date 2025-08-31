@@ -1,0 +1,89 @@
+
+{
+    "nav": {
+        "home": "Home",
+        "cropYield": "பயிர் விளைச்சல் கணிப்பு",
+        "aiFarmer": "AI விவசாயி",
+        "diseaseClassification": "நோய் வகைப்படுத்தல்",
+        "animalClassification": "விலங்கு வகைப்படுத்தல்",
+        "govtSchemes": "அரசு திட்டங்கள்"
+    },
+    "home": {
+        "welcome": "அக்ரிவிஷன் AI-க்கு வரவேற்கிறோம்",
+        "tagline": "செயற்கை நுண்ணறிவின் சக்தியுடன் விவசாயத்தில் புரட்சி.",
+        "newsFeed": {
+            "title": "விவசாய செய்திகள்",
+            "subtitle": "விவசாய உலகின் சமீபத்திய செய்திகளுடன் புதுப்பித்த நிலையில் இருங்கள்.",
+            "readMore": "மேலும் படிக்க",
+            "source": "ஆதாரம்",
+            "date": "தேதி",
+            "noArticles": "இந்த வகையில் செய்தி கட்டுரைகள் எதுவும் இல்லை."
+        }
+    },
+    "features": {
+        "title": "எங்கள் அம்சங்கள்",
+        "subtitle": "எங்கள் AI- శక్తిচালిత கருவிகள் உங்களுக்கு எவ்வாறு உதவக்கூடும் என்பதைக் கண்டறியவும்."
+    },
+    "languageSwitcher": {
+        "button": "மொழியைத் தேர்ந்தெடுக்கவும்"
+    },
+    "farmSchool": {
+        "button": "பண்ணை பள்ளி",
+        "title": "பண்ணைப் பள்ளிக்கு வரவேற்கிறோம்!",
+        "description": "விவசாய அத்தியாவசியங்களைப் பற்றிய அறிவைப் பெறுங்கள். மேலும் அறிய ஒரு தலைப்பைக் கிளிக் செய்யவும் (செயல்பாடு விரைவில் வரும்).",
+        "tools": {
+            "title": "கருவிகள்",
+            "description": "அத்தியாவசிய விவசாய கருவிகள் மற்றும் இயந்திரங்கள் பற்றி ತಿಳಿಯுங்கள்."
+        },
+        "fertilizers": {
+            "title": " உரங்கள்",
+            "description": "பல்வேறு வகையான உரங்கள் மற்றும் వాటి ઉપયોગాలను అర్థం చేసుకోండి."
+        },
+        "areaCalculator": {
+            "title": "பரப்பளவு கால்குலேட்டர்",
+            "description": "திட்டமிடல் మరియు संसाधन నిర్వహణ కోసం మీ பண்ணை యొక్క ప్రాంతాన్ని கணக்கிടുക."
+        },
+        "profitMakingTips": {
+            "title": "இலாபம் ஈட்டும் குறிப்புகள்",
+            "description": "உங்கள் பண்ணையின் இலாபத்தை அதிகரிக்க వ్యూహాలను కనుగొనండి."
+        }
+    },
+    "quotes": {
+        "q1": "விவசாயம் ஒரு வேலை மட்டுமல்ல, அது ஒரு வாழ்க்கை முறை.",
+        "q2": "விவசாயிதான் നമ്മുടെ സമ്പദ്‌വ്യവസ്ഥയിൽ എല്ലാം റീട്ടെയിലായി വാങ്ങുകയും എല്ലാം മൊത്തമായി വിൽക്കുകയും ഇരുവശത്തേക്കും ചരക്ക് കൂലി നൽകുകയും ചെയ്യുന്ന ഒരേയൊരു വ്യക്തി.",
+        "q3": "விவசாயிகள் இல்லாமல், உணவு இல்லை. உணவு இல்லாமல், உயிர் இல்லை."
+    },
+    "news": {
+        "n1_title": "New Drone Technology Revolutionizes Crop Monitoring",
+        "n1_snippet": "Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.",
+        "n2_title": "Government Announces Increased Subsidies for Organic Farming",
+        "n2_snippet": "In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.",
+        "n3_title": "Weather Patterns Shift: Farmers Adapt to a Changing Climate",
+        "n3_snippet": "A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.",
+        "n4_title": "Corn Prices Surge Amidst Global Supply Concerns",
+        "n4_snippet": "Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.",
+        "n5_title": "The Rise of No-Till Farming: A Guide for Beginners",
+        "n5_snippet": "No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.",
+        "n6_title": "New AI-Powered App Helps Farmers Identify Pests Instantly",
+        "n6_snippet": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.",
+        "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
+        "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age."
+    },
+    "categories": {
+        "all": "All Categories",
+        "marketPrices": "Market Prices",
+        "weatherUpdates": "Weather Updates",
+        "govtPolicies": "Government Policies",
+        "farmingTechniques": "Farming Techniques",
+        "technology": "Technology"
+    },
+    "sources": {
+        "agriTech": "AgriTech Today",
+        "farmersJournal": "Farmer's Journal",
+        "globalFarming": "Global Farming Initiative",
+        "agriInvest": "Agri-Investments Daily",
+        "sustainableFarms": "Sustainable Farms",
+        "techCrunch": "TechCrunch Agriculture",
+        "govtIndia": "Govt. of India"
+    }
+}
