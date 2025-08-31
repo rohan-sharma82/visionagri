@@ -240,12 +240,47 @@ The Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesal
   },
   {
     id: 4,
-    name: 'National Mission for Sustainable Agriculture',
-    shortName: 'NMSA',
-    shortDescription: 'Formulated for enhancing agricultural productivity, especially in rainfed areas, focusing on integrated farming and water use efficiency.',
-    description: 'NMSA has been formulated for enhancing agricultural productivity especially in rainfed areas focusing on integrated farming, water use efficiency, soil health management and synergizing resource conservation.',
-    imageUrl: 'https://picsum.photos/200/200?random=4',
-    dataAiHint: 'sustainable agriculture',
+    name: 'Pradhan Mantri Kisan Maandhan Yojana',
+    shortName: 'PM Kisan Maandhan',
+    shortDescription: 'A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.',
+    description: `🌾 Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)
+
+Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme for small and marginal farmers in India. It was launched on 12 September 2019 by Prime Minister Narendra Modi to ensure financial security for farmers in their old age.
+
+🎯 Objective
+
+To provide a guaranteed monthly pension of ₹3,000 to small and marginal farmers after the age of 60 years.
+
+👩‍🌾 Eligibility
+
+Small and marginal farmers with cultivable land up to 2 hectares
+
+Age group: 18 to 40 years
+
+💰 Contributions
+
+Farmers contribute a fixed amount (₹55 – ₹200 per month) depending on age.
+
+Contribution continues for 20 years or until the farmer turns 60 years, whichever is earlier.
+
+Government matches the farmer’s contribution (up to ₹1,000/month).
+
+🏦 How to Join
+
+Farmers need to open a pension account with LIC (Life Insurance Corporation of India).
+
+LIC manages the pension funds and ensures payouts.
+
+📌 Benefits
+
+✅ Guaranteed ₹3,000 monthly pension after 60 years
+✅ Pension continues for the rest of the farmer’s life
+✅ Financial security in old age
+✅ Shared contribution between farmer & government
+
+✨ PM-KMY is a safety net for India’s small and marginal farmers, ensuring dignity and stability in their later years.`,
+    imageUrl: 'https://www.gyan.bharatagri.com/wp-content/uploads/2024/08/5_Pradhan-Mantri-Kisan-MaanDhan-Yojana-PM-KMY.webp',
+    dataAiHint: 'pension scheme',
     url: '#',
   },
 ];
