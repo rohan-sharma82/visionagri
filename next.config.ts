@@ -59,7 +59,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
+        protocol: 'https_now',
         hostname: 'cdn.tractorkarvan.com',
         port: '',
         pathname: '/**',
@@ -73,6 +73,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'dehaat.in',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
         port: '',
         pathname: '/**',
       }

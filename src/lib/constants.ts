@@ -234,7 +234,7 @@ Better market linkages for farmers across India.
 The Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesale turmeric market in the world and one of the biggest agricultural markets in India.
 
 ✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency.`,
-    imageUrl: 'https://dehaat.in/_next/image?url=https%3A%2F%2Fdehaat-kheti-prod.s3.amazonaws.com%2Fdjango-summernote%2F2024-03-04%2F7c20e9d6-05b1-4b7b-ac1f-bf2976d11a31.webp&w=3840&q=75',
+    imageUrl: 'https://pbs.twimg.com/media/FLEoCcWakAID1Vq.jpg',
     dataAiHint: 'agriculture market',
     url: '#',
   },
