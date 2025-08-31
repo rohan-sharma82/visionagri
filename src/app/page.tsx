@@ -161,8 +161,8 @@ export default function Home() {
               </DialogHeader>
               <ScrollArea className="h-full pr-4">
                 <div
-                  className="prose prose-sm dark:prose-invert whitespace-pre-wrap"
-                  dangerouslySetInnerHTML={{ __html: selectedNews.article.replace(/\n/g, '<br />') }}
+                  className="prose prose-sm dark:prose-invert"
+                  dangerouslySetInnerHTML={{ __html: selectedNews.article }}
                 />
               </ScrollArea>
             </DialogContent>

@@ -122,125 +122,122 @@ export const newsData = [
     source: 'Govt. of India',
     date: 'October 27, 2023',
     snippet: 'The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age.',
-    article: `The **Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)** is a **voluntary and contributory pension scheme** launched by the Government of India on **12 September 2019**. The scheme is specially designed for **small and marginal farmers** to ensure financial security in their old age.
-
-It was introduced by Prime Minister **Narendra Modi** with the vision of providing farmers a dignified life after retirement.
-
----
-
-## 🎯 Objective of PM-KMY
-
-* To provide **financial assistance** to small and marginal farmers after 60 years of age.
-* To ensure that farmers do not remain dependent on others for their daily needs in old age.
-* To give a **guaranteed monthly pension of ₹3,000** for a secure future.
-
----
-
-## 👩‍🌾 Eligibility
-
-* Small and marginal farmers with **cultivable land up to 2 hectares**.
-* Age between **18 and 40 years** at the time of joining.
-
-**Not Eligible:**
-
-* Farmers covered under NPS, EPF, or ESIC.
-* Institutional landholders and big landlords.
-* Present or former constitutional post holders, ministers, MLAs/MPs.
-* Government employees (except Class IV/Group D staff).
-* Income tax payers in the last financial year.
-* Professionals such as doctors, engineers, lawyers, CAs, architects, etc.
-
----
-
-## 💰 Contribution Details
-
-Farmers need to contribute a small fixed amount **(₹55 to ₹200 per month)** depending on their entry age.
-
-* The **government matches the farmer’s contribution** on a 1:1 basis.
-* Contributions continue until the farmer reaches **60 years of age**.
-* After 60 years, the farmer receives **₹3,000 monthly pension for life**.
-
----
-
-## 🏦 How to Apply
-
-1. Visit the nearest **Common Service Centre (CSC)**.
-2. Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.
-3. Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.
-4. Provide **auto-debit mandate** so the contribution is deducted automatically.
-5. After verification, the farmer is issued a **Unique Pension Account Number**.
-
----
-
-## 📌 Contribution Chart
-
-| Entry Age (Years) | Retirement Age | Farmer’s Contribution (₹/month) | Government’s Contribution (₹/month) | Total Contribution (₹/month) |
-| ----------------- | -------------- | ------------------------------- | ----------------------------------- | ---------------------------- |
-| 18                | 60             | 55                              | 55                                  | 110                          |
-| 19                | 60             | 58                              | 58                                  | 116                          |
-| 20                | 60             | 61                              | 61                                  | 122                          |
-| 21                | 60             | 64                              | 64                                  | 128                          |
-| 22                | 60             | 68                              | 68                                  | 136                          |
-| 23                | 60             | 72                              | 72                                  | 144                          |
-| 24                | 60             | 76                              | 76                                  | 152                          |
-| 25                | 60             | 80                              | 80                                  | 160                          |
-| 26                | 60             | 85                              | 85                                  | 170                          |
-| 27                | 60             | 90                              | 90                                  | 180                          |
-| 28                | 60             | 95                              | 95                                  | 190                          |
-| 29                | 60             | 100                             | 100                                 | 200                          |
-| 30                | 60             | 105                             | 105                                 | 210                          |
-| 31                | 60             | 110                             | 110                                 | 220                          |
-| 32                | 60             | 120                             | 120                                 | 240                          |
-| 33                | 60             | 130                             | 130                                 | 260                          |
-| 34                | 60             | 140                             | 140                                 | 280                          |
-| 35                | 60             | 150                             | 150                                 | 300                          |
-| 36                | 60             | 160                             | 160                                 | 320                          |
-| 37                | 60             | 170                             | 170                                 | 340                          |
-| 38                | 60             | 180                             | 180                                 | 360                          |
-| 39                | 60             | 190                             | 190                                 | 380                          |
-| 40                | 60             | 200                             | 200                                 | 400                          |
-
----
-
-## 📌 Special Rule for PM-Kisan Beneficiaries
-
-Farmers who are already receiving **₹6,000 per year under PM-Kisan Samman Nidhi** can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.
-
----
-
-## 📝 FAQs
-
-**1. Is there any enrollment fee?**
-A nominal fee of ₹30 is charged at CSCs, which is paid by the government.
-
-**2. What if the farmer dies before 60 years?**
-
-* The spouse can continue the scheme by contributing further.
-* If not, the total contribution made by the farmer (with interest) will be returned to the nominee.
-
-**3. What if the farmer dies after 60 years?**
-
-* The spouse will receive **50% of the pension** as family pension (if not already a PM-KMY member).
-
-**4. What if contributions are not paid on time?**
-
-* Auto-debit happens on **1st, 11th, or 21st** of the month.
-* If missed, contributions can be paid later with interest.
-* Accounts inactive for more than 3 years may be closed.
-
----
-
-## 🌟 Key Benefits of PM-KMY
-
-✅ Guaranteed **₹3,000 monthly pension** after 60 years
-✅ Equal contribution by Government
-✅ Financial security in old age
-✅ Family pension to spouse in case of death
-✅ Simple enrollment through CSCs
-
----
-
-✨ **The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.**`,
+    article: `<div>
+      <p>The <strong>Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)</strong> is a <strong>voluntary and contributory pension scheme</strong> launched by the Government of India on <strong>12 September 2019</strong>. The scheme is specially designed for <strong>small and marginal farmers</strong> to ensure financial security in their old age.</p>
+      <p>It was introduced by Prime Minister <strong>Narendra Modi</strong> with the vision of providing farmers a dignified life after retirement.</p>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">🎯 Objective of PM-KMY</h4>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>To provide <strong>financial assistance</strong> to small and marginal farmers after 60 years of age.</li>
+        <li>To ensure that farmers do not remain dependent on others for their daily needs in old age.</li>
+        <li>To give a <strong>guaranteed monthly pension of ₹3,000</strong> for a secure future.</li>
+      </ul>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">👩‍🌾 Eligibility</h4>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Small and marginal farmers with <strong>cultivable land up to 2 hectares</strong>.</li>
+        <li>Age between <strong>18 and 40 years</strong> at the time of joining.</li>
+      </ul>
+      <p class="mt-2"><strong>Not Eligible:</strong></p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Farmers covered under NPS, EPF, or ESIC.</li>
+        <li>Institutional landholders and big landlords.</li>
+        <li>Present or former constitutional post holders, ministers, MLAs/MPs.</li>
+        <li>Government employees (except Class IV/Group D staff).</li>
+        <li>Income tax payers in the last financial year.</li>
+        <li>Professionals such as doctors, engineers, lawyers, CAs, architects, etc.</li>
+      </ul>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">💰 Contribution Details</h4>
+      <p>Farmers need to contribute a small fixed amount <strong>(₹55 to ₹200 per month)</strong> depending on their entry age.</p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>The <strong>government matches the farmer’s contribution</strong> on a 1:1 basis.</li>
+        <li>Contributions continue until the farmer reaches <strong>60 years of age</strong>.</li>
+        <li>After 60 years, the farmer receives <strong>₹3,000 monthly pension for life</strong>.</li>
+      </ul>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">🏦 How to Apply</h4>
+      <ol class="list-decimal pl-5 space-y-1">
+        <li>Visit the nearest <strong>Common Service Centre (CSC)</strong>.</li>
+        <li>Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.</li>
+        <li>Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.</li>
+        <li>Provide <strong>auto-debit mandate</strong> so the contribution is deducted automatically.</li>
+        <li>After verification, the farmer is issued a <strong>Unique Pension Account Number</strong>.</li>
+      </ol>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">📌 Contribution Chart</h4>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr>
+              <th class="border p-2">Entry Age (Years)</th>
+              <th class="border p-2">Retirement Age</th>
+              <th class="border p-2">Farmer’s Contribution (₹/month)</th>
+              <th class="border p-2">Government’s Contribution (₹/month)</th>
+              <th class="border p-2">Total Contribution (₹/month)</th>
+            </tr>
+          </thead>
+          <tbody>
+<tr><td class="border p-2">18</td><td class="border p-2">60</td><td class="border p-2">55</td><td class="border p-2">55</td><td class="border p-2">110</td></tr>
+<tr><td class="border p-2">19</td><td class="border p-2">60</td><td class="border p-2">58</td><td class="border p-2">58</td><td class="border p-2">116</td></tr>
+<tr><td class="border p-2">20</td><td class="border p-2">60</td><td class="border p-2">61</td><td class="border p-2">61</td><td class="border p-2">122</td></tr>
+<tr><td class="border p-2">21</td><td class="border p-2">60</td><td class="border p-2">64</td><td class="border p-2">64</td><td class="border p-2">128</td></tr>
+<tr><td class="border p-2">22</td><td class="border p-2">60</td><td class="border p-2">68</td><td class="border p-2">68</td><td class="border p-2">136</td></tr>
+<tr><td class="border p-2">23</td><td class="border p-2">60</td><td class="border p-2">72</td><td class="border p-2">72</td><td class="border p-2">144</td></tr>
+<tr><td class="border p-2">24</td><td class="border p-2">60</td><td class="border p-2">76</td><td class="border p-2">76</td><td class="border p-2">152</td></tr>
+<tr><td class="border p-2">25</td><td class="border p-2">60</td><td class="border p-2">80</td><td class="border p-2">80</td><td class="border p-2">160</td></tr>
+<tr><td class="border p-2">26</td><td class="border p-2">60</td><td class="border p-2">85</td><td class="border p-2">85</td><td class="border p-2">170</td></tr>
+<tr><td class="border p-2">27</td><td class="border p-2">60</td><td class="border p-2">90</td><td class="border p-2">90</td><td class="border p-2">180</td></tr>
+<tr><td class="border p-2">28</td><td class="border p-2">60</td><td class="border p-2">95</td><td class="border p-2">95</td><td class="border p-2">190</td></tr>
+<tr><td class="border p-2">29</td><td class="border p-2">60</td><td class="border p-2">100</td><td class="border p-2">100</td><td class="border p-2">200</td></tr>
+<tr><td class="border p-2">30</td><td class="border p-2">60</td><td class="border p-2">105</td><td class="border p-2">105</td><td class="border p-2">210</td></tr>
+<tr><td class="border p-2">31</td><td class="border p-2">60</td><td class="border p-2">110</td><td class="border p-2">110</td><td class="border p-2">220</td></tr>
+<tr><td class="border p-2">32</td><td class="border p-2">60</td><td class="border p-2">120</td><td class="border p-2">120</td><td class="border p-2">240</td></tr>
+<tr><td class="border p-2">33</td><td class="border p-2">60</td><td class="border p-2">130</td><td class="border p-2">130</td><td class="border p-2">260</td></tr>
+<tr><td class="border p-2">34</td><td class="border p-2">60</td><td class="border p-2">140</td><td class="border p-2">140</td><td class="border p-2">280</td></tr>
+<tr><td class="border p-2">35</td><td class="border p-2">60</td><td class="border p-2">150</td><td class="border p-2">150</td><td class="border p-2">300</td></tr>
+<tr><td class="border p-2">36</td><td class="border p-2">60</td><td class="border p-2">160</td><td class="border p-2">160</td><td class="border p-2">320</td></tr>
+<tr><td class="border p-2">37</td><td class="border p-2">60</td><td class="border p-2">170</td><td class="border p-2">170</td><td class="border p-2">340</td></tr>
+<tr><td class="border p-2">38</td><td class="border p-2">60</td><td class="border p-2">180</td><td class="border p-2">180</td><td class="border p-2">360</td></tr>
+<tr><td class="border p-2">39</td><td class="border p-2">60</td><td class="border p-2">190</td><td class="border p-2">190</td><td class="border p-2">380</td></tr>
+<tr><td class="border p-2">40</td><td class="border p-2">60</td><td class="border p-2">200</td><td class="border p-2">200</td><td class="border p-2">400</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">📌 Special Rule for PM-Kisan Beneficiaries</h4>
+      <p>Farmers who are already receiving <strong>₹6,000 per year under PM-Kisan Samman Nidhi</strong> can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.</p>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">📝 FAQs</h4>
+      <p><strong>1. Is there any enrollment fee?</strong></p>
+      <p>A nominal fee of ₹30 is charged at CSCs, which is paid by the government.</p>
+      <p><strong>2. What if the farmer dies before 60 years?</strong></p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>The spouse can continue the scheme by contributing further.</li>
+        <li>If not, the total contribution made by the farmer (with interest) will be returned to the nominee.</li>
+      </ul>
+      <p><strong>3. What if the farmer dies after 60 years?</strong></p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>The spouse will receive <strong>50% of the pension</strong> as family pension (if not already a PM-KMY member).</li>
+      </ul>
+      <p><strong>4. What if contributions are not paid on time?</strong></p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Auto-debit happens on <strong>1st, 11th, or 21st</strong> of the month.</li>
+        <li>If missed, contributions can be paid later with interest.</li>
+        <li>Accounts inactive for more than 3 years may be closed.</li>
+      </ul>
+      <hr class="my-4"/>
+      <h4 class="font-bold text-lg mb-2">🌟 Key Benefits of PM-KMY</h4>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>✅ Guaranteed <strong>₹3,000 monthly pension</strong> after 60 years</li>
+        <li>✅ Equal contribution by Government</li>
+        <li>✅ Financial security in old age</li>
+        <li>✅ Family pension to spouse in case of death</li>
+        <li>✅ Simple enrollment through CSCs</li>
+      </ul>
+      <hr class="my-4"/>
+      <p>✨ <strong>The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.</strong></p>
+    </div>`,
     category: 'Government Policies',
   },
 ];
