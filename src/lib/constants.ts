@@ -255,6 +255,33 @@ export const newsData = [
     article: 'news.n21_article',
     category: 'categories.farmingTechniques',
   },
+  {
+    id: 22,
+    title: 'news.n22_title',
+    source: 'sources.agriKnowledge',
+    date: 'dates.sep01_25',
+    snippet: 'news.n22_snippet',
+    article: 'news.n22_article',
+    category: 'categories.govtPolicies',
+  },
+  {
+    id: 23,
+    title: 'news.n23_title',
+    source: 'sources.agriKnowledge',
+    date: 'dates.sep01_25',
+    snippet: 'news.n23_snippet',
+    article: 'news.n23_article',
+    category: 'categories.technology',
+  },
+  {
+    id: 24,
+    title: 'news.n24_title',
+    source: 'sources.agriKnowledge',
+    date: 'dates.sep01_25',
+    snippet: 'news.n24_snippet',
+    article: 'news.n24_article',
+    category: 'categories.technology',
+  }
 ];
 
 export const schemesData = [
