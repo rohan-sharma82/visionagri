@@ -2,7 +2,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, Menu } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/lib/constants';
@@ -16,6 +16,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import LanguageSwitcher from '../language-switcher';
+import PillNav from '../pill-nav';
 
 interface HeaderProps {
   onLanguageChange?: (lang: string) => void;
@@ -26,63 +27,18 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
   const pathname = usePathname();
 
   return (
-    <header className="w-full border-b border-border/40 bg-background/95">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex items-center">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Leaf className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline">AgriVision AI</span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    'transition-colors hover:text-foreground/80',
-                    pathname === link.href
-                      ? 'text-foreground'
-                      : 'text-foreground/60'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-          </nav>
-        </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+    <header className="relative w-full border-b border-border/40 bg-background/95 h-24 flex items-center justify-center">
+        <PillNav
+            items={navLinks}
+            activeHref={pathname}
+            baseColor="hsl(var(--foreground))"
+            pillColor="hsl(var(--background))"
+            hoveredPillTextColor="hsl(var(--background))"
+            pillTextColor="hsl(var(--foreground))"
+        />
+        <div className="absolute top-1/2 -translate-y-1/2 right-4 flex items-center space-x-2">
             <ThemeToggle />
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle Menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right">
-                <SheetHeader>
-                  <SheetTitle>Navigation</SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={cn(
-                        'text-lg transition-colors hover:text-foreground/80',
-                        pathname === link.href
-                          ? 'text-foreground'
-                          : 'text-foreground/60'
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet>
         </div>
-      </div>
     </header>
   );
 }
