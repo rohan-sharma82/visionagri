@@ -123,7 +123,7 @@ export default function Home() {
 
   return (
     <>
-    <Header onLanguageChange={handleLanguageChange} showLanguageSwitcher={false} />
+    <Header />
     <div className="container mx-auto px-4 pt-8">
       {/* SVG filter for gooey effect */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
@@ -157,8 +157,8 @@ export default function Home() {
           toRef={aiIconRef}
         />
 
-        <div className="absolute bottom-8 text-center w-full px-4">
-          <div className='h-24 pb-4'>
+        <div className="absolute bottom-16 text-center w-full px-4">
+          <div className='h-24 pb-6'>
             <TextPressure
               text={translations[language].welcome}
               minFontSize={48}
