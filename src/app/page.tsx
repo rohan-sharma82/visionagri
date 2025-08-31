@@ -33,8 +33,8 @@ interface NewsArticle {
 
 const Icons = {
   openai: () => (
-    <Image 
-      src="https://i.imgur.com/3n6nBf1.png"
+    <Image
+      src="/ai photo.png"
       alt="AI Icon"
       width={48}
       height={48}
