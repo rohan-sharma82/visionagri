@@ -69,6 +69,12 @@ const nextConfig: NextConfig = {
         hostname: 'ik.imagekit.io',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dehaat.in',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

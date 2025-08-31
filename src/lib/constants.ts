@@ -177,12 +177,12 @@ The PMFBY scheme is a major step towards ensuring food security in India. The sc
   },
   {
     id: 3,
-    name: 'Kisan Credit Card (KCC)',
-    shortName: 'KCC',
-    shortDescription: 'Aims to provide adequate and timely credit support from the banking system to farmers for their cultivation and other needs.',
-    description: 'The KCC scheme aims at providing adequate and timely credit support from the banking system under a single window with flexible and simplified procedure to the farmers for their cultivation and other needs.',
-    imageUrl: 'https://picsum.photos/200/200?random=3',
-    dataAiHint: 'credit card',
+    name: 'E-NAM(National Agriculture Market)',
+    shortName: 'E-NAM',
+    shortDescription: 'A pan-India electronic trading portal networking the existing APMC mandis to create a unified national market for agricultural commodities.',
+    description: 'National Agriculture Market (eNAM) is a pan-India electronic trading portal which networks the existing APMC mandis to create a unified national market for agricultural commodities. Small Farmers Agribusiness Consortium (SFAC) is the lead agency for implementing eNAM under the aegis of Ministry of Agriculture and Farmers’ Welfare, Government of India.',
+    imageUrl: 'https://dehaat.in/_next/image?url=https%3A%2F%2Fdehaat-kheti-prod.s3.amazonaws.com%2Fdjango-summernote%2F2024-03-04%2F7c20e9d6-05b1-4b7b-ac1f-bf2976d11a31.webp&w=3840&q=75',
+    dataAiHint: 'agriculture market',
     url: '#',
   },
   {
