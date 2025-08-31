@@ -1,18 +1,38 @@
 'use client';
 import { useState } from 'react';
 import { User } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { newsData, newsCategories } from '@/lib/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import TextPressure from '@/components/text-pressure';
 import QuotesBox from '@/components/quotes-box';
 import FeatureCards from '@/components/feature-cards';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
+
+interface NewsArticle {
+  id: number;
+  title: string;
+  source: string;
+  date: string;
+  snippet: string;
+  article: string;
+  category: string;
+  url?: string;
+}
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
 
-  const filteredNews =
+  const filteredNews: NewsArticle[] =
     selectedCategory === 'All Categories'
       ? newsData
       : newsData.filter((news) => news.category === selectedCategory);
@@ -103,31 +123,51 @@ export default function Home() {
             </button>
           ))}
         </div>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
-          {filteredNews.map((news) => (
-            <motion.div
-              key={news.id}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="card5">
-                <div className="card5-content">
-                  <div>
-                    <span className="card-title">{news.title}</span>
-                    <p className="card-description">{news.snippet}</p>
+        <Dialog>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
+            {filteredNews.map((news) => (
+              <motion.div
+                key={news.id}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="card5">
+                  <div className="card5-content">
+                    <div>
+                      <span className="card-title">{news.title}</span>
+                      <p className="card-description">{news.snippet}</p>
+                    </div>
+                    <DialogTrigger asChild>
+                      <button onClick={() => setSelectedNews(news)} className="card-link">
+                        Read More
+                      </button>
+                    </DialogTrigger>
                   </div>
-                  <Link href={news.url} target="_blank" className="card-link">
-                    Read More
-                  </Link>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {selectedNews && (
+            <DialogContent className="max-w-2xl h-[70vh]">
+              <DialogHeader>
+                <DialogTitle>{selectedNews.title}</DialogTitle>
+                <DialogDescription>
+                  Source: {selectedNews.source} | Date: {selectedNews.date}
+                </DialogDescription>
+              </DialogHeader>
+              <ScrollArea className="h-full pr-4">
+                <div
+                  className="prose prose-sm dark:prose-invert whitespace-pre-wrap"
+                  dangerouslySetInnerHTML={{ __html: selectedNews.article.replace(/\n/g, '<br />') }}
+                />
+              </ScrollArea>
+            </DialogContent>
+          )}
+        </Dialog>
         {filteredNews.length === 0 && (
           <p className="text-center text-muted-foreground mt-8">
             No news articles found in this category.

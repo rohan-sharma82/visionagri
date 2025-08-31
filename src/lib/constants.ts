@@ -63,7 +63,8 @@ export const newsData = [
     date: 'October 26, 2023',
     snippet:
       'Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.',
-    url: '#',
+    article:
+      'Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease. This technology allows for targeted intervention, reducing the need for broad-spectrum pesticides and optimizing resource use. The result is higher yields, lower costs, and a more sustainable approach to farming.',
     category: 'Technology',
   },
   {
@@ -73,7 +74,8 @@ export const newsData = [
     date: 'October 25, 2023',
     snippet:
       'In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.',
-    url: '#',
+    article:
+      'In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods. The package includes financial incentives for certification, market access support, and training programs on organic practices. This initiative is expected to significantly boost the organic sector in the coming years.',
     category: 'Government Policies',
   },
   {
@@ -83,7 +85,8 @@ export const newsData = [
     date: 'October 24, 2023',
     snippet:
       'A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.',
-    url: '#',
+    article:
+      'A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems. The report emphasizes the importance of climate-resilient agriculture and showcases case studies of successful adaptation from around the world, offering valuable lessons for farmers everywhere.',
     category: 'Weather Updates',
   },
     {
@@ -92,7 +95,7 @@ export const newsData = [
     source: 'Agri-Investments Daily',
     date: 'October 23, 2023',
     snippet: 'Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.',
-    url: '#',
+    article: 'Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain. The surge is putting pressure on livestock feed prices and raising concerns about food inflation. Experts are closely monitoring the situation as the harvest season progresses.',
     category: 'Market Prices',
   },
   {
@@ -101,7 +104,7 @@ export const newsData = [
     source: 'Sustainable Farms',
     date: 'October 22, 2023',
     snippet: 'No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.',
-    url: '#',
+    article: 'No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started, covering topics such as equipment needs, cover cropping strategies, and potential challenges. By minimizing soil disturbance, farmers can enhance biodiversity and reduce erosion.',
     category: 'Farming Techniques',
   },
   {
@@ -110,7 +113,7 @@ export const newsData = [
     source: 'TechCrunch Agriculture',
     date: 'October 21, 2023',
     snippet: 'A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.',
-    url: '#',
+    article: 'A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations. The app, which has a database of thousands of pests, aims to democratize access to expert agronomic advice and help farmers make timely decisions to protect their crops.',
     category: 'Technology',
   },
   {
@@ -119,7 +122,125 @@ export const newsData = [
     source: 'Govt. of India',
     date: 'October 27, 2023',
     snippet: 'The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age.',
-    url: '/govt-schemes',
+    article: `The **Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)** is a **voluntary and contributory pension scheme** launched by the Government of India on **12 September 2019**. The scheme is specially designed for **small and marginal farmers** to ensure financial security in their old age.
+
+It was introduced by Prime Minister **Narendra Modi** with the vision of providing farmers a dignified life after retirement.
+
+---
+
+## 🎯 Objective of PM-KMY
+
+* To provide **financial assistance** to small and marginal farmers after 60 years of age.
+* To ensure that farmers do not remain dependent on others for their daily needs in old age.
+* To give a **guaranteed monthly pension of ₹3,000** for a secure future.
+
+---
+
+## 👩‍🌾 Eligibility
+
+* Small and marginal farmers with **cultivable land up to 2 hectares**.
+* Age between **18 and 40 years** at the time of joining.
+
+**Not Eligible:**
+
+* Farmers covered under NPS, EPF, or ESIC.
+* Institutional landholders and big landlords.
+* Present or former constitutional post holders, ministers, MLAs/MPs.
+* Government employees (except Class IV/Group D staff).
+* Income tax payers in the last financial year.
+* Professionals such as doctors, engineers, lawyers, CAs, architects, etc.
+
+---
+
+## 💰 Contribution Details
+
+Farmers need to contribute a small fixed amount **(₹55 to ₹200 per month)** depending on their entry age.
+
+* The **government matches the farmer’s contribution** on a 1:1 basis.
+* Contributions continue until the farmer reaches **60 years of age**.
+* After 60 years, the farmer receives **₹3,000 monthly pension for life**.
+
+---
+
+## 🏦 How to Apply
+
+1. Visit the nearest **Common Service Centre (CSC)**.
+2. Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.
+3. Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.
+4. Provide **auto-debit mandate** so the contribution is deducted automatically.
+5. After verification, the farmer is issued a **Unique Pension Account Number**.
+
+---
+
+## 📌 Contribution Chart
+
+| Entry Age (Years) | Retirement Age | Farmer’s Contribution (₹/month) | Government’s Contribution (₹/month) | Total Contribution (₹/month) |
+| ----------------- | -------------- | ------------------------------- | ----------------------------------- | ---------------------------- |
+| 18                | 60             | 55                              | 55                                  | 110                          |
+| 19                | 60             | 58                              | 58                                  | 116                          |
+| 20                | 60             | 61                              | 61                                  | 122                          |
+| 21                | 60             | 64                              | 64                                  | 128                          |
+| 22                | 60             | 68                              | 68                                  | 136                          |
+| 23                | 60             | 72                              | 72                                  | 144                          |
+| 24                | 60             | 76                              | 76                                  | 152                          |
+| 25                | 60             | 80                              | 80                                  | 160                          |
+| 26                | 60             | 85                              | 85                                  | 170                          |
+| 27                | 60             | 90                              | 90                                  | 180                          |
+| 28                | 60             | 95                              | 95                                  | 190                          |
+| 29                | 60             | 100                             | 100                                 | 200                          |
+| 30                | 60             | 105                             | 105                                 | 210                          |
+| 31                | 60             | 110                             | 110                                 | 220                          |
+| 32                | 60             | 120                             | 120                                 | 240                          |
+| 33                | 60             | 130                             | 130                                 | 260                          |
+| 34                | 60             | 140                             | 140                                 | 280                          |
+| 35                | 60             | 150                             | 150                                 | 300                          |
+| 36                | 60             | 160                             | 160                                 | 320                          |
+| 37                | 60             | 170                             | 170                                 | 340                          |
+| 38                | 60             | 180                             | 180                                 | 360                          |
+| 39                | 60             | 190                             | 190                                 | 380                          |
+| 40                | 60             | 200                             | 200                                 | 400                          |
+
+---
+
+## 📌 Special Rule for PM-Kisan Beneficiaries
+
+Farmers who are already receiving **₹6,000 per year under PM-Kisan Samman Nidhi** can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.
+
+---
+
+## 📝 FAQs
+
+**1. Is there any enrollment fee?**
+A nominal fee of ₹30 is charged at CSCs, which is paid by the government.
+
+**2. What if the farmer dies before 60 years?**
+
+* The spouse can continue the scheme by contributing further.
+* If not, the total contribution made by the farmer (with interest) will be returned to the nominee.
+
+**3. What if the farmer dies after 60 years?**
+
+* The spouse will receive **50% of the pension** as family pension (if not already a PM-KMY member).
+
+**4. What if contributions are not paid on time?**
+
+* Auto-debit happens on **1st, 11th, or 21st** of the month.
+* If missed, contributions can be paid later with interest.
+* Accounts inactive for more than 3 years may be closed.
+
+---
+
+## 🌟 Key Benefits of PM-KMY
+
+✅ Guaranteed **₹3,000 monthly pension** after 60 years
+✅ Equal contribution by Government
+✅ Financial security in old age
+✅ Family pension to spouse in case of death
+✅ Simple enrollment through CSCs
+
+---
+
+✨ **The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.**`,
     category: 'Government Policies',
   },
 ];
@@ -157,7 +278,6 @@ Details required for registration include Name, Age, Gender, Category(SC/ST), Aa
 For more details visit PM KISAN portal.`,
     imageUrl: 'https://cdn.tractorkarvan.com/tr:f-webp/images/Blogs/top-central-government-schemes-for-farmers-in-india/pm-kisan.jpg',
     dataAiHint: 'government building',
-    url: '#',
   },
   {
     id: 2,
@@ -182,7 +302,6 @@ It helps to promote sustainable agriculture.
 The PMFBY scheme is a major step towards ensuring food security in India. The scheme has helped to reduce farmers' vulnerability to crop losses and has helped to improve their income. The scheme is a major boost to the agricultural sector and is helping to promote sustainable agriculture.`,
     imageUrl: 'https://ik.imagekit.io/tractorkarvan/tr:f-webp/images/Articles/pradhan-mantri-fasal-bima-yojana/pradhan-Mantri-Fasal-Bima-Hindi-Blog1.jpg',
     dataAiHint: 'crop insurance',
-    url: '#',
   },
   {
     id: 3,
@@ -245,7 +364,6 @@ The Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesal
 ✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency.`,
     imageUrl: 'https://pbs.twimg.com/media/FLEoCcWakAID1Vq.jpg',
     dataAiHint: 'agriculture market',
-    url: '#',
   },
   {
     id: 4,
@@ -290,7 +408,6 @@ LIC manages the pension funds and ensures payouts.
 ✨ PM-KMY is a safety net for India’s small and marginal farmers, ensuring dignity and stability in their later years.`,
     imageUrl: 'https://www.gyan.bharatagri.com/wp-content/uploads/2024/08/5_Pradhan-Mantri-Kisan-MaanDhan-Yojana-PM-KMY.webp',
     dataAiHint: 'pension scheme',
-    url: '#',
   },
 ];
 
