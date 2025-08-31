@@ -179,8 +179,61 @@ The PMFBY scheme is a major step towards ensuring food security in India. The sc
     id: 3,
     name: 'E-NAM(National Agriculture Market)',
     shortName: 'E-NAM',
-    shortDescription: 'A pan-India electronic trading portal networking the existing APMC mandis to create a unified national market for agricultural commodities.',
-    description: 'National Agriculture Market (eNAM) is a pan-India electronic trading portal which networks the existing APMC mandis to create a unified national market for agricultural commodities. Small Farmers Agribusiness Consortium (SFAC) is the lead agency for implementing eNAM under the aegis of Ministry of Agriculture and Farmers’ Welfare, Government of India.',
+    shortDescription: 'eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.',
+    description: `🌾 National Agriculture Market (eNAM)
+
+eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities. It was launched on April 14, 2016, by the Ministry of Agriculture and Farmers’ Welfare, Government of India, with the Small Farmers Agribusiness Consortium (SFAC) as the lead implementing agency.
+
+🎯 Vision
+
+To promote uniformity in agricultural marketing by streamlining procedures across integrated markets.
+
+To remove information gaps between buyers and sellers.
+
+To enable real-time price discovery based on actual demand and supply.
+
+🚀 Mission
+
+Integration of APMCs across the country through a common online market platform.
+
+Facilitate pan-India trade in agricultural commodities.
+
+Ensure better price discovery through a transparent auction process based on quality of produce.
+
+Provide timely online payments to farmers.
+
+🌟 Key Benefits of eNAM
+
+✅ Real-time price discovery based on demand & supply
+✅ Reduced transaction costs for farmers, traders, and buyers
+✅ Wider market access beyond local mandis
+✅ Transparent & accountable trading process
+✅ Improved mandi infrastructure and facilities
+✅ Faster payments through online system
+
+📊 eNAM in Numbers (as of March 8, 2023)
+
+1,260 mandis onboarded across 22 states & 3 union territories
+
+Trade facilitated: 120+ million MT of commodities
+
+Value of trade: ₹1.2 trillion+
+
+🛠 Key Features
+
+A single-window platform for all APMC-related information and services.
+
+Online trading of agricultural commodities.
+
+Transparent auctions based on quality.
+
+Better market linkages for farmers across India.
+
+🏬 India’s Largest Agriculture Market
+
+The Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesale turmeric market in the world and one of the biggest agricultural markets in India.
+
+✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency.`,
     imageUrl: 'https://dehaat.in/_next/image?url=https%3A%2F%2Fdehaat-kheti-prod.s3.amazonaws.com%2Fdjango-summernote%2F2024-03-04%2F7c20e9d6-05b1-4b7b-ac1f-bf2976d11a31.webp&w=3840&q=75',
     dataAiHint: 'agriculture market',
     url: '#',
