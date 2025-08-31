@@ -16,13 +16,14 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import LanguageSwitcher from '../language-switcher';
+import GooeyNav from '../gooey-nav';
 
 interface HeaderProps {
   onLanguageChange?: (lang: string) => void;
   showLanguageSwitcher?: boolean;
 }
 
-export default function Header({ onLanguageChange, showLanguageSwitcher = false }: HeaderProps) {
+export default function Header({ onLanguageChange, showLanguageSwitcher = true }: HeaderProps) {
   const pathname = usePathname();
 
   return (
@@ -34,20 +35,7 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = false 
             <span className="font-bold font-headline">AgriVision AI</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'transition-colors hover:text-foreground/80',
-                  pathname === link.href
-                    ? 'text-foreground'
-                    : 'text-foreground/60'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+             <GooeyNav items={navLinks} />
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
@@ -89,7 +77,7 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = false 
         </div>
       </div>
       {showLanguageSwitcher && (
-        <div className="container hidden md:flex justify-center py-2 border-t border-border/40">
+        <div className="container flex justify-center py-2 border-t border-border/40">
           <LanguageSwitcher onLanguageChange={onLanguageChange} />
         </div>
       )}
