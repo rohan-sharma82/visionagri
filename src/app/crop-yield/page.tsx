@@ -28,6 +28,7 @@ import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
+import Header from '@/components/layout/header';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -71,6 +72,8 @@ export default function CropYieldPage() {
   }
 
   return (
+    <>
+    <Header showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">
@@ -271,5 +274,6 @@ export default function CropYieldPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

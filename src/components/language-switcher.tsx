@@ -8,10 +8,17 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-export default function LanguageSwitcher() {
-  const handleLanguageChange = (lang: string) => {
-    // Placeholder for language change logic
-    console.log(`Language changed to: ${lang}`);
+interface LanguageSwitcherProps {
+  onLanguageChange?: (lang: string) => void;
+}
+
+export default function LanguageSwitcher({ onLanguageChange }: LanguageSwitcherProps) {
+  const handleSelect = (lang: string) => {
+    if (onLanguageChange) {
+      onLanguageChange(lang);
+    } else {
+      console.warn('onLanguageChange handler not provided to LanguageSwitcher');
+    }
   };
 
   return (
@@ -30,22 +37,22 @@ export default function LanguageSwitcher() {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onSelect={() => handleLanguageChange('en')}>
+        <DropdownMenuItem onSelect={() => handleSelect('en')}>
           English
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('pa')}>
+        <DropdownMenuItem onSelect={() => handleSelect('pa')}>
           ਪੰਜਾਬੀ (Punjabi)
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('ta')}>
+        <DropdownMenuItem onSelect={() => handleSelect('ta')}>
           தமிழ் (Tamil)
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('te')}>
+        <DropdownMenuItem onSelect={() => handleSelect('te')}>
           తెలుగు (Telugu)
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('bn')}>
+        <DropdownMenuItem onSelect={() => handleSelect('bn')}>
           বাংলা (Bengali)
         </DropdownMenuItem>
-        <DropdownMenuItem onSelect={() => handleLanguageChange('mr')}>
+        <DropdownMenuItem onSelect={() => handleSelect('mr')}>
           मराठी (Marathi)
         </DropdownMenuItem>
       </DropdownMenuContent>

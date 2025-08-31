@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useRef, forwardRef } from 'react';
+import { useState, useRef, forwardRef, useCallback } from 'react';
 import { newsData, newsCategories } from '@/lib/constants';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,6 +19,8 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnimatedBeam } from '@/components/magicui/animated-beam';
 import { cn } from '@/lib/utils';
+import LanguageSwitcher from '@/components/language-switcher';
+import Header from '@/components/layout/header';
 
 interface NewsArticle {
   id: number;
@@ -73,9 +75,38 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
+const translations = {
+  en: {
+    welcome: "Welcome to AgriVision AI",
+    tagline: "Revolutionizing farming with the power of Artificial Intelligence.",
+  },
+  pa: {
+    welcome: "ਐਗਰੀਵਿਜ਼ਨ AI ਵਿੱਚ ਤੁਹਾਡਾ ਸੁਆਗਤ ਹੈ",
+    tagline: "ਆਰਟੀਫੀਸ਼ੀਅਲ ਇੰਟੈਲੀਜੈਂਸ ਦੀ ਸ਼ਕਤੀ ਨਾਲ ਖੇਤੀਬਾੜੀ ਵਿੱਚ ਕ੍ਰਾਂਤੀ।",
+  },
+  ta: {
+    welcome: "அக்ரிவிஷன் AI-க்கு வரவேற்கிறோம்",
+    tagline: "செயற்கை நுண்ணறிவு சக்தியுடன் விவசாயத்தில் புரட்சி.",
+  },
+  te: {
+    welcome: "అగ్రివిజన్ AIకి స్వాగతం",
+    tagline: "కృత్రిమ మేధస్సు శక్తితో వ్యవసాయంలో విప్లవం.",
+  },
+  bn: {
+    welcome: "এগ্রিভিশন AI-তে স্বাগতম",
+    tagline: "কৃত্রিম বুদ্ধিমত্তার শক্তি দিয়ে কৃষিতে বিপ্লব।",
+  },
+  mr: {
+    welcome: "ऍग्रिव्हिजन AI मध्ये आपले स्वागत आहे",
+    tagline: "कृत्रिम बुद्धिमत्तेच्या सामर्थ्याने शेतीत क्रांती.",
+  },
+};
+
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
+  const [language, setLanguage] = useState<'en' | 'pa' | 'ta' | 'te' | 'bn' | 'mr'>('en');
 
   const containerRef = useRef<HTMLDivElement>(null);
   const userIconRef = useRef<HTMLDivElement>(null);
@@ -86,7 +117,13 @@ export default function Home() {
       ? newsData
       : newsData.filter((news) => news.category === selectedCategory);
 
+  const handleLanguageChange = useCallback((lang: string) => {
+    setLanguage(lang as 'en' | 'pa' | 'ta' | 'te' | 'bn' | 'mr');
+  }, []);
+
   return (
+    <>
+    <Header onLanguageChange={handleLanguageChange} />
     <div className="container mx-auto px-4 py-8">
       {/* SVG filter for gooey effect */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>
@@ -123,14 +160,14 @@ export default function Home() {
         <div className="absolute bottom-8 text-center w-full px-4">
           <div className='h-24 pb-4'>
             <TextPressure
-              text="Welcome to AgriVision AI"
+              text={translations[language].welcome}
               minFontSize={48}
               textColor='hsl(var(--foreground))'
             />
           </div>
            <div className='h-10 pb-2'>
             <TextPressure
-                text="Revolutionizing farming with the power of Artificial Intelligence."
+                text={translations[language].tagline}
                 minFontSize={18}
                 textColor='hsl(var(--muted-foreground))'
                 weight={false}
@@ -219,5 +256,6 @@ export default function Home() {
         )}
       </section>
     </div>
+    </>
   );
 }

@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
-import Header from '@/components/layout/header';
 import { Toaster } from '@/components/ui/toaster';
 import Galaxy from '@/components/galaxy';
 
@@ -38,6 +37,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Galaxy transparent={false} className="fixed inset-0 -z-10" />
           {/* SVG filters for gooey and glow effects */}
           <svg style={{ position: 'absolute', width: 0, height: 0 }}>
             <defs>
@@ -61,8 +61,6 @@ export default function RootLayout({
             </defs>
           </svg>
           <div className="relative flex min-h-screen flex-col">
-            <Galaxy transparent={false} className="fixed inset-0 -z-10" />
-            <Header />
             <main className="flex-1">{children}</main>
           </div>
           <Toaster />

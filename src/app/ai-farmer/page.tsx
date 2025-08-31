@@ -29,6 +29,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import Header from '@/components/layout/header';
 
 const formSchema = z.object({
   query: z.string().min(1, 'Please ask a question.'),
@@ -358,155 +359,158 @@ export default function AiFarmerPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 h-[calc(100vh-57px)] flex flex-col pt-0">
-      <div className="text-center mb-4">
-        <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
-        <p className="mt-2 text-lg text-muted-foreground">
-          Your personal agricultural expert, available 24/7.
-        </p>
-      </div>
-
-       <div className="flex justify-start mb-4">
-          {messages.length > 0 && (
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <button className="clear-chat-button box">
-                    <Trash2 className="h-4 w-4 mr-2" />
-                    Clear Chat
-                  </button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete your current chat history.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleClearChat}>Continue</AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-          )}
+    <>
+      <Header showLanguageSwitcher={false} />
+      <div className="container mx-auto px-4 h-[calc(100vh-109px)] flex flex-col pt-0">
+        <div className="text-center mb-4">
+          <h1 className="text-4xl font-bold font-headline text-foreground">AI Farmer Assistant</h1>
+          <p className="mt-2 text-lg text-muted-foreground">
+            Your personal agricultural expert, available 24/7.
+          </p>
         </div>
 
-
-      <div className="flex-1 flex flex-col bg-card border rounded-xl shadow-lg overflow-hidden">
-        <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
-          <div className="space-y-6">
-            {messages.length === 0 && !isLoading && (
-              <div className="text-center text-muted-foreground p-8 flex flex-col items-center justify-center h-full">
-                <Sparkles className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">Ask me anything about farming!</p>
-                <p className="text-sm">e.g., "What are the best irrigation methods for sandy soil?"</p>
-              </div>
-            )}
-            {messages.map((message, index) => {
-               if (message.role === 'assistant') {
-                const isLastMessage = index === messages.length - 1;
-                return <AssistantMessage key={index} message={message} isTyping={isLastMessage && isTyping} />;
-              }
-              return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className={cn(
-                  'flex items-start gap-4',
-                  'justify-end'
-                )}
-              >
-                <div
-                  className={cn(
-                    'max-w-xl rounded-lg px-4 py-3 relative',
-                    'bg-primary text-primary-foreground'
-                  )}
-                >
-                  <p className="whitespace-pre-wrap">{message.content}</p>
-                </div>
-                <Avatar>
-                    <AvatarFallback>
-                      <User />
-                    </AvatarFallback>
-                  </Avatar>
-              </motion.div>
-            )})}
-             {isLoading && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="flex items-start gap-4 justify-start"
-              >
-                <Avatar>
-                  <AvatarFallback>
-                    <Bot />
-                  </AvatarFallback>
-                </Avatar>
-                <div className="bg-muted rounded-lg px-4 py-3 flex items-center">
-                  <p className='text-sm text-muted-foreground'>{loadingMessage}</p>
-                </div>
-              </motion.div>
+        <div className="flex justify-start mb-4">
+            {messages.length > 0 && (
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                    <button className="clear-chat-button box">
+                      <Trash2 className="h-4 w-4 mr-2" />
+                      Clear Chat
+                    </button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        This action cannot be undone. This will permanently delete your current chat history.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction onClick={handleClearChat}>Continue</AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
             )}
           </div>
-        </ScrollArea>
 
-        <div className="border-t p-4 bg-background">
-          {isLoading ? (
-            <div className="flex justify-center">
-              <Button onClick={handleStop} variant="outline" className="w-full">
-                <StopCircle className="h-4 w-4 mr-2" />
-                Stop Generating
-              </Button>
+
+        <div className="flex-1 flex flex-col bg-card border rounded-xl shadow-lg overflow-hidden">
+          <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
+            <div className="space-y-6">
+              {messages.length === 0 && !isLoading && (
+                <div className="text-center text-muted-foreground p-8 flex flex-col items-center justify-center h-full">
+                  <Sparkles className="mx-auto h-12 w-12 text-muted-foreground/50" />
+                  <p className="mt-4 text-lg">Ask me anything about farming!</p>
+                  <p className="text-sm">e.g., "What are the best irrigation methods for sandy soil?"</p>
+                </div>
+              )}
+              {messages.map((message, index) => {
+                if (message.role === 'assistant') {
+                  const isLastMessage = index === messages.length - 1;
+                  return <AssistantMessage key={index} message={message} isTyping={isLastMessage && isTyping} />;
+                }
+                return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className={cn(
+                    'flex items-start gap-4',
+                    'justify-end'
+                  )}
+                >
+                  <div
+                    className={cn(
+                      'max-w-xl rounded-lg px-4 py-3 relative',
+                      'bg-primary text-primary-foreground'
+                    )}
+                  >
+                    <p className="whitespace-pre-wrap">{message.content}</p>
+                  </div>
+                  <Avatar>
+                      <AvatarFallback>
+                        <User />
+                      </AvatarFallback>
+                    </Avatar>
+                </motion.div>
+              )})}
+              {isLoading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-start gap-4 justify-start"
+                >
+                  <Avatar>
+                    <AvatarFallback>
+                      <Bot />
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="bg-muted rounded-lg px-4 py-3 flex items-center">
+                    <p className='text-sm text-muted-foreground'>{loadingMessage}</p>
+                  </div>
+                </motion.div>
+              )}
             </div>
-          ) : (
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="flex items-center gap-4"
-            >
-              <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading}>
-                <Mic className="h-4 w-4" />
-              </Button>
-              <FormField
-                control={form.control}
-                name="query"
-                render={({ field }) => (
-                  <FormItem className="flex-1">
-                    <FormControl>
-                      <Textarea
-                        placeholder="Ask your farming question here..."
-                        className="resize-none no-scrollbar"
-                        rows={1}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
-                            if (form.getValues("query").trim()) {
-                              e.preventDefault();
-                              form.handleSubmit(onSubmit)();
+          </ScrollArea>
+
+          <div className="border-t p-4 bg-background">
+            {isLoading ? (
+              <div className="flex justify-center">
+                <Button onClick={handleStop} variant="outline" className="w-full">
+                  <StopCircle className="h-4 w-4 mr-2" />
+                  Stop Generating
+                </Button>
+              </div>
+            ) : (
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="flex items-center gap-4"
+              >
+                <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading}>
+                  <Mic className="h-4 w-4" />
+                </Button>
+                <FormField
+                  control={form.control}
+                  name="query"
+                  render={({ field }) => (
+                    <FormItem className="flex-1">
+                      <FormControl>
+                        <Textarea
+                          placeholder="Ask your farming question here..."
+                          className="resize-none no-scrollbar"
+                          rows={1}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
+                              if (form.getValues("query").trim()) {
+                                e.preventDefault();
+                                form.handleSubmit(onSubmit)();
+                              }
                             }
-                          }
-                        }}
-                        {...field}
-                        disabled={isLoading}
-                      />
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-              <button type="submit" disabled={isLoading || !form.getValues("query").trim()} className="send-button-style">
-                {isLoading ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <span><Send className="text-black" /></span>
-                )}
-              </button>
-            </form>
-          </Form>
-          )}
+                          }}
+                          {...field}
+                          disabled={isLoading}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+                <button type="submit" disabled={isLoading || !form.getValues("query").trim()} className="send-button-style">
+                  {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <span><Send className="text-black" /></span>
+                  )}
+                </button>
+              </form>
+            </Form>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

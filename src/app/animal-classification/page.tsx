@@ -23,6 +23,7 @@ import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import CircularGallery from '@/components/animal-gallery';
 import { cn } from '@/lib/utils';
+import Header from '@/components/layout/header';
 
 const galleryImages = [
     { image: 'https://images.pexels.com/photos/30649600/pexels-photo-30649600.jpeg', text: 'Animal' },
@@ -84,6 +85,8 @@ export default function AnimalClassificationPage() {
   };
 
   return (
+    <>
+    <Header showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">Animal Classification</h1>
@@ -209,5 +212,6 @@ export default function AnimalClassificationPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

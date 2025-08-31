@@ -15,7 +15,12 @@ import {
 } from '@/components/ui/sheet';
 import LanguageSwitcher from '../language-switcher';
 
-export default function Header() {
+interface HeaderProps {
+  onLanguageChange?: (lang: string) => void;
+  showLanguageSwitcher?: boolean;
+}
+
+export default function Header({ onLanguageChange, showLanguageSwitcher = true }: HeaderProps) {
   const pathname = usePathname();
 
   return (
@@ -68,17 +73,21 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                  <div className="pt-4">
-                    <LanguageSwitcher />
-                  </div>
+                  {showLanguageSwitcher && (
+                    <div className="pt-4">
+                      <LanguageSwitcher onLanguageChange={onLanguageChange} />
+                    </div>
+                  )}
                 </div>
               </SheetContent>
             </Sheet>
         </div>
       </div>
-      <div className="container hidden md:flex justify-center py-2 border-t border-border/40">
-        <LanguageSwitcher />
-      </div>
+      {showLanguageSwitcher && (
+        <div className="container hidden md:flex justify-center py-2 border-t border-border/40">
+          <LanguageSwitcher onLanguageChange={onLanguageChange} />
+        </div>
+      )}
     </header>
   );
 }
