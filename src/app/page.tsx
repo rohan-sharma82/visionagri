@@ -100,7 +100,7 @@ export default function Home() {
       </svg>
       <section ref={containerRef} className="relative h-[60vh] w-full overflow-hidden rounded-xl bg-card/50 flex justify-center p-4 md:p-8 pt-16 shadow-inner">
 
-        <div className="flex w-full items-stretch justify-between gap-10 max-w-lg">
+        <div className="flex w-full items-stretch justify-between gap-10 max-w-2xl">
           <div className="flex flex-col justify-start items-center">
              <Circle ref={userIconRef}>
               <Icons.user />
