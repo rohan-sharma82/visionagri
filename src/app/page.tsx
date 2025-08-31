@@ -2,15 +2,7 @@
 import { useState } from 'react';
 import { User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { newsData, newsCategories, featuresData } from '@/lib/constants';
+import { newsData, newsCategories } from '@/lib/constants';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import TextPressure from '@/components/text-pressure';
@@ -112,7 +104,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {filteredNews.map((news) => (
             <motion.div
               key={news.id}
@@ -122,22 +114,17 @@ export default function Home() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle>{news.title}</CardTitle>
-                  <CardDescription>{news.source} - {news.date}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">{news.snippet}</p>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild variant="link" className="p-0">
-                    <Link href={news.url} target="_blank">
-                      Read More
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
+              <div className="card5">
+                <div className="card5-content">
+                  <div>
+                    <span className="card-title">{news.title}</span>
+                    <p className="card-description">{news.snippet}</p>
+                  </div>
+                  <Link href={news.url} target="_blank" className="card-link">
+                    Read More
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

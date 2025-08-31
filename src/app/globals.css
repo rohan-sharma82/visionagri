@@ -877,7 +877,7 @@
 .folder .front-side,
 .folder .back-side {
   position: absolute;
-  transition: transform var(--transition);
+  transition: transform var(--transition) ease;
   transform-origin: bottom center;
 }
 
@@ -1174,4 +1174,83 @@
 .slice:active {
   scale: 0.98;
   filter: brightness(0.9);
+}
+
+/* News Feed Card Styles */
+.card5 {
+  width: 270px;
+  height: 350px;
+  background-color: hsl(var(--card));
+  border-radius: 10px;
+  box-shadow: 0 2px 4px hsla(var(--foreground) / 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.card5:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, hsl(var(--primary) / 0.7), hsl(var(--accent) / 0.7));
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.card5:hover:before {
+  opacity: 0.5;
+}
+
+.card5-content {
+  width: 90%;
+  height: 90%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: hsl(var(--card-foreground));
+  z-index: 1;
+  background-color: hsl(var(--card));
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.card5-content .card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card5-content .card-description {
+  font-size: 0.9rem;
+  color: hsl(var(--muted-foreground));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  margin-bottom: 15px;
+}
+
+.card5-content .card-link {
+  color: hsl(var(--accent));
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.card5-content .card-link:hover {
+  color: hsl(var(--primary));
+}
+
+.card5:hover .card5-content {
+  transform: translate(-50%, -50%) scale(0.95);
 }
