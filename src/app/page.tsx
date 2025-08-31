@@ -43,19 +43,14 @@ const Icons = {
     />
   ),
   user: () => (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="hsl(var(--foreground))"
-      strokeWidth="2"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-full w-full"
-    >
-      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
+    <Image
+      src="/images/farmers.png"
+      alt="Farmer Icon"
+      width={48}
+      height={48}
+      className="h-full w-full rounded-full object-cover"
+      data-ai-hint="farmer icon"
+    />
   ),
 };
 
