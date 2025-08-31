@@ -15,7 +15,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import LanguageSwitcher from '../language-switcher';
 import PillNav from '../pill-nav';
 
 interface HeaderProps {
@@ -31,7 +30,7 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
         <PillNav
             items={navLinks}
             activeHref={pathname}
-            baseColor="hsl(var(--foreground))"
+            baseColor="#35753D"
             pillColor="hsl(var(--background))"
             hoveredPillTextColor="hsl(var(--background))"
             pillTextColor="hsl(var(--foreground))"
