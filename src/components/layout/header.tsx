@@ -16,7 +16,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import LanguageSwitcher from '../language-switcher';
-import GooeyNav from '../gooey-nav';
 
 interface HeaderProps {
   onLanguageChange?: (lang: string) => void;
@@ -35,7 +34,20 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
             <span className="font-bold font-headline">AgriVision AI</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-             <GooeyNav items={navLinks} />
+            {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    'transition-colors hover:text-foreground/80',
+                    pathname === link.href
+                      ? 'text-foreground'
+                      : 'text-foreground/60'
+                  )}
+                >
+                  {link.label}
+                </Link>
+              ))}
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
@@ -49,7 +61,7 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
               </SheetTrigger>
               <SheetContent side="right">
                 <SheetHeader>
-                  <SheetTitle className="sr-only">Navigation</SheetTitle>
+                  <SheetTitle>Navigation</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
@@ -66,21 +78,11 @@ export default function Header({ onLanguageChange, showLanguageSwitcher = true }
                       {link.label}
                     </Link>
                   ))}
-                  {showLanguageSwitcher && (
-                    <div className="pt-4">
-                      <LanguageSwitcher onLanguageChange={onLanguageChange} />
-                    </div>
-                  )}
                 </div>
               </SheetContent>
             </Sheet>
         </div>
       </div>
-      {showLanguageSwitcher && (
-        <div className="container flex justify-center py-2 border-t border-border/40">
-          <LanguageSwitcher onLanguageChange={onLanguageChange} />
-        </div>
-      )}
     </header>
   );
 }
