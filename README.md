@@ -46,12 +46,18 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 **Methodology & Flowchart:**
 
 **User Interaction Flow:**
-*User opens AgriVision AI -> Selects a feature (e.g., Disease Classification) -> Uploads an image -> The Next.js frontend sends the image data to a server-side Genkit flow.*
+*A farmer opens AgriVision AI and selects a feature (e.g., AI Assistant, Crop Prediction, Disease ID).*
+*The user provides input via text, form data, or an image upload.*
+*The Next.js frontend securely sends the data to the appropriate server-side Genkit flow.*
 
 **Genkit AI Flow (Backend):**
-*The Genkit flow receives the request -> It invokes a Google Gemini vision model -> The model analyzes the image and returns structured JSON data (disease name, confidence, recommendations) -> The result is sent back to the user's screen.*
+*The specific Genkit flow is invoked (e.g., `getFarmingAdviceFlow`, `predictCropYieldFlow`).*
+*The flow can use **Tools** to call external services, like fetching real-time weather from the WeatherAPI.*
+*It then calls the appropriate Google Gemini model (language for text analysis, vision for image analysis) with a structured prompt.*
+*The AI model processes the input and returns a structured JSON output (e.g., advice, prediction, diagnosis).*
+*This result is sent back to the user's screen and can be rendered as text, charts, or audio.*
 
-**(A flowchart image would be ideal here, showing the path from User -> Next.js Frontend -> Genkit Flow -> Google AI -> Genkit Flow -> User)**
+**(A flowchart image would be ideal here, showing the path from User -> Next.js Frontend -> Genkit Flow (with optional Tools like WeatherAPI) -> Google AI -> Genkit Flow -> User)**
 
 ![Flowchart Placeholder](https://picsum.photos/800/400?data-ai-hint=flowchart+diagram)
 
