@@ -13,15 +13,17 @@ import {
 } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import Header from '@/components/layout/header';
+import { useTranslation } from '@/hooks/use-translation';
 
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
+  const { t } = useTranslation();
   return (
     <Dialog>
       <div className="govt-scheme-card">
         <div className="govt-scheme-card__image-container">
             <Image
                 src={scheme.imageUrl}
-                alt={scheme.name}
+                alt={t(scheme.name)}
                 width={300}
                 height={200}
                 className="rounded-lg object-cover w-full h-full"
@@ -29,25 +31,25 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
             />
         </div>
         <div className="govt-scheme-card__content">
-          <p className="govt-scheme-card__title">{scheme.shortName}</p>
-          <p className="govt-scheme-card__description">{scheme.shortDescription}</p>
+          <p className="govt-scheme-card__title">{t(scheme.shortName)}</p>
+          <p className="govt-scheme-card__description">{t(scheme.shortDescription)}</p>
           <DialogTrigger asChild>
-            <button className="govt-scheme-card__button">Read More</button>
+            <button className="govt-scheme-card__button">{t('govtSchemes.readMore')}</button>
           </DialogTrigger>
         </div>
       </div>
       <DialogContent className="max-w-2xl h-[70vh]">
         <DialogHeader>
-          <DialogTitle>{scheme.name}</DialogTitle>
+          <DialogTitle>{t(scheme.name)}</DialogTitle>
           <DialogDescription>
-            Detailed information about the {scheme.shortName} scheme.
+            {t('govtSchemes.dialogDescription', { schemeName: t(scheme.shortName) })}
           </DialogDescription>
         </DialogHeader>
         <ScrollArea className="h-full pr-4">
           <div
             className="prose prose-sm dark:prose-invert whitespace-pre-wrap"
           >
-            {scheme.description}
+            {t(scheme.description)}
           </div>
         </ScrollArea>
       </DialogContent>
@@ -56,16 +58,17 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
 };
 
 export default function GovtSchemesPage() {
+  const { t } = useTranslation();
   return (
     <>
     <Header showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">
-          Government Schemes for Farmers
+          {t('govtSchemes.title')}
         </h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Explore beneficial programs and support from the government.
+          {t('govtSchemes.subtitle')}
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-8">

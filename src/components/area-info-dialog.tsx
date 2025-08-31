@@ -21,8 +21,10 @@ import { fertilizerExplanations } from '@/lib/fertilizer-data';
 import { Separator } from './ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { useTranslation } from '@/hooks/use-translation';
 
 export default function AreaInfoDialog() {
+  const { t } = useTranslation();
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -30,43 +32,43 @@ export default function AreaInfoDialog() {
       </DialogTrigger>
       <DialogContent className="max-w-4xl h-[80vh]">
         <DialogHeader>
-          <DialogTitle>Know Your Area</DialogTitle>
+          <DialogTitle>{t('areaInfo.title')}</DialogTitle>
           <DialogDescription>
-            Use this information to fill out the form. Real-time weather data will be fetched automatically based on your location.
+            {t('areaInfo.description')}
           </DialogDescription>
         </DialogHeader>
         <Tabs defaultValue="states" className="h-full flex flex-col overflow-hidden">
           <TabsList className="shrink-0">
-            <TabsTrigger value="states">State-wise Data</TabsTrigger>
-            <TabsTrigger value="soil">Soil Types</TabsTrigger>
-            <TabsTrigger value="fertilizers">Fertilizers</TabsTrigger>
+            <TabsTrigger value="states">{t('areaInfo.tabs.states')}</TabsTrigger>
+            <TabsTrigger value="soil">{t('areaInfo.tabs.soil')}</TabsTrigger>
+            <TabsTrigger value="fertilizers">{t('areaInfo.tabs.fertilizers')}</TabsTrigger>
           </TabsList>
           <TabsContent value="states" className="flex-1 overflow-y-auto mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>State-wise Static Information</CardTitle>
+                <CardTitle>{t('areaInfo.states.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ScrollArea className="h-[55vh] pr-4">
                   <Accordion type="single" collapsible className="w-full">
                     {indianStatesData.map((state) => (
                       <AccordionItem value={state.name} key={state.name}>
-                        <AccordionTrigger>{state.name}</AccordionTrigger>
+                        <AccordionTrigger>{t(state.name)}</AccordionTrigger>
                         <AccordionContent>
                           <div className="space-y-2">
                             <p>
-                              <strong>Avg. Rainfall:</strong> {state.rainfall}
+                              <strong>{t('areaInfo.states.avgRainfall')}:</strong> {t(state.rainfall)}
                             </p>
                             <p>
-                              <strong>Avg. Temperature:</strong> {state.temperature}
+                              <strong>{t('areaInfo.states.avgTemp')}:</strong> {t(state.temperature)}
                             </p>
                             <p>
-                              <strong>Common Soil Types:</strong>{' '}
-                              {state.soilTypes.join(', ')}
+                              <strong>{t('areaInfo.states.soilTypes')}:</strong>{' '}
+                              {state.soilTypes.map(st => t(st)).join(', ')}
                             </p>
                             {state.notes && (
                               <p className="text-sm text-muted-foreground">
-                                <strong>Note:</strong> {state.notes}
+                                <strong>{t('areaInfo.states.note')}:</strong> {t(state.notes)}
                               </p>
                             )}
                           </div>
@@ -81,7 +83,7 @@ export default function AreaInfoDialog() {
           <TabsContent value="soil" className="flex-1 overflow-y-auto mt-4">
             <Card>
               <CardHeader>
-                <CardTitle>Soil Type Explanations</CardTitle>
+                <CardTitle>{t('areaInfo.soil.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ScrollArea className="h-[55vh] pr-4">
@@ -89,8 +91,8 @@ export default function AreaInfoDialog() {
                     {soilTypeExplanations.map((soil) => (
                       <div key={soil.name}>
                         <p>
-                          <strong className="text-foreground">{soil.name}:</strong>{' '}
-                          {soil.description}
+                          <strong className="text-foreground">{t(soil.name)}:</strong>{' '}
+                          {t(soil.description)}
                         </p>
                         <Separator className="my-2" />
                       </div>
@@ -103,7 +105,7 @@ export default function AreaInfoDialog() {
           <TabsContent value="fertilizers" className="flex-1 overflow-y-auto mt-4">
              <Card>
               <CardHeader>
-                <CardTitle>Common Fertilizer Explanations</CardTitle>
+                <CardTitle>{t('areaInfo.fertilizers.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ScrollArea className="h-[55vh] pr-4">
@@ -111,8 +113,8 @@ export default function AreaInfoDialog() {
                     {fertilizerExplanations.map((fert) => (
                       <div key={fert.name}>
                         <p>
-                          <strong className="text-foreground">{fert.name}:</strong>{' '}
-                          <span className="whitespace-pre-wrap">{fert.description}</span>
+                          <strong className="text-foreground">{t(fert.name)}:</strong>{' '}
+                          <span className="whitespace-pre-wrap">{t(fert.description)}</span>
                         </p>
                         <Separator className="my-2" />
                       </div>

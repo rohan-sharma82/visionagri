@@ -24,6 +24,7 @@ import { Progress } from '@/components/ui/progress';
 import CircularGallery from '@/components/animal-gallery';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
+import { useTranslation } from '@/hooks/use-translation';
 
 const galleryImages = [
     { image: 'https://images.pexels.com/photos/30649600/pexels-photo-30649600.jpeg', text: 'Animal' },
@@ -38,6 +39,7 @@ const galleryImages = [
   ];
 
 export default function AnimalClassificationPage() {
+  const { t } = useTranslation();
   const [result, setResult] = useState<AnimalClassificationOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
@@ -60,8 +62,8 @@ export default function AnimalClassificationPage() {
   const handleSubmit = async () => {
     if (!file || !preview) {
       toast({
-        title: 'No file selected',
-        description: 'Please upload an image of an animal.',
+        title: t('animalClassification.toast.noFileTitle'),
+        description: t('animalClassification.toast.noFileDescription'),
         variant: 'destructive',
       });
       return;
@@ -76,8 +78,8 @@ export default function AnimalClassificationPage() {
     } catch (error) {
       console.error('Error classifying animal:', error);
       toast({
-        title: 'Classification Failed',
-        description: 'Could not analyze the image. Please try another one.',
+        title: t('animalClassification.toast.failureTitle'),
+        description: t('animalClassification.toast.failureDescription'),
         variant: 'destructive',
       });
     }
@@ -89,9 +91,9 @@ export default function AnimalClassificationPage() {
     <Header showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold font-headline text-foreground">Animal Classification</h1>
+        <h1 className="text-4xl font-bold font-headline text-foreground">{t('animalClassification.title')}</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Identify animal species from an image, for livestock or wildlife.
+          {t('animalClassification.subtitle')}
         </p>
       </div>
 
@@ -103,8 +105,8 @@ export default function AnimalClassificationPage() {
         <div className='flex flex-col items-center gap-4'>
             <Card className="shadow-lg w-full">
             <CardHeader>
-                <CardTitle>Upload Animal Image</CardTitle>
-                <CardDescription>Provide a clear image of the animal you want to identify.</CardDescription>
+                <CardTitle>{t('animalClassification.uploadCard.title')}</CardTitle>
+                <CardDescription>{t('animalClassification.uploadCard.description')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
                 <div className="flex justify-center items-center py-8">
@@ -117,7 +119,7 @@ export default function AnimalClassificationPage() {
                     </div>
                     </div>
                     <label htmlFor="picture" className="custom-file-upload">
-                    Upload Image
+                    {t('animalClassification.uploadCard.button')}
                     <input
                         id="picture"
                         type="file"
@@ -145,10 +147,10 @@ export default function AnimalClassificationPage() {
                     {isLoading ? (
                     <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
-                        Identifying...
+                        {t('animalClassification.buttons.identifying')}
                     </>
                     ) : (
-                    'Classify Animal'
+                      t('animalClassification.buttons.classify')
                     )}
                 </span>
             </button>
@@ -159,7 +161,7 @@ export default function AnimalClassificationPage() {
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-lg">AI is examining the photo...</p>
+              <p className="mt-4 text-lg">{t('animalClassification.status.loading')}</p>
             </div>
           )}
           {result && (
@@ -171,13 +173,13 @@ export default function AnimalClassificationPage() {
             >
               <Card className="shadow-xl bg-gradient-to-br from-card to-secondary">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Identification Report</CardTitle>
+                  <CardTitle className="text-2xl">{t('animalClassification.reportCard.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
                     <PawPrint className="h-8 w-8 text-primary" />
                     <div>
-                      <h3 className="font-semibold text-foreground">Identified Species</h3>
+                      <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.species')}</h3>
                       <p className="text-2xl font-bold text-primary capitalize">{result.animalSpecies}</p>
                     </div>
                   </div>
@@ -185,7 +187,7 @@ export default function AnimalClassificationPage() {
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
                        <BarChart className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold text-foreground">Confidence Level</h3>
+                       <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.confidence')}</h3>
                     </div>
                     <Progress value={result.confidence * 100} className="w-full h-3" />
                     <p className="text-right text-sm text-muted-foreground mt-1">
@@ -195,7 +197,7 @@ export default function AnimalClassificationPage() {
                    <div>
                     <div className="flex items-center space-x-3 mb-2">
                        <Info className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold text-foreground">Description</h3>
+                       <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.description')}</h3>
                     </div>
                     <p className="text-muted-foreground text-sm">{result.description}</p>
                   </div>
@@ -206,7 +208,7 @@ export default function AnimalClassificationPage() {
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
                 <Upload className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">Upload an image to identify an animal</p>
+                <p className="mt-4 text-lg">{t('animalClassification.status.idle')}</p>
             </div>
           )}
         </div>

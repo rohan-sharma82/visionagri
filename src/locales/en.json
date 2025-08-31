@@ -22,7 +22,27 @@
     },
     "features": {
         "title": "Our Features",
-        "subtitle": "Discover how our AI-powered tools can help you."
+        "subtitle": "Discover how our AI-powered tools can help you.",
+        "cropYield": {
+            "title": "Crop Yield Prediction",
+            "description": "Leverage AI to forecast your harvest and optimize your strategy."
+        },
+        "aiFarmer": {
+            "title": "AI Farmer Assistant",
+            "description": "Your personal agricultural expert, available 24/7."
+        },
+        "diseaseClassification": {
+            "title": "Crop Disease Classification",
+            "description": "Upload an image of a crop leaf to detect diseases early."
+        },
+        "animalClassification": {
+            "title": "Animal Classification",
+            "description": "Identify animal species from an image, for livestock or wildlife."
+        },
+        "govtSchemes": {
+            "title": "Government Schemes",
+            "description": "Explore beneficial programs and support from the government."
+        }
     },
     "languageSwitcher": {
         "button": "Choose Language"
@@ -141,7 +161,7 @@
         "n6_article": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations. The app, which has a database of thousands of pests, aims to democratize access to expert agronomic advice and help farmers make timely decisions to protect their crops.",
         "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
         "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age.",
-        "n7_article": "<div><p>The <strong>Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)</strong> is a <strong>voluntary and contributory pension scheme</strong> launched by the Government of India on <strong>12 September 2019</strong>. The scheme is specially designed for <strong>small and marginal farmers</strong> to ensure financial security in their old age.</p><p>It was introduced by Prime Minister <strong>Narendra Modi</strong> with the vision of providing farmers a dignified life after retirement.</p><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">🎯 Objective of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>To provide <strong>financial assistance</strong> to small and marginal farmers after 60 years of age.</li><li>To ensure that farmers do not remain dependent on others for their daily needs in old age.</li><li>To give a <strong>guaranteed monthly pension of ₹3,000</strong> for a secure future.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">👩‍🌾 Eligibility</h4><ul class=\"list-disc pl-5 space-y-1\"><li>Small and marginal farmers with <strong>cultivable land up to 2 hectares</strong>.</li><li>Age between <strong>18 and 40 years</strong> at the time of joining.</li></ul><p class=\"mt-2\"><strong>Not Eligible:</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Farmers covered under NPS, EPF, or ESIC.</li><li>Institutional landholders and big landlords.</li><li>Present or former constitutional post holders, ministers, MLAs/MPs.</li><li>Government employees (except Class IV/Group D staff).</li><li>Income tax payers in the last financial year.</li><li>Professionals such as doctors, engineers, lawyers, CAs, architects, etc.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">💰 Contribution Details</h4><p>Farmers need to contribute a small fixed amount <strong>(₹55 to ₹200 per month)</strong> depending on their entry age.</p><ul class=\"list-disc pl-5 space-y-1\"><li>The <strong>government matches the farmer’s contribution</strong> on a 1:1 basis.</li><li>Contributions continue until the farmer reaches <strong>60 years of age</strong>.</li><li>After 60 years, the farmer receives <strong>₹3,000 monthly pension for life</strong>.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">🏦 How to Apply</h4><ol class=\"list-decimal pl-5 space-y-1\"><li>Visit the nearest <strong>Common Service Centre (CSC)</strong>.</li><li>Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.</li><li>Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.</li><li>Provide <strong>auto-debit mandate</strong> so the contribution is deducted automatically.</li><li>After verification, the farmer is issued a <strong>Unique Pension Account Number</strong>.</li></ol><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">📌 Contribution Chart</h4><div class=\"overflow-x-auto\"><table class=\"w-full text-left border-collapse\"><thead><tr><th class=\"border p-2\">Entry Age (Years)</th><th class=\"border p-2\">Retirement Age</th><th class=\"border p-2\">Farmer’s Contribution (₹/month)</th><th class=\"border p-2\">Government’s Contribution (₹/month)</th><th class=\"border p-2\">Total Contribution (₹/month)</th></tr></thead><tbody><tr><td class=\"border p-2\">18</td><td class=\"border p-2\">60</td><td class=\"border p-2\">55</td><td class=\"border p-2\">55</td><td class=\"border p-2\">110</td></tr><tr><td class=\"border p-2\">19</td><td class=\"border p-2\">60</td><td class=\"border p-2\">58</td><td class=\"border p-2\">58</td><td class=\"border p-2\">116</td></tr><tr><td class=\"border p-2\">20</td><td class=\"border p-2\">60</td><td class=\"border p-2\">61</td><td class=\"border p-2\">61</td><td class=\"border p-2\">122</td></tr><tr><td class=\"border p-2\">21</td><td class=\"border p-2\">60</td><td class=\"border p-2\">64</td><td class=\"border p-2\">64</td><td class=\"border p-2\">128</td></tr><tr><td class=\"border p-2\">22</td><td class=\"border p-2\">60</td><td class=\"border p-2\">68</td><td class=\"border p-2\">68</td><td class=\"border p-2\">136</td></tr><tr><td class=\"border p-2\">23</td><td class=\"border p-2\">60</td><td class=\"border p-2\">72</td><td class=\"border p-2\">72</td><td class=\"border p-2\">144</td></tr><tr><td class=\"border p-2\">24</td><td class=\"border p-2\">60</td><td class=\"border p-2\">76</td><td class=\"border p-2\">76</td><td class=\"border p-2\">152</td></tr><tr><td class=\"border p-2\">25</td><td class=\"border p-2\">60</td><td class=\"border p-2\">80</td><td class=\"border p-2\">80</td><td class=\"border p-2\">160</td></tr><tr><td class=\"border p-2\">26</td><td class=\"border p-2\">60</td><td class=\"border p-2\">85</td><td class=\"border p-2\">85</td><td class=\"border p-2\">170</td></tr><tr><td class=\"border p-2\">27</td><td class=\"border p-2\">60</td><td class=\"border p-2\">90</td><td class=\"border p-2\">90</td><td class=\"border p-2\">180</td></tr><tr><td class=\"border p-2\">28</td><td class=\"border p-2\">60</td><td class=\"border p-2\">95</td><td class=\"border p-2\">95</td><td class=\"border p-2\">190</td></tr><tr><td class=\"border p-2\">29</td><td class=\"border p-2\">60</td><td class=\"border p-2\">100</td><td class=\"border p-2\">100</td><td class=\"border p-2\">200</td></tr><tr><td class=\"border p-2\">30</td><td class=\"border p-2\">60</td><td class=\"border p-2\">105</td><td class=\"border p-2\">105</td><td class=\"border p-2\">210</td></tr><tr><td class=\"border p-2\">31</td><td class=\"border p-2\">60</td><td class=\"border p-2\">110</td><td class=\"border p-2\">110</td><td class=\"border p-2\">220</td></tr><tr><td class=\"border p-2\">32</td><td class=\"border p-2\">60</td><td class=\"border p-2\">120</td><td class=\"border p-2\">120</td><td class=\"border p-2\">240</td></tr><tr><td class=\"border p-2\">33</td><td class=\"border p-2\">60</td><td class=\"border p-2\">130</td><td class=\"border p-2\">130</td><td class=\"border p-2\">260</td></tr><tr><td class=\"border p-2\">34</td><td class=\"border p-2\">60</td><td class=\"border p-2\">140</td><td class=\"border p-2\">140</td><td class=\"border p-2\">280</td></tr><tr><td class=\"border p-2\">35</td><td class=\"border p-2\">60</td><td class=\"border p-2\">150</td><td class=\"border p-2\">150</td><td class=\"border p-2\">300</td></tr><tr><td class=\"border p-2\">36</td><td class=\"border p-2\">60</td><td class=\"border p-2\">160</td><td class=\"border p-2\">160</td><td class=\"border p-2\">320</td></tr><tr><td class=\"border p-2\">37</td><td class=\"border p-2\">60</td><td class=\"border p-2\">170</td><td class=\"border p-2\">170</td><td class=\"border p-2\">340</td></tr><tr><td class=\"border p-2\">38</td><td class=\"border p-2\">60</td><td class=\"border p-2\">180</td><td class=\"border p-2\">180</td><td class=\"border p-2\">360</td></tr><tr><td class=\"border p-2\">39</td><td class=\"border p-2\">60</td><td class=\"border p-2\">190</td><td class=\"border p-2\">190</td><td class=\"border p-2\">380</td></tr><tr><td class=\"border p-2\">40</td><td class=\"border p-2\">60</td><td class=\"border p-2\">200</td><td class=\"border p-2\">200</td><td class=\"border p-2\">400</td></tr></tbody></table></div><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">📌 Special Rule for PM-Kisan Beneficiaries</h4><p>Farmers who are already receiving <strong>₹6,000 per year under PM-Kisan Samman Nidhi</strong> can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.</p><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">📝 FAQs</h4><p><strong>1. Is there any enrollment fee?</strong></p><p>A nominal fee of ₹30 is charged at CSCs, which is paid by the government.</p><p><strong>2. What if the farmer dies before 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse can continue the scheme by contributing further.</li><li>If not, the total contribution made by the farmer (with interest) will be returned to the nominee.</li></ul><p><strong>3. What if the farmer dies after 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse will receive <strong>50% of the pension</strong> as family pension (if not already a PM-KMY member).</li></ul><p><strong>4. What if contributions are not paid on time?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Auto-debit happens on <strong>1st, 11th, or 21st</strong> of the month.</li><li>If missed, contributions can be paid later with interest.</li><li>Accounts inactive for more than 3 years may be closed.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">🌟 Key Benefits of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>✅ Guaranteed <strong>₹3,000 monthly pension</strong> after 60 years</li><li>✅ Equal contribution by Government</li><li>✅ Financial security in old age</li><li>✅ Family pension to spouse in case of death</li><li>✅ Simple enrollment through CSCs</li></ul><hr class=\"my-4\"/><p>✨ <strong>The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.</strong></p></div>"
+        "n7_article": "<div><p>The <strong>Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)</strong> is a <strong>voluntary and contributory pension scheme</strong> launched by the Government of India on <strong>12 September 2019</strong>. The scheme is specially designed for <strong>small and marginal farmers</strong> to ensure financial security in their old age.</p><p>It was introduced by Prime Minister <strong>Narendra Modi</strong> with the vision of providing farmers a dignified life after retirement.</p><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">🎯 Objective of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>To provide <strong>financial assistance</strong> to small and marginal farmers after 60 years of age.</li><li>To ensure that farmers do not remain dependent on others for their daily needs in old age.</li><li>To give a <strong>guaranteed monthly pension of ₹3,000</strong> for a secure future.</li></ul><hr class_=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">👩‍🌾 Eligibility</h4><ul class_=\"list-disc pl-5 space-y-1\"><li>Small and marginal farmers with <strong>cultivable land up to 2 hectares</strong>.</li><li>Age between <strong>18 and 40 years</strong> at the time of joining.</li></ul><p class=\"mt-2\"><strong>Not Eligible:</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Farmers covered under NPS, EPF, or ESIC.</li><li>Institutional landholders and big landlords.</li><li>Present or former constitutional post holders, ministers, MLAs/MPs.</li><li>Government employees (except Class IV/Group D staff).</li><li>Income tax payers in the last financial year.</li><li>Professionals such as doctors, engineers, lawyers, CAs, architects, etc.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">💰 Contribution Details</h4><p>Farmers need to contribute a small fixed amount <strong>(₹55 to ₹200 per month)</strong> depending on their entry age.</p><ul class=\"list-disc pl-5 space-y-1\"><li>The <strong>government matches the farmer’s contribution</strong> on a 1:1 basis.</li><li>Contributions continue until the farmer reaches <strong>60 years of age</strong>.</li><li>After 60 years, the farmer receives <strong>₹3,000 monthly pension for life</strong>.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">🏦 How to Apply</h4><ol class=\"list-decimal pl-5 space-y-1\"><li>Visit the nearest <strong>Common Service Centre (CSC)</strong>.</li><li>Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.</li><li>Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.</li><li>Provide <strong>auto-debit mandate</strong> so the contribution is deducted automatically.</li><li>After verification, the farmer is issued a <strong>Unique Pension Account Number</strong>.</li></ol><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">📌 Contribution Chart</h4><div class=\"overflow-x-auto\"><table class=\"w-full text-left border-collapse\"><thead><tr><th class=\"border p-2\">Entry Age (Years)</th><th class=\"border p-2\">Retirement Age</th><th class=\"border p-2\">Farmer’s Contribution (₹/month)</th><th class=\"border p-2\">Government’s Contribution (₹/month)</th><th class=\"border p-2\">Total Contribution (₹/month)</th></tr></thead><tbody><tr><td class=\"border p-2\">18</td><td class=\"border p-2\">60</td><td class=\"border p-2\">55</td><td class=\"border p-2\">55</td><td class=\"border p-2\">110</td></tr><tr><td class=\"border p-2\">19</td><td class=\"border p-2\">60</td><td class=\"border p-2\">58</td><td class=\"border p-2\">58</td><td class=\"border p-2\">116</td></tr><tr><td class=\"border p-2\">20</td><td class=\"border p-2\">60</td><td class=\"border p-2\">61</td><td class=\"border p-2\">61</td><td class=\"border p-2\">122</td></tr><tr><td class=\"border p-2\">21</td><td class=\"border p-2\">60</td><td class=\"border p-2\">64</td><td class=\"border p-2\">64</td><td class=\"border p-2\">128</td></tr><tr><td class=\"border p-2\">22</td><td class=\"border p-2\">60</td><td class=\"border p-2\">68</td><td class=\"border p-2\">68</td><td class=\"border p-2\">136</td></tr><tr><td class=\"border p-2\">23</td><td class=\"border p-2\">60</td><td class=\"border p-2\">72</td><td class=\"border p-2\">72</td><td class=\"border p-2\">144</td></tr><tr><td class=\"border p-2\">24</td><td class=\"border p-2\">60</td><td class=\"border p-2\">76</td><td class=\"border p-2\">76</td><td class=\"border p-2\">152</td></tr><tr><td class=\"border p-2\">25</td><td class=\"border p-2\">60</td><td class=\"border p-2\">80</td><td class=\"border p-2\">80</td><td class=\"border p-2\">160</td></tr><tr><td class=\"border p-2\">26</td><td class=\"border p-2\">60</td><td class=\"border p-2\">85</td><td class=\"border p-2\">85</td><td class=\"border p-2\">170</td></tr><tr><td class=\"border p-2\">27</td><td class=\"border p-2\">60</td><td class=\"border p-2\">90</td><td class=\"border p-2\">90</td><td class=\"border p-2\">180</td></tr><tr><td class=\"border p-2\">28</td><td class=\"border p-2\">60</td><td class=\"border p-2\">95</td><td class=\"border p-2\">95</td><td class=\"border p-2\">190</td></tr><tr><td class=\"border p-2\">29</td><td class=\"border p-2\">60</td><td class=\"border p-2\">100</td><td class=\"border p-2\">100</td><td class=\"border p-2\">200</td></tr><tr><td class=\"border p-2\">30</td><td class=\"border p-2\">60</td><td class=\"border p-2\">105</td><td class=\"border p-2\">105</td><td class=\"border p-2\">210</td></tr><tr><td class=\"border p-2\">31</td><td class=\"border p-2\">60</td><td class=\"border p-2\">110</td><td class=\"border p-2\">110</td><td class=\"border p-2\">220</td></tr><tr><td class=\"border p-2\">32</td><td class=\"border p-2\">60</td><td class=\"border p-2\">120</td><td class=\"border p-2\">120</td><td class=\"border p-2\">240</td></tr><tr><td class=\"border p-2\">33</td><td class=\"border p-2\">60</td><td class=\"border p-2\">130</td><td class=\"border p-2\">130</td><td class=\"border p-2\">260</td></tr><tr><td class=\"border p-2\">34</td><td class=\"border p-2\">60</td><td class=\"border p-2\">140</td><td class=\"border p-2\">140</td><td class=\"border p-2\">280</td></tr><tr><td class=\"border p-2\">35</td><td class=\"border p-2\">60</td><td class=\"border p-2\">150</td><td class=\"border p-2\">150</td><td class=\"border p-2\">300</td></tr><tr><td class=\"border p-2\">36</td><td class=\"border p-2\">60</td><td class=\"border p-2\">160</td><td class=\"border p-2\">160</td><td class=\"border p-2\">320</td></tr><tr><td class=\"border p-2\">37</td><td class=\"border p-2\">60</td><td class=\"border p-2\">170</td><td class=\"border p-2\">170</td><td class=\"border p-2\">340</td></tr><tr><td class=\"border p-2\">38</td><td class=\"border p-2\">60</td><td class=\"border p-2\">180</td><td class=\"border p-2\">180</td><td class=\"border p-2\">360</td></tr><tr><td class=\"border p-2\">39</td><td class=\"border p-2\">60</td><td class=\"border p-2\">190</td><td class=\"border p-2\">190</td><td class=\"border p-2\">380</td></tr><tr><td class=\"border p-2\">40</td><td class=\"border p-2\">60</td><td class=\"border p-2\">200</td><td class=\"border p-2\">200</td><td class=\"border p-2\">400</td></tr></tbody></table></div><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">📌 Special Rule for PM-Kisan Beneficiaries</h4><p>Farmers who are already receiving <strong>₹6,000 per year under PM-Kisan Samman Nidhi</strong> can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.</p><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">📝 FAQs</h4><p><strong>1. Is there any enrollment fee?</strong></p><p>A nominal fee of ₹30 is charged at CSCs, which is paid by the government.</p><p><strong>2. What if the farmer dies before 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse can continue the scheme by contributing further.</li><li>If not, the total contribution made by the farmer (with interest) will be returned to the nominee.</li></ul><p><strong>3. What if the farmer dies after 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse will receive <strong>50% of the pension</strong> as family pension (if not already a PM-KMY member).</li></ul><p><strong>4. What if contributions are not paid on time?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Auto-debit happens on <strong>1st, 11th, or 21st</strong> of the month.</li><li>If missed, contributions can be paid later with interest.</li><li>Accounts inactive for more than 3 years may be closed.</li></ul><hr class=\"my-4\"/><h4 class=\"font-bold text-lg mb-2\">🌟 Key Benefits of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>✅ Guaranteed <strong>₹3,000 monthly pension</strong> after 60 years</li><li>✅ Equal contribution by Government</li><li>✅ Financial security in old age</li><li>✅ Family pension to spouse in case of death</li><li>✅ Simple enrollment through CSCs</li></ul><hr class=\"my-4\"/><p>✨ <strong>The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.</strong></p></div>"
     },
     "categories": {
         "all": "All Categories",
@@ -168,5 +188,222 @@
         "oct22": "October 22, 2023",
         "oct21": "October 21, 2023",
         "oct27": "October 27, 2023"
+    },
+    "cropYield": {
+        "title": "Crop Yield Prediction",
+        "subtitle": "Leverage AI to forecast your harvest and optimize your strategy.",
+        "growing": "Growing",
+        "rotatingTexts": {
+            "knowledge": "knowledge.",
+            "crops": "crops.",
+            "prosperity": "prosperity.",
+            "india": "India."
+        },
+        "form": {
+            "title": "ENTER DETAILS",
+            "cropType": {
+                "label": "Crop Type",
+                "placeholder": "e.g., Wheat, Corn, Soybeans"
+            },
+            "soilType": {
+                "label": "Soil Type",
+                "placeholder": "e.g., Loamy, Sandy, Clay"
+            },
+            "location": {
+                "label": "Location",
+                "placeholder": "e.g., Delhi, India"
+            },
+            "fertilizer": {
+                "label": "Fertilizer Use (kg/hectare)",
+                "placeholder": "e.g., NPK 120-60-60"
+            },
+            "irrigation": {
+                "label": "Irrigation Method",
+                "placeholder": "e.g., Drip, Sprinkler, Canal"
+            }
+        },
+        "buttons": {
+            "predict": "Predict Yield",
+            "predicting": "Predicting..."
+        },
+        "status": {
+            "loading": "Your smart assistant is walking through the fields…",
+            "fetchingWeather": "Fetching live weather data",
+            "idle": "AI is ready to calculate your harvest — just hit predict."
+        },
+        "results": {
+            "title": "AI Prediction Results",
+            "predictedYield": "Predicted Yield",
+            "confidence": "Confidence",
+            "factors": "Influencing Factors",
+            "actions": "Suggested Actions"
+        },
+        "toast": {
+            "errorTitle": "Error",
+            "errorDescription": "Failed to get prediction. Please try again."
+        }
+    },
+    "areaInfo": {
+        "title": "Know Your Area",
+        "description": "Use this information to fill out the form. Real-time weather data will be fetched automatically based on your location.",
+        "tabs": {
+            "states": "State-wise Data",
+            "soil": "Soil Types",
+            "fertilizers": "Fertilizers"
+        },
+        "states": {
+            "title": "State-wise Static Information",
+            "avgRainfall": "Avg. Rainfall",
+            "avgTemp": "Avg. Temperature",
+            "soilTypes": "Common Soil Types",
+            "note": "Note"
+        },
+        "soil": {
+            "title": "Soil Type Explanations"
+        },
+        "fertilizers": {
+            "title": "Common Fertilizer Explanations"
+        }
+    },
+    "animalClassification": {
+        "title": "Animal Classification",
+        "subtitle": "Identify animal species from an image, for livestock or wildlife.",
+        "uploadCard": {
+            "title": "Upload Animal Image",
+            "description": "Provide a clear image of the animal you want to identify.",
+            "button": "Upload Image"
+        },
+        "buttons": {
+            "classify": "Classify Animal",
+            "identifying": "Identifying..."
+        },
+        "status": {
+            "loading": "AI is examining the photo...",
+            "idle": "Upload an image to identify an animal"
+        },
+        "reportCard": {
+            "title": "Identification Report",
+            "species": "Identified Species",
+            "confidence": "Confidence Level",
+            "description": "Description"
+        },
+        "toast": {
+            "noFileTitle": "No file selected",
+            "noFileDescription": "Please upload an image of an animal.",
+            "failureTitle": "Classification Failed",
+            "failureDescription": "Could not analyze the image. Please try another one."
+        }
+    },
+    "govtSchemes": {
+        "title": "Government Schemes for Farmers",
+        "subtitle": "Explore beneficial programs and support from the government.",
+        "readMore": "Read More",
+        "dialogDescription": "Detailed information about the {schemeName} scheme."
+    },
+    "schemes": {
+        "pmkisan": {
+            "name": "Pradhan Mantri Kisan Samman Nidhi",
+            "shortName": "PM-KISAN",
+            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
+            "description": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a new Central Sector Scheme to provide income support to all landholding farmers' families in the country to supplement their financial needs for procuring various inputs related to agriculture and allied activities as well as domestic needs.\n\nEligibility\nAll land holding eligible farmer families (subject to the prevalent exclusion criteria) are to avail of the benefits under this scheme.\n\nThe following categories of beneficiaries of higher economic status shall not be eligible for benefit under the scheme.\n\nAll Institutional Land holders.\nFarmer families in which one or more of its members belong to following categories\nFormer and present holders of constitutional posts\nFormer and present Ministers/ State Ministers and former/present Members of LokSabha/ RajyaSabha/ State Legislative Assemblies/ State Legislative Councils,former and present Mayors of Municipal Corporations, former and present Chairpersons of District Panchayats.\nAll serving or retired officers and employees of Central/ State Government Ministries /Offices/Departments and its field units Central or State PSEs and Attached offices /Autonomous Institutions under Government as well as regular employees of the Local Bodies (Excluding Multi Tasking Staff /Class IV/Group D employees)\nAll superannuated/retired pensioners whose monthly pension is Rs.10,000/-or more (Excluding Multi Tasking Staff / Class IV/Group D employees) of above category\nAll Persons who paid Income Tax in last assessment year\nProfessionals like Doctors, Engineers, Lawyers, Chartered Accountants, and Architects registered with Professional bodies and carrying out profession by undertaking practices.\n\nBenefits\nUnder the PM-KISAN scheme, all landholding farmers' families shall be provided the financial benefit of Rs. 6000 per annum per family payable in three equal installments of Rs. 2000 each, every four months.\n\nHow to apply\nThe eligible farmers may apply with the village Patwaris, revenue officials or other designated officers / agencies and submit their required details to them.\nFarmers can also visit their nearest Common Service Centres (CSCs) for registration in the Scheme upon payment of fees.\nFarmers can also do their self-registration through the Farmers Corner in the PM KISAN portal. To check the status of the registration, click here.\nDetails required for registration include Name, Age, Gender, Category(SC/ST), Aadhaar Number (in case Aadhaar Number has not been issued then Aadhaar Enrollment Number together with any other prescribed documents for purposes of the identification such as Driving Licence, Voters’ ID Card, NREGA Job Card, or any other identification documents issued by Central/State/UT Governments or their authorities,etc.), Bank Account Number and the Mobile Number of the beneficiaries.\nFor more details visit PM KISAN portal."
+        },
+        "pmfby": {
+            "name": "Pradhan Mantri Fasal Bima Yojana",
+            "shortName": "PM Fasal Yojana",
+            "shortDescription": "Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
+            "description": "The Pradhan Mantri Fasal Bima Yojana (PMFBY) is a crop insurance scheme launched by the Government of India in 2016. The scheme aims to provide financial protection to farmers against crop losses due to natural calamities, pests, and diseases.\n\nThe scheme is mandatory for all farmers cultivating notified crops in notified areas. The premium for the scheme is shared between the government and the farmers. The government bears 50% of the premium for small and marginal farmers, while the farmers bear the remaining 50%.\n\nThe scheme provides coverage against crop losses due to drought, flood, hailstorm, cyclone, pests, and disease. The scheme also provides coverage against post-harvest losses due to fire, theft, and other unforeseen events.\n\nThe scheme is administered by the National Agricultural Insurance Company (NIAC) and its subsidiaries. The scheme has been well-received by farmers and has helped to reduce their vulnerability to crop losses.\n\nHere are some of the benefits of the PMFBY scheme:\n\nIt provides financial protection to farmers against crop losses due to natural calamities, pests, and diseases.\nIt helps to reduce farmers' vulnerability to crop losses.\nIt helps to improve the income of farmers.\nIt helps to stabilize the agricultural sector.\nIt helps to promote sustainable agriculture.\nThe PMFBY scheme is a major step towards ensuring food security in India. The scheme has helped to reduce farmers' vulnerability to crop losses and has helped to improve their income. The scheme is a major boost to the agricultural sector and is helping to promote sustainable agriculture."
+        },
+        "enam": {
+            "name": "E-NAM (National Agriculture Market)",
+            "shortName": "E-NAM",
+            "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
+            "description": "🌾 National Agriculture Market (eNAM)\n\neNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities. It was launched on April 14, 2016, by the Ministry of Agriculture and Farmers’ Welfare, Government of India, with the Small Farmers Agribusiness Consortium (SFAC) as the lead implementing agency.\n\n🎯 Vision\n\nTo promote uniformity in agricultural marketing by streamlining procedures across integrated markets.\n\nTo remove information gaps between buyers and sellers.\n\nTo enable real-time price discovery based on actual demand and supply.\n\n🚀 Mission\n\nIntegration of APMCs across the country through a common online market platform.\n\nFacilitate pan-India trade in agricultural commodities.\n\nEnsure better price discovery through a transparent auction process based on quality of produce.\n\nProvide timely online payments to farmers.\n\n🌟 Key Benefits of eNAM\n\n✅ Real-time price discovery based on demand & supply\n✅ Reduced transaction costs for farmers, traders, and buyers\n✅ Wider market access beyond local mandis\n✅ Transparent & accountable trading process\n✅ Improved mandi infrastructure and facilities\n✅ Faster payments through online system\n\n📊 eNAM in Numbers (as of March 8, 2023)\n\n1,260 mandis onboarded across 22 states & 3 union territories\n\nTrade facilitated: 120+ million MT of commodities\n\nValue of trade: ₹1.2 trillion+\n\n🛠 Key Features\n\nA single-window platform for all APMC-related information and services.\n\nOnline trading of agricultural commodities.\n\nTransparent auctions based on quality.\n\nBetter market linkages for farmers across India.\n\n🏬 India’s Largest Agriculture Market\n\nThe Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesale turmeric market in the world and one of the biggest agricultural markets in India.\n\n✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency."
+        },
+        "pmkmy": {
+            "name": "Pradhan Mantri Kisan Maandhan Yojana",
+            "shortName": "PM Kisan Maandhan",
+            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
+            "description": "🌾 Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)\n\nPradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme for small and marginal farmers in India. It was launched on 12 September 2019 by Prime Minister Narendra Modi to ensure financial security for farmers in their old age.\n\n🎯 Objective\n\nTo provide a guaranteed monthly pension of ₹3,000 to small and marginal farmers after the age of 60 years.\n\n👩‍🌾 Eligibility\n\nSmall and marginal farmers with cultivable land up to 2 hectares\n\nAge group: 18 to 40 years\n\n💰 Contributions\n\nFarmers contribute a fixed amount (₹55 – ₹200 per month) depending on age.\n\nContribution continues for 20 years or until the farmer turns 60 years, whichever is earlier.\n\nGovernment matches the farmer’s contribution (up to ₹1,000/month).\n\n🏦 How to Join\n\nFarmers need to open a pension account with LIC (Life Insurance Corporation of India).\n\nLIC manages the pension funds and ensures payouts.\n\n📌 Benefits\n\n✅ Guaranteed ₹3,000 monthly pension after 60 years\n✅ Pension continues for the rest of the farmer’s life\n✅ Financial security in old age\n✅ Shared contribution between farmer & government\n\n✨ PM-KMY is a safety net for India’s small and marginal farmers, ensuring dignity and stability in their later years."
+        }
+    },
+    "soilTypes": {
+        "alluvial": {
+            "name": "Alluvial Soil",
+            "description": "Rich in humus and very fertile. Found in the Great Northern Plains, river valleys, and coastal plains. Suitable for a wide variety of crops like rice, wheat, sugarcane, and vegetables."
+        },
+        "black": {
+            "name": "Black Soil (Regur)",
+            "description": "Clayey, retains moisture. Ideal for cotton cultivation, also suitable for oilseeds, wheat, and millets. Found in the Deccan Plateau (Maharashtra, Madhya Pradesh, Gujarat)."
+        },
+        "red_yellow": {
+            "name": "Red and Yellow Soil",
+            "description": "Less fertile, rich in iron. Suitable for millets, pulses, and tobacco. Found in parts of the Deccan Plateau, Odisha, and Chhattisgarh. Requires fertilizers for good yields."
+        },
+        "laterite": {
+            "name": "Laterite Soil",
+            "description": "Found in areas with high temperature and rainfall. Rich in iron and aluminum. Suitable for tea, coffee, rubber, and cashew nuts. Found in Western Ghats, Eastern Ghats, and parts of Assam."
+        },
+        "arid": {
+            "name": "Arid (Desert) Soil",
+            "description": "Sandy and saline. Low in moisture and humus. Suitable for drought-resistant crops like barley, millet, and some pulses with irrigation. Found in Western Rajasthan and parts of Gujarat."
+        },
+        "forest_mountain": {
+            "name": "Forest and Mountain Soil",
+            "description": "Varies in composition. Generally acidic with low humus. Suitable for tea, coffee, spices, and temperate fruits. Found in the Himalayan region and other mountain areas."
+        },
+        "loamy": {
+            "name": "Loamy Soil",
+            "description": "A mix of sand, silt, and clay. Considered ideal for agriculture as it has good drainage and aeration, and retains moisture and nutrients. Suitable for most crops."
+        },
+        "sandy": {
+            "name": "Sandy Soil",
+            "description": "Large particles, poor water retention. Drains quickly and has low nutrient content. Best for crops that don't require much water, like cacti, or with heavy irrigation and fertilization."
+        },
+        "clay": {
+            "name": "Clay Soil",
+            "description": "Small particles, high water retention. Can become waterlogged. Rich in nutrients. Suitable for crops that thrive in wet conditions like rice."
+        }
+    },
+    "states": {
+        "andhra_pradesh": {
+            "name": "Andhra Pradesh",
+            "rainfall": "900 - 1100 mm",
+            "temperature": "25 - 35°C",
+            "soilTypes": "Red Soil, Black Soil, Alluvial Soil",
+            "notes": "Coastal areas are prone to cyclones, affecting rainfall patterns."
+        },
+        "arunachal_pradesh": {
+            "name": "Arunachal Pradesh",
+            "rainfall": "2000 - 4000 mm",
+            "temperature": "15 - 25°C",
+            "soilTypes": "Forest and Mountain Soil, Laterite Soil",
+            "notes": "Heavy rainfall during monsoon season. Mountainous terrain."
+        }
+    },
+    "fertilizers": {
+        "urea": {
+            "name": "Urea",
+            "description": "What it is: A fertilizer that has a lot of nitrogen (46%).\nWhy helpful: Nitrogen helps plants grow fast, makes them green, and increases leaf and stem growth.\nNote: If not managed well, some nitrogen can escape into the air or water, so farmers need to use it carefully."
+        },
+        "dap": {
+            "name": "Diammonium Phosphate (DAP)",
+            "description": "What it is: Fertilizer that gives both nitrogen (18%) and phosphorus (46%).\nWhy helpful:\nNitrogen = growth and greenness.\nPhosphorus = strong roots, better flowers, and fruits.\nIt dissolves quickly, so plants can use it fast."
+        },
+        "mop": {
+            "name": "Muriate of Potash (MOP)",
+            "description": "What it is: Also called Potassium Chloride, with 60–62% potassium.\nWhy helpful: Potassium makes plants strong, improves resistance to drought and disease, and helps in fruit/seed development.\nNot good for: Crops sensitive to chloride (like tobacco, grapes)."
+        },
+        "ssp": {
+            "name": "Single Super Phosphate (SSP)",
+            "description": "What it is: An old but still useful fertilizer with 16% phosphorus, 19% calcium, and 12% sulfur.\nWhy helpful:\nPhosphorus → root growth.\nCalcium → strong cell walls.\nSulfur → better quality of oilseeds and pulses.\nVery good for soils lacking sulfur."
+        },
+        "npk": {
+            "name": "NPK Complex Fertilizers",
+            "description": "What it is: A mix of Nitrogen (N), Phosphorus (P), and Potassium (K) in different ratios (like 10-26-26).\nWhy helpful: Gives a balanced diet to plants—\nN = growth,\nP = roots & flowers,\nK = strength & disease resistance.\nFarmers choose the ratio depending on crop needs."
+        },
+        "ammonium_sulphate": {
+            "name": "Ammonium Sulphate",
+            "description": "What it is: Fertilizer with 21% nitrogen + lots of sulfur.\nWhy helpful:\nNitrogen = plant growth.\nSulfur = improves taste, quality, and oil content in crops.\nUseful for crops like onion, garlic, and oilseeds."
+        }
     }
 }

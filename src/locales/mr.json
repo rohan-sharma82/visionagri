@@ -22,7 +22,27 @@
     },
     "features": {
         "title": "Aamche Vaisishte",
-        "subtitle": "Aamche AI-adharit sadhan tumhala kashi madat karu shaktat te shodha."
+        "subtitle": "Aamche AI-adharit sadhan tumhala kashi madat karu shaktat te shodha.",
+        "cropYield": {
+            "title": "Pik Utpadan Andaj",
+            "description": "Aaplya pikaachya utpadanacha andaj ghenyasathi aani aapli strategi anukul karnyasaathi AI cha labh ghya."
+        },
+        "aiFarmer": {
+            "title": "AI Shetkari Sahayak",
+            "description": "Tumcha vyaktigat krishi tadnya, 24/7 uplabdh."
+        },
+        "diseaseClassification": {
+            "title": "Pik Rog Vargikaran",
+            "description": "Rogaanchi lavkar olakh karnyasaathi pikaachya paanacha photo upload kara."
+        },
+        "animalClassification": {
+            "title": "Pashu Vargikaran",
+            "description": "Pashudhan kiva vanyajivan sathi, ekya chitravarun pashunchya prajati olkha."
+        },
+        "govtSchemes": {
+            "title": "Sarkari Yojana",
+            "description": "Sarkar kadun faydeshir karyakram aani sahayya shodha."
+        }
     },
     "languageSwitcher": {
         "button": "Bhasha Nivda"
