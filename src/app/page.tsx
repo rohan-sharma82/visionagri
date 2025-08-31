@@ -62,7 +62,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-16 items-center justify-center rounded-full border-2 bg-card p-0 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] overflow-hidden",
+        "z-10 flex size-24 items-center justify-center rounded-full border-2 bg-card p-0 shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)] overflow-hidden",
         className,
       )}
     >
