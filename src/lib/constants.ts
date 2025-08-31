@@ -8,46 +8,52 @@ export const navLinks = [
   { href: '/govt-schemes', label: 'nav.govtSchemes' },
 ];
 
-export const featuresData = [
+const baseFeaturesData = [
     {
         title: 'nav.cropYield',
-        description: 'features.cropYield.description',
         imageUrl: 'https://jcblagri.in/x_images/blog_pics/1667806089agri_blog.png',
         dataAiHint: 'crop field',
         href: '/crop-yield'
     },
     {
         title: 'nav.aiFarmer',
-        description: 'features.aiFarmer.description',
         imageUrl: 'https://framerusercontent.com/images/g0YTRh7uRHpbWQgSZz62bO050.png?width=1378&height=880',
         dataAiHint: 'chatbot robot',
         href: '/ai-farmer'
     },
     {
         title: 'nav.diseaseClassification',
-        description: 'features.diseaseClassification.description',
         imageUrl: 'https://cdn11.bigcommerce.com/s-tjrce8etun/product_images/uploaded_images/leave-with-fungus.jpg',
         dataAiHint: 'diseased crop',
         href: '/disease-classification'
     },
     {
         title: 'nav.animalClassification',
-        description: 'features.animalClassification.description',
         imageUrl: 'https://www.shunya.live/wp-content/uploads/2024/07/Farmer-dairy-economy-india-shunya-1024x579.png',
         dataAiHint: 'farm animals',
         href: '/animal-classification'
     },
     {
         title: 'nav.govtSchemes',
-        description: 'features.govtSchemes.description',
         imageUrl: 'https://timesofagriculture.in/wp-content/uploads/2023/08/feature-image-2-1-1-1-scaled.jpg',
         dataAiHint: 'government scheme',
         href: '/govt-schemes'
     },
-].map(feature => ({
-    ...feature,
-    description: `Leverage AI to forecast your harvest and optimize your strategy. Your personal agricultural expert, available 24/7. Upload an image of a crop leaf to detect diseases early. Identify animal species from an image, for livestock or wildlife. Explore beneficial programs and support from the government.`.split('. ')[featuresData.indexOf(feature)] + '.'
-}));
+];
+
+export const featuresData = baseFeaturesData.map((feature, index) => {
+    const descriptions = [
+        'features.cropYield.description',
+        'features.aiFarmer.description',
+        'features.diseaseClassification.description',
+        'features.animalClassification.description',
+        'features.govtSchemes.description',
+    ];
+    return {
+        ...feature,
+        description: descriptions[index]
+    };
+});
 
 
 export const newsCategories = [
