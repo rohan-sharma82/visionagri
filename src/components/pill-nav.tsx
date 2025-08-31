@@ -248,7 +248,7 @@ const PillNav = ({
 
         <div
           ref={navItemsRef}
-          className="pill-nav-items hidden md:flex ml-2"
+          className="pill-nav-items desktop-only ml-2"
         >
           <ul
             role="menubar"
