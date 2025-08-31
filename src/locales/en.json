@@ -42,6 +42,10 @@
         "govtSchemes": {
             "title": "Government Schemes",
             "description": "Explore beneficial programs and support from the government."
+        },
+        "farmSchool": {
+            "title": "Farm School",
+            "description": "Learn everything about farming."
         }
     },
     "languageSwitcher": {

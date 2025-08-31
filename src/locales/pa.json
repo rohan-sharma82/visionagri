@@ -42,6 +42,10 @@
         "govtSchemes": {
             "title": "ਸਰਕਾਰੀ ਸਕੀਮਾਂ",
             "description": "ਸਰਕਾਰ ਤੋਂ ਲਾਭਦਾਇਕ ਪ੍ਰੋਗਰਾਮਾਂ ਅਤੇ ਸਹਾਇਤਾ ਦੀ ਪੜਚੋਲ ਕਰੋ।"
+        },
+        "farmSchool": {
+            "title": "ਫਾਰਮ ਸਕੂਲ",
+            "description": "ਖੇਤੀ ਬਾਰੇ ਸਭ ਕੁਝ ਸਿੱਖੋ।"
         }
     },
     "languageSwitcher": {

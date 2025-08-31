@@ -42,6 +42,10 @@
         "govtSchemes": {
             "title": "সরকারি প্রকল্প",
             "description": "সরকারের কাছ থেকে উপকারী প্রোগ্রাম এবং সহায়তা অন্বেষণ করুন।"
+        },
+        "farmSchool": {
+            "title": "फार्म স্কুল",
+            "description": "खेती के बारे में सब कुछ जानें।"
         }
     },
     "languageSwitcher": {

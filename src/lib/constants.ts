@@ -44,6 +44,13 @@ const baseFeaturesData = [
         href: '/govt-schemes',
         description: 'features.govtSchemes.description'
     },
+    {
+        title: 'features.farmSchool.title',
+        imageUrl: '/images/farmschool.jpeg',
+        dataAiHint: 'farm school education',
+        href: '#', // The dialog is handled on the page, so no specific page needed yet
+        description: 'features.farmSchool.description'
+    }
 ];
 
 export const featuresData = baseFeaturesData;

@@ -42,6 +42,10 @@
         "govtSchemes": {
             "title": "Sarkari Yojana",
             "description": "Sarkar kadun faydeshir karyakram aani sahayya shodha."
+        },
+        "farmSchool": {
+            "title": "Shetkari Shala",
+            "description": "Shetibaddal sarva kahi shikha."
         }
     },
     "languageSwitcher": {
