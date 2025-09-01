@@ -88,6 +88,9 @@ export default function DiseaseClassificationPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           {t('diseaseClassification.subtitle')}
         </p>
+         <p className="mt-4 text-base font-semibold text-primary">
+            Kisan Call Center -&gt; 1800-180-1551
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
