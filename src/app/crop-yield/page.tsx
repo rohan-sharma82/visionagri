@@ -115,12 +115,9 @@ export default function CropYieldPage() {
             />
           </div>
         </div>
-      </div>
-
-      <div className="simple-marquee-container my-8">
-        <div className="marquee-content">
-          <p>Kisan Call Center -&gt; 1800-180-1551</p>
-        </div>
+        <p className="mt-4 text-base font-semibold text-primary">
+            Kisan Call Center -&gt; 1800-180-1551
+        </p>
       </div>
 
 
