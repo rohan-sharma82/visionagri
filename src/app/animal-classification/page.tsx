@@ -95,6 +95,9 @@ export default function AnimalClassificationPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           {t('animalClassification.subtitle')}
         </p>
+         <p className="mt-4 text-base font-semibold text-primary">
+            Kisan Call Center -&gt; 1800-180-1551
+        </p>
       </div>
 
       <div style={{ height: '400px', position: 'relative' }}>

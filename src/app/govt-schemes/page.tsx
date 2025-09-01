@@ -70,6 +70,9 @@ export default function GovtSchemesPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           {t('govtSchemes.subtitle')}
         </p>
+         <p className="mt-4 text-base font-semibold text-primary">
+            Kisan Call Center -&gt; 1800-180-1551
+        </p>
       </div>
       <div className="flex flex-wrap justify-center gap-8">
         {schemesData.map((scheme, index) => (
