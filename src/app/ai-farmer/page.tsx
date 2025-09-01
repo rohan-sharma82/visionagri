@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, useActionState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -31,15 +31,14 @@ import {
 } from "@/components/ui/alert-dialog"
 import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
-import { db, auth } from '@/lib/firebase-config';
-import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, deleteDoc, getDocs } from "firebase/firestore";
-import { signInAnonymously, onAuthStateChanged, User as FirebaseUser } from "firebase/auth";
+import { createOrGetUserId, getMessages, addMessage, clearMessages } from './actions';
+
 
 const formSchema = z.object({
   query: z.string().min(1, 'Please ask a question.'),
 });
 
-interface Message {
+export interface Message {
   id?: string;
   role: 'user' | 'assistant';
   content: string;
@@ -131,7 +130,7 @@ export default function AiFarmerPage() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const [loadingMessage, setLoadingMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
 
 
   const [isRecording, setIsRecording] = useState(false);
@@ -158,38 +157,40 @@ export default function AiFarmerPage() {
   });
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(currentUser);
-      } else {
-        signInAnonymously(auth).catch((error) => {
-          console.error("Anonymous sign-in failed", error);
+    async function initUser() {
+      try {
+        const id = await createOrGetUserId();
+        setUserId(id);
+      } catch (error) {
+        console.error("Failed to initialize user:", error);
+        toast({
+          title: "Error",
+          description: "Could not initialize user session.",
+          variant: "destructive",
         });
       }
-    });
-  }, []);
-
+    }
+    initUser();
+  }, [toast]);
+  
   useEffect(() => {
-    if (!user) return;
-
-    const q = query(collection(db, "users", user.uid, "chats"), orderBy("createdAt"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const msgs: Message[] = [];
-      querySnapshot.forEach((doc) => {
-        msgs.push({ id: doc.id, ...doc.data() } as Message);
-      });
-      setMessages(msgs);
-    }, (error) => {
-      console.error("Failed to fetch messages from Firestore", error);
-      toast({
-        title: "Error",
-        description: "Could not load chat history.",
-        variant: "destructive",
-      });
-    });
-
-    return () => unsubscribe();
-  }, [user, toast]);
+    if (!userId) return;
+  
+    async function loadMessages() {
+      try {
+        const loadedMessages = await getMessages(userId!);
+        setMessages(loadedMessages);
+      } catch (error) {
+        console.error("Failed to fetch messages:", error);
+        toast({
+          title: "Error",
+          description: "Could not load chat history.",
+          variant: "destructive",
+        });
+      }
+    }
+    loadMessages();
+  }, [userId, toast]);
 
 
   useEffect(() => {
@@ -208,33 +209,23 @@ export default function AiFarmerPage() {
     };
   }, []);
 
-
-  const saveMessage = useCallback(async (message: Message) => {
-    if (!user) return;
-    try {
-      await addDoc(collection(db, "users", user.uid, "chats"), {
-        ...message,
-        createdAt: serverTimestamp(),
-      });
-    } catch (error) {
-      console.error("Error saving message to Firestore:", error);
-    }
-  }, [user]);
-
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (isLoading || !user) return;
+    if (isLoading || !userId) return;
 
+    const userMessage: Message = { role: 'user', content: values.query };
+    setMessages(prev => [...prev, userMessage]);
+    
     setIsLoading(true);
     setIsTyping(true);
     setLoadingMessage(loadingMessages[Math.floor(Math.random() * loadingMessages.length)]);
-    const userMessage: Message = { role: 'user', content: values.query };
-    await saveMessage(userMessage);
     form.reset();
 
     const controller = new AbortController();
     abortControllerRef.current = controller;
   
     try {
+      await addMessage(userId, userMessage);
+
       const advicePromise = getFarmingAdvice({
         query: values.query,
         location: location || undefined,
@@ -243,9 +234,9 @@ export default function AiFarmerPage() {
       const result: GetFarmingAdviceOutput = await advicePromise;
       if (controller.signal.aborted) {
         setIsTyping(false);
+        setMessages(prev => prev.slice(0, -1)); // Remove optimistic user message
         return;
       };
-
 
       let ttsResult;
       try {
@@ -268,20 +259,19 @@ export default function AiFarmerPage() {
         content: result.advice,
         audioUrl: ttsResult?.media,
       };
-      await saveMessage(assistantMessage);
+      
+      await addMessage(userId, assistantMessage);
+      setMessages(prev => [...prev, assistantMessage]);
   
     } catch (error: any) {
        if (error.name !== 'AbortError') {
         console.error('Error getting farming advice:', error);
+        setMessages(prev => prev.slice(0, -1)); // Remove optimistic user message
         toast({
           title: t('aiFarmer.toast.adviceError.title'),
           description: t('aiFarmer.toast.adviceError.description'),
           variant: 'destructive',
         });
-        const lastMessage = messages[messages.length - 1];
-         if (lastMessage && lastMessage.id) {
-           await deleteDoc(doc(db, "users", user.uid, "chats", lastMessage.id));
-         }
       }
     } finally {
        if (!controller.signal.aborted) {
@@ -293,19 +283,16 @@ export default function AiFarmerPage() {
   }
 
   const handleClearChat = async () => {
-    if (!user) return;
+    if (!userId) return;
     try {
-      const chatCollection = collection(db, "users", user.uid, "chats");
-      const chatSnapshot = await getDocs(chatCollection);
-      const deletePromises = chatSnapshot.docs.map(doc => deleteDoc(doc.ref));
-      await Promise.all(deletePromises);
-      
+      await clearMessages(userId);
+      setMessages([]);
       toast({
         title: t('aiFarmer.toast.chatCleared.title'),
         description: t('aiFarmer.toast.chatCleared.description'),
       });
     } catch (error) {
-       console.error("Failed to clear messages from Firestore", error);
+       console.error("Failed to clear messages:", error);
         toast({
           title: "Error",
           description: "Could not clear chat history.",
@@ -374,7 +361,6 @@ export default function AiFarmerPage() {
       abortControllerRef.current = null;
       setIsLoading(false);
       setIsTyping(false);
-      // No need to manually remove messages, Firestore sync will handle it.
     }
   };
 
@@ -490,7 +476,7 @@ export default function AiFarmerPage() {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="flex items-center gap-4"
               >
-                <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading || !user}>
+                <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading || !userId}>
                   <Mic className="h-4 w-4" />
                 </Button>
                 <FormField
@@ -504,7 +490,7 @@ export default function AiFarmerPage() {
                           className="resize-none no-scrollbar"
                           rows={1}
                           onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !e.shiftKey && !isLoading && user) {
+                            if (e.key === 'Enter' && !e.shiftKey && !isLoading && userId) {
                               if (form.getValues("query").trim()) {
                                 e.preventDefault();
                                 form.handleSubmit(onSubmit)();
@@ -512,13 +498,13 @@ export default function AiFarmerPage() {
                             }
                           }}
                           {...field}
-                          disabled={isLoading || !user}
+                          disabled={isLoading || !userId}
                         />
                       </FormControl>
                     </FormItem>
                   )}
                 />
-                <button type="submit" disabled={isLoading || !form.getValues("query").trim() || !user} className="send-button-style">
+                <button type="submit" disabled={isLoading || !form.getValues("query").trim() || !userId} className="send-button-style">
                   {isLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
                   ) : (
