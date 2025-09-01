@@ -14,6 +14,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  CardDescription
 } from '@/components/ui/card';
 import {
   Form,
@@ -24,12 +25,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Loader2, TrendingUp, Zap, Wind } from 'lucide-react';
+import { Loader2, TrendingUp, Zap, Wind, Info } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
 import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
+import { Separator } from '@/components/ui/separator';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -98,6 +100,9 @@ export default function CropYieldPage() {
         <p className="mt-2 text-lg text-muted-foreground">
           {t('cropYield.subtitle')}
         </p>
+        <p className="mt-4 text-base font-semibold text-primary">
+            Kisan Call Center -&gt; 1800-180-1551
+        </p>
         <div className="mt-4 text-xl text-muted-foreground flex items-center justify-center space-x-2 font-merienda">
           <span>{t('cropYield.growing')}</span>
           <div className="w-40">
@@ -115,9 +120,6 @@ export default function CropYieldPage() {
             />
           </div>
         </div>
-        <p className="mt-4 text-base font-semibold text-primary">
-            Kisan Call Center -&gt; 1800-180-1551
-        </p>
       </div>
 
 
@@ -252,6 +254,14 @@ export default function CropYieldPage() {
                       <h3 className="font-semibold text-foreground">{t('cropYield.results.predictedYield')}</h3>
                       <p className="text-2xl font-bold text-primary">{prediction.predictedYield}</p>
                       <p className="text-sm text-muted-foreground">{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
+                    </div>
+                  </div>
+                   <Separator />
+                   <div className="flex items-start space-x-4">
+                    <Info className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">{t('cropYield.results.analysis')}</h3>
+                      <p className="mt-1 text-muted-foreground whitespace-pre-wrap">{prediction.yieldAnalysis}</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">

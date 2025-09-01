@@ -24,16 +24,19 @@ export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
 const PredictCropYieldOutputSchema = z.object({
   predictedYield: z
     .string()
-    .describe('The predicted crop yield in bushels per acre or a similar standard unit.'),
+    .describe('The predicted crop yield in tonnes per hectare.'),
   confidenceLevel: z
     .string()
     .describe('The confidence level of the prediction as a percentage.'),
+  yieldAnalysis: z
+    .string()
+    .describe('A detailed, conversational analysis for the farmer. It should explain the prediction in simple terms, comparing current weather data to typical averages and explaining what factors are good or bad for the crop this season.'),
   factorsInfluencingYield: z
     .array(z.string())
-    .describe('A list of factors that are influencing the predicted yield based on the provided data.'),
+    .describe('A list of key factors that are influencing the predicted yield.'),
   suggestedActions: z
     .array(z.string())
-    .describe('A list of suggested actions to improve the yield, such as adjusting fertilizer levels or irrigation.'),
+    .describe('A list of suggested actions to improve the yield.'),
 });
 export type PredictCropYieldOutput = z.infer<typeof PredictCropYieldOutputSchema>;
 
@@ -52,25 +55,21 @@ const prompt = ai.definePrompt({
     irrigationMethod: z.string(),
   })},
   output: {schema: PredictCropYieldOutputSchema},
-  prompt: `You are an expert in agricultural science, specializing in crop yield prediction.
+  prompt: `You are an expert in agricultural science, specializing in crop yield prediction for Indian farmers. Your language should be simple, encouraging, and easy to understand.
 
-  Based on the data provided, predict the crop yield.
+  Based on the data provided, predict the crop yield in **tonnes per hectare**.
 
-  Consider the following factors when making your prediction:
-  - Soil Type
-  - Rainfall
-  - Temperature
-  - Fertilizer Use
-  - Irrigation Method (This is a crucial factor, especially for water-intensive crops. A good irrigation system can compensate for low rainfall).
+  Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good and that they may not need to worry about watering as much. If the temperature is high, explain the potential impact. Be like a helpful friend giving advice.
 
-  Crop Type: {{{cropType}}}
-  Soil Type: {{{soilType}}}
-  Annual Rainfall (mm): {{{rainfall}}}
-  Average Temperature (°C): {{{temperature}}}
-  Fertilizer Use: {{{fertilizerUse}}}
-  Irrigation Method: {{{irrigationMethod}}}
+  Finally, list the key factors influencing the yield and suggest actionable steps for improvement.
 
-  Provide the predicted yield, the confidence level of the prediction, a list of factors influencing the yield, and a list of suggested actions to improve the yield.
+  Data:
+  - Crop Type: {{{cropType}}}
+  - Soil Type: {{{soilType}}}
+  - Current Rainfall: {{{rainfall}}}
+  - Current Temperature: {{{temperature}}}
+  - Fertilizer Use: {{{fertilizerUse}}}
+  - Irrigation Method: {{{irrigationMethod}}}
 `,
   tools: [getWeatherForLocation],
 });
