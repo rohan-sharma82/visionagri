@@ -19,6 +19,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { ScrollArea } from './ui/scroll-area';
+import { useTranslation } from '@/hooks/use-translation';
 
 const conversionFactorsToSqMeters: { [key: string]: number } = {
   'Acre (Killa)': 4046.86,
@@ -37,6 +38,7 @@ const conversionFactorsToSqMeters: { [key: string]: number } = {
 const allUnits = Object.keys(conversionFactorsToSqMeters).sort();
 
 export default function LandUnitConverter() {
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('1');
   const [inputUnit, setInputUnit] = useState('Acre (Killa)');
 
@@ -57,20 +59,20 @@ export default function LandUnitConverter() {
     <div className="space-y-4 flex flex-col h-full">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="text-sm font-medium mb-2 block">Input Value</label>
+          <label className="text-sm font-medium mb-2 block">{t('farmSchool.areaCalculator.converter.inputValue')}</label>
           <Input
             type="number"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Enter value"
+            placeholder={t('farmSchool.areaCalculator.converter.placeholder')}
             className="text-lg"
           />
         </div>
         <div>
-          <label className="text-sm font-medium mb-2 block">Input Unit</label>
+          <label className="text-sm font-medium mb-2 block">{t('farmSchool.areaCalculator.converter.inputUnit')}</label>
           <Select value={inputUnit} onValueChange={setInputUnit}>
             <SelectTrigger className="text-lg">
-              <SelectValue placeholder="Select a unit" />
+              <SelectValue placeholder={t('farmSchool.areaCalculator.converter.selectPlaceholder')} />
             </SelectTrigger>
             <SelectContent>
               {allUnits.map((unit) => (
@@ -89,8 +91,8 @@ export default function LandUnitConverter() {
              <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="w-1/2">Unit</TableHead>
-                        <TableHead className="text-right">Converted Value</TableHead>
+                        <TableHead className="w-1/2">{t('farmSchool.areaCalculator.converter.table.unit')}</TableHead>
+                        <TableHead className="text-right">{t('farmSchool.areaCalculator.converter.table.value')}</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -105,10 +107,12 @@ export default function LandUnitConverter() {
            </ScrollArea>
         ) : (
           <p className="text-center text-muted-foreground mt-8">
-            Please enter a valid number to see conversions.
+            {t('farmSchool.areaCalculator.converter.error')}
           </p>
         )}
       </div>
     </div>
   );
 }
+
+    

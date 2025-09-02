@@ -9,6 +9,9 @@
         "animalClassification": "Pashu Vargikaran",
         "govtSchemes": "Sarkari Yojana"
     },
+    "header": {
+        "menu": "मेनू"
+    },
     "home": {
         "welcome": "AgriVision AI madhye aaple swagat aahe",
         "tagline": "Krishi kshetrat krantighadvinyasathi Artificial Intelligence cha vapar.",
@@ -47,6 +50,10 @@
         "farmSchool": {
             "title": "Shetkari Shala",
             "description": "Shetibaddal sarva kahi shikha."
+        },
+        "dashboard": {
+            "title": "वैयक्तिकृत डॅशबोर्ड",
+            "description": "तुमच्या शेताचा इतिहास पहा, अंदाजांचा मागोवा घ्या आणि वैयक्तिकृत अंतर्दृष्टी मिळवा."
         }
     },
     "languageSwitcher": {
@@ -56,6 +63,7 @@
         "button": "Shetkari Shala",
         "title": "Shetkari Shalet Swagat!",
         "description": "Shetichya garjeच्या goshtinbaddal dnyan milva. Adhik mahitisathi ekya vishayavar click kara (karyakshamata lavkarach yet aahe).",
+        "backToHome": "होमवर परत जा",
         "tools": {
             "title": "Sadhan",
             "description": "Aavashyak sheti sadhan aani yantrasamugri baddal shikha."
@@ -66,7 +74,26 @@
         },
         "areaCalculator": {
             "title": "Kshetrafal Calculator",
-            "description": "Niyojan aani sansadhan vyavasthapanasathi aaplya shetache kshetrafal moza."
+            "description": "Niyojan aani sansadhan vyavasthapanasathi aaplya shetache kshetrafal moza.",
+            "pageSubtitle": "भारतातील विविध जमीन मोजमाप युनिट्स समजून घ्या.",
+            "disclaimer": {
+                "title": "महत्वाची सूचना",
+                "description": "ही सामान्य रूपांतरणे आहेत, परंतु स्थानिक मूल्ये बदलू शकतात. अचूक मोजमापांसाठी नेहमी अधिकृत जमीन रेकॉर्ड किंवा स्थानिक अधिकाऱ्यांचा सल्ला घ्या."
+            },
+            "converter": {
+                "button": "युनिट कन्व्हर्टर कॅल्क्युलेटर",
+                "title": "जमीन युनिट कन्व्हर्टर",
+                "description": "रूपांतरणे पाहण्यासाठी इनपुट युनिट निवडा आणि मूल्य प्रविष्ट करा.",
+                "inputValue": "इनपुट मूल्य",
+                "placeholder": "मूल्य प्रविष्ट करा",
+                "inputUnit": "इनपुट युनिट",
+                "selectPlaceholder": "एक युनिट निवडा",
+                "table": {
+                    "unit": "युनिट",
+                    "value": "रूपांतरित मूल्य"
+                },
+                "error": "रूपांतरणे पाहण्यासाठी कृपया एक वैध संख्या प्रविष्ट करा."
+            }
         },
         "profitMakingTips": {
             "title": "Nafa Milvanyache Tips",
@@ -169,34 +196,94 @@
     },
     "dashboard": {
         "login": {
-            "title": "Dashboard Access",
-            "description": "Please log in to view your personalized dashboard.",
-            "emailPlaceholder": "Email",
-            "passwordPlaceholder": "Password",
-            "button": "Login",
-            "error": "Invalid credentials. Please try again."
-        },
-        "welcome": "Welcome back, Farmer!",
-        "subtitle": "Here is an overview of your farm's status and history.",
-        "yieldHistory": {
-            "title": "Yield Prediction History",
-            "description": "Track AI predictions against your actual harvest to help us improve.",
-            "table": {
-                "date": "Date",
-                "crop": "Crop",
-                "predicted": "Predicted Yield (Tonnes)",
-                "actual": "Actual Yield (Tonnes)",
-                "action": "Enter Actual Yield"
+            "title": "डॅशबोर्ड प्रवेश",
+            "description": "तुमचा वैयक्तिकृत डॅशबोर्ड पाहण्यासाठी कृपया लॉग इन करा.",
+            "emailPlaceholder": "ईमेल",
+            "passwordPlaceholder": "पासवर्ड",
+            "button": "लॉग इन करा",
+            "error": "अवैध क्रेडेन्शियल्स. कृपया पुन्हा प्रयत्न करा.",
+            "prism": {
+                "signIn": "साइन इन करा",
+                "email": "ई-मेल",
+                "password": "पासवर्ड",
+                "forgotPassword": "पासवर्ड विसरलात?",
+                "notAUser": "नवीन वापरकर्ता? साइन अप करा",
+                "subscribe": {
+                    "title": "सदस्यता घ्या",
+                    "description": "आम्ही तुम्हाला नवीनतम अद्यतने पाठवू शकू यासाठी तुमचा ईमेल प्रविष्ट करा!"
+                },
+                "forgot": {
+                    "title": "तुमचा पासवर्ड विसरलात?",
+                    "description": "तुमचा ईमेल प्रविष्ट करा जेणेकरून आम्ही तुम्हाला तुमच्या पासवर्डसाठी रीसेट लिंक पाठवू शकू"
+                },
+                "signUp": {
+                    "title": "साइन अप करा",
+                    "reEnterPassword": "पासवर्ड पुन्हा प्रविष्ट करा",
+                    "alreadyAUser": "आधीच वापरकर्ता आहात? साइन इन करा"
+                },
+                "contact": {
+                    "title": "आमच्याशी संपर्क साधा",
+                    "name": "नाव",
+                    "message": "तुमचा संदेश"
+                },
+                "thankYou": "धन्यवाद!",
+                "nav": {
+                    "login": "लॉगिन",
+                    "signUp": "साइन अप",
+                    "forgotPassword": "पासवर्ड विसरलात",
+                    "subscribe": "सदस्यता घ्या",
+                    "contact": "संपर्क"
+                }
             },
-            "button": "Add Entry"
+            "judgeInfo": {
+                "title": "परीक्षकांसाठी: डमी क्रेडेन्शियल्स",
+                "description": "वेगवेगळ्या डेटासह डॅशबोर्डची चाचणी घेण्यासाठी ही खाती वापरा."
+            }
+        },
+        "welcome": "पुन्हा स्वागत, शेतकरी!",
+        "subtitle": "तुमच्या शेताच्या स्थिती आणि इतिहासाचा आढावा येथे आहे.",
+        "logout": "लॉगआउट",
+        "yieldHistory": {
+            "title": "उत्पन्न अंदाज इतिहास",
+            "description": "आम्हाला सुधारण्यास मदत करण्यासाठी तुमच्या वास्तविक कापणीच्या तुलनेत AI अंदाजांचा मागोवा घ्या.",
+            "table": {
+                "date": "तारीख",
+                "crop": "पीक",
+                "predicted": "अपेक्षित उत्पन्न (टन)",
+                "actual": "वास्तविक उत्पन्न (टन)",
+                "action": "वास्तविक उत्पन्न प्रविष्ट करा"
+            },
+            "button": "नोंद जोडा"
         },
         "schemes": {
-            "title": "Recommended Schemes for You",
-            "description": "Based on your profile, these government schemes might be beneficial."
+            "title": "तुमच्यासाठी शिफारस केलेल्या योजना",
+            "description": "तुमच्या प्रोफाइलवर आधारित, या सरकारी योजना फायदेशीर असू शकतात."
         },
         "weather": {
-            "title": "Weather Outlook & Alerts",
-            "description": "Current conditions and actionable advice for the week ahead."
+            "title": "हवामान दृष्टिकोन आणि सूचना",
+            "description": "तुमच्या स्थानासाठी वर्तमान परिस्थिती आणि कृती करण्यायोग्य सल्ला: {location}.",
+            "current": "सध्याचे",
+            "humidity": "आर्द्रता",
+            "wind": "वारा",
+            "aqi": "AQI",
+            "astronomy": "खगोलशास्त्र",
+            "sunrise": "सूर्योदय",
+            "sunset": "सूर्यास्त",
+            "moon": "चंद्राची कला",
+            "forecast": "3-दिवसीय अंदाज",
+            "today": "आज",
+            "loading": "तुमच्या शेतासाठी थेट हवामान डेटा आणत आहे...",
+            "error": "हवामान डेटा लोड करू शकलो नाही. कृपया नंतर पुन्हा प्रयत्न करा."
+        },
+        "market": {
+            "title": "{crop} साठी बाजारभाव विश्लेषण",
+            "description": "ऐतिहासिक किमतींचा मागोवा घ्या आणि AI-चालित अंदाज मिळवा.",
+            "loading": "बाजार डेटाचे विश्लेषण करत आहे...",
+            "error": "बाजार डेटा लोड करू शकलो नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
+            "analysis": "AI ट्रेंड विश्लेषण",
+            "forecast": "AI अंदाज"
         }
     }
 }
+
+    

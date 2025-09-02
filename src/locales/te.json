@@ -9,6 +9,9 @@
         "animalClassification": "జంతు వర్గీకరణ",
         "govtSchemes": "ప్రభుత్వ పథకాలు"
     },
+    "header": {
+        "menu": "మెనూ"
+    },
     "home": {
         "welcome": "అగ్రివిజన్ AIకు స్వాగతం",
         "tagline": "ఆర్టిఫిషియల్ ఇంటెలిజెన్స్ శక్తితో వ్యవసాయంలో విప్లవం.",
@@ -47,6 +50,10 @@
         "farmSchool": {
             "title": "ఫార్మ్ స్కూల్",
             "description": "వ్యవసాయం గురించి ప్రతిదీ తెలుసుకోండి."
+        },
+        "dashboard": {
+            "title": "వ్యక్తిగతీకరించిన డాష్‌బోర్డ్",
+            "description": "మీ పొలం చరిత్రను వీక్షించండి, అంచనాలను ట్రాక్ చేయండి మరియు వ్యక్తిగతీకరించిన అంతర్దృష్టులను పొందండి."
         }
     },
     "languageSwitcher": {
@@ -56,6 +63,7 @@
         "button": "ఫార్మ్ స్కూల్",
         "title": "ఫార్మ్ స్కూల్‌కు స్వాగతం!",
         "description": "వ్యవసాయ అవసరాల గురించి జ్ఞానం పొందండి. మరింత తెలుసుకోవడానికి ఒక అంశంపై క్లిక్ చేయండి ( కార్యాచరణ త్వరలో వస్తుంది).",
+        "backToHome": "హోమ్‌కు తిరిగి వెళ్ళు",
         "tools": {
             "title": "ఉపకరణాలు",
             "description": "అத்தியாவசிய விவசாய கருவிகள் மற்றும் இயந்திரங்கள் பற்றி ತಿಳಿಯுங்கள்."
@@ -66,7 +74,26 @@
         },
         "areaCalculator": {
             "title": "ప్రాంతం కాల்குలేటర్",
-            "description": "ప్రణాళిక మరియు వనరుల నిర్వహణ కోసం మీ పొలం యొక్క ప్రాంతాన్ని లెక్కించండి."
+            "description": "ప్రణాళిక మరియు వనరుల నిర్వహణ కోసం మీ పొలం యొక్క ప్రాంతాన్ని లెక్కించండి.",
+            "pageSubtitle": "భారతదేశం అంతటా విభిన్న భూమి కొలత యూనిట్లను అర్థం చేసుకోండి.",
+            "disclaimer": {
+                "title": "ముఖ్యమైన నిరాకరణ",
+                "description": "ఇవి సాధారణ మార్పిడులు, కానీ స్థానిక విలువలు మారవచ్చు. ఖచ్చితమైన కొలతల కోసం ఎల్లప్పుడూ అధికారిక భూమి రికార్డులు లేదా స్థానిక అధికారులను సంప్రదించండి."
+            },
+            "converter": {
+                "button": "యూనిట్ కన్వర్టర్ కాలిక్యులేటర్",
+                "title": "భూమి యూనిట్ కన్వర్టర్",
+                "description": "మార్పిడులను చూడటానికి ఇన్‌పుట్ యూనిట్‌ను ఎంచుకుని, ఒక విలువను నమోదు చేయండి.",
+                "inputValue": "ఇన్‌పుట్ విలువ",
+                "placeholder": "విలువను నమోదు చేయండి",
+                "inputUnit": "ఇన్‌పుట్ యూనిట్",
+                "selectPlaceholder": "ఒక యూనిట్‌ను ఎంచుకోండి",
+                "table": {
+                    "unit": "యూనిట్",
+                    "value": "మార్చబడిన విలువ"
+                },
+                "error": "దయచేసి మార్పిడులను చూడటానికి చెల్లుబాటు అయ్యే సంఖ్యను నమోదు చేయండి."
+            }
         },
         "profitMakingTips": {
             "title": "లాభం సంపాదించే చిట్కాలు",
@@ -169,34 +196,94 @@
     },
     "dashboard": {
         "login": {
-            "title": "Dashboard Access",
-            "description": "Please log in to view your personalized dashboard.",
-            "emailPlaceholder": "Email",
-            "passwordPlaceholder": "Password",
-            "button": "Login",
-            "error": "Invalid credentials. Please try again."
-        },
-        "welcome": "Welcome back, Farmer!",
-        "subtitle": "Here is an overview of your farm's status and history.",
-        "yieldHistory": {
-            "title": "Yield Prediction History",
-            "description": "Track AI predictions against your actual harvest to help us improve.",
-            "table": {
-                "date": "Date",
-                "crop": "Crop",
-                "predicted": "Predicted Yield (Tonnes)",
-                "actual": "Actual Yield (Tonnes)",
-                "action": "Enter Actual Yield"
+            "title": "డాష్‌బోర్డ్ యాక్సెస్",
+            "description": "మీ వ్యక్తిగతీకరించిన డాష్‌బోర్డ్‌ను వీక్షించడానికి దయచేసి లాగిన్ చేయండి.",
+            "emailPlaceholder": "ఇమెయిల్",
+            "passwordPlaceholder": "పాస్వర్డ్",
+            "button": "లాగిన్",
+            "error": "చెల్లని ఆధారాలు. దయచేసి మళ్లీ ప్రయత్నించండి.",
+            "prism": {
+                "signIn": "సైన్ ఇన్ చేయండి",
+                "email": "ఇ-మెయిల్",
+                "password": "పాస్వర్డ్",
+                "forgotPassword": "పాస్వర్డ్ మర్చిపోయారా?",
+                "notAUser": "వినియోగదారు కాదా? సైన్ అప్ చేయండి",
+                "subscribe": {
+                    "title": "సభ్యత్వం పొందండి",
+                    "description": "మీరు తాజా నవీకరణలను పంపగలగడానికి మీ ఇమెయిల్‌ను నమోదు చేయండి!"
+                },
+                "forgot": {
+                    "title": "మీ పాస్వర్డ్ మర్చిపోయారా?",
+                    "description": "మీ పాస్వర్డ్ కోసం రీసెట్ లింక్‌ను మీకు పంపగలగడానికి మీ ఇమెయిల్‌ను నమోదు చేయండి"
+                },
+                "signUp": {
+                    "title": "సైన్ అప్ చేయండి",
+                    "reEnterPassword": "పాస్వర్డ్‌ను మళ్లీ నమోదు చేయండి",
+                    "alreadyAUser": "ఇప్పటికే వినియోగదారునా? సైన్ ఇన్ చేయండి"
+                },
+                "contact": {
+                    "title": "మమ్మల్ని సంప్రదించండి",
+                    "name": "పేరు",
+                    "message": "మీ సందేశం"
+                },
+                "thankYou": "ధన్యవాదాలు!",
+                "nav": {
+                    "login": "లాగిన్",
+                    "signUp": "సైన్ అప్",
+                    "forgotPassword": "పాస్వర్డ్ మర్చిపోయారు",
+                    "subscribe": "సభ్యత్వం పొందండి",
+                    "contact": "సంప్రదించండి"
+                }
             },
-            "button": "Add Entry"
+            "judgeInfo": {
+                "title": "న్యాయమూర్తుల కోసం: డమ్మీ ఆధారాలు",
+                "description": "వివిధ డేటాతో డాష్‌బోర్డ్‌ను పరీక్షించడానికి ఈ ఖాతాలను ఉపయోగించండి."
+            }
+        },
+        "welcome": "తిరిగి స్వాగతం, రైతు!",
+        "subtitle": "మీ పొలం యొక్క స్థితి మరియు చరిత్ర యొక్క అవలోకనం ఇక్కడ ఉంది.",
+        "logout": "లాగ్అవుట్",
+        "yieldHistory": {
+            "title": "దిగుబడి అంచనా చరిత్ర",
+            "description": "మాకు మెరుగుపరచడంలో సహాయపడటానికి మీ వాస్తవ పంటకు వ్యతిరేకంగా AI అంచనాలను ట్రాక్ చేయండి.",
+            "table": {
+                "date": "తేదీ",
+                "crop": "పంట",
+                "predicted": "అంచనా వేసిన దిగుబడి (టన్నులు)",
+                "actual": "వాస్తవ దిగుబడి (టన్నులు)",
+                "action": "వాస్తవ దిగుబడిని నమోదు చేయండి"
+            },
+            "button": "ఎంట్రీని జోడించండి"
         },
         "schemes": {
-            "title": "Recommended Schemes for You",
-            "description": "Based on your profile, these government schemes might be beneficial."
+            "title": "మీ కోసం సిఫార్సు చేయబడిన పథకాలు",
+            "description": "మీ ప్రొఫైల్ ఆధారంగా, ఈ ప్రభుత్వ పథకాలు ప్రయోజనకరంగా ఉండవచ్చు."
         },
         "weather": {
-            "title": "Weather Outlook & Alerts",
-            "description": "Current conditions and actionable advice for the week ahead."
+            "title": "వాతావరణ దృక్పథం & హెచ్చరికలు",
+            "description": "మీ ప్రదేశం కోసం ప్రస్తుత పరిస్థితులు మరియు చర్య తీసుకోదగిన సలహా: {location}.",
+            "current": "ప్రస్తుత",
+            "humidity": "తేమ",
+            "wind": "గాలి",
+            "aqi": "AQI",
+            "astronomy": "ఖగోళశాస్త్రం",
+            "sunrise": "సూర్యోదయం",
+            "sunset": "సూర్యాస్తమయం",
+            "moon": "చంద్రుని దశ",
+            "forecast": "3-రోజుల సూచన",
+            "today": "నేడు",
+            "loading": "మీ పొలం కోసం ప్రత్యక్ష వాతావరణ డేటాను పొందుతోంది...",
+            "error": "వాతావరణ డేటాను లోడ్ చేయలేకపోయాము. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి."
+        },
+        "market": {
+            "title": "{crop} కోసం మార్కెట్ ధర విశ్లేషణ",
+            "description": "చారిత్రక ధరలను ట్రాక్ చేయండి మరియు AI-ఆధారిత సూచనను పొందండి.",
+            "loading": "మార్కెట్ డేటాను విశ్లేషిస్తోంది...",
+            "error": "మార్కెట్ డేటాను లోడ్ చేయలేకపోయాము. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి.",
+            "analysis": "AI ట్రెండ్ విశ్లేషణ",
+            "forecast": "AI సూచన"
         }
     }
 }
+
+    

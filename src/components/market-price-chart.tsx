@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/chart';
 import type { MarketPriceAnalysisOutput, PriceEntry } from '@/ai/tools/market-price';
 import { format } from 'date-fns';
+import { useTranslation } from '@/hooks/use-translation';
 
 interface MarketPriceChartProps {
     data: MarketPriceAnalysisOutput;
@@ -36,6 +37,7 @@ const chartConfig = {
 };
 
 export default function MarketPriceChart({ data }: MarketPriceChartProps) {
+  const { t } = useTranslation();
   const formattedData = data.history.map((item: PriceEntry) => ({
     date: format(new Date(item.date), 'MMM d'),
     price: item.price
@@ -44,9 +46,9 @@ export default function MarketPriceChart({ data }: MarketPriceChartProps) {
   return (
     <div className="space-y-4">
         <div className="p-4 rounded-lg bg-muted/50 space-y-2">
-            <h4 className="font-semibold text-sm">AI Trend Analysis</h4>
+            <h4 className="font-semibold text-sm">{t('dashboard.market.analysis')}</h4>
             <p className="text-sm text-muted-foreground">{data.trend}</p>
-            <h4 className="font-semibold text-sm pt-2">AI Forecast</h4>
+            <h4 className="font-semibold text-sm pt-2">{t('dashboard.market.forecast')}</h4>
             <p className="text-sm text-muted-foreground">{data.forecast}</p>
         </div>
         <ChartContainer config={chartConfig}>
@@ -83,3 +85,5 @@ export default function MarketPriceChart({ data }: MarketPriceChartProps) {
     </div>
   );
 }
+
+    

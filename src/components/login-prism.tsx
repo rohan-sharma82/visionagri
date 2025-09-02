@@ -64,7 +64,7 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
             {/* Login Face */}
             <div className="face face-front">
             <div className="content">
-                <h2>Sign in</h2>
+                <h2>{t('dashboard.login.prism.signIn')}</h2>
                 <form onSubmit={handleLogin}>
                     <div className="field-wrapper">
                         <input 
@@ -74,7 +74,7 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        <label>e-mail</label>
+                        <label>{t('dashboard.login.prism.email')}</label>
                     </div>
                     <div className="field-wrapper">
                         <input 
@@ -85,26 +85,26 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <label>password</label>
+                        <label>{t('dashboard.login.prism.password')}</label>
                     </div>
                     {error && <p className="text-destructive text-xs text-center mt-2">{error}</p>}
                     <div className="field-wrapper">
-                        <input type="submit" value="Login" />
+                        <input type="submit" value={t('dashboard.login.button')} />
                     </div>
-                    <span className="psw" onClick={() => showFace('back')}>Forgot Password?</span>
-                    <span className="signup" onClick={() => showFace('right')}>Not a user? Sign up</span>
+                    <span className="psw" onClick={() => showFace('back')}>{t('dashboard.login.prism.forgotPassword')}</span>
+                    <span className="signup" onClick={() => showFace('right')}>{t('dashboard.login.prism.notAUser')}</span>
                 </form>
             </div>
             </div>
             {/* Subscribe Face */}
             <div className="face face-top">
                 <div className="content">
-                    <h2>Subscribe</h2>
-                    <small>Enter your email so we can send you the latest updates!</small>
+                    <h2>{t('dashboard.login.prism.subscribe.title')}</h2>
+                    <small>{t('dashboard.login.prism.subscribe.description')}</small>
                     <form onSubmit={e => e.preventDefault()}>
                     <div className="field-wrapper">
                         <input type="text" name="email" placeholder="email" />
-                        <label>e-mail</label>
+                        <label>{t('dashboard.login.prism.email')}</label>
                     </div>
                     <div className="field-wrapper">
                         <input type="submit" onClick={() => showFace('bottom')} />
@@ -115,12 +115,12 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
              {/* Forgot Password Face */}
             <div className="face face-back">
                 <div className="content">
-                    <h2>Forgot your password?</h2>
-                    <small>Enter your email so we can send you a reset link for your password</small>
+                    <h2>{t('dashboard.login.prism.forgot.title')}</h2>
+                    <small>{t('dashboard.login.prism.forgot.description')}</small>
                     <form onSubmit={e => e.preventDefault()}>
                     <div className="field-wrapper">
                         <input type="text" name="email" placeholder="email" />
-                        <label>e-mail</label>
+                        <label>{t('dashboard.login.prism.email')}</label>
                     </div>
                     <div className="field-wrapper">
                         <input type="submit" onClick={() => showFace('bottom')} />
@@ -131,43 +131,43 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
              {/* Sign Up Face */}
             <div className="face face-right">
                 <div className="content">
-                    <h2>Sign up</h2>
+                    <h2>{t('dashboard.login.prism.signUp.title')}</h2>
                     <form onSubmit={e => e.preventDefault()}>
                     <div className="field-wrapper">
                         <input type="text" name="email" placeholder="email" />
-                        <label>e-mail</label>
+                        <label>{t('dashboard.login.prism.email')}</label>
                     </div>
                     <div className="field-wrapper">
                         <input type="password" name="password" placeholder="password" autoComplete="new-password" />
-                        <label>password</label>
+                        <label>{t('dashboard.login.prism.password')}</label>
                     </div>
                     <div className="field-wrapper">
                         <input type="password" name="password2" placeholder="password" autoComplete="new-password" />
-                        <label>re-enter password</label>
+                        <label>{t('dashboard.login.prism.reEnterPassword')}</label>
                     </div>
                     <div className="field-wrapper">
                         <input type="submit" onClick={() => showFace('bottom')} />
                     </div>
-                    <span className="singin" onClick={() => showFace('front')}>Already a user? Sign in</span>
+                    <span className="singin" onClick={() => showFace('front')}>{t('dashboard.login.prism.alreadyAUser')}</span>
                     </form>
                 </div>
             </div>
             {/* Contact Us Face */}
             <div className="face face-left">
                 <div className="content">
-                    <h2>Contact us</h2>
+                    <h2>{t('dashboard.login.prism.contact.title')}</h2>
                     <form onSubmit={e => e.preventDefault()}>
                         <div className="field-wrapper">
                             <input type="text" name="name" placeholder="name" />
-                            <label>Name</label>
+                            <label>{t('dashboard.login.prism.contact.name')}</label>
                         </div>
                         <div className="field-wrapper">
                             <input type="text" name="email" placeholder="email" />
-                            <label>e-mail</label>
+                            <label>{t('dashboard.login.prism.email')}</label>
                         </div>
                         <div className="field-wrapper">
                             <textarea placeholder="your message"></textarea>
-                            <label>your message</label>
+                            <label>{t('dashboard.login.prism.contact.message')}</label>
                         </div>
                         <div className="field-wrapper">
                             <input type="submit" onClick={() => showFace('bottom')} />
@@ -179,27 +179,27 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
             <div className="face face-bottom">
                  <div className="content">
                     <div className="thank-you-msg">
-                        Thank you!
+                        {t('dashboard.login.prism.thankYou')}
                     </div>
                 </div>
             </div>
         </div>
       </div>
       <ul className="login-prism-nav">
-        <li onClick={() => showFace('front')}>Login</li>
-        <li onClick={() => showFace('right')}>Sign up</li>
-        <li onClick={() => showFace('back')}>Forgot password</li>
-        <li onClick={() => showFace('top')}>Subscribe</li>
-        <li onClick={() => showFace('left')}>Contact us</li>
+        <li onClick={() => showFace('front')}>{t('dashboard.login.prism.nav.login')}</li>
+        <li onClick={() => showFace('right')}>{t('dashboard.login.prism.nav.signUp')}</li>
+        <li onClick={() => showFace('back')}>{t('dashboard.login.prism.nav.forgotPassword')}</li>
+        <li onClick={() => showFace('top')}>{t('dashboard.login.prism.nav.subscribe')}</li>
+        <li onClick={() => showFace('left')}>{t('dashboard.login.prism.nav.contact')}</li>
       </ul>
       <Card className="mt-4 bg-card/80 max-w-sm mx-auto">
             <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                     <Info className="h-4 w-4" />
-                    For Judges: Dummy Credentials
+                    {t('dashboard.login.judgeInfo.title')}
                 </CardTitle>
                 <CardDescription className="text-xs">
-                    Use these accounts to test the dashboard with different data.
+                    {t('dashboard.login.judgeInfo.description')}
                 </CardDescription>
             </CardHeader>
             <CardContent className="text-xs space-y-1 text-left">
@@ -211,3 +211,5 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
     </div>
   );
 }
+
+    

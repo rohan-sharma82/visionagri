@@ -60,16 +60,16 @@ export default function AreaCalculatorPage() {
             {t('farmSchool.areaCalculator.title')}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            Understand the diverse land measurement units across India.
+            {t('farmSchool.areaCalculator.pageSubtitle')}
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <Alert className="mb-8 relative z-0">
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Important Disclaimer</AlertTitle>
+            <AlertTitle>{t('farmSchool.areaCalculator.disclaimer.title')}</AlertTitle>
             <AlertDescription>
-              These are common conversions, but local values can vary. Always consult official land records or local authorities for precise measurements.
+              {t('farmSchool.areaCalculator.disclaimer.description')}
             </AlertDescription>
           </Alert>
 
@@ -77,14 +77,14 @@ export default function AreaCalculatorPage() {
             <Dialog>
                 <DialogTrigger asChild>
                     <button className="btn">
-                      Unit Converter Calculator
+                      {t('farmSchool.areaCalculator.converter.button')}
                     </button>
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl h-[80vh] flex flex-col">
                     <DialogHeader>
-                        <DialogTitle>Land Unit Converter</DialogTitle>
+                        <DialogTitle>{t('farmSchool.areaCalculator.converter.title')}</DialogTitle>
                         <DialogDescription>
-                            Select an input unit and enter a value to see the conversions.
+                            {t('farmSchool.areaCalculator.converter.description')}
                         </DialogDescription>
                     </DialogHeader>
                     <div className="flex-1 min-h-0">
@@ -113,3 +113,5 @@ export default function AreaCalculatorPage() {
     </>
   );
 }
+
+    

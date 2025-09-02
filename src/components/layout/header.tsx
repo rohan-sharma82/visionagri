@@ -73,7 +73,7 @@ export default function Header() {
                 </SheetTrigger>
                 <SheetContent side="right">
                     <SheetHeader>
-                        <SheetTitle>Menu</SheetTitle>
+                        <SheetTitle>{t('header.menu')}</SheetTitle>
                     </SheetHeader>
                     <div className="grid gap-4 py-4">
                         {translatedNavLinks.map((link) => (
@@ -96,3 +96,5 @@ export default function Header() {
     </header>
   );
 }
+
+    

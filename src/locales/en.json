@@ -9,6 +9,9 @@
         "animalClassification": "Animal Classification",
         "govtSchemes": "Govt. Schemes"
     },
+    "header": {
+        "menu": "Menu"
+    },
     "home": {
         "welcome": "Welcome to AgriVision AI",
         "tagline": "Revolutionizing farming with the power of Artificial Intelligence.",
@@ -75,7 +78,26 @@
         },
         "areaCalculator": {
             "title": "Area Calculator",
-            "description": "Calculate your farm's area for planning and resource management."
+            "description": "Calculate your farm's area for planning and resource management.",
+            "pageSubtitle": "Understand the diverse land measurement units across India.",
+            "disclaimer": {
+                "title": "Important Disclaimer",
+                "description": "These are common conversions, but local values can vary. Always consult official land records or local authorities for precise measurements."
+            },
+            "converter": {
+                "button": "Unit Converter Calculator",
+                "title": "Land Unit Converter",
+                "description": "Select an input unit and enter a value to see the conversions.",
+                "inputValue": "Input Value",
+                "placeholder": "Enter value",
+                "inputUnit": "Input Unit",
+                "selectPlaceholder": "Select a unit",
+                "table": {
+                    "unit": "Unit",
+                    "value": "Converted Value"
+                },
+                "error": "Please enter a valid number to see conversions."
+            }
         },
         "profitMakingTips": {
             "title": "Profit Making Tips",
@@ -518,10 +540,48 @@
             "emailPlaceholder": "Email",
             "passwordPlaceholder": "Password",
             "button": "Login",
-            "error": "Invalid credentials. Please try again."
+            "error": "Invalid credentials. Please try again.",
+            "prism": {
+                "signIn": "Sign in",
+                "email": "e-mail",
+                "password": "password",
+                "forgotPassword": "Forgot Password?",
+                "notAUser": "Not a user? Sign up",
+                "subscribe": {
+                    "title": "Subscribe",
+                    "description": "Enter your email so we can send you the latest updates!"
+                },
+                "forgot": {
+                    "title": "Forgot your password?",
+                    "description": "Enter your email so we can send you a reset link for your password"
+                },
+                "signUp": {
+                    "title": "Sign up",
+                    "reEnterPassword": "re-enter password",
+                    "alreadyAUser": "Already a user? Sign in"
+                },
+                "contact": {
+                    "title": "Contact us",
+                    "name": "Name",
+                    "message": "your message"
+                },
+                "thankYou": "Thank you!",
+                "nav": {
+                    "login": "Login",
+                    "signUp": "Sign up",
+                    "forgotPassword": "Forgot password",
+                    "subscribe": "Subscribe",
+                    "contact": "Contact us"
+                }
+            },
+            "judgeInfo": {
+                "title": "For Judges: Dummy Credentials",
+                "description": "Use these accounts to test the dashboard with different data."
+            }
         },
         "welcome": "Welcome back, Farmer!",
-        "subtitle": "Here is an overview of your farm's status and history.",
+        "subtitle": "A personalized hub with weather forecasts, market analysis, and recommended schemes for your farm.",
+        "logout": "Logout",
         "yieldHistory": {
             "title": "Yield Prediction History",
             "description": "Track AI predictions against your actual harvest to help us improve.",
@@ -558,7 +618,11 @@
             "title": "Market Price Analysis for {crop}",
             "description": "Track historical prices and get an AI-powered forecast.",
             "loading": "Analyzing market data...",
-            "error": "Could not load market data. Please try again later."
+            "error": "Could not load market data. Please try again later.",
+            "analysis": "AI Trend Analysis",
+            "forecast": "AI Forecast"
         }
     }
 }
+
+    
