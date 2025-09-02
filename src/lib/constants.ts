@@ -1,5 +1,6 @@
 
 
+
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -357,3 +358,177 @@ export const farmingQuotes = [
   "quotes.q51", "quotes.q52", "quotes.q53", "quotes.q54", "quotes.q55", "quotes.q56", "quotes.q57", "quotes.q58", "quotes.q59", "quotes.q60",
   "quotes.q61", "quotes.q62", "quotes.q63", "quotes.q64", "quotes.q65", "quotes.q66", "quotes.q67", "quotes.q68", "quotes.q69", "quotes.q70"
 ];
+
+export const toolsData = [
+    {
+      id: 'rotavator',
+      name: '🚜 1. Rotavator',
+      images: [
+        '/images/rotavator(1).jpg',
+        '/images/rotavetar(2).png'
+      ],
+      content: {
+        introduction: 'A rotavator is a tractor-mounted implement that uses rotating blades to break, churn, and pulverize soil. It is considered one of the fastest and most efficient methods of seedbed preparation.',
+        functions: [
+          'Crushes soil clods into fine tilth.',
+          'Incorporates crop residues into soil (helps composting).',
+          'Helps mix organic manure and fertilizers evenly.',
+          'Controls initial weed growth.',
+        ],
+        howItWorks: 'Blades rotate at high speed and cut through soil. Depth can be adjusted depending on crop needs.',
+        benefits: [
+          'Saves 30–40% time compared to traditional ploughing.',
+          'Reduces fuel and labor cost.',
+          'Improves soil aeration for root growth.',
+        ],
+        limitations: [
+          'Requires medium to heavy tractor power.',
+          'Not suitable for rocky or extremely hard soil.',
+        ],
+        types: 'Light-duty, Heavy-duty.',
+        price: '₹80,000 – ₹2,50,000',
+      },
+    },
+    {
+      id: 'harrow',
+      name: '🌾 2. Harrow',
+      images: [
+        '/images/harrow(1).jpg',
+        '/images/harrow(2).webp',
+        '/images/harrow(3).jpg',
+      ],
+      content: {
+        introduction: 'A harrow is used after ploughing to refine and smooth the soil. It is useful for leveling and preparing a fine seedbed.',
+        functions: [
+          'Breaks clods and smoothens soil.',
+          'Helps cover seeds after broadcasting.',
+          'Incorporates fertilizers/manure.',
+          'Controls small weeds.',
+        ],
+        howItWorks: 'Teeth, discs, or spikes drag through soil, breaking it into smaller particles.',
+        benefits: [
+          'Ensures even seed germination.',
+          'Prepares soil faster than manual leveling.',
+          'Improves soil texture for root penetration.',
+        ],
+        limitations: [
+          'Multiple passes may be required for heavy soil.',
+        ],
+        types: 'Disc, Spike-tooth, Spring-tooth.',
+        price: '₹40,000 – ₹1,20,000',
+      },
+    },
+    {
+      id: 'cultivator',
+      name: '🌱 3. Cultivator',
+      images: [],
+      content: {
+        introduction: 'A cultivator is used for secondary tillage — stirring soil, uprooting weeds, and conserving moisture. It is lighter and faster than a plough.',
+        functions: [
+          'Loosens soil around growing crops.',
+          'Destroys weeds without chemicals.',
+          'Mixes fertilizers into soil.',
+          'Improves water infiltration.',
+        ],
+        howItWorks: 'Tines or shovels penetrate and stir soil. Some cultivators are fixed, while others are spring-loaded.',
+        benefits: [
+          'Reduces manual weeding.',
+          'Enhances crop health by loosening soil.',
+          'Saves time and fuel.',
+        ],
+        limitations: [
+          'Less effective in rocky soil.',
+          'Overuse may damage crop roots.',
+        ],
+        types: 'Rigid tine, Spring tine, Field cultivator.',
+        price: '₹25,000 – ₹90,000',
+      },
+    },
+    {
+      id: 'sprayer',
+      name: '🚿 4. Sprayer',
+      images: [
+        '/images/sprayer(1).webp',
+        '/images/sprayer(2).jpg',
+        '/images/sprayer(3).webp',
+      ],
+      content: {
+        introduction: 'A sprayer is used to apply pesticides, herbicides, fungicides, and fertilizers uniformly over crops. It protects plants from pests and enhances yield.',
+        functions: [
+          'Protects crops from pests/diseases.',
+          'Delivers liquid nutrients directly to plants.',
+          'Helps in weed control (herbicide spraying).',
+        ],
+        howItWorks: 'Liquid chemical is pressurized and sprayed through nozzles in fine droplets, covering leaves and stems.',
+        benefits: [
+          'Reduces chemical wastage.',
+          'Ensures uniform coverage.',
+          'Saves labor compared to manual spraying.',
+        ],
+        limitations: [
+          'Needs proper calibration to avoid crop damage.',
+          'Overuse may harm soil and environment.',
+        ],
+        types: 'Hand sprayer, Knapsack, Tractor-mounted power sprayer.',
+        price: '₹1,000 – ₹25,000',
+      },
+    },
+    {
+      id: 'seed-drill',
+      name: '🌿 5. Seed Drill',
+      images: [
+        '/images/seeder.webp',
+        '/images/seeder(2).jpg',
+        '/images/seeder(3).jpg',
+      ],
+      content: {
+        introduction: 'A seed drill is a machine that sows seeds at the correct depth and spacing, covering them with soil for proper germination.',
+        functions: [
+          'Places seeds uniformly.',
+          'Ensures correct depth and row spacing.',
+          'Saves seeds by preventing wastage.',
+        ],
+        howItWorks: 'Seeds drop from a hopper through tubes and get placed in furrows made by the machine, then covered with soil.',
+        benefits: [
+          'Increases yield due to uniform crop stand.',
+          'Saves 10–15% seeds compared to manual sowing.',
+          'Faster sowing → more timely harvest.',
+        ],
+        limitations: [
+          'Needs trained handling for calibration.',
+          'Tractor-mounted models are costly for small farmers.',
+        ],
+        types: 'Manual, Bullock-drawn, Tractor-mounted.',
+        price: '₹15,000 – ₹1,50,000',
+      },
+    },
+    {
+      id: 'trailer',
+      name: '🚛 6. Trailer',
+      images: [
+        '/images/trailer(1).webp',
+        '/images/trailer(2).webp',
+        '/images/trailer(3).jpg',
+      ],
+      content: {
+        introduction: 'A trailer is a non-powered vehicle pulled by a tractor. It is essential for transporting crops, tools, and goods within and outside the farm.',
+        functions: [
+          'Transport of harvested crops to market.',
+          'Carrying fertilizers, seeds, pesticides, and tools.',
+          'Moving building materials, fodder, or livestock.',
+        ],
+        howItWorks: 'Attached to tractor with a hitch. Some trailers have hydraulic tipping for easy unloading.',
+        benefits: [
+          'Saves time and labor in transport.',
+          'Reduces dependency on external transport.',
+          'Flexible — can carry multiple types of loads.',
+        ],
+        limitations: [
+          'Requires tractor for movement.',
+          'Overloading can damage tractor engine.',
+        ],
+        types: 'Flatbed, Tipping, Enclosed.',
+        price: '₹1,00,000 – ₹4,00,000',
+      },
+    },
+  ];
