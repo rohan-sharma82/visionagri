@@ -19,6 +19,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Card, CardContent } from '@/components/ui/card';
+import { ScrollArea } from './ui/scroll-area';
 
 const conversionFactorsToSqMeters: { [key: string]: number } = {
   'Acre': 4046.86,
@@ -53,7 +54,7 @@ export default function LandUnitConverter() {
   }, [inputValue, inputUnit]);
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-4 space-y-6 flex flex-col h-full">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="text-sm font-medium mb-2 block">Input Value</label>
@@ -82,8 +83,9 @@ export default function LandUnitConverter() {
         </div>
       </div>
 
-      <div>
+      <div className="flex-1 min-h-0">
         {results ? (
+          <ScrollArea className="h-full">
             <Card>
                 <CardContent className="p-0">
                     <Table>
@@ -104,6 +106,7 @@ export default function LandUnitConverter() {
                     </Table>
                 </CardContent>
             </Card>
+          </ScrollArea>
         ) : (
           <p className="text-center text-muted-foreground mt-8">
             Please enter a valid number to see conversions.

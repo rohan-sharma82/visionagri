@@ -81,7 +81,7 @@ export default function AreaCalculatorPage() {
                         Launch Unit Converter
                     </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl h-auto">
+                <DialogContent className="max-w-4xl h-[80vh]">
                     <DialogHeader>
                         <DialogTitle>Land Unit Converter</DialogTitle>
                         <DialogDescription>
