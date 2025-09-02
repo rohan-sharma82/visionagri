@@ -25,7 +25,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Loader2, TrendingUp, Zap, Wind, Info } from 'lucide-react';
+import { Loader2, TrendingUp, Zap, Wind, Info, Wheat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
@@ -37,8 +37,9 @@ const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
   soilType: z.string().min(2, 'Soil type is required.'),
   location: z.string().min(2, 'Location is required.'),
-  fertilizerUse: z.string().min(2, 'Fertilizer use is required.'),
-  irrigationMethod: z.string().min(2, 'Irrigation method is required.'),
+  farmSize: z.string().min(1, 'Farm size is required.'),
+  fertilizerUse: z.string().optional(),
+  irrigationMethod: z.string().optional(),
 });
 
 export default function CropYieldPage() {
@@ -54,6 +55,7 @@ export default function CropYieldPage() {
       cropType: '',
       soilType: '',
       location: location || '',
+      farmSize: '',
       fertilizerUse: '',
       irrigationMethod: '',
     },
@@ -91,7 +93,7 @@ export default function CropYieldPage() {
 
   return (
     <>
-    <Header showLanguageSwitcher={false} />
+    <Header />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">
@@ -167,6 +169,19 @@ export default function CropYieldPage() {
                     <FormLabel>{t('cropYield.form.location.label')}</FormLabel>
                     <FormControl>
                       <Input placeholder={t('cropYield.form.location.placeholder')} {...field} className="form-content" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="farmSize"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t('cropYield.form.farmSize.label')}</FormLabel>
+                    <FormControl>
+                      <Input placeholder={t('cropYield.form.farmSize.placeholder')} {...field} className="form-content" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -284,6 +299,17 @@ export default function CropYieldPage() {
                           <li key={index}>{action}</li>
                         ))}
                       </ul>
+                    </div>
+                  </div>
+                   <Separator />
+                   <div className="flex items-start space-x-4">
+                    <Wheat className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">{t('cropYield.results.idealValues')}</h3>
+                      <div className="mt-1 text-muted-foreground space-y-1">
+                        <p><strong>{t('cropYield.form.fertilizer.label')}:</strong> {prediction.idealValues.fertilizer}</p>
+                        <p><strong>{t('cropYield.form.irrigation.label')}:</strong> {prediction.idealValues.irrigation}</p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>

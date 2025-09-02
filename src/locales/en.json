@@ -286,12 +286,16 @@
                 "label": "Location",
                 "placeholder": "e.g., Delhi, India"
             },
+            "farmSize": {
+                "label": "Farm Size",
+                "placeholder": "e.g., 2 hectares, 5 acres"
+            },
             "fertilizer": {
-                "label": "Fertilizer Use (kg/hectare)",
-                "placeholder": "e.g., NPK 120-60-60"
+                "label": "Fertilizer Use (Optional)",
+                "placeholder": "e.g., NPK 120-60-60 kg/hectare"
             },
             "irrigation": {
-                "label": "Irrigation Method",
+                "label": "Irrigation Method (Optional)",
                 "placeholder": "e.g., Drip, Sprinkler, Canal"
             }
         },
@@ -310,7 +314,8 @@
             "confidence": "Confidence",
             "analysis": "AI Analysis",
             "factors": "Influencing Factors",
-            "actions": "Suggested Actions"
+            "actions": "Suggested Actions",
+            "idealValues": "Ideal Input Suggestions"
         },
         "toast": {
             "errorTitle": "Error",
