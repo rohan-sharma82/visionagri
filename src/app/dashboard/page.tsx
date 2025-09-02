@@ -219,7 +219,10 @@ export default function DashboardPage() {
             {isAuthenticated ? t('dashboard.welcome') : t('dashboard.login.title')}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            {isAuthenticated ? t('dashboard.subtitle') : t('dashboard.login.description')}
+            {isAuthenticated ? "A personalized hub with weather forecasts, market analysis, and recommended schemes for your farm." : t('dashboard.login.description')}
+          </p>
+           <p className="mt-4 text-base font-semibold text-primary">
+              Kisan Call Center -&gt; 1800-180-1551
           </p>
           {isAuthenticated && (
              <button className="logout-button" onClick={handleLogout}>
@@ -229,9 +232,7 @@ export default function DashboardPage() {
         </div>
 
         {!isAuthenticated && (
-            <div className="flex items-center justify-center">
-                <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
-            </div>
+            <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
         )}
 
         {isAuthenticated && userData && (

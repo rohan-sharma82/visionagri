@@ -373,9 +373,12 @@ export default function AiFarmerPage() {
           <p className="mt-2 text-lg text-muted-foreground">
             {t('aiFarmer.subtitle')}
           </p>
+           <p className="mt-4 text-base font-semibold text-primary">
+              Kisan Call Center -&gt; 1800-180-1551
+          </p>
         </div>
 
-        <div className="flex justify-start mb-4">
+        <div className="flex justify-start mb-4 h-14 items-center">
             {messages.length > 0 && (
                 <AlertDialog>
                   <AlertDialogTrigger asChild>

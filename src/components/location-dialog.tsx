@@ -24,8 +24,7 @@ export default function LocationDialog() {
   useEffect(() => {
     // We only want to run this on the client
     const savedLocation = localStorage.getItem('user-location');
-    // Always show the dialog for demonstration. The original check was `!savedLocation`.
-    if (true) {
+    if (!savedLocation) {
       setIsOpen(true);
     } else if (savedLocation) {
       setLocation(savedLocation);
