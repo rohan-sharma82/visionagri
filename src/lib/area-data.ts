@@ -22,7 +22,7 @@ export const regionalUnitsData = [
         {
           name: 'Marla',
           description: 'A smaller unit related to Kanal and Killa.',
-          conversion: '1 Marla = 272.25 square feet. 1 Kanal = 20 Marlas. 1 Killa = 8 Kanals = 160 Marlas.'
+          conversion: '1 Marla = 272.25 square feet. , 1 Kanal = 20 Marlas ,1 Killa = 8 Kanals = 160 Marlas.'
         }
       ]
     },
@@ -80,7 +80,7 @@ export const regionalUnitsData = [
         {
           name: 'Katha',
           description: 'The size of a Katha varies dramatically by state.',
-          conversion: 'West Bengal: 1 Katha ≈ 720 sq ft. | Bihar: 1 Katha ≈ 1,361 sq ft. | Assam: 1 Katha ≈ 2,880 sq ft.'
+          conversion: 'West Bengal: 1 Katha ≈ 720 sq ft.\nBihar: 1 Katha ≈ 1,361 sq ft.\nAssam: 1 Katha ≈ 2,880 sq ft.'
         },
         {
           name: 'Dhur',
