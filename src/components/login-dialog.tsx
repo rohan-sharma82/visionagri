@@ -28,7 +28,7 @@ export default function LoginDialog({ onLoginSuccess }: LoginDialogProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div className="w-full max-w-sm">
         <div className={cn('login-owl', isPasswordFocused && 'password')}>
           <div className="hand"></div>
