@@ -54,7 +54,7 @@ export default function LandUnitConverter() {
   }, [inputValue, inputUnit]);
 
   return (
-    <div className="p-4 space-y-6 flex flex-col h-full">
+    <div className="space-y-4 flex flex-col h-full">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="text-sm font-medium mb-2 block">Input Value</label>
@@ -85,27 +85,23 @@ export default function LandUnitConverter() {
 
       <div className="flex-1 min-h-0">
         {results ? (
-          <ScrollArea className="h-full">
-            <Card>
-                <CardContent className="p-0">
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-1/2">Unit</TableHead>
-                                <TableHead className="text-right">Converted Value</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                        {Object.entries(results).map(([unit, value]) => (
-                            <TableRow key={unit} className={unit === inputUnit ? 'bg-primary/10' : ''}>
-                                <TableCell className="font-medium">{unit}</TableCell>
-                                <TableCell className="text-right font-mono">{value.toLocaleString(undefined, { maximumFractionDigits: 4 })}</TableCell>
-                            </TableRow>
-                        ))}
-                        </TableBody>
-                    </Table>
-                </CardContent>
-            </Card>
+          <ScrollArea className="h-full rounded-md border">
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead className="w-1/2">Unit</TableHead>
+                        <TableHead className="text-right">Converted Value</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                {Object.entries(results).map(([unit, value]) => (
+                    <TableRow key={unit} className={unit === inputUnit ? 'bg-primary/10' : ''}>
+                        <TableCell className="font-medium">{unit}</TableCell>
+                        <TableCell className="text-right font-mono">{value.toLocaleString(undefined, { maximumFractionDigits: 4 })}</TableCell>
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
           </ScrollArea>
         ) : (
           <p className="text-center text-muted-foreground mt-8">

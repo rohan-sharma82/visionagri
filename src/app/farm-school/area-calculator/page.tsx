@@ -81,14 +81,16 @@ export default function AreaCalculatorPage() {
                         Launch Unit Converter
                     </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl h-[80vh]">
+                <DialogContent className="max-w-4xl h-[80vh] flex flex-col">
                     <DialogHeader>
                         <DialogTitle>Land Unit Converter</DialogTitle>
                         <DialogDescription>
                             Select an input unit and enter a value to see the conversions.
                         </DialogDescription>
                     </DialogHeader>
-                    <LandUnitConverter />
+                    <div className="flex-1 min-h-0">
+                      <LandUnitConverter />
+                    </div>
                 </DialogContent>
             </Dialog>
           </div>
