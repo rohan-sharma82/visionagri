@@ -2,10 +2,10 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf } from 'lucide-react';
+import { Leaf, Menu } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { mainNavLinks, cardNavItems } from '@/lib/constants';
+import { mainNavLinks } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -14,48 +14,85 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import PillNav from '../pill-nav';
 import { useTranslation } from '@/hooks/use-translation';
-import LanguageSwitcher from '../language-switcher';
-import CardNavMenu from '../card-nav-menu';
 
 export default function Header() {
   const pathname = usePathname();
-  const { t, setLanguage } = useTranslation();
+  const { t } = useTranslation();
 
-  const translatedMainNavLinks = mainNavLinks.map(link => ({
+  const allNavLinks = [
+    ...mainNavLinks,
+    { href: '/govt-schemes', label: 'nav.govtSchemes' },
+    { href: '/farm-school', label: 'features.farmSchool.title' },
+  ];
+
+  const translatedNavLinks = allNavLinks.map(link => ({
     ...link,
     label: t(link.label)
   }));
 
-  const translatedCardNavItems = cardNavItems.map(item => ({
-    ...item,
-    label: t(item.label),
-    links: item.links.map(link => ({
-        ...link,
-        label: t(link.label)
-    }))
-  }));
-
-
   return (
-    <header className="relative w-full py-4 flex items-center justify-center px-4 sm:px-6 md:px-8">
-        <div className="flex-1 flex justify-start">
-            {/* Language Switcher Removed from here */}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center">
+        <div className="mr-4 hidden md:flex">
+          <Link href="/" className="mr-6 flex items-center space-x-2">
+            <Leaf className="h-6 w-6 text-primary" />
+            <span className="hidden font-bold sm:inline-block">
+              AgriVision AI
+            </span>
+          </Link>
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            {translatedNavLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'transition-colors hover:text-foreground/80',
+                  pathname === link.href
+                    ? 'text-foreground'
+                    : 'text-foreground/60'
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
-        <div className="flex-none flex items-center gap-2">
-            <PillNav
-                items={translatedMainNavLinks}
-                activeHref={pathname}
-                baseColor="#35753D"
-                pillColor="hsl(var(--background))"
-                hoveredPillTextColor="hsl(var(--background))"
-                pillTextColor="hsl(var(--foreground))"
-            />
-            <CardNavMenu items={translatedCardNavItems} />
+        <div className="flex flex-1 items-center justify-between space-x-2 md:hidden">
+            <Link href="/" className="flex items-center space-x-2">
+                <Leaf className="h-6 w-6 text-primary" />
+                <span className="font-bold">
+                    AgriVision AI
+                </span>
+            </Link>
+            <Sheet>
+                <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                        <Menu />
+                    </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                    <SheetHeader>
+                        <SheetTitle>Menu</SheetTitle>
+                    </SheetHeader>
+                    <div className="grid gap-4 py-4">
+                        {translatedNavLinks.map((link) => (
+                            <Link
+                                href={link.href}
+                                key={link.href}
+                                className={cn(
+                                    'block w-full rounded-md p-2 text-left text-lg font-medium hover:bg-accent',
+                                     pathname === link.href ? "bg-accent" : ""
+                                )}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+                </SheetContent>
+            </Sheet>
         </div>
-        <div className="flex-1 flex justify-end">
-        </div>
+      </div>
     </header>
   );
 }
