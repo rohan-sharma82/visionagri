@@ -41,15 +41,15 @@ export default function Header() {
               AgriVision AI
             </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+          <nav className="flex items-center space-x-1 text-sm font-medium">
             {translatedNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'transition-colors hover:text-foreground/80',
+                  'transition-colors rounded-md px-3 py-2 hover:bg-accent',
                   pathname === link.href
-                    ? 'text-foreground'
+                    ? 'text-foreground bg-accent'
                     : 'text-foreground/60'
                 )}
               >
