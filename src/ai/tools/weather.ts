@@ -48,6 +48,14 @@ export const WeatherResponseSchema = z.object({
 });
 export type WeatherData = z.infer<typeof WeatherResponseSchema>;
 
+export const DashboardWeatherInputSchema = z.object({
+  location: z.string().describe('The location to get the weather for, e.g., "Delhi, India"'),
+});
+export type DashboardWeatherInput = z.infer<typeof DashboardWeatherInputSchema>;
+
+export const DashboardWeatherOutputSchema = WeatherResponseSchema;
+export type DashboardWeatherOutput = z.infer<typeof DashboardWeatherOutputSchema>;
+
 
 export const getWeatherForLocation = ai.defineTool(
   {
