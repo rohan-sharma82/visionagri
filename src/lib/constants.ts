@@ -2,6 +2,7 @@
 
 
 
+
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -387,7 +388,7 @@ export const toolsData = [
           'Not suitable for rocky or extremely hard soil.',
         ],
         types: 'Light-duty, Heavy-duty.',
-        price: 'Rs 80,000 – Rs 2,50,000',
+        price: 'Rs. 80,000 – Rs. 2,50,000',
       },
     },
     {
@@ -416,7 +417,7 @@ export const toolsData = [
           'Multiple passes may be required for heavy soil.',
         ],
         types: 'Disc, Spike-tooth, Spring-tooth.',
-        price: 'Rs 40,000 – Rs 1,20,000',
+        price: 'Rs. 40,000 – Rs. 1,20,000',
       },
     },
     {
@@ -442,7 +443,7 @@ export const toolsData = [
           'Overuse may damage crop roots.',
         ],
         types: 'Rigid tine, Spring tine, Field cultivator.',
-        price: 'Rs 25,000 – Rs 90,000',
+        price: 'Rs. 25,000 – Rs. 90,000',
       },
     },
     {
@@ -471,7 +472,7 @@ export const toolsData = [
           'Overuse may harm soil and environment.',
         ],
         types: 'Hand sprayer, Knapsack, Tractor-mounted power sprayer.',
-        price: 'Rs 1,000 – Rs 25,000',
+        price: 'Rs. 1,000 – Rs. 25,000',
       },
     },
     {
@@ -500,7 +501,7 @@ export const toolsData = [
           'Tractor-mounted models are costly for small farmers.',
         ],
         types: 'Manual, Bullock-drawn, Tractor-mounted.',
-        price: 'Rs 15,000 – Rs 1,50,000',
+        price: 'Rs. 15,000 – Rs. 1,50,000',
       },
     },
     {
@@ -529,8 +530,9 @@ export const toolsData = [
           'Overloading can damage tractor engine.',
         ],
         types: 'Flatbed, Tipping, Enclosed.',
-        price: 'Rs 1,00,000 – Rs 4,00,000',
+        price: 'Rs. 1,00,000 – Rs. 4,00,000',
       },
     },
   ];
+
 
