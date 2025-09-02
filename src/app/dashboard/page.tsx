@@ -26,6 +26,7 @@ import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboar
 import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { cn } from '@/lib/utils';
 
 const allDashboardData: Record<string, any> = {
     'user1@agrivision.ai': {
@@ -33,7 +34,7 @@ const allDashboardData: Record<string, any> = {
         yieldHistory: [
             { date: '2024-07-15', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
             { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
-            { date: '2023-11-10', crop: 'Soybeans', predicted: '3.2', actual: '3.5' },
+            { date: '2023-11-10', crop: 'Soybeans', predicted: '3.5', actual: '3.5' },
         ],
         recommendedSchemes: [
             { name: 'schemes.pmkisan.shortName', reason: 'Based on your small landholding.' },
@@ -75,7 +76,7 @@ const aqiToLabel = (index: number | undefined) => {
 const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) => {
   const { t } = useTranslation();
   return (
-    <Card className="md:col-span-3">
+    <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
         <CardHeader>
         <CardTitle>{t('dashboard.weather.title')}</CardTitle>
         <CardDescription>{t('dashboard.weather.description', { location: weatherData.location.name })}</CardDescription>
@@ -206,15 +207,15 @@ export default function DashboardPage() {
 
             {/* Weather Card */}
             {isLoadingWeather ? (
-                 <Card className="md:col-span-3"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
+                 <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
             ) : weatherData ? (
                 <WeatherCard weatherData={weatherData} />
             ) : (
-                <Card className="md:col-span-3"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
+                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
             )}
 
             {/* Yield Prediction History */}
-            <Card className="md:col-span-2">
+            <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                 <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
                 <CardDescription>
@@ -264,7 +265,7 @@ export default function DashboardPage() {
             </Card>
 
             {/* Recommended Schemes */}
-            <Card>
+            <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                 <CardTitle>{t('dashboard.schemes.title')}</CardTitle>
                 <CardDescription>{t('dashboard.schemes.description')}</CardDescription>
