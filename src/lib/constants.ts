@@ -4,6 +4,7 @@
 
 
 
+
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -79,6 +80,13 @@ const baseFeaturesData = [
         dataAiHint: 'analytics dashboard',
         href: '/dashboard',
         description: 'features.dashboard.description'
+    },
+    {
+        title: 'features.farmSchool.title',
+        imageUrl: '/images/farmschool.jpeg',
+        dataAiHint: 'farm school',
+        href: '/farm-school',
+        description: 'features.farmSchool.description'
     }
 ];
 
@@ -310,6 +318,15 @@ export const newsData = [
     snippet: 'news.n24_snippet',
     article: 'news.n24_article',
     category: 'categories.technology',
+  },
+  {
+    id: 25,
+    title: 'news.n25_title',
+    source: 'sources.agriBusinessUpdate',
+    date: 'dates.sep01_25_1400',
+    snippet: 'news.n25_snippet',
+    article: 'news.n25_article',
+    category: 'categories.farmingTechniques'
   }
 ];
 
@@ -538,3 +555,6 @@ export const toolsData = [
 
 
 
+
+
+    
