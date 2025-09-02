@@ -2,13 +2,12 @@
 'use client';
 import { useState } from 'react';
 import Header from '@/components/layout/header';
-import LoginDialog from '@/components/login-dialog';
+import LoginPrism from '@/components/login-prism';
 import { useTranslation } from '@/hooks/use-translation';
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -88,7 +87,9 @@ export default function DashboardPage() {
   return (
     <>
       <Header />
-      {!isAuthenticated && <LoginDialog onLoginSuccess={(user) => setCurrentUser(user)} />}
+      {!isAuthenticated && <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
+        </div>}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold font-headline text-foreground">
