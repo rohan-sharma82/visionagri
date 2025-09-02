@@ -21,13 +21,12 @@ import {
 import { ScrollArea } from './ui/scroll-area';
 
 const conversionFactorsToSqMeters: { [key: string]: number } = {
-  'Acre': 4046.86,
+  'Acre (Killa)': 4046.86,
   'Hectare': 10000,
   'Bigha (UP)': 2529.29,
   'Guntha': 101.17,
   'Kanal': 505.857,
-  'Killa': 4046.86, // Equivalent to Acre
-  'Marla': 25.2929, // 272.25 sq ft
+  'Marla': 25.2929,
   'Square Feet': 0.092903,
   'Square Meter': 1,
   'Square Yard (Gaj)': 0.836127,
@@ -39,7 +38,7 @@ const allUnits = Object.keys(conversionFactorsToSqMeters).sort();
 
 export default function LandUnitConverter() {
   const [inputValue, setInputValue] = useState('1');
-  const [inputUnit, setInputUnit] = useState('Acre');
+  const [inputUnit, setInputUnit] = useState('Acre (Killa)');
 
   const results = useMemo(() => {
     const value = parseFloat(inputValue);
@@ -86,8 +85,8 @@ export default function LandUnitConverter() {
 
       <div className="flex-1 min-h-0">
         {results ? (
-          <ScrollArea className="h-full rounded-md border">
-            <Table>
+           <ScrollArea className="h-full rounded-md border">
+             <Table>
                 <TableHeader>
                     <TableRow>
                         <TableHead className="w-1/2">Unit</TableHead>
@@ -103,7 +102,7 @@ export default function LandUnitConverter() {
                 ))}
                 </TableBody>
             </Table>
-          </ScrollArea>
+           </ScrollArea>
         ) : (
           <p className="text-center text-muted-foreground mt-8">
             Please enter a valid number to see conversions.

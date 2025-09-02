@@ -65,7 +65,7 @@ export default function AreaCalculatorPage() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Alert className="mb-8">
+          <Alert className="mb-8 relative z-0">
             <Terminal className="h-4 w-4" />
             <AlertTitle>Important Disclaimer</AlertTitle>
             <AlertDescription>
