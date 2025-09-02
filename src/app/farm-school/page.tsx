@@ -33,7 +33,7 @@ export default function FarmSchoolPage() {
       title: t('farmSchool.areaCalculator.title'),
       description: t('farmSchool.areaCalculator.description'),
       icon: <Calculator className="h-8 w-8 text-accent" />,
-      href: '#',
+      href: '/farm-school/area-calculator',
     },
     {
       title: t('farmSchool.profitMakingTips.title'),

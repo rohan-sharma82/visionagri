@@ -1,3 +1,101 @@
+
+export const regionalUnitsData = [
+    {
+      id: 'north-india',
+      region: 'North India (Punjab, Haryana, Himachal Pradesh)',
+      units: [
+        {
+          name: 'Killa',
+          description: 'A "Killa" is a term commonly used in Punjab and Haryana and is essentially equivalent to 1 Acre.',
+          conversion: '1 Killa = 1 Acre = 43,560 square feet.'
+        },
+        {
+          name: 'Bigha',
+          description: "The size of a Bigha varies. In Punjab and Haryana, it's often a fraction of a Killa. It's important to note there are also 'Kaccha Bigha' and 'Pucca Bigha' with different values.",
+          conversion: '1 Bigha = 0.25 Killa = 10,890 square feet (in consolidated areas).'
+        },
+        {
+          name: 'Kanal',
+          description: 'Often used in conjunction with Marla and Killa.',
+          conversion: '1 Kanal = 0.125 Acre = 5,445 square feet.'
+        },
+        {
+          name: 'Marla',
+          description: 'A smaller unit related to Kanal and Killa.',
+          conversion: '1 Marla = 272.25 square feet. 1 Kanal = 20 Marlas. 1 Killa = 8 Kanals = 160 Marlas.'
+        }
+      ]
+    },
+    {
+      id: 'central-west-india',
+      region: 'Central & West India (Uttar Pradesh, Rajasthan, Madhya Pradesh, Gujarat)',
+      units: [
+        {
+          name: 'Bigha',
+          description: "This unit has significant variation. In Uttar Pradesh, 1 Pucca Bigha can be around 27,000 sq ft. In Rajasthan, a Bigha can be around 27,225 sq ft or more. A 'Pucca Bigha' is also used, which equals 3,025 square yards or about 27,225 square feet.",
+          conversion: 'Varies significantly by region.'
+        },
+        {
+          name: 'Biswa',
+          description: 'Biswa is a sub-unit of a Bigha, with 20 Biswa usually making up 1 Bigha. The size of a Biswa, therefore, depends on the size of a Bigha in that specific location.',
+          conversion: '1 Bigha = 20 Biswa.'
+        },
+        {
+          name: 'Guntha',
+          description: 'Used in Maharashtra, Karnataka, and Andhra Pradesh.',
+          conversion: '1 Guntha = 1,089 square feet. 1 Acre = 40 Gunthas.'
+        }
+      ]
+    },
+    {
+      id: 'south-india',
+      region: 'South India (Tamil Nadu, Kerala, Karnataka, Andhra Pradesh)',
+      units: [
+        {
+          name: 'Cent',
+          description: 'This is a very common unit in South India.',
+          conversion: '1 Cent = 435.6 square feet. 1 Acre = 100 Cents.'
+        },
+        {
+          name: 'Ground',
+          description: 'Primarily used in Tamil Nadu, particularly in Chennai.',
+          conversion: '1 Ground = 2,400 square feet.'
+        },
+        {
+          name: 'Ankanam',
+          description: 'Used in parts of Andhra Pradesh and Karnataka.',
+          conversion: '1 Ankanam = 72 square feet.'
+        },
+        {
+          name: 'Kuncham',
+          description: 'Used in Andhra Pradesh.',
+          conversion: '1 Kuncham = 484 square yards.'
+        }
+      ]
+    },
+    {
+      id: 'east-india',
+      region: 'East India (West Bengal, Bihar, Assam)',
+      units: [
+        {
+          name: 'Katha',
+          description: 'The size of a Katha varies dramatically by state.',
+          conversion: 'West Bengal: 1 Katha ≈ 720 sq ft. | Bihar: 1 Katha ≈ 1,361 sq ft. | Assam: 1 Katha ≈ 2,880 sq ft.'
+        },
+        {
+          name: 'Dhur',
+          description: 'A smaller unit often used in Bihar and Jharkhand.',
+          conversion: '1 Dhur = 68.06 square feet.'
+        },
+        {
+          name: 'Decimal',
+          description: 'Used in West Bengal.',
+          conversion: '1 Decimal = 48.4 square yards. 1 Acre = 100 Decimals.'
+        }
+      ]
+    }
+  ];
+
 export const soilTypeExplanations = [
     {
       name: "Alluvial Soil",
