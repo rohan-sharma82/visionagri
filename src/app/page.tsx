@@ -155,12 +155,13 @@ export default function Home() {
       <section className="mt-16">
         <QuotesBox />
       </section>
+
+      <section className="mt-16 flex justify-center">
+        <FarmSchoolDialog />
+      </section>
       
       <section className="mt-16">
         <FeatureCards />
-        <div className="flex justify-center mt-8">
-            <FarmSchoolDialog />
-        </div>
       </section>
 
       <section className="mt-16">
