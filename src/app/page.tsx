@@ -153,13 +153,13 @@ export default function Home() {
         </div>
       </section>
       
-      <section className="mt-16">
-        <FeatureCards />
-      </section>
-
       <section className="mt-16 flex justify-center items-center gap-4">
         <LanguageSwitcher onLanguageChange={setLanguage} />
         <FarmSchoolDialog />
+      </section>
+
+      <section className="mt-16">
+        <FeatureCards />
       </section>
 
       <section className="mt-16">
