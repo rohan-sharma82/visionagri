@@ -159,11 +159,11 @@ export default function Home() {
       </section>
 
       <section className="mt-16">
-        <FeatureCards />
+        <QuotesBox />
       </section>
 
       <section className="mt-16">
-        <QuotesBox />
+        <FeatureCards />
       </section>
 
       <section className="mt-16">
