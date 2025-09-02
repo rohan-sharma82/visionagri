@@ -32,10 +32,10 @@ export default function Header() {
 
   return (
     <header className="relative w-full py-4 flex items-center justify-between px-4 sm:px-6 md:px-8">
-        <div className="flex-shrink-0">
+        <div className="flex-1 flex justify-start">
             <LanguageSwitcher onLanguageChange={setLanguage} />
         </div>
-        <div className="flex-grow flex justify-center">
+        <div className="flex-none">
             <PillNav
                 items={translatedNavLinks}
                 activeHref={pathname}
@@ -45,7 +45,7 @@ export default function Header() {
                 pillTextColor="hsl(var(--foreground))"
             />
         </div>
-        <div className="flex-shrink-0">
+        <div className="flex-1 flex justify-end">
             <DayNightToggle />
         </div>
     </header>

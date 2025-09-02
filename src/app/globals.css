@@ -1406,15 +1406,13 @@
 }
 
 .pill-nav-container {
-  position: absolute;
-  top: 1em;
+  position: relative;
   z-index: 99;
 }
 
 @media (max-width: 768px) {
   .pill-nav-container {
     width: 100%;
-    left: 0;
   }
 }
 
