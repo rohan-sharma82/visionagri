@@ -48,7 +48,7 @@ const getMarketPriceAnalysisFlow = ai.defineFlow(
     outputSchema: MarketPriceAnalysisOutputSchema,
   },
   async ({ crop }) => {
-    const history = await getMarketPriceHistory(crop);
+    const history = await getMarketPriceHistory({ crop });
     
     const { output } = await prompt({ crop, history });
     
