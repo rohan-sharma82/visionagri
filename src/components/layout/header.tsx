@@ -17,8 +17,6 @@ import {
 import PillNav from '../pill-nav';
 import { useTranslation } from '@/hooks/use-translation';
 import LanguageSwitcher from '../language-switcher';
-import DayNightToggle from '../ui/day-night-toggle';
-
 
 export default function Header() {
   const pathname = usePathname();
@@ -46,7 +44,6 @@ export default function Header() {
             />
         </div>
         <div className="flex-1 flex justify-end">
-            <DayNightToggle />
         </div>
     </header>
   );
