@@ -22,6 +22,7 @@ export default {
         display: ['Chicle', 'cursive'],
         margarine: ['Margarine', 'cursive'],
         merienda: ['Merienda', 'cursive'],
+        kirang: ['Kirang Haerang', 'cursive'],
         code: ['monospace'],
       },
       colors: {
