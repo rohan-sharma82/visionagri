@@ -2,13 +2,21 @@
 'use client';
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { Mail, Asterisk } from 'lucide-react';
+import { Mail, Asterisk, Info } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTranslation } from '@/hooks/use-translation';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 interface LoginDialogProps {
-  onLoginSuccess: () => void;
+  onLoginSuccess: (user: string) => void;
 }
+
+const dummyUsers = {
+    'user1@agrivision.ai': 'bitbusters',
+    'user2@agrivision.ai': 'sihwinners',
+    'user3@agrivision.ai': 'bitbust',
+};
 
 export default function LoginDialog({ onLoginSuccess }: LoginDialogProps) {
   const { t } = useTranslation();
@@ -19,9 +27,8 @@ export default function LoginDialog({ onLoginSuccess }: LoginDialogProps) {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Dummy credentials for SIH demo
-    if (email === 'farmer@agrivision.ai' && password === 'password123') {
-      onLoginSuccess();
+    if (dummyUsers[email as keyof typeof dummyUsers] && dummyUsers[email as keyof typeof dummyUsers] === password) {
+      onLoginSuccess(email);
     } else {
       setError(t('dashboard.login.error'));
     }
@@ -75,6 +82,22 @@ export default function LoginDialog({ onLoginSuccess }: LoginDialogProps) {
             </Button>
           </div>
         </form>
+        <Card className="mt-4">
+            <CardHeader className="pb-2">
+                <CardTitle className="text-sm flex items-center gap-2">
+                    <Info className="h-4 w-4" />
+                    For Judges: Dummy Credentials
+                </CardTitle>
+                <CardDescription className="text-xs">
+                    Use these accounts to test the dashboard with different data.
+                </CardDescription>
+            </CardHeader>
+            <CardContent className="text-xs space-y-1">
+                <p><strong>User 1:</strong> user1@agrivision.ai | <strong>Pass:</strong> bitbusters</p>
+                <p><strong>User 2:</strong> user2@agrivision.ai | <strong>Pass:</strong> sihwinners</p>
+                <p><strong>User 3:</strong> user3@agrivision.ai | <strong>Pass:</strong> bitbust</p>
+            </CardContent>
+        </Card>
       </div>
     </div>
   );
