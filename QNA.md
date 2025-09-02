@@ -80,12 +80,12 @@ Furthermore, our choice of a serverless architecture with **Next.js and Vercel**
 Here are our key roadmap pillars:
 
 1.  **Deeper Personalization & Historical Tracking:**
-    *   **Farmer Profiles:** We plan to introduce user authentication where farmers can create a profile and save their farm's data (location, primary crops, soil tests, etc.). This would eliminate repetitive data entry and create a personalized dashboard.
-    *   **Historical Analysis:** Once we have profiles, we can track data over seasons. A farmer could see their yield prediction history, past disease reports, and AI advice, allowing them to identify trends and make better long-term decisions. This would likely be implemented using a scalable NoSQL database like **Firebase Firestore**.
+    *   **Farmer Profiles & Dashboard:** We plan to introduce user authentication where farmers can create a profile and access a personalized **Dashboard**. This dashboard would save their farm's data (location, primary crops, soil tests, etc.) and provide a single view of their history. This eliminates repetitive data entry and creates a tailored experience.
+    *   **Historical Analysis & Feedback Loop:** The Dashboard is key to our long-term AI strategy. It will allow a farmer to see their yield prediction history and, crucially, **enter their actual harvest results**. This creates a powerful feedback loop. By comparing the AI's prediction to the real-world outcome, we can collect invaluable data to fine-tune our models, making them progressively more accurate for that specific farm and region. We will implement this using a scalable database like **Supabase** or **Firebase Firestore**.
 
 2.  **Advanced AI & Predictive Capabilities:**
     *   **Market Price Forecasting:** We will develop a new Genkit flow that analyzes historical market data (from public APIs) to provide short-term price forecasts. This would help farmers decide the most profitable time to sell their produce.
-    *   **Fine-Tuned Regional Models:** Leveraging the user feedback loop, we plan to collect anonymized image data for crop diseases. This dataset would be used to fine-tune a specialized Gemini vision model, making it hyper-accurate for specific agro-climatic zones in India.
+    *   **Personalized Scheme Suggestions:** The Dashboard will analyze a farmer's profile (location, crops, land size) and proactively recommend the most relevant government schemes, saving them the effort of searching through dozens of programs.
 
 3.  **Enhanced Accessibility & Community:**
     *   **Offline-First Mode:** As discussed, this is a top priority. We'll use service workers and client-side storage (like IndexedDB) to cache news, schemes, and previous conversations, making the app functional even with intermittent connectivity.
@@ -146,3 +146,5 @@ Here’s why Supabase is so compelling for AgriVision AI:
 In summary, while Vercel Postgres is an excellent and simple choice for *just a database*, we believe **Supabase** offers a more comprehensive and strategic platform for our long-term vision. It provides the powerful SQL foundation we want, while also giving us the pre-built backend services (like Auth and Storage) that will dramatically speed up the development of our future features.
 
 By focusing on these areas, we believe AgriVision AI can grow from a powerful assistant into a trusted partner for farmers, directly contributing to more productive, profitable, and sustainable agriculture across India.
+
+    
