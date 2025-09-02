@@ -10,14 +10,14 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { getWeatherForLocation, WeatherData } from '@/ai/tools/weather';
+import { getWeatherForLocation, WeatherResponseSchema } from '@/ai/tools/weather';
 
 export const DashboardWeatherInputSchema = z.object({
   location: z.string().describe('The location to get the weather for, e.g., "Delhi, India"'),
 });
 export type DashboardWeatherInput = z.infer<typeof DashboardWeatherInputSchema>;
 
-export const DashboardWeatherOutputSchema = WeatherData;
+export const DashboardWeatherOutputSchema = WeatherResponseSchema;
 export type DashboardWeatherOutput = z.infer<typeof DashboardWeatherOutputSchema>;
 
 export async function getDashboardWeather(input: DashboardWeatherInput): Promise<DashboardWeatherOutput> {
