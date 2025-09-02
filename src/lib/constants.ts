@@ -44,6 +44,13 @@ const baseFeaturesData = [
         dataAiHint: 'government scheme',
         href: '/govt-schemes',
         description: 'features.govtSchemes.description'
+    },
+    {
+        title: 'features.farmSchool.title',
+        imageUrl: '/images/farmschool.jpeg',
+        dataAiHint: 'farm school education',
+        href: '/farm-school',
+        description: 'features.farmSchool.description'
     }
 ];
 

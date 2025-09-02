@@ -21,7 +21,6 @@ import { AnimatedBeam } from '@/components/magicui/animated-beam';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
-import FarmSchoolDialog from '@/components/farm-school-dialog';
 
 interface NewsArticle {
   id: number;
@@ -154,10 +153,6 @@ export default function Home() {
 
       <section className="mt-16">
         <QuotesBox />
-      </section>
-
-      <section className="mt-16 flex justify-center">
-        <FarmSchoolDialog />
       </section>
       
       <section className="mt-16">
