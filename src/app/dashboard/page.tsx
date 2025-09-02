@@ -163,6 +163,7 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
 
 export default function DashboardPage() {
   const { t } = useTranslation();
+  const { location: globalLocation } = useLocation();
   const [currentUser, setCurrentUser] = useState<string | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
@@ -184,7 +185,9 @@ export default function DashboardPage() {
         setIsLoadingMarket(true);
 
         try {
-            const weatherPromise = getDashboardWeather({ location: userData.location });
+            const locationToFetch = globalLocation || userData.location;
+
+            const weatherPromise = getDashboardWeather({ location: locationToFetch });
             const marketPromise = getMarketPriceAnalysis({ crop: userData.primaryCrop });
 
             const [weatherResult, marketResult] = await Promise.all([weatherPromise, marketPromise]);
@@ -200,7 +203,7 @@ export default function DashboardPage() {
         }
     }
     fetchData();
-  }, [isAuthenticated, userData]);
+  }, [isAuthenticated, userData, globalLocation]);
 
   const handleLogout = () => {
     setCurrentUser(null);
