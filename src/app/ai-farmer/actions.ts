@@ -1,6 +1,7 @@
+
 'use server';
 
-import { db } from '@/lib/db';
+import { sql } from '@vercel/postgres';
 import { v4 as uuidv4 } from 'uuid';
 import { cookies } from 'next/headers';
 import type { Message } from './page';
@@ -21,7 +22,7 @@ export async function createOrGetUserId() {
   }
 
   // Ensure the chats table exists
-  await db.sql`
+  await sql`
     CREATE TABLE IF NOT EXISTS chats (
       id SERIAL PRIMARY KEY,
       user_id VARCHAR(255) NOT NULL,
@@ -37,7 +38,7 @@ export async function createOrGetUserId() {
 
 export async function getMessages(userId: string): Promise<Message[]> {
     try {
-        const result = await db.sql`
+        const result = await sql`
             SELECT id, role, content, audio_url as "audioUrl"
             FROM chats 
             WHERE user_id = ${userId} 
@@ -53,7 +54,7 @@ export async function getMessages(userId: string): Promise<Message[]> {
 export async function addMessage(userId: string, message: Message) {
     const { role, content, audioUrl } = message;
     try {
-        await db.sql`
+        await sql`
             INSERT INTO chats (user_id, role, content, audio_url)
             VALUES (${userId}, ${role}, ${content}, ${audioUrl ?? null})
         `;
@@ -65,7 +66,7 @@ export async function addMessage(userId: string, message: Message) {
 
 export async function clearMessages(userId: string) {
     try {
-        await db.sql`DELETE FROM chats WHERE user_id = ${userId}`;
+        await sql`DELETE FROM chats WHERE user_id = ${userId}`;
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to clear messages.');
