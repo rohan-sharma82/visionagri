@@ -6,4 +6,5 @@ import '@/ai/flows/ai-farmer-assistant.ts';
 import '@/ai/flows/crop-disease-classification.ts';
 import '@/ai/flows/animal-classification.ts';
 import '@/ai/flows/text-to-speech.ts';
+import '@/ai/flows/dashboard-weather.ts';
 import '@/ai/tools/weather.ts';

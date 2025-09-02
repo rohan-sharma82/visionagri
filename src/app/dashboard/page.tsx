@@ -1,6 +1,6 @@
 
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/layout/header';
 import LoginPrism from '@/components/login-prism';
 import { useTranslation } from '@/hooks/use-translation';
@@ -21,69 +21,169 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, AirVent } from 'lucide-react';
+import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
+import { useLocation } from '@/hooks/use-translation';
+import Image from 'next/image';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const allDashboardData: Record<string, any> = {
     'user1@agrivision.ai': {
+        location: 'Punjab, India',
         yieldHistory: [
             { date: '2024-07-15', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
             { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
             { date: '2023-11-10', crop: 'Soybeans', predicted: '3.2', actual: '3.5' },
         ],
         recommendedSchemes: [
-            { name: 'PM-KISAN', reason: 'Based on your small landholding.' },
-            { name: 'PM Fasal Bima Yojana', reason: 'Due to weather unpredictability in your region.' },
+            { name: 'schemes.pmkisan.shortName', reason: 'Based on your small landholding.' },
+            { name: 'schemes.pmfby.shortName', reason: 'Due to weather unpredictability in your region.' },
         ],
-        weather: {
-            temp: '28°C',
-            condition: 'Sunny',
-            wind: '12 km/h',
-            alert: 'No Rain Expected',
-            advice: 'Safe to spray pesticides.'
-        }
     },
     'user2@agrivision.ai': {
+        location: 'Maharashtra, India',
         yieldHistory: [
             { date: '2024-08-01', crop: 'Rice', predicted: '6.2', actual: '6.5' },
             { date: '2024-04-10', crop: 'Sugarcane', predicted: '70.5', actual: null },
         ],
         recommendedSchemes: [
-            { name: 'Soil Health Card Scheme', reason: 'To optimize fertilizer use for your varied crops.' },
-            { name: 'National Agriculture Market (eNAM)', reason: 'To get better prices for your sugarcane.' },
+            { name: 'schemes.enam.name', reason: 'To get better prices for your sugarcane.' },
         ],
-        weather: {
-            temp: '32°C',
-            condition: 'Partly Cloudy',
-            wind: '15 km/h',
-            alert: 'Light Showers Possible',
-            advice: 'Delay spraying if possible.'
-        }
     },
     'user3@agrivision.ai': {
+        location: 'Kerala, India',
         yieldHistory: [
             { date: '2024-06-25', crop: 'Cotton', predicted: '2.1', actual: '2.3' },
             { date: '2023-12-15', crop: 'Mustard', predicted: '1.8', actual: '1.7' },
         ],
         recommendedSchemes: [
-            { name: 'Kisan Credit Card (KCC)', reason: 'For easy access to credit for your cash crops.' },
+            { name: 'schemes.pmkmy.name', reason: 'For easy access to credit for your cash crops.' },
         ],
-        weather: {
-            temp: '35°C',
-            condition: 'Hot & Dry',
-            wind: '8 km/h',
-            alert: 'Heatwave Warning',
-            advice: 'Ensure adequate irrigation.'
-        }
     }
 };
 
+const aqiToLabel = (index: number | undefined) => {
+    if (index === undefined) return 'Unknown';
+    if (index <= 1) return 'Good';
+    if (index <= 2) return 'Moderate';
+    if (index <= 3) return 'Unhealthy for sensitive groups';
+    if (index <= 4) return 'Unhealthy';
+    if (index <= 5) return 'Very Unhealthy';
+    return 'Hazardous';
+};
+
+const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) => {
+  const { t } = useTranslation();
+  return (
+    <Card className="md:col-span-3">
+        <CardHeader>
+        <CardTitle>{t('dashboard.weather.title')}</CardTitle>
+        <CardDescription>{t('dashboard.weather.description', { location: weatherData.location.name })}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+            {weatherData.alerts.length > 0 && (
+                <Alert variant="destructive">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertTitle>{weatherData.alerts[0].event}</AlertTitle>
+                    <AlertDescription>
+                        {weatherData.alerts[0].headline}
+                    </AlertDescription>
+                </Alert>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Current Weather */}
+                <div className="flex flex-col items-center justify-center p-4 rounded-lg bg-primary/10">
+                    <h3 className="font-semibold mb-2">{t('dashboard.weather.current')}</h3>
+                    <Image src={`https:${weatherData.current.condition.icon}`} alt={weatherData.current.condition.text} width={64} height={64} />
+                    <p className="font-bold text-4xl">{weatherData.current.temp_c}°C</p>
+                    <p className="text-muted-foreground">{weatherData.current.condition.text}</p>
+                    <div className="text-sm text-muted-foreground mt-2 space-y-1 text-center">
+                        <p>{t('dashboard.weather.humidity')}: {weatherData.current.humidity}%</p>
+                        <p>{t('dashboard.weather.wind')}: {weatherData.current.wind_kph} km/h</p>
+                        <p>{t('dashboard.weather.aqi')}: {aqiToLabel(weatherData.current.air_quality?.['us-epa-index'])}</p>
+                    </div>
+                </div>
+
+                {/* Astronomy */}
+                <div className="flex flex-col items-center justify-center p-4 rounded-lg bg-secondary/10 space-y-2">
+                     <h3 className="font-semibold mb-2">{t('dashboard.weather.astronomy')}</h3>
+                     <div className="flex items-center gap-4">
+                        <Sun className="h-10 w-10 text-yellow-500" />
+                        <div>
+                            <p className="font-semibold">{t('dashboard.weather.sunrise')}</p>
+                            <p>{weatherData.forecast[0].astro.sunrise}</p>
+                        </div>
+                     </div>
+                     <div className="flex items-center gap-4">
+                        <Sun className="h-10 w-10 text-orange-600" />
+                        <div>
+                            <p className="font-semibold">{t('dashboard.weather.sunset')}</p>
+                            <p>{weatherData.forecast[0].astro.sunset}</p>
+                        </div>
+                     </div>
+                     <div className="flex items-center gap-4 pt-2">
+                        <Moon className="h-8 w-8 text-muted-foreground" />
+                        <div>
+                           <p className="font-semibold">{t('dashboard.weather.moon')}</p>
+                           <p>{weatherData.forecast[0].astro.moon_phase}</p>
+                        </div>
+                     </div>
+                </div>
+
+                {/* 3 Day Forecast */}
+                <div className="rounded-lg bg-muted/30 p-4 space-y-3">
+                    <h3 className="font-semibold text-center">{t('dashboard.weather.forecast')}</h3>
+                    {weatherData.forecast.map((day, index) => (
+                        <div key={day.date} className="flex items-center justify-between text-sm">
+                            <span className="font-medium">{index === 0 ? t('dashboard.weather.today') : new Date(day.date).toLocaleDateString(undefined, { weekday: 'short' })}</span>
+                            <Image src={`https:${day.day.condition.icon}`} alt={day.day.condition.text} width={32} height={32} />
+                            <div className="flex items-center gap-1">
+                                <CloudRain className="h-4 w-4 text-blue-400" />
+                                <span>{day.day.daily_chance_of_rain}%</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <Thermometer className="h-4 w-4 text-red-500" />
+                                <span>{day.day.maxtemp_c.toFixed(0)}°</span>
+                                <span className="text-muted-foreground">/{day.day.mintemp_c.toFixed(0)}°</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </CardContent>
+    </Card>
+  )
+}
 
 export default function DashboardPage() {
   const { t } = useTranslation();
+  const { location } = useLocation();
   const [currentUser, setCurrentUser] = useState<string | null>(null);
+  const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
+  const [isLoadingWeather, setIsLoadingWeather] = useState(true);
 
   const isAuthenticated = !!currentUser;
   const userData = currentUser ? allDashboardData[currentUser] : null;
+
+  useEffect(() => {
+    async function fetchWeather() {
+        if (!isAuthenticated || !userData?.location) {
+            setIsLoadingWeather(false);
+            return;
+        }
+        setIsLoadingWeather(true);
+        try {
+            const data = await getDashboardWeather({ location: userData.location });
+            setWeatherData(data);
+        } catch (error) {
+            console.error("Failed to fetch weather data:", error);
+        } finally {
+            setIsLoadingWeather(false);
+        }
+    }
+    fetchWeather();
+  }, [isAuthenticated, userData?.location]);
+
 
   return (
     <>
@@ -103,6 +203,16 @@ export default function DashboardPage() {
 
         {isAuthenticated && userData && (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+            {/* Weather Card */}
+            {isLoadingWeather ? (
+                 <Card className="md:col-span-3"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
+            ) : weatherData ? (
+                <WeatherCard weatherData={weatherData} />
+            ) : (
+                <Card className="md:col-span-3"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
+            )}
+
             {/* Yield Prediction History */}
             <Card className="md:col-span-2">
                 <CardHeader>
@@ -164,37 +274,14 @@ export default function DashboardPage() {
                     <div key={index} className="flex items-start gap-4">
                     <ShieldCheck className="h-6 w-6 text-green-500 mt-1" />
                     <div>
-                        <p className="font-semibold">{scheme.name}</p>
-                        <p className="text-sm text-muted-foreground">{scheme.reason}</p>
+                        <p className="font-semibold">{t(scheme.name)}</p>
+                        <p className="text-sm text-muted-foreground">{t(scheme.reason)}</p>
                     </div>
                     </div>
                 ))}
                 </CardContent>
             </Card>
 
-            {/* Weather Outlook */}
-            <Card className="md:col-span-3">
-                <CardHeader>
-                <CardTitle>{t('dashboard.weather.title')}</CardTitle>
-                <CardDescription>{t('dashboard.weather.description')}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex justify-around items-center">
-                    <div className="text-center">
-                        <Sun className="h-12 w-12 mx-auto text-yellow-500" />
-                        <p className="font-bold text-xl">{userData.weather.temp}</p>
-                        <p className="text-muted-foreground">{userData.weather.condition}</p>
-                    </div>
-                    <div className="text-center">
-                        <Wind className="h-12 w-12 mx-auto text-blue-400" />
-                        <p className="font-bold text-xl">{userData.weather.wind}</p>
-                        <p className="text-muted-foreground">Wind Speed</p>
-                    </div>
-                    <div className="text-center text-green-600">
-                        <p className="font-bold text-lg">{userData.weather.alert}</p>
-                        <p className="text-sm">{userData.weather.advice}</p>
-                    </div>
-                </CardContent>
-            </Card>
             </div>
         )}
       </div>
