@@ -3,6 +3,7 @@
 
 
 
+
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -73,11 +74,11 @@ const baseFeaturesData = [
         description: 'features.govtSchemes.description'
     },
     {
-        title: 'features.farmSchool.title',
-        imageUrl: '/images/farmschool.jpeg',
-        dataAiHint: 'farm school education',
-        href: '/farm-school',
-        description: 'features.farmSchool.description'
+        title: 'features.dashboard.title',
+        imageUrl: '/images/dashboard.jpeg',
+        dataAiHint: 'analytics dashboard',
+        href: '/dashboard',
+        description: 'features.dashboard.description'
     }
 ];
 
@@ -534,5 +535,6 @@ export const toolsData = [
       },
     },
   ];
+
 
 
