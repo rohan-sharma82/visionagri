@@ -16,8 +16,9 @@ const PredictCropYieldInputSchema = z.object({
   cropType: z.string().describe('The type of crop being grown.'),
   soilType: z.string().describe('The type of soil in the field (e.g., Loamy, Sandy, Clay).'),
   location: z.string().describe('The city or state for which to predict the crop yield. e.g. "Delhi, India"'),
-  fertilizerUse: z.string().describe('The amount and type of fertilizer used, e.g., "NPK 120-60-60 kg/hectare".'),
-  irrigationMethod: z.string().describe('The irrigation method used (e.g., Drip, Sprinkler, Canal).'),
+  farmSize: z.string().describe('The size of the farm (e.g., "2 hectares", "5 acres").'),
+  fertilizerUse: z.string().optional().describe('The amount and type of fertilizer used, e.g., "NPK 120-60-60 kg/hectare".'),
+  irrigationMethod: z.string().optional().describe('The irrigation method used (e.g., Drip, Sprinkler, Canal).'),
 });
 export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
 
@@ -37,6 +38,10 @@ const PredictCropYieldOutputSchema = z.object({
   suggestedActions: z
     .array(z.string())
     .describe('A list of suggested actions to improve the yield.'),
+  idealValues: z.object({
+    fertilizer: z.string().describe("Suggested fertilizer application based on farm size and crop type."),
+    irrigation: z.string().describe("Suggested irrigation method based on farm size and crop type."),
+  }).describe("Ideal input suggestions for the given farm size."),
 });
 export type PredictCropYieldOutput = z.infer<typeof PredictCropYieldOutputSchema>;
 
@@ -49,23 +54,37 @@ const prompt = ai.definePrompt({
   input: {schema: z.object({
     cropType: z.string(),
     soilType: z.string(),
-    fertilizerUse: z.string(),
+    fertilizerUse: z.string().optional(),
     temperature: z.string(),
     rainfall: z.string(),
-    irrigationMethod: z.string(),
+    irrigationMethod: z.string().optional(),
+    farmSize: z.string(),
   })},
   output: {schema: PredictCropYieldOutputSchema},
   prompt: `You are an expert in agricultural science, specializing in crop yield prediction for Indian farmers. Your language should be simple, encouraging, and easy to understand.
 
   Based on the data provided, predict the crop yield in **tonnes per hectare**.
 
-  Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good and that they may not need to worry about watering as much. If the temperature is high, explain the potential impact. Be like a helpful friend giving advice.
+  Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good.
 
-  Finally, list the key factors influencing the yield and suggest actionable steps for improvement.
+  List the key factors influencing the yield and suggest actionable steps for improvement.
+  
+  {{#if irrigationMethod}}
+  {{else}}
+  If the irrigation method is not provided, include a suggestion for the best method in the 'suggestedActions'.
+  {{/if}}
+
+  {{#if fertilizerUse}}
+  {{else}}
+  If fertilizer use is not provided, include a suggestion for fertilizer application in the 'suggestedActions'.
+  {{/if}}
+
+  Finally, based on the farm size, provide ideal values for fertilizer and irrigation in the 'idealValues' object.
 
   Data:
   - Crop Type: {{{cropType}}}
   - Soil Type: {{{soilType}}}
+  - Farm Size: {{{farmSize}}}
   - Current Rainfall: {{{rainfall}}}
   - Current Temperature: {{{temperature}}}
   - Fertilizer Use: {{{fertilizerUse}}}
