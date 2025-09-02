@@ -603,66 +603,6 @@
   transform: rotateY(180deg);
 }
 
-/* From Uiverse.io by Gaurav-WebDev */ 
-.button {
-  height: 50px;
-  width: 150px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
-}
-
-.button:hover {
-  box-shadow: .5px .5px 150px #252525;
-}
-
-.type1::after {
-  content: "Know Your Area";
-  height: 50px;
-  width: 150px;
-  background-color: #008080;
-  color: #fff;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  transform: translateY(50px);
-  font-size: 1.2rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-}
-
-.type1::before {
-  content: "Click Here ";
-  height: 50px;
-  width: 150px;
-  background-color: #fff;
-  color: #008080;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  transform: translateY(0px) scale(1.2);
-  font-size: 1.2rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-}
-
-.type1:hover::after {
-  transform: translateY(0) scale(1.2);
-}
-
-.type1:hover::before {
-  transform: translateY(-50px) scale(0) rotate(120deg);
-}
-
 /* Jumping Dots Loader */
 .jumping-dots-loader {
   --uib-size: 60px;
@@ -2149,4 +2089,60 @@ small {
   }
 }
 
+.logout-button {
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.6em 2em;
+    border: mediumspringgreen solid 0.15em;
+    border-radius: 0.25em;
+    color: mediumspringgreen;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 300ms, color 300ms;
+    user-select: none;
+}
+.logout-button p {
+    z-index: 1;
+}
+.logout-button:hover {
+    color: #212121;
+}
+.dark .logout-button:hover {
+    color: #f0f0f0;
+}
+.logout-button:active {
+    border-color: teal;
+}
+.logout-button::after, .logout-button::before {
+    content: "";
+    position: absolute;
+    width: 9em;
+    aspect-ratio: 1;
+    background: mediumspringgreen;
+    opacity: 50%;
+    border-radius: 50%;
+    transition: transform 500ms, background 300ms;
+}
+.logout-button::before {
+    left: 0;
+    transform: translateX(-8em);
+}
+.logout-button::after {
+    right: 0;
+    transform: translateX(8em);
+}
+.logout-button:hover:before {
+    transform: translateX(-1em);
+}
+.logout-button:hover:after {
+    transform: translateX(1em);
+}
+.logout-button:active:before,
+.logout-button:active:after {
+    background: teal;
+}
     

@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, LogOut } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -202,6 +202,10 @@ export default function DashboardPage() {
     fetchData();
   }, [isAuthenticated, userData]);
 
+  const handleLogout = () => {
+    setCurrentUser(null);
+  };
+
 
   return (
     <>
@@ -210,13 +214,18 @@ export default function DashboardPage() {
         <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
         </div>}
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
             {isAuthenticated ? t('dashboard.welcome') : t('dashboard.login.title')}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground">
             {isAuthenticated ? t('dashboard.subtitle') : t('dashboard.login.description')}
           </p>
+          {isAuthenticated && (
+             <button className="logout-button" onClick={handleLogout}>
+                <p>Logout</p>
+            </button>
+          )}
         </div>
 
         {isAuthenticated && userData && (
