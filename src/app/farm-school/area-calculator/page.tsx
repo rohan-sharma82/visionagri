@@ -9,14 +9,22 @@ import {
 } from '@/components/ui/accordion';
 import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, CalculatorIcon } from 'lucide-react';
 import Link from 'next/link';
 import { regionalUnitsData } from '@/lib/area-data';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import LandUnitConverter from '@/components/land-unit-converter';
+
 
 const UnitSection = ({
   title,
@@ -64,6 +72,26 @@ export default function AreaCalculatorPage() {
               These are common conversions, but local values can vary. Always consult official land records or local authorities for precise measurements.
             </AlertDescription>
           </Alert>
+
+          <div className="flex justify-center mb-8">
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button size="lg">
+                        <CalculatorIcon className="mr-2 h-5 w-5" />
+                        Launch Unit Converter
+                    </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl h-auto">
+                    <DialogHeader>
+                        <DialogTitle>Land Unit Converter</DialogTitle>
+                        <DialogDescription>
+                            Select an input unit and enter a value to see the conversions.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <LandUnitConverter />
+                </DialogContent>
+            </Dialog>
+          </div>
 
           <Accordion type="single" collapsible className="w-full" defaultValue="north-india">
             {regionalUnitsData.map((region) => (
