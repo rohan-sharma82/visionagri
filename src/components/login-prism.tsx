@@ -59,13 +59,6 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
 
   return (
     <div className='text-center'>
-      <ul className="login-prism-nav">
-        <li onClick={() => showFace('front')}>Login</li>
-        <li onClick={() => showFace('right')}>Sign up</li>
-        <li onClick={() => showFace('back')}>Forgot password</li>
-        <li onClick={() => showFace('top')}>Subscribe</li>
-        <li onClick={() => showFace('left')}>Contact us</li>
-      </ul>
       <div className="login-prism-wrapper">
         <div className="rec-prism" ref={prismRef}>
             {/* Login Face */}
@@ -192,6 +185,13 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
             </div>
         </div>
       </div>
+      <ul className="login-prism-nav">
+        <li onClick={() => showFace('front')}>Login</li>
+        <li onClick={() => showFace('right')}>Sign up</li>
+        <li onClick={() => showFace('back')}>Forgot password</li>
+        <li onClick={() => showFace('top')}>Subscribe</li>
+        <li onClick={() => showFace('left')}>Contact us</li>
+      </ul>
       <Card className="mt-4 bg-card/80 max-w-sm mx-auto">
             <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">

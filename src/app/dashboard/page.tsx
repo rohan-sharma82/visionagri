@@ -10,7 +10,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -213,9 +212,6 @@ export default function DashboardPage() {
   return (
     <>
       <Header />
-      {!isAuthenticated && <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-        <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
-        </div>}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
@@ -230,6 +226,12 @@ export default function DashboardPage() {
             </button>
           )}
         </div>
+
+        {!isAuthenticated && (
+            <div className="flex items-center justify-center">
+                <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
+            </div>
+        )}
 
         {isAuthenticated && userData && (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
