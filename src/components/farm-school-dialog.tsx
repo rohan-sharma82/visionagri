@@ -90,7 +90,7 @@ export default function FarmSchoolDialog() {
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
             {schoolTopics.map((topic) => (
-                 <Link href={topic.href} key={topic.title} target={topic.href !== '#' ? '_blank' : undefined} rel={topic.href !== '#' ? 'noopener noreferrer' : undefined}>
+                 <Link href={topic.href} key={topic.title} target={topic.href.startsWith('/') ? undefined : '_blank'} rel={topic.href.startsWith('/') ? undefined : 'noopener noreferrer'}>
                     <Card className="hover:shadow-lg hover:border-accent transition-all cursor-pointer h-full">
                         <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2">
                             {topic.icon}

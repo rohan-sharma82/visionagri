@@ -39,9 +39,9 @@ export default function Header() {
 
 
   return (
-    <header className="relative w-full py-4 flex items-center justify-between px-4 sm:px-6 md:px-8">
+    <header className="relative w-full py-4 flex items-center justify-center px-4 sm:px-6 md:px-8">
         <div className="flex-1 flex justify-start">
-            <LanguageSwitcher onLanguageChange={setLanguage} />
+            {/* Language Switcher Removed from here */}
         </div>
         <div className="flex-none flex items-center gap-2">
             <PillNav

@@ -21,6 +21,8 @@ import { AnimatedBeam } from '@/components/magicui/animated-beam';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
+import LanguageSwitcher from '@/components/language-switcher';
+import FarmSchoolDialog from '@/components/farm-school-dialog';
 
 interface NewsArticle {
   id: number;
@@ -77,7 +79,7 @@ Circle.displayName = "Circle";
 
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, setLanguage } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
 
@@ -150,13 +152,18 @@ export default function Home() {
             </div>
         </div>
       </section>
-
-      <section className="mt-16">
-        <QuotesBox />
-      </section>
       
       <section className="mt-16">
         <FeatureCards />
+      </section>
+
+      <section className="mt-16 flex justify-center items-center gap-4">
+        <LanguageSwitcher onLanguageChange={setLanguage} />
+        <FarmSchoolDialog />
+      </section>
+
+      <section className="mt-16">
+        <QuotesBox />
       </section>
 
       <section className="mt-16">
