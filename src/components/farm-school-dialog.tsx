@@ -12,6 +12,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shovel, TestTube2, Calculator, Lightbulb } from 'lucide-react';
 import { useTranslation } from '@/hooks/use-translation';
+import Link from 'next/link';
 
 const Star = () => (
   <svg
@@ -42,24 +43,28 @@ export default function FarmSchoolDialog() {
   
   const schoolTopics = [
     {
-        title: t('farmSchool.tools.title'),
-        description: t('farmSchool.tools.description'),
-        icon: <Shovel className="h-8 w-8 text-accent" />
+        title: t('features.farmSchool.tools.title'),
+        description: t('features.farmSchool.tools.description'),
+        icon: <Shovel className="h-8 w-8 text-accent" />,
+        href: '/farm-school/tools'
     },
     {
         title: t('farmSchool.fertilizers.title'),
         description: t('farmSchool.fertilizers.description'),
-        icon: <TestTube2 className="h-8 w-8 text-accent" />
+        icon: <TestTube2 className="h-8 w-8 text-accent" />,
+        href: '#'
     },
     {
         title: t('farmSchool.areaCalculator.title'),
         description: t('farmSchool.areaCalculator.description'),
-        icon: <Calculator className="h-8 w-8 text-accent" />
+        icon: <Calculator className="h-8 w-8 text-accent" />,
+        href: '#'
     },
     {
         title: t('farmSchool.profitMakingTips.title'),
         description: t('farmSchool.profitMakingTips.description'),
-        icon: <Lightbulb className="h-8 w-8 text-accent" />
+        icon: <Lightbulb className="h-8 w-8 text-accent" />,
+        href: '#'
     }
 ]
 
@@ -85,15 +90,17 @@ export default function FarmSchoolDialog() {
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
             {schoolTopics.map((topic) => (
-                 <Card key={topic.title} className="hover:shadow-lg hover:border-accent transition-all cursor-pointer">
-                    <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2">
-                        {topic.icon}
-                        <CardTitle className="text-xl font-medium">{topic.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-sm text-muted-foreground">{topic.description}</p>
-                    </CardContent>
-                 </Card>
+                 <Link href={topic.href} key={topic.title} target={topic.href !== '#' ? '_blank' : undefined} rel={topic.href !== '#' ? 'noopener noreferrer' : undefined}>
+                    <Card className="hover:shadow-lg hover:border-accent transition-all cursor-pointer h-full">
+                        <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2">
+                            {topic.icon}
+                            <CardTitle className="text-xl font-medium">{topic.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-sm text-muted-foreground">{topic.description}</p>
+                        </CardContent>
+                    </Card>
+                 </Link>
             ))}
         </div>
       </DialogContent>

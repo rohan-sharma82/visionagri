@@ -7,7 +7,6 @@ export const navLinks = [
   { href: '/disease-classification', label: 'nav.diseaseClassification' },
   { href: '/animal-classification', label: 'nav.animalClassification' },
   { href: '/govt-schemes', label: 'nav.govtSchemes' },
-  { href: '/farm-school', label: 'nav.farmSchool' },
 ];
 
 const baseFeaturesData = [
@@ -45,13 +44,6 @@ const baseFeaturesData = [
         dataAiHint: 'government scheme',
         href: '/govt-schemes',
         description: 'features.govtSchemes.description'
-    },
-    {
-        title: 'features.farmSchool.tools.title',
-        imageUrl: '/images/farmschool.jpeg',
-        dataAiHint: 'farm tools',
-        href: '/farm-school/tools',
-        description: 'features.farmSchool.tools.description'
     }
 ];
 
