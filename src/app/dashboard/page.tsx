@@ -8,9 +8,9 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, AirVent } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
@@ -81,12 +81,12 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
         <CardDescription>{t('dashboard.weather.description', { location: weatherData.location.name })}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-            {weatherData.alerts.length > 0 && (
+            {weatherData.alerts?.alert?.length > 0 && (
                 <Alert variant="destructive">
                     <AlertTriangle className="h-4 w-4" />
-                    <AlertTitle>{weatherData.alerts[0].event}</AlertTitle>
+                    <AlertTitle>{weatherData.alerts.alert[0].event}</AlertTitle>
                     <AlertDescription>
-                        {weatherData.alerts[0].headline}
+                        {weatherData.alerts.alert[0].headline}
                     </AlertDescription>
                 </Alert>
             )}
@@ -111,21 +111,21 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
                         <Sun className="h-10 w-10 text-yellow-500" />
                         <div>
                             <p className="font-semibold">{t('dashboard.weather.sunrise')}</p>
-                            <p>{weatherData.forecast[0].astro.sunrise}</p>
+                            <p>{weatherData.forecast.forecastday[0].astro.sunrise}</p>
                         </div>
                      </div>
                      <div className="flex items-center gap-4">
                         <Sun className="h-10 w-10 text-orange-600" />
                         <div>
                             <p className="font-semibold">{t('dashboard.weather.sunset')}</p>
-                            <p>{weatherData.forecast[0].astro.sunset}</p>
+                            <p>{weatherData.forecast.forecastday[0].astro.sunset}</p>
                         </div>
                      </div>
                      <div className="flex items-center gap-4 pt-2">
                         <Moon className="h-8 w-8 text-muted-foreground" />
                         <div>
                            <p className="font-semibold">{t('dashboard.weather.moon')}</p>
-                           <p>{weatherData.forecast[0].astro.moon_phase}</p>
+                           <p>{weatherData.forecast.forecastday[0].astro.moon_phase}</p>
                         </div>
                      </div>
                 </div>
@@ -133,7 +133,7 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
                 {/* 3 Day Forecast */}
                 <div className="rounded-lg bg-muted/30 p-4 space-y-3">
                     <h3 className="font-semibold text-center">{t('dashboard.weather.forecast')}</h3>
-                    {weatherData.forecast.map((day, index) => (
+                    {weatherData.forecast.forecastday.map((day, index) => (
                         <div key={day.date} className="flex items-center justify-between text-sm">
                             <span className="font-medium">{index === 0 ? t('dashboard.weather.today') : new Date(day.date).toLocaleDateString(undefined, { weekday: 'short' })}</span>
                             <Image src={`https:${day.day.condition.icon}`} alt={day.day.condition.text} width={32} height={32} />
