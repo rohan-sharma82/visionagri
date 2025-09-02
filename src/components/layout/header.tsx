@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Leaf } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { navLinks } from '@/lib/constants';
+import { mainNavLinks, cardNavItems } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -17,14 +17,24 @@ import {
 import PillNav from '../pill-nav';
 import { useTranslation } from '@/hooks/use-translation';
 import LanguageSwitcher from '../language-switcher';
+import CardNavMenu from '../card-nav-menu';
 
 export default function Header() {
   const pathname = usePathname();
   const { t, setLanguage } = useTranslation();
 
-  const translatedNavLinks = navLinks.map(link => ({
+  const translatedMainNavLinks = mainNavLinks.map(link => ({
     ...link,
     label: t(link.label)
+  }));
+
+  const translatedCardNavItems = cardNavItems.map(item => ({
+    ...item,
+    label: t(item.label),
+    links: item.links.map(link => ({
+        ...link,
+        label: t(link.label)
+    }))
   }));
 
 
@@ -33,15 +43,16 @@ export default function Header() {
         <div className="flex-1 flex justify-start">
             <LanguageSwitcher onLanguageChange={setLanguage} />
         </div>
-        <div className="flex-none">
+        <div className="flex-none flex items-center gap-2">
             <PillNav
-                items={translatedNavLinks}
+                items={translatedMainNavLinks}
                 activeHref={pathname}
                 baseColor="#35753D"
                 pillColor="hsl(var(--background))"
                 hoveredPillTextColor="hsl(var(--background))"
                 pillTextColor="hsl(var(--foreground))"
             />
+            <CardNavMenu items={translatedCardNavItems} />
         </div>
         <div className="flex-1 flex justify-end">
         </div>

@@ -1,12 +1,36 @@
 
-export const navLinks = [
+
+export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
   { href: '/crop-yield', label: 'nav.cropYield' },
   { href: '/ai-farmer', label: 'nav.aiFarmer' },
   { href: '/disease-classification', label: 'nav.diseaseClassification' },
   { href: '/animal-classification', label: 'nav.animalClassification' },
-  { href: '/govt-schemes', label: 'nav.govtSchemes' },
+];
+
+export const cardNavItems = [
+    {
+        label: "nav.govtSchemes",
+        bgColor: "hsl(var(--card))",
+        textColor: "hsl(var(--card-foreground))",
+        links: [
+            { label: "schemes.pmkisan.shortName", href: "/govt-schemes" },
+            { label: "schemes.pmfby.shortName", href: "/govt-schemes" },
+            { label: "schemes.enam.shortName", href: "/govt-schemes" },
+            { label: "schemes.pmkmy.shortName", href: "/govt-schemes" }
+        ]
+    },
+    {
+        label: "nav.farmSchool",
+        bgColor: "hsl(var(--muted))",
+        textColor: "hsl(var(--muted-foreground))",
+        links: [
+            { label: "features.farmSchool.tools.title", href: "/farm-school/tools" },
+            { label: "farmSchool.fertilizers.title", href: "#" },
+            { label: "farmSchool.areaCalculator.title", href: "#" }
+        ]
+    }
 ];
 
 const baseFeaturesData = [
