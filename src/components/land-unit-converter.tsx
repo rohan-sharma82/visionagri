@@ -18,7 +18,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Card, CardContent } from '@/components/ui/card';
 import { ScrollArea } from './ui/scroll-area';
 
 const conversionFactorsToSqMeters: { [key: string]: number } = {
@@ -27,6 +26,8 @@ const conversionFactorsToSqMeters: { [key: string]: number } = {
   'Bigha (UP)': 2529.29,
   'Guntha': 101.17,
   'Kanal': 505.857,
+  'Killa': 4046.86, // Equivalent to Acre
+  'Marla': 25.2929, // 272.25 sq ft
   'Square Feet': 0.092903,
   'Square Meter': 1,
   'Square Yard (Gaj)': 0.836127,
@@ -34,7 +35,7 @@ const conversionFactorsToSqMeters: { [key: string]: number } = {
   'Ground': 222.967,
 };
 
-const allUnits = Object.keys(conversionFactorsToSqMeters);
+const allUnits = Object.keys(conversionFactorsToSqMeters).sort();
 
 export default function LandUnitConverter() {
   const [inputValue, setInputValue] = useState('1');
