@@ -6,7 +6,6 @@ import { Leaf } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/lib/constants';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -18,6 +17,7 @@ import {
 import PillNav from '../pill-nav';
 import { useTranslation } from '@/hooks/use-translation';
 import LanguageSwitcher from '../language-switcher';
+import DayNightToggle from '../ui/day-night-toggle';
 
 
 export default function Header() {
@@ -46,7 +46,7 @@ export default function Header() {
             />
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 right-4">
-            <ThemeToggle />
+            <DayNightToggle />
         </div>
     </header>
   );
