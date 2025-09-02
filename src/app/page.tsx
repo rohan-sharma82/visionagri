@@ -20,7 +20,6 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnimatedBeam } from '@/components/magicui/animated-beam';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
-import FarmSchoolDialog from '@/components/farm-school-dialog';
 import { useTranslation } from '@/hooks/use-translation';
 
 interface NewsArticle {
@@ -154,10 +153,6 @@ export default function Home() {
 
       <section className="mt-16">
         <QuotesBox />
-      </section>
-
-      <section className="my-16 flex justify-center gap-4">
-        <FarmSchoolDialog />
       </section>
       
       <section className="mt-16">

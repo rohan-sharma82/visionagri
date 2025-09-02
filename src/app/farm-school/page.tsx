@@ -11,11 +11,6 @@ import { ArrowLeft } from 'lucide-react';
 export default function FarmSchoolPage() {
   const { t } = useTranslation();
 
-  // Exclude the 'Farm School' card from being displayed on its own page
-  const featuresToDisplay = featuresData.filter(
-    (feature) => feature.href !== '/farm-school'
-  );
-
   return (
     <div className="farm-school-page">
       <div className="farm-school-overlay" />
@@ -36,7 +31,7 @@ export default function FarmSchoolPage() {
           </p>
 
           <div className="mt-12 flex flex-wrap justify-center gap-8">
-            {featuresToDisplay.map((feature) => (
+            {featuresData.map((feature) => (
               <Link href={feature.href} key={feature.title}>
                 <div className="feature-card">
                   <div className="feature-card-inner">

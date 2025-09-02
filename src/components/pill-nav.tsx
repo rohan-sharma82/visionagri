@@ -1,9 +1,11 @@
+
 'use client';
 import { useEffect, useRef, useState } from "react";
 import Link from 'next/link';
 import { gsap } from "gsap";
 import { Leaf } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { navLinks } from '@/lib/constants';
 
 const PillNav = ({
   items,
@@ -266,6 +268,8 @@ const PillNav = ({
                     aria-label={item.label}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
+                    target={item.href === '/farm-school' ? '_blank' : undefined}
+                    rel={item.href === '/farm-school' ? 'noopener noreferrer' : undefined}
                   >
                     <span
                       className="hover-circle"
@@ -323,6 +327,8 @@ const PillNav = ({
                   href={item.href}
                   className="mobile-menu-link"
                   onClick={() => setIsMobileMenuOpen(false)}
+                  target={item.href === '/farm-school' ? '_blank' : undefined}
+                  rel={item.href === '/farm-school' ? 'noopener noreferrer' : undefined}
                 >
                   {item.label}
                 </Link>
