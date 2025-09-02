@@ -23,14 +23,17 @@ import {
 } from '@/components/ui/table';
 import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
+import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
+import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
 import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { cn } from '@/lib/utils';
+import MarketPriceChart from '@/components/market-price-chart';
 
 const allDashboardData: Record<string, any> = {
     'user1@agrivision.ai': {
         location: 'Punjab, India',
+        primaryCrop: 'Wheat',
         yieldHistory: [
             { date: '2024-07-15', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
             { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
@@ -43,6 +46,7 @@ const allDashboardData: Record<string, any> = {
     },
     'user2@agrivision.ai': {
         location: 'Maharashtra, India',
+        primaryCrop: 'Sugarcane',
         yieldHistory: [
             { date: '2024-08-01', crop: 'Rice', predicted: '6.2', actual: '6.5' },
             { date: '2024-04-10', crop: 'Sugarcane', predicted: '70.5', actual: null },
@@ -53,6 +57,7 @@ const allDashboardData: Record<string, any> = {
     },
     'user3@agrivision.ai': {
         location: 'Kerala, India',
+        primaryCrop: 'Cotton',
         yieldHistory: [
             { date: '2024-06-25', crop: 'Cotton', predicted: '2.1', actual: '2.3' },
             { date: '2023-12-15', crop: 'Mustard', predicted: '1.8', actual: '1.7' },
@@ -158,32 +163,44 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
 
 export default function DashboardPage() {
   const { t } = useTranslation();
-  const { location } = useLocation();
   const [currentUser, setCurrentUser] = useState<string | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
+  const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
   const [isLoadingWeather, setIsLoadingWeather] = useState(true);
+  const [isLoadingMarket, setIsLoadingMarket] = useState(true);
 
   const isAuthenticated = !!currentUser;
   const userData = currentUser ? allDashboardData[currentUser] : null;
 
   useEffect(() => {
-    async function fetchWeather() {
-        if (!isAuthenticated || !userData?.location) {
+    async function fetchData() {
+        if (!isAuthenticated || !userData) {
             setIsLoadingWeather(false);
+            setIsLoadingMarket(false);
             return;
         }
+
         setIsLoadingWeather(true);
+        setIsLoadingMarket(true);
+
         try {
-            const data = await getDashboardWeather({ location: userData.location });
-            setWeatherData(data);
+            const weatherPromise = getDashboardWeather({ location: userData.location });
+            const marketPromise = getMarketPriceAnalysis({ crop: userData.primaryCrop });
+
+            const [weatherResult, marketResult] = await Promise.all([weatherPromise, marketPromise]);
+            
+            setWeatherData(weatherResult);
+            setMarketData(marketResult);
+
         } catch (error) {
-            console.error("Failed to fetch weather data:", error);
+            console.error("Failed to fetch dashboard data:", error);
         } finally {
             setIsLoadingWeather(false);
+            setIsLoadingMarket(false);
         }
     }
-    fetchWeather();
-  }, [isAuthenticated, userData?.location]);
+    fetchData();
+  }, [isAuthenticated, userData]);
 
 
   return (
@@ -214,8 +231,44 @@ export default function DashboardPage() {
                 <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
             )}
 
-            {/* Yield Prediction History */}
+            {/* Market Price Analysis */}
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
+                <CardHeader>
+                    <CardTitle>{t('dashboard.market.title', { crop: userData.primaryCrop })}</CardTitle>
+                    <CardDescription>{t('dashboard.market.description')}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    {isLoadingMarket ? (
+                        <p className="text-center">{t('dashboard.market.loading')}</p>
+                    ) : marketData ? (
+                        <MarketPriceChart data={marketData} />
+                    ) : (
+                        <p className="text-center">{t('dashboard.market.error')}</p>
+                    )}
+                </CardContent>
+            </Card>
+
+            {/* Recommended Schemes */}
+            <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
+                <CardHeader>
+                <CardTitle>{t('dashboard.schemes.title')}</CardTitle>
+                <CardDescription>{t('dashboard.schemes.description')}</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                {userData.recommendedSchemes.map((scheme: any, index: number) => (
+                    <div key={index} className="flex items-start gap-4">
+                    <ShieldCheck className="h-6 w-6 text-green-500 mt-1" />
+                    <div>
+                        <p className="font-semibold">{t(scheme.name)}</p>
+                        <p className="text-sm text-muted-foreground">{t(scheme.reason)}</p>
+                    </div>
+                    </div>
+                ))}
+                </CardContent>
+            </Card>
+
+            {/* Yield Prediction History */}
+            <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                 <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
                 <CardDescription>
@@ -262,25 +315,6 @@ export default function DashboardPage() {
                         {t('dashboard.yieldHistory.button')}
                     </Button>
                 </CardFooter>
-            </Card>
-
-            {/* Recommended Schemes */}
-            <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
-                <CardHeader>
-                <CardTitle>{t('dashboard.schemes.title')}</CardTitle>
-                <CardDescription>{t('dashboard.schemes.description')}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                {userData.recommendedSchemes.map((scheme: any, index: number) => (
-                    <div key={index} className="flex items-start gap-4">
-                    <ShieldCheck className="h-6 w-6 text-green-500 mt-1" />
-                    <div>
-                        <p className="font-semibold">{t(scheme.name)}</p>
-                        <p className="text-sm text-muted-foreground">{t(scheme.reason)}</p>
-                    </div>
-                    </div>
-                ))}
-                </CardContent>
             </Card>
 
             </div>
