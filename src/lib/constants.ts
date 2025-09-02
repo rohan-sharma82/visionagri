@@ -1,6 +1,7 @@
 
 export const navLinks = [
   { href: '/', label: 'nav.home' },
+  { href: '/dashboard', label: 'nav.dashboard' },
   { href: '/crop-yield', label: 'nav.cropYield' },
   { href: '/ai-farmer', label: 'nav.aiFarmer' },
   { href: '/disease-classification', label: 'nav.diseaseClassification' },

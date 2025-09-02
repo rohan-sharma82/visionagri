@@ -2,6 +2,7 @@
 {
     "nav": {
         "home": "Home",
+        "dashboard": "டாஷ்போர்டு",
         "cropYield": "பயிர் விளைச்சல் கணிப்பு",
         "aiFarmer": "AI விவசாயி",
         "diseaseClassification": "நோய் வகைப்படுத்தல்",
@@ -74,7 +75,7 @@
     },
     "quotes": {
         "q1": "விவசாயம் ஒரு வேலை மட்டுமல்ல, அது ஒரு வாழ்க்கை முறை.",
-        "q2": "விவசாயிதான் നമ്മുടെ സമ്പദ്‌വ്യവസ്ഥയിൽ എല്ലാം റീട്ടെയിലായി വാങ്ങുകയും എല്ലാം മൊത്തമായി വിൽക്കുകയും ഇരുവശത്തേക്കും ചരക്ക് കൂലി നൽകുകയും ചെയ്യുന്ന ഒരേയൊരു വ്യക്തി.",
+        "q2": "விவசாயிதான் நமது സമ്പദ്‌വ്യവസ്ഥയിൽ എല്ലാം റീട്ടെയിലായി വാങ്ങുകയും എല്ലാം മൊത്തമായി വിൽക്കുകയും ഇരുവശത്തേക്കും ചരക്ക് കൂലി നൽകുകയും ചെയ്യുന്ന ഒരേയൊരു വ്യക്തി.",
         "q3": "விவசாயிகள் இல்லாமல், உணவு இல்லை. உணவு இல்லாமல், உயிர் இல்லை."
     },
     "news": {
@@ -165,5 +166,37 @@
         "mhaNews": "MHA News",
         "stateNews": "State News",
         "agriKnowledge": "Agri-Knowledge Base"
+    },
+    "dashboard": {
+        "login": {
+            "title": "Dashboard Access",
+            "description": "Please log in to view your personalized dashboard.",
+            "emailPlaceholder": "Email",
+            "passwordPlaceholder": "Password",
+            "button": "Login",
+            "error": "Invalid credentials. Please try again."
+        },
+        "welcome": "Welcome back, Farmer!",
+        "subtitle": "Here is an overview of your farm's status and history.",
+        "yieldHistory": {
+            "title": "Yield Prediction History",
+            "description": "Track AI predictions against your actual harvest to help us improve.",
+            "table": {
+                "date": "Date",
+                "crop": "Crop",
+                "predicted": "Predicted Yield (Tonnes)",
+                "actual": "Actual Yield (Tonnes)",
+                "action": "Enter Actual Yield"
+            },
+            "button": "Add Entry"
+        },
+        "schemes": {
+            "title": "Recommended Schemes for You",
+            "description": "Based on your profile, these government schemes might be beneficial."
+        },
+        "weather": {
+            "title": "Weather Outlook & Alerts",
+            "description": "Current conditions and actionable advice for the week ahead."
+        }
     }
 }

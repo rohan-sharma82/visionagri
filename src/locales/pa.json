@@ -2,6 +2,7 @@
 {
     "nav": {
         "home": "Home",
+        "dashboard": "ਡੈਸ਼ਬੋਰਡ",
         "cropYield": "ਫਸਲ ਝਾੜ ਦੀ ਭਵਿੱਖਬਾਣੀ",
         "aiFarmer": "AI ਕਿਸਾਨ",
         "diseaseClassification": "ਰੋਗ ਵਰਗੀਕਰਨ",
@@ -254,6 +255,38 @@
                 "title": "ਵਰਗੀਕਰਨ ਅਸਫਲ",
                 "description": "ਤਸਵੀਰ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੂਜੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
             }
+        }
+    },
+    "dashboard": {
+        "login": {
+            "title": "Dashboard Access",
+            "description": "Please log in to view your personalized dashboard.",
+            "emailPlaceholder": "Email",
+            "passwordPlaceholder": "Password",
+            "button": "Login",
+            "error": "Invalid credentials. Please try again."
+        },
+        "welcome": "Welcome back, Farmer!",
+        "subtitle": "Here is an overview of your farm's status and history.",
+        "yieldHistory": {
+            "title": "Yield Prediction History",
+            "description": "Track AI predictions against your actual harvest to help us improve.",
+            "table": {
+                "date": "Date",
+                "crop": "Crop",
+                "predicted": "Predicted Yield (Tonnes)",
+                "actual": "Actual Yield (Tonnes)",
+                "action": "Enter Actual Yield"
+            },
+            "button": "Add Entry"
+        },
+        "schemes": {
+            "title": "Recommended Schemes for You",
+            "description": "Based on your profile, these government schemes might be beneficial."
+        },
+        "weather": {
+            "title": "Weather Outlook & Alerts",
+            "description": "Current conditions and actionable advice for the week ahead."
         }
     }
 }
