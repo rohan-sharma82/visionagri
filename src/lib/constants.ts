@@ -5,6 +5,7 @@
 
 
 
+
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -138,6 +139,15 @@ export const newsData = [
     snippet: 'news.n4_snippet',
     article: 'news.n4_article',
     category: 'categories.marketPrices',
+  },
+  {
+    id: 25,
+    title: 'news.n25_title',
+    source: 'sources.agriBusinessUpdate',
+    date: 'dates.sep01_25_1400',
+    snippet: 'news.n25_snippet',
+    article: 'news.n25_article',
+    category: 'categories.farmingTechniques'
   },
   {
     id: 5,
@@ -318,15 +328,6 @@ export const newsData = [
     snippet: 'news.n24_snippet',
     article: 'news.n24_article',
     category: 'categories.technology',
-  },
-  {
-    id: 25,
-    title: 'news.n25_title',
-    source: 'sources.agriBusinessUpdate',
-    date: 'dates.sep01_25_1400',
-    snippet: 'news.n25_snippet',
-    article: 'news.n25_article',
-    category: 'categories.farmingTechniques'
   }
 ];
 
