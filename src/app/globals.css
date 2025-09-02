@@ -1939,7 +1939,7 @@
   list-style-type: none;
   font-size: 1em;
   margin: 0 10px;
-  color: #42509e;
+  color: #2F993D;
   position: relative;
   cursor: pointer;
 }
@@ -1949,7 +1949,7 @@
   bottom: 0;
   left: 0;
   width: 20px;
-  border-bottom: 1px solid #42509e;
+  border-bottom: 1px solid #2F993D;
   transition: all ease-in 0.25s;
 }
 .login-prism-nav li:hover:after {
@@ -2126,7 +2126,7 @@
   margin: 20px 0;
   font-size: 0.75em;
   text-align: center;
-  color: #42509e;
+  color: #2F993D;
   cursor: pointer;
 }
 small {
@@ -2148,3 +2148,5 @@ small {
     transform: translate(-50%, -50%) rotate(-45deg) scale(1);
   }
 }
+
+    
