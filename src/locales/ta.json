@@ -243,6 +243,12 @@
             "shortName": "Soil Health Card",
             "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
             "description": "schemes.shc.description"
+        },
+        "ahidf": {
+            "name": "Animal Husbandry Infrastructure Development Fund (AHIDF)",
+            "shortName": "AHIDF",
+            "shortDescription": "Incentivizes investment in dairy processing, meat processing, and animal feed plants.",
+            "description": "schemes.ahidf.description"
         }
     },
     "dashboard": {

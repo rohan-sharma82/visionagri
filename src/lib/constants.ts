@@ -397,6 +397,15 @@ export const schemesData = [
     description: 'schemes.smam.description',
     imageUrl: 'https://cdn.tractorkarvan.com/tr:f-webp/images/Blogs/top-central-government-schemes-for-farmers-in-india/smam.jpg',
     dataAiHint: 'farm machinery',
+  },
+  {
+    id: 9,
+    name: 'schemes.ahidf.name',
+    shortName: 'schemes.ahidf.shortName',
+    shortDescription: 'schemes.ahidf.shortDescription',
+    description: 'schemes.ahidf.description',
+    imageUrl: 'https://img.manoramayearbook.in/content/dam/yearbook/learn/world/images/2022/July/ahidf.jpg',
+    dataAiHint: 'animal husbandry',
   }
 ];
 
