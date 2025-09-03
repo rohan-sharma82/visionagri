@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -33,8 +26,8 @@ export const cardNavItems = [
         textColor: "hsl(var(--muted-foreground))",
         links: [
             { label: "features.farmSchool.tools.title", href: "/farm-school/tools" },
-            { label: "farmSchool.fertilizers.title", href: "#" },
-            { label: "farmSchool.areaCalculator.title", href: "#" }
+            { label: "farmSchool.fertilizers.title", href: "/farm-school/fertilizers" },
+            { label: "farmSchool.areaCalculator.title", href: "/farm-school/area-calculator" }
         ]
     }
 ];
@@ -553,9 +546,3 @@ export const toolsData = [
       },
     },
   ];
-
-
-
-
-
-    
