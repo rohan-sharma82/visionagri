@@ -1,4 +1,3 @@
-
 'use client';
 import { useRef, useState } from 'react';
 import { useTranslation } from '@/hooks/use-translation';
@@ -51,7 +50,8 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (dummyUsers[email as keyof typeof dummyUsers] && dummyUsers[email as keyof typeof dummyUsers] === password) {
-      onLoginSuccess(email);
+        onLoginSuccess(email);
+        setError('');
     } else {
       setError(t('dashboard.login.error'));
     }
@@ -59,6 +59,7 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
 
   return (
     <div className='text-center'>
+        <h2 className="text-2xl font-bold mb-4">{t('dashboard.login.prism.title')}</h2>
       <div className="login-prism-wrapper">
         <div className="rec-prism" ref={prismRef}>
             {/* Login Face */}
@@ -211,5 +212,3 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
     </div>
   );
 }
-
-    

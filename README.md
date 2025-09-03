@@ -48,7 +48,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
   - **Google AI Platform (Gemini Models):** We use the powerful Gemini family of models for their state-of-the-art multi-modal capabilities, handling everything from complex reasoning for the AI Assistant to market data analysis and image classification.
 
 - **Database:**
-  - **Vercel Postgres:** A serverless PostgreSQL database used to store and manage user data, including chat history for the AI Farmer Assistant. This enables persistence and personalization features like the user dashboard.
+  - **Supabase (Postgres):** A serverless PostgreSQL database used to store and manage user data, including chat history for the AI Farmer Assistant. This enables persistence and personalization features like the user dashboard.
 
 - **Hosting:**
   - **Vercel:** The ideal platform for deploying Next.js applications, providing a seamless CI/CD pipeline, global CDN, and serverless functions for scalability and performance.
@@ -70,7 +70,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 *It then calls the appropriate Google Gemini model with a structured prompt.*
 *The AI model processes the input and returns a structured JSON output (e.g., advice, prediction, diagnosis, analysis).*
 *This result is sent back to the user's screen and rendered as text, charts, or audio.*
-*For the AI Assistant, conversations are saved to and retrieved from the Vercel Postgres database.*
+*For the AI Assistant, conversations are saved to and retrieved from the Supabase Postgres database.*
 
 **(A flowchart image would be ideal here, showing User -> Next.js -> Genkit Flow (with Tools) -> Google AI -> DB -> User)**
 
@@ -81,7 +81,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 ### **Slide 4: Feasibility & Viability**
 
 **Analysis of Feasibility:**
-- **Technical Feasibility:** The tech stack (Next.js, Genkit, Vercel Postgres) is modern, well-documented, and designed for scalability. The use of managed services reduces infrastructure overhead.
+- **Technical Feasibility:** The tech stack (Next.js, Genkit, Supabase) is modern, well-documented, and designed for scalability. The use of managed services reduces infrastructure overhead.
 - **Economic Feasibility:** The operational cost is low due to the serverless architecture. The platform can be offered on a freemium model, with premium features for larger agricultural enterprises.
 - **Operational Feasibility:** The multilingual and voice-enabled interface ensures the platform is usable by the target demographic with minimal training.
 
@@ -120,6 +120,6 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 - **APIs and Services:**
   - Google Genkit Documentation: [https://firebase.google.com/docs/genkit](https://firebase.google.com/docs/genkit)
   - WeatherAPI: [https://www.weatherapi.com/](https://www.weatherapi.com/)
-  - Vercel Postgres: [https://vercel.com/storage/postgres](https://vercel.com/storage/postgres)
+  - Supabase: [https://supabase.com/](https://supabase.com/)
 
 **Mission: Smarter Fields, Better Yields.**

@@ -9,6 +9,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,10 +30,11 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
+import LoginPrism from '@/components/login-prism';
 
 const allDashboardData: Record<string, any> = {
-    'user1': {
-        name: 'User 1 (Punjab)',
+    'user1@agrivision.ai': {
+        name: 'Demo User (Punjab)',
         location: 'Punjab, India',
         primaryCrop: 'Wheat',
         yieldHistory: [
@@ -41,12 +43,12 @@ const allDashboardData: Record<string, any> = {
             { date: '2023-11-10', crop: 'Soybeans', predicted: '3.5', actual: '3.5' },
         ],
         recommendedSchemes: [
-            { name: 'schemes.pmkisan.shortName', reason: 'Based on your small landholding.' },
-            { name: 'schemes.pmfby.shortName', reason: 'Due to weather unpredictability in your region.' },
+            { name: 'schemes.pmkisan.shortName', reason: 'dashboard.schemes.reasons.smallLandholding' },
+            { name: 'schemes.pmfby.shortName', reason: 'dashboard.schemes.reasons.weatherUnpredictability' },
         ],
     },
-    'user2': {
-        name: 'User 2 (Maharashtra)',
+    'user2@agrivision.ai': {
+        name: 'Demo User (Maharashtra)',
         location: 'Maharashtra, India',
         primaryCrop: 'Sugarcane',
         yieldHistory: [
@@ -54,11 +56,11 @@ const allDashboardData: Record<string, any> = {
             { date: '2024-04-10', crop: 'Sugarcane', predicted: '70.5', actual: null },
         ],
         recommendedSchemes: [
-            { name: 'schemes.enam.name', reason: 'To get better prices for your sugarcane.' },
+            { name: 'schemes.enam.name', reason: 'dashboard.schemes.reasons.betterPrices' },
         ],
     },
-    'user3': {
-        name: 'User 3 (Kerala)',
+    'user3@agrivision.ai': {
+        name: 'Demo User (Kerala)',
         location: 'Kerala, India',
         primaryCrop: 'Cotton',
         yieldHistory: [
@@ -66,7 +68,7 @@ const allDashboardData: Record<string, any> = {
             { date: '2023-12-15', crop: 'Mustard', predicted: '1.8', actual: '1.7' },
         ],
         recommendedSchemes: [
-            { name: 'schemes.pmkmy.name', reason: 'For easy access to credit for your cash crops.' },
+            { name: 'schemes.pmkmy.name', reason: 'dashboard.schemes.reasons.easyCredit' },
         ],
     }
 };
@@ -179,7 +181,7 @@ export default function DashboardPage() {
   const [currentUserKey, setCurrentUserKey] = useState<string | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const isAuthenticated = !!currentUserKey;
   const userData = currentUserKey ? allDashboardData[currentUserKey] : null;
@@ -218,20 +220,26 @@ export default function DashboardPage() {
     setWeatherData(null);
     setMarketData(null);
   };
-
+  
+  const handleLogin = (userEmail: string) => {
+    const userKey = Object.keys(allDashboardData).find(key => key === userEmail);
+    if(userKey) {
+        setCurrentUserKey(userKey);
+    }
+  };
 
   return (
     <>
       <Header />
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-12 flex flex-col items-center gap-4">
+        <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
             {isAuthenticated ? t('dashboard.welcome') : t('dashboard.login.title')}
           </h1>
-          <p className="mt-2 text-lg text-muted-foreground">
+          <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {isAuthenticated ? t('dashboard.subtitle') : t('dashboard.login.description')}
           </p>
-           <p className="mt-4 text-base font-semibold text-primary">
+           <p className="mt-2 text-base font-semibold text-primary">
              {t('kisanCallCenter')}
           </p>
           {isAuthenticated && (
@@ -242,23 +250,9 @@ export default function DashboardPage() {
         </div>
 
         {!isAuthenticated && (
-             <Card className="max-w-2xl mx-auto bg-card/30 backdrop-blur-sm border-primary/20">
-                <CardHeader>
-                    <CardTitle>{t('dashboard.selectProfile.title')}</CardTitle>
-                    <CardDescription>{t('dashboard.selectProfile.description')}</CardDescription>
-                </CardHeader>
-                <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {Object.keys(allDashboardData).map((key) => (
-                        <button key={key} onClick={() => setCurrentUserKey(key)} className="group relative block h-24 w-full overflow-hidden rounded-lg bg-secondary text-secondary-foreground p-4 text-left transition-transform hover:scale-105">
-                           <div className="absolute inset-0 z-0 opacity-20 transition-opacity group-hover:opacity-30">
-                            <User className="h-24 w-24 absolute -right-4 -bottom-4 text-primary/30" />
-                           </div>
-                           <h3 className="font-bold relative z-10">{allDashboardData[key].name}</h3>
-                           <p className="text-xs relative z-10">{allDashboardData[key].primaryCrop}</p>
-                        </button>
-                    ))}
-                </CardContent>
-            </Card>
+            <div className="flex flex-col items-center justify-center">
+                <LoginPrism onLoginSuccess={handleLogin} />
+            </div>
         )}
 
         {isAuthenticated && userData && (
@@ -269,7 +263,7 @@ export default function DashboardPage() {
             {weatherData ? (
                 <WeatherCard weatherData={weatherData} />
             ) : (
-                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
+                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
             )}
 
             {/* Market Price Analysis */}
@@ -282,7 +276,7 @@ export default function DashboardPage() {
                     {marketData ? (
                         <MarketPriceChart data={marketData} />
                     ) : (
-                        <p className="text-center">{t('dashboard.market.error')}</p>
+                        <p className="text-center">{t('dashboard.market.loading')}</p>
                     )}
                 </CardContent>
             </Card>
@@ -348,12 +342,12 @@ export default function DashboardPage() {
                     </TableBody>
                 </Table>
                 </CardContent>
-                <CardHeader>
+                <CardFooter>
                     <Button>
                         <PlusCircle className="mr-2 h-4 w-4" />
                         {t('dashboard.yieldHistory.button')}
                     </Button>
-                </CardHeader>
+                </CardFooter>
             </Card>
             </div>
             )

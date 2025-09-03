@@ -1,4 +1,3 @@
-
 # AgriVision AI - Hackathon Q&A Preparation
 
 This document contains potential questions from hackathon judges and suggested answers to help the team prepare.
@@ -27,16 +26,16 @@ In essence, we're not just another information portal; we are building an intell
 
 **A:** This is a very practical concern. Our strategy is twofold:
 
-1.  **For the Hackathon & Prototype Phase:** We are leveraging the generous free tiers provided by Vercel (for hosting and the Postgres database) and the Google AI Platform (for Genkit and Gemini models). This is more than sufficient for demonstrating the full capabilities of our application.
+1.  **For the Hackathon & Prototype Phase:** We are leveraging the generous free tiers provided by Vercel (for hosting) and Supabase (for the Postgres database), along with the Google AI Platform (for Genkit and Gemini models). This is more than sufficient for demonstrating the full capabilities of our application.
 2.  **For Scalability & Production:** Our long-term plan involves a **Freemium model**.
     *   **Free Tier:** Core features like the news feed, government scheme information, and a limited number of AI Assistant queries or dashboard views per month would remain free. This ensures the app is accessible to all small and marginal farmers.
     *   **Premium Tier:** For larger farms, agricultural co-operatives, or enterprise users, we would offer a subscription-based plan. This would unlock unlimited AI queries, advanced analytics on the dashboard, detailed historical data tracking, and API access. The revenue from this premium tier would subsidize the costs of the free tier, making the entire ecosystem sustainable.
 
-Our choice of a serverless architecture with **Next.js and Vercel Postgres** means we have minimal fixed infrastructure costs. We only pay for what we use, which is a highly cost-effective model for scaling.
+Our choice of a serverless architecture with **Next.js and Supabase Postgres** means we have minimal fixed infrastructure costs. We only pay for what we use, which is a highly cost-effective model for scaling.
 
-**Q: You've chosen to use Vercel Postgres. Why was a database necessary, and what does it enable?**
+**Q: You've chosen to use a database. Why was this necessary, and what does it enable?**
 
-**A:** That's an excellent question. While our initial prototype could have been stateless, integrating a database like **Vercel Postgres** was a deliberate strategic decision to elevate the application from a simple set of tools to a truly **personalized platform**.
+**A:** That's an excellent question. While our initial prototype could have been stateless, integrating a database like **Supabase Postgres** was a deliberate strategic decision to elevate the application from a simple set of tools to a truly **personalized platform**.
 
 A database is the key that unlocks our most powerful features:
 

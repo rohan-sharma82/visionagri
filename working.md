@@ -10,7 +10,7 @@ AgriVision AI is built as a modern, server-centric web application. Most of the 
 
 - **Component-Based UI**: The user interface is built from small, reusable React components, which keeps the code organized and consistent.
 - **AI Logic Decoupling**: We've intentionally separated the AI logic into its own set of "flows" using Google Genkit. This makes the AI functionality modular, easy to test, and maintain.
-- **Database-Driven Personalization**: The application uses a **Vercel Postgres** database to store user data, enabling persistent and personalized experiences like the dashboard and chat history.
+- **Database-Driven Personalization**: The application uses a **Supabase Postgres** database to store user data, enabling persistent and personalized experiences like the dashboard and chat history.
 - **Multilingual First**: The app was designed from the ground up to be multilingual, using a centralized translation system to support various Indian languages.
 
 ---
@@ -40,7 +40,7 @@ AgriVision AI is built as a modern, server-centric web application. Most of the 
 
 - **Google AI Platform (Gemini Models)**: We use Google's powerful Gemini models for their excellent reasoning (AI Assistant), multi-modal (Disease/Animal Classification), and text-to-speech capabilities.
 
-- **Vercel Postgres**: A serverless PostgreSQL database.
+- **Supabase (Postgres)**: A serverless PostgreSQL database.
   - **Why?**: It's essential for storing user data to enable our key personalization features. It integrates seamlessly with our Vercel hosting environment.
   - **What it powers**: The login system, persistent chat history for the AI Assistant, and the personalized content on the user dashboard.
 
@@ -62,7 +62,7 @@ This is the central hub for the farmer.
 4.  **Dynamic Rendering**: The results are displayed in a series of cards, including a `MarketPriceChart` for price visualization. The UI shows loading states while the AI calls are in progress.
 
 ### **AI Farmer Assistant (`/ai-farmer`)**
-1.  **Chat Interface**: A standard chat UI that stores the conversation history in the **Vercel Postgres** database via Server Actions (`src/app/ai-farmer/actions.ts`). This ensures the conversation is persistent.
+1.  **Chat Interface**: A standard chat UI that stores the conversation history in the **Supabase Postgres** database via Server Actions (`src/app/ai-farmer/actions.ts`). This ensures the conversation is persistent.
 2.  **AI Integration**: When a user sends a message, the `getFarmingAdvice` Genkit flow is called. If a location is set, this flow uses the `getWeatherForLocation` tool to make its advice more relevant.
 3.  **Speech-to-Text**: Uses the browser's native `SpeechRecognition` API to transcribe the user's voice into text, which is then submitted.
 4.  **Text-to-Speech**: After receiving a response, the `textToSpeech` flow is called to generate an audio version of the advice, enhancing accessibility.
