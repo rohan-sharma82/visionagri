@@ -52,7 +52,7 @@ export default function FarmSchoolDialog() {
         title: t('farmSchool.fertilizers.title'),
         description: t('farmSchool.fertilizers.description'),
         icon: <TestTube2 className="h-8 w-8 text-accent" />,
-        href: '#'
+        href: '/farm-school/fertilizers'
     },
     {
         title: t('farmSchool.areaCalculator.title'),
