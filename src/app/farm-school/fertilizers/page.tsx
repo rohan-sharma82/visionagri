@@ -36,17 +36,8 @@ export default function FarmFertilizersPage() {
             {t('farmSchool.fertilizers.description')}
           </p>
         </div>
-        <div className="relative aspect-video max-w-4xl mx-auto mb-8 rounded-lg overflow-hidden">
-            <Image 
-                src="/images/Product Consumption - Fertiliser.jpeg" 
-                alt="Fertilizer consumption statistics"
-                fill
-                className="object-cover"
-                data-ai-hint="fertilizer infographic"
-             />
-        </div>
 
-        <ScrollArea className="h-[calc(100vh-400px)]">
+        <ScrollArea className="h-[calc(100vh-400px)] mb-8">
           <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto">
             
             <AccordionItem value="introduction">
@@ -143,6 +134,16 @@ export default function FarmFertilizersPage() {
 
           </Accordion>
         </ScrollArea>
+
+        <div className="relative aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden">
+            <Image 
+                src="/images/Product Consumption - Fertiliser.jpeg" 
+                alt="Fertilizer consumption statistics"
+                fill
+                className="object-cover"
+                data-ai-hint="fertilizer infographic"
+             />
+        </div>
       </div>
     </>
   );
