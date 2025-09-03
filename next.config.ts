@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https_iamge',
+        protocol: 'https',
         hostname: 'img.manoramayearbook.in',
         port: '',
         pathname: '/**',
@@ -84,7 +84,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'httpshttps',
+        protocol: 'https',
         hostname: 'pbs.twimg.com',
         port: '',
         pathname: '/**',
