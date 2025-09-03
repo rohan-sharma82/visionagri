@@ -225,7 +225,7 @@ export default function Home() {
               <ScrollArea className="h-full pr-4">
                 <div
                   className="prose prose-sm dark:prose-invert"
-                  dangerouslySetInnerHTML={{ __html: t(selectedNews.article, { html: true }) }}
+                  dangerouslySetInnerHTML={{ __html: t(selectedNews.article) }}
                 />
               </ScrollArea>
             </DialogContent>

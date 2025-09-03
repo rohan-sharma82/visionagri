@@ -47,10 +47,9 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
         </DialogHeader>
         <ScrollArea className="h-full pr-4">
           <div
-            className="prose prose-sm dark:prose-invert whitespace-pre-wrap"
-          >
-            {t(scheme.description)}
-          </div>
+            className="prose prose-sm dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: t(scheme.description) }}
+          />
         </ScrollArea>
       </DialogContent>
     </Dialog>
