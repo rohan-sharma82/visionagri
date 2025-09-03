@@ -297,9 +297,16 @@ export default function CropYieldPage() {
                     <div>
                       <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.actions')}</h3>
                       <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
-                        {prediction.suggestedActions.map((action, index) => (
-                          <li key={index}>{action}</li>
-                        ))}
+                        {prediction.suggestedActions.map((action, index) => {
+                           const parts = action.split(/:(.*)/s);
+                           const heading = parts[0];
+                           const body = parts[1];
+                          return (
+                          <li key={index}>
+                            <strong>{heading}:</strong>
+                            {body}
+                          </li>
+                        )})}
                       </ul>
                     </div>
                   </div>
