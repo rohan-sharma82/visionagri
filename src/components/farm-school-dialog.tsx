@@ -64,7 +64,7 @@ export default function FarmSchoolDialog() {
         title: t('farmSchool.profitMakingTips.title'),
         description: t('farmSchool.profitMakingTips.description'),
         icon: <Lightbulb className="h-8 w-8 text-accent" />,
-        href: '#'
+        href: '/farm-school/profit-making-tips'
     }
 ]
 
