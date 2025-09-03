@@ -110,7 +110,7 @@ export default function CropYieldPage() {
           <div className="w-40">
             <RotatingText
               texts={rotatingTexts}
-              mainClassName="text-white bg-[#2461F0]/80 overflow-hidden py-1 px-2 justify-center rounded-md"
+              mainClassName="text-white bg-green-500/80 overflow-hidden py-1 px-2 justify-center rounded-md"
               staggerFrom={'last'}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
@@ -221,13 +221,13 @@ export default function CropYieldPage() {
             </div>
             <div className="voltage-button">
                 <button onClick={form.handleSubmit(onSubmit)} disabled={isLoading}>
-                {isLoading ? (
-                    <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
-                        {t('cropYield.buttons.predicting')}
-                    </>
-                    ) : (
-                    t('cropYield.buttons.predict')
+                    {isLoading ? (
+                        <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
+                            {t('cropYield.buttons.predicting')}
+                        </>
+                        ) : (
+                        t('cropYield.buttons.predict')
                     )}
                 </button>
             </div>
