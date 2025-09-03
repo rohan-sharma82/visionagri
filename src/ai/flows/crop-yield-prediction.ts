@@ -11,12 +11,12 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import { getWeatherForLocation } from '@/ai/tools/weather';
 
 const PredictCropYieldInputSchema = z.object({
   cropType: z.string().describe('The type of crop being grown.'),
   soilType: z.string().describe('The type of soil in the field (e.g., Loamy, Sandy, Clay).'),
-  location: z.string().describe('The city or state for which to predict the crop yield. e.g. "Delhi, India"'),
+  temperature: z.string().describe('The current average temperature in Celsius.'),
+  rainfall: z.string().describe('The recent rainfall in mm.'),
   farmSize: z.string().describe('The size of the farm (e.g., "2 hectares", "5 acres").'),
   fertilizerUse: z.string().optional().describe('The amount and type of fertilizer used, e.g., "NPK 120-60-60 kg/hectare".'),
   irrigationMethod: z.string().optional().describe('The irrigation method used (e.g., Drip, Sprinkler, Canal).'),
@@ -52,15 +52,7 @@ export async function predictCropYield(input: PredictCropYieldInput): Promise<Pr
 
 const prompt = ai.definePrompt({
   name: 'predictCropYieldPrompt',
-  input: {schema: z.object({
-    cropType: z.string(),
-    soilType: z.string(),
-    fertilizerUse: z.string().optional(),
-    temperature: z.string(),
-    rainfall: z.string(),
-    irrigationMethod: z.string().optional(),
-    farmSize: z.string(),
-  })},
+  input: {schema: PredictCropYieldInputSchema},
   output: {schema: PredictCropYieldOutputSchema},
   prompt: `You are an expert in agricultural science, specializing in crop yield prediction for Indian farmers. Your language should be simple, encouraging, and easy to understand.
 
@@ -91,7 +83,6 @@ const prompt = ai.definePrompt({
   - Fertilizer Use: {{{fertilizerUse}}}
   - Irrigation Method: {{{irrigationMethod}}}
 `,
-  tools: [getWeatherForLocation],
 });
 
 const predictCropYieldFlow = ai.defineFlow(
@@ -102,12 +93,7 @@ const predictCropYieldFlow = ai.defineFlow(
   },
   async (input) => {
     try {
-        const weather = await getWeatherForLocation(input.location);
-        const {output} = await prompt({
-            ...input,
-            temperature: `${weather.temp_c}°C`,
-            rainfall: `${weather.precip_mm} mm (current)`,
-        });
+        const {output} = await prompt(input);
         return output!;
     } catch (error) {
         console.error("Error in predictCropYieldFlow:", error);
@@ -126,4 +112,3 @@ const predictCropYieldFlow = ai.defineFlow(
     }
   }
 );
-

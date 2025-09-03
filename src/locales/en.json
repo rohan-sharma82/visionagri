@@ -313,9 +313,13 @@
                 "label": "Soil Type",
                 "placeholder": "e.g., Loamy, Sandy, Clay"
             },
-            "location": {
-                "label": "Location",
-                "placeholder": "e.g., Delhi, India"
+            "temperature": {
+                "label": "Temperature (°C)",
+                "placeholder": "e.g., 25"
+            },
+            "rainfall": {
+                "label": "Rainfall (mm)",
+                "placeholder": "e.g., 500"
             },
             "farmSize": {
                 "label": "Farm Size",

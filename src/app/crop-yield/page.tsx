@@ -35,7 +35,8 @@ import { Separator } from '@/components/ui/separator';
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
   soilType: z.string().min(2, 'Soil type is required.'),
-  location: z.string().min(2, 'Location is required.'),
+  temperature: z.string().min(1, 'Temperature is required.'),
+  rainfall: z.string().min(1, 'Rainfall is required.'),
   farmSize: z.string().min(1, 'Farm size is required.'),
   fertilizerUse: z.string().optional(),
   irrigationMethod: z.string().optional(),
@@ -53,18 +54,13 @@ export default function CropYieldPage() {
     defaultValues: {
       cropType: '',
       soilType: '',
-      location: location || '',
+      temperature: '',
+      rainfall: '',
       farmSize: '',
       fertilizerUse: '',
       irrigationMethod: '',
     },
   });
-
-  useEffect(() => {
-    if (location) {
-        form.setValue('location', location);
-    }
-  }, [location, form])
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
@@ -166,12 +162,25 @@ export default function CropYieldPage() {
                         />
                         <FormField
                             control={form.control}
-                            name="location"
+                            name="temperature"
                             render={({ field }) => (
                             <FormItem>
-                                <FormLabel>{t('cropYield.form.location.label')}</FormLabel>
+                                <FormLabel>{t('cropYield.form.temperature.label')}</FormLabel>
                                 <FormControl>
-                                <Input className='form-content' placeholder={t('cropYield.form.location.placeholder')} {...field} />
+                                <Input className='form-content' placeholder={t('cropYield.form.temperature.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="rainfall"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.rainfall.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.rainfall.placeholder')} {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -250,7 +259,6 @@ export default function CropYieldPage() {
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
               <p className="mt-4 text-lg">{t('cropYield.status.loading')}</p>
-              <p className="text-md">{t('cropYield.status.fetchingWeather')}</p>
             </div>
           )}
           {prediction && (
