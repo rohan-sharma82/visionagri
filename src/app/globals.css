@@ -1,51 +1,52 @@
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 220 20% 98%;
-    --foreground: 220 15% 25%;
-    --card: 220 20% 100%;
-    --card-foreground: 220 15% 15%;
-    --popover: 220 20% 100%;
-    --popover-foreground: 220 15% 15%;
-    --primary: 150 75% 45%;
+    --background: 60 40% 95%; /* Desaturated Khaki Light */
+    --foreground: 45 10% 20%;
+    --card: 60 30% 98%;
+    --card-foreground: 45 10% 15%;
+    --popover: 60 30% 98%;
+    --popover-foreground: 45 10% 15%;
+    --primary: 45 70% 40%; /* Harvest Gold */
     --primary-foreground: 0 0% 100%;
-    --secondary: 140 60% 40%;
+    --secondary: 25 60% 40%; /* Earthy Brown */
     --secondary-foreground: 0 0% 100%;
-    --muted: 220 15% 90%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 60 25% 90%;
+    --muted-foreground: 45 10% 45%;
     --accent: 35 90% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 150 75% 45%;
+    --border: 60 20% 88%;
+    --input: 60 20% 88%;
+    --ring: 45 70% 40%;
   }
 
   .dark {
-    --background: 210 25% 10%;
-    --foreground: 210 15% 85%;
-    --card: 210 20% 14%;
-    --card-foreground: 210 15% 85%;
-    --popover: 210 20% 14%;
-    --popover-foreground: 210 15% 85%;
-    --primary: 150 80% 50%;
-    --primary-foreground: 210 15% 5%;
-    --secondary: 140 50% 45%;
+    --background: 60 10% 8%; /* Desaturated Khaki Dark */
+    --foreground: 60 15% 85%;
+    --card: 60 10% 12%;
+    --card-foreground: 60 15% 85%;
+    --popover: 60 10% 12%;
+    --popover-foreground: 60 15% 85%;
+    --primary: 45 75% 50%; /* Harvest Gold */
+    --primary-foreground: 45 15% 5%;
+    --secondary: 25 50% 45%; /* Earthy Brown */
     --secondary-foreground: 0 0% 100%;
-    --muted: 210 15% 25%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 60 10% 20%;
+    --muted-foreground: 60 15% 65%;
     --accent: 35 90% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 15% 25%;
-    --input: 210 15% 25%;
-    --ring: 150 80% 50%;
+    --border: 60 10% 20%;
+    --input: 60 10% 20%;
+    --ring: 45 75% 50%;
   }
 }
 
@@ -453,9 +454,9 @@
   width: 100%;
   max-width: 550px;
   border-radius: 0.5rem;
-  border: 4px solid #fff;
-  background: rgba(144, 238, 144, 0.52); /* lightgreen with opacity */
-  box-shadow: 0px 0px 64px 0px #90ee90 inset, 0px 0px 16px #adffad; /* lightgreen glow */
+  border: 4px solid hsl(var(--primary));
+  background: hsla(var(--primary) / 0.1);
+  box-shadow: 0px 0px 64px 0px hsla(var(--primary) / 0.5) inset, 0px 0px 16px hsla(var(--primary) / 0.7);
   backdrop-filter: blur(3.5px);
   gap: 1em;
   animation: float 2s ease-in-out infinite;
@@ -463,45 +464,45 @@
 
 .farm-data-form .form-label {
   text-align: center;
-  color: #8B0000; /* DarkRed */
+  color: hsl(var(--primary));
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 4px;
-  text-shadow: 0px 0px 16px rgb(20, 20, 20);
+  text-shadow: 0px 0px 16px hsl(var(--foreground) / 0.5);
 }
 
 .farm-data-form .form-content {
   height: 3em;
   padding: 1px 8px;
-  color: black;
+  color: hsl(var(--foreground));
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: bold;
   border-radius: 6px;
-  border: 2px solid #fff;
-  background: rgba(173, 255, 173, 0.486); /* lighter green */
-  box-shadow: 0px 0px 1px 3px #b4eeb4 inset, 0px 4px 4px 0px #18601a40; /* light green glow */
+  border: 2px solid hsl(var(--primary));
+  background: hsla(var(--primary) / 0.1);
+  box-shadow: 0px 0px 1px 3px hsla(var(--primary) / 0.2) inset, 0px 4px 4px 0px hsla(var(--primary) / 0.2);
 }
 
 .farm-data-form label {
-  color: black !important;
+  color: hsl(var(--foreground)) !important;
   font-weight: bold;
 }
 
 .farm-data-form .form-content:focus-visible {
   outline: none;
   text-decoration: none;
-  background: rgba(144, 238, 144, 0.59); /* lightgreen */
-  box-shadow: 0px 0px 1px 4px #b4eeb4; /* lighter green glow */
+  background: hsla(var(--primary) / 0.2);
+  box-shadow: 0px 0px 1px 4px hsla(var(--primary) / 0.3);
 }
 
 .farm-data-form .form-content:hover {
-  background: rgba(144, 238, 144, 0.59); /* lightgreen */
+  background: hsla(var(--primary) / 0.2);
 }
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: #000;
+  color: hsl(var(--muted-foreground));
   letter-spacing: 0.1rem;
 }
 
@@ -513,13 +514,13 @@
   font-size: 1.5em;
   letter-spacing: 0.3rem;
   border: 2px solid white;
-  background: linear-gradient(144deg, #d2b48c, #cd853f 50%, #f4a460); /* Tan, Peru, SandyBrown */
+  background: linear-gradient(144deg, hsl(var(--primary)), hsl(var(--secondary)) 50%, hsl(var(--accent)));
 }
 
 .farm-data-form button:hover {
   position: relative;
   bottom: 4px;
-  background: linear-gradient(144deg, #d2b48c, #cd853f 50%, #f4a460); /* Same as above for consistency */
+  background: linear-gradient(144deg, hsl(var(--primary)), hsl(var(--secondary)) 50%, hsl(var(--accent)));
   box-shadow: 0px 0px 2px 2px #ffffff;
 }
 
@@ -1912,6 +1913,7 @@
   background: hsla(var(--card) / 0.9);
   border: 2px solid hsl(var(--primary));
   border-radius: 3px;
+  box-sizing: border-box;
 }
 .face .content {
   color: hsl(var(--foreground));
@@ -2021,7 +2023,6 @@
   color: hsl(var(--primary));
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 .face .content .thank-you-msg:after {
@@ -2034,9 +2035,7 @@
   border-top: 0;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%) rotate(0deg) scale(0);
   transform: translate(-50%, -50%) rotate(0deg) scale(0);
-  -webkit-animation: success ease-in 0.15s forwards;
   animation: success ease-in 0.15s forwards;
   animation-delay: 2.5s;
 }
@@ -2060,26 +2059,16 @@
   height: 250px;
   transform: rotateX(-90deg) translateZ(225px);
 }
-.psw,
-.signup,
-.singin {
+.psw, .signup, .singin{
   display: block;
-  margin: 20px 0;
+  margin: 1rem 0;
   font-size: 0.75em;
   text-align: center;
   color: hsl(var(--accent));
   cursor: pointer;
 }
-small {
+small{
   font-size: 0.7em;
-}
-@-webkit-keyframes success {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0) scale(0);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(-45deg) scale(1);
-  }
 }
 @keyframes success {
   from {
