@@ -502,9 +502,10 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: #E895DC;
+  color: #c565b4 !important;
   letter-spacing: 0.1rem;
 }
+
 
 .farm-data-form button {
   cursor: pointer;
@@ -1245,4 +1246,3 @@
     
 
     
-
