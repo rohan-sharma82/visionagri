@@ -454,9 +454,9 @@
   width: 100%;
   max-width: 550px;
   border-radius: 0.5rem;
-  border: 4px solid #55a630;
-  background: rgba(85, 166, 48, 0.1);
-  box-shadow: 0px 0px 64px 0px hsla(98, 55%, 50%, 0.5) inset, 0px 0px 16px hsla(98, 55%, 50%, 0.7);
+  border: 4px solid #71BFA2;
+  background: rgba(113, 191, 162, 0.1);
+  box-shadow: 0px 0px 64px 0px hsla(155, 38%, 60%, 0.5) inset, 0px 0px 16px hsla(155, 38%, 60%, 0.7);
   backdrop-filter: blur(3.5px);
   gap: 1.5rem;
   animation: float 2s ease-in-out infinite;
@@ -464,11 +464,11 @@
 
 .farm-data-form .form-label {
   text-align: center;
-  color: #55a630;
+  color: #71BFA2;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 4px;
-  text-shadow: 0px 0px 16px rgba(85, 166, 48, 0.5);
+  text-shadow: 0px 0px 16px rgba(113, 191, 162, 0.5);
 }
 
 .farm-data-form .form-content {
@@ -479,9 +479,9 @@
   letter-spacing: 1px;
   font-weight: bold;
   border-radius: 6px;
-  border: 2px solid #55a630;
-  background: rgba(85, 166, 48, 0.1);
-  box-shadow: 0px 0px 1px 3px rgba(85, 166, 48, 0.2) inset, 0px 4px 4px 0px rgba(85, 166, 48, 0.2);
+  border: 2px solid #71BFA2;
+  background: rgba(113, 191, 162, 0.1);
+  box-shadow: 0px 0px 1px 3px rgba(113, 191, 162, 0.2) inset, 0px 4px 4px 0px rgba(113, 191, 162, 0.2);
 }
 
 .farm-data-form label {
@@ -492,12 +492,12 @@
 .farm-data-form .form-content:focus-visible {
   outline: none;
   text-decoration: none;
-  background: rgba(85, 166, 48, 0.2);
-  box-shadow: 0px 0px 1px 4px rgba(85, 166, 48, 0.3);
+  background: rgba(113, 191, 162, 0.2);
+  box-shadow: 0px 0px 1px 4px rgba(113, 191, 162, 0.3);
 }
 
 .farm-data-form .form-content:hover {
-  background: rgba(85, 166, 48, 0.2);
+  background: rgba(113, 191, 162, 0.2);
 }
 
 .farm-data-form ::placeholder {
@@ -1323,10 +1323,6 @@
 
 .card5-content .card-link:hover {
   color: hsl(var(--primary));
-}
-
-.card5:hover .card5-content {
-  transform: translate(-50%, -50%) scale(0.95);
 }
 
 .card-date {
@@ -2189,4 +2185,11 @@ small{
 .know-your-area-button:hover .hover-btn {
     transform: translate(0%,0%);
 }
+.farm-data-form ::placeholder {
+  font-weight: 300;
+  color: #000 !important;
+  letter-spacing: 0.1rem;
+}
+    
+
     
