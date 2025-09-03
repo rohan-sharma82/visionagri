@@ -502,7 +502,7 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: hsl(var(--muted-foreground));
+  color: #E895DC;
   letter-spacing: 0.1rem;
 }
 
@@ -1245,3 +1245,4 @@
     
 
     
+
