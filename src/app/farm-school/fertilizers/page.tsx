@@ -38,11 +38,11 @@ export default function FarmFertilizersPage() {
         </div>
         <div className="relative aspect-video max-w-4xl mx-auto mb-8 rounded-lg overflow-hidden">
             <Image 
-                src="/images/fertilizer.jpeg" 
-                alt="Fertilizers"
+                src="/images/Product Consumption - Fertiliser.jpeg" 
+                alt="Fertilizer consumption statistics"
                 fill
                 className="object-cover"
-                data-ai-hint="fertilizer bags"
+                data-ai-hint="fertilizer infographic"
              />
         </div>
 
