@@ -502,7 +502,7 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: #c565b4 !important;
+  color: #A96EAA !important;
   letter-spacing: 0.1rem;
 }
 
@@ -691,7 +691,7 @@
 .jumping-dots-loader .dot:nth-child(6) {
   --uib-bottom: 30%;
   --uib-right: 10%;
-  animation-delay: calc(var(--uib-speed) * var(--uib-d3));
+  animation-delay: calc(var(--uib-speed) * var_(--uib-d3));
 }
 .jumping-dots-loader .dot:nth-child(7) {
   --uib-bottom: 22%;
@@ -1190,59 +1190,71 @@
   }
 }
 
-/* From Uiverse.io by gagan-gv */
+/* From uiverse.io by @adamgiebl */
 .know-your-area-button {
-    position: relative;
-    overflow: hidden;
-    outline: none;
-    cursor: pointer;
-    border-radius: 50px;
-    background-color: hsl(var(--primary));
-    border: solid 4px hsl(var(--accent));
-    font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid hsl(var(--foreground));
+  color: hsl(var(--foreground));
+  display: inline-block;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 18px 18px 17px;
+  text-decoration: none;
+  cursor: pointer;
+  background: hsl(var(--card));
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border-radius: 4px;
 }
-
-.know-your-area-button .default-btn,
-.know-your-area-button .hover-btn {
-    background-color: hsl(var(--primary));
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
-    border-radius: 50px;
-    font-size: 17px;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: all .3s ease;
+ 
+.know-your-area-button span:first-child {
+  position: relative;
+  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 10;
 }
-
-.know-your-area-button .hover-btn {
-    position: absolute;
-    inset: 0;
-    background-color: hsl(var(--primary) / 0.9);
-    transform: translate(0%,100%);
+ 
+.know-your-area-button span:last-child {
+  color: hsl(var(--primary-foreground));
+  display: block;
+  position: absolute;
+  bottom: 0;
+  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+  z-index: 100;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(225%) translateX(-50%);
+  height: 14px;
+  line-height: 13px;
 }
-
-.know-your-area-button .default-btn span {
-    color: hsl(var(--primary-foreground));
+ 
+.know-your-area-button:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(var(--primary));
+  transform-origin: bottom center;
+  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+  transform: skewY(9.3deg) scaleY(0);
+  z-index: 50;
 }
-
-.know-your-area-button .hover-btn span {
-    color: hsl(var(--accent));
+ 
+.know-your-area-button:hover:after {
+  transform-origin: bottom center;
+  transform: skewY(9.3deg) scaleY(2);
 }
-
-.know-your-area-button:hover .default-btn {
-    transform: translate(0%,-100%);
-}
-
-.know-your-area-button:hover .hover-btn {
-    transform: translate(0%,0%);
-}
-.farm-data-form ::placeholder {
-  font-weight: 300;
-  color: #000 !important;
-  letter-spacing: 0.1rem;
+ 
+.know-your-area-button:hover span:last-child {
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 1;
+  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
     
 
     
+
