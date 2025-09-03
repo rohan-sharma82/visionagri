@@ -260,7 +260,7 @@ export default function CropYieldPage() {
               transition={{ duration: 0.5 }}
               className="w-full"
             >
-              <Card className="shadow-xl" style={{ backgroundColor: '#73B8AE' }}>
+              <Card className="shadow-xl" style={{ backgroundColor: '#D8CB76' }}>
                 <CardHeader>
                   <CardTitle className="text-2xl" style={{ color: '#586E41' }}>{t('cropYield.results.title')}</CardTitle>
                 </CardHeader>
