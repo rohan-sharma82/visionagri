@@ -346,6 +346,44 @@
             "errorDescription": "Failed to get prediction. Please try again."
         }
     },
+    "govtSchemes": {
+        "title": "Government Schemes for Farmers",
+        "subtitle": "Explore beneficial programs and support from the government.",
+        "readMore": "Read More",
+        "dialogDescription": "Detailed information about the {schemeName} scheme."
+    },
+    "schemes": {
+        "pmkisan": {
+            "name": "Pradhan Mantri Kisan Samman Nidhi",
+            "shortName": "PM-KISAN",
+            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
+            "description": "schemes.pmkisan.description"
+        },
+        "pmfby": {
+            "name": "Pradhan Mantri Fasal Bima Yojana",
+            "shortName": "PM Fasal Yojana",
+            "shortDescription": "Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
+            "description": "schemes.pmfby.description"
+        },
+        "enam": {
+            "name": "E-NAM (National Agriculture Market)",
+            "shortName": "E-NAM",
+            "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
+            "description": "schemes.enam.description"
+        },
+        "pmkmy": {
+            "name": "Pradhan Mantri Kisan Maandhan Yojana",
+            "shortName": "PM Kisan Maandhan",
+            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
+            "description": "schemes.pmkmy.description"
+        },
+        "kcc": {
+            "name": "Kisan Credit Card",
+            "shortName": "KCC",
+            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
+            "description": "schemes.kcc.description"
+        }
+    },
     "dashboard": {
         "login": {
             "title": "ਡੈਸ਼ਬੋਰਡ ਪਹੁੰਚ",

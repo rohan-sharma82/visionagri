@@ -361,6 +361,15 @@ export const schemesData = [
     imageUrl: 'https://www.gyan.bharatagri.com/wp-content/uploads/2024/08/5_Pradhan-Mantri-Kisan-MaanDhan-Yojana-PM-KMY.webp',
     dataAiHint: 'pension scheme',
   },
+  {
+    id: 5,
+    name: 'schemes.kcc.name',
+    shortName: 'schemes.kcc.shortName',
+    shortDescription: 'schemes.kcc.shortDescription',
+    description: 'schemes.kcc.description',
+    imageUrl: 'https://picsum.photos/300/200',
+    dataAiHint: 'credit card',
+  }
 ];
 
 export const farmingQuotes = [
