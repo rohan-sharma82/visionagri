@@ -265,27 +265,27 @@ export default function CropYieldPage() {
                   <CardTitle className="text-2xl" style={{ color: '#586E41' }}>{t('cropYield.results.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="flex items-start space-x-4 p-4 rounded-lg bg-primary/10">
-                    <TrendingUp className="h-8 w-8 text-primary mt-1" />
+                  <div className="flex items-start space-x-4 p-4 rounded-lg" style={{backgroundColor: 'rgba(0,0,0,0.05)'}}>
+                    <TrendingUp className="h-8 w-8 mt-1" style={{ color: '#0000FF' }} />
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('cropYield.results.predictedYield')}</h3>
-                      <p className="text-2xl font-bold text-primary">{prediction.predictedYield}</p>
-                      <p className="text-sm text-muted-foreground">{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
+                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.predictedYield')}</h3>
+                      <p className="text-2xl font-bold" style={{ color: 'black' }}>{prediction.predictedYield}</p>
+                      <p className="text-sm" style={{ color: 'black' }}>{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
                     </div>
                   </div>
                    <Separator />
                    <div className="flex items-start space-x-4">
-                    <Info className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <Info className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('cropYield.results.analysis')}</h3>
-                      <p className="mt-1 text-muted-foreground whitespace-pre-wrap">{prediction.yieldAnalysis}</p>
+                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.analysis')}</h3>
+                      <p className="mt-1 whitespace-pre-wrap" style={{ color: 'black' }}>{prediction.yieldAnalysis}</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
-                    <Wind className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <Wind className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('cropYield.results.factors')}</h3>
-                      <ul className="list-disc pl-5 mt-1 text-muted-foreground">
+                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.factors')}</h3>
+                      <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
                         {prediction.factorsInfluencingYield.map((factor, index) => (
                           <li key={index}>{factor}</li>
                         ))}
@@ -293,10 +293,10 @@ export default function CropYieldPage() {
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
-                    <Zap className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <Zap className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('cropYield.results.actions')}</h3>
-                      <ul className="list-disc pl-5 mt-1 text-muted-foreground">
+                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.actions')}</h3>
+                      <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
                         {prediction.suggestedActions.map((action, index) => (
                           <li key={index}>{action}</li>
                         ))}
@@ -305,10 +305,10 @@ export default function CropYieldPage() {
                   </div>
                    <Separator />
                    <div className="flex items-start space-x-4">
-                    <Wheat className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                    <Wheat className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('cropYield.results.idealValues')}</h3>
-                      <div className="mt-1 text-muted-foreground space-y-1">
+                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.idealValues')}</h3>
+                      <div className="mt-1 space-y-1" style={{ color: 'black' }}>
                         <p><strong>{t('cropYield.form.fertilizer.label')}:</strong> {prediction.idealValues.fertilizer}</p>
                         <p><strong>{t('cropYield.form.irrigation.label')}:</strong> {prediction.idealValues.irrigation}</p>
                       </div>
