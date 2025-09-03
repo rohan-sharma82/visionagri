@@ -454,9 +454,9 @@
   width: 100%;
   max-width: 550px;
   border-radius: 0.5rem;
-  border: 4px solid hsl(var(--primary));
-  background: hsla(var(--primary) / 0.1);
-  box-shadow: 0px 0px 64px 0px hsla(var(--primary) / 0.5) inset, 0px 0px 16px hsla(var(--primary) / 0.7);
+  border: 4px solid #b4d156;
+  background: rgba(180, 209, 86, 0.1);
+  box-shadow: 0px 0px 64px 0px hsla(75, 56%, 63%, 0.5) inset, 0px 0px 16px hsla(75, 56%, 63%, 0.7);
   backdrop-filter: blur(3.5px);
   gap: 1em;
   animation: float 2s ease-in-out infinite;
@@ -464,11 +464,11 @@
 
 .farm-data-form .form-label {
   text-align: center;
-  color: hsl(var(--primary));
+  color: #b4d156;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 4px;
-  text-shadow: 0px 0px 16px hsl(var(--foreground) / 0.5);
+  text-shadow: 0px 0px 16px rgba(180, 209, 86, 0.5);
 }
 
 .farm-data-form .form-content {
@@ -479,9 +479,9 @@
   letter-spacing: 1px;
   font-weight: bold;
   border-radius: 6px;
-  border: 2px solid hsl(var(--primary));
-  background: hsla(var(--primary) / 0.1);
-  box-shadow: 0px 0px 1px 3px hsla(var(--primary) / 0.2) inset, 0px 4px 4px 0px hsla(var(--primary) / 0.2);
+  border: 2px solid #b4d156;
+  background: rgba(180, 209, 86, 0.1);
+  box-shadow: 0px 0px 1px 3px rgba(180, 209, 86, 0.2) inset, 0px 4px 4px 0px rgba(180, 209, 86, 0.2);
 }
 
 .farm-data-form label {
@@ -492,12 +492,12 @@
 .farm-data-form .form-content:focus-visible {
   outline: none;
   text-decoration: none;
-  background: hsla(var(--primary) / 0.2);
-  box-shadow: 0px 0px 1px 4px hsla(var(--primary) / 0.3);
+  background: rgba(180, 209, 86, 0.2);
+  box-shadow: 0px 0px 1px 4px rgba(180, 209, 86, 0.3);
 }
 
 .farm-data-form .form-content:hover {
-  background: hsla(var(--primary) / 0.2);
+  background: rgba(180, 209, 86, 0.2);
 }
 
 .farm-data-form ::placeholder {
@@ -514,13 +514,13 @@
   font-size: 1.5em;
   letter-spacing: 0.3rem;
   border: 2px solid white;
-  background: linear-gradient(144deg, hsl(var(--primary)), hsl(var(--secondary)) 50%, hsl(var(--accent)));
+  background: linear-gradient(144deg, #b4d156, #8a9a5b 50%, #6b8e23);
 }
 
 .farm-data-form button:hover {
   position: relative;
   bottom: 4px;
-  background: linear-gradient(144deg, hsl(var(--primary)), hsl(var(--secondary)) 50%, hsl(var(--accent)));
+  background: linear-gradient(144deg, #b4d156, #8a9a5b 50%, #6b8e23);
   box-shadow: 0px 0px 2px 2px #ffffff;
 }
 
@@ -2135,31 +2135,52 @@ small{
 .logout-button:active:after {
     background: teal;
 }
-    
-.button.type1 {
-  background-color: hsl(var(--primary));
-  color: white;
-  border-radius: 10em;
-  font-size: 17px;
-  font-weight: 600;
-  padding: 1em 2em;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  border: 1px solid black;
-  box-shadow: 0 0 0 0 black;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+.know-your-area-button {
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: hsl(var(--primary));
+    border: solid 4px hsl(var(--accent));
+    font-family: inherit;
 }
 
-.button.type1:hover {
-  transform: translateY(-4px) translateX(-2px);
-  box-shadow: 2px 5px 0 0 black;
+.know-your-area-button .default-btn,
+.know-your-area-button .hover-btn {
+    background-color: hsl(var(--primary));
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .3s ease;
 }
 
-.button.type1:active {
-  transform: translateY(2px) translateX(1px);
-  box-shadow: 0 0 0 0 black;
+.know-your-area-button .hover-btn {
+    position: absolute;
+    inset: 0;
+    background-color: hsl(var(--primary) / 0.9);
+    transform: translate(0%,100%);
 }
 
+.know-your-area-button .default-btn span {
+    color: hsl(var(--primary-foreground));
+}
+
+.know-your-area-button .hover-btn span {
+    color: hsl(var(--accent));
+}
+
+.know-your-area-button:hover .default-btn {
+    transform: translate(0%,-100%);
+}
+
+.know-your-area-button:hover .hover-btn {
+    transform: translate(0%,0%);
+}
     
