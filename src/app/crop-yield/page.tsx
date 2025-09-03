@@ -14,8 +14,6 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardFooter
 } from '@/components/ui/card';
 import {
   Form,
@@ -26,7 +24,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Loader2, TrendingUp, Zap, Wind, Info, Wheat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
@@ -129,107 +126,111 @@ export default function CropYieldPage() {
 
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
-        <div className="farm-data-form-container">
-            <AreaInfoDialog />
-            <div className="rays" />
-            <Form {...form}>
-                <form
-                id="crop-yield-form"
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="farm-data-form"
-                >
-                    <div className="form-label">{t('cropYield.form.title')}</div>
+        <div className="flex flex-col items-center gap-8">
+            <div className="farm-data-form-container w-full">
+                <AreaInfoDialog />
+                <div className="rays" />
+                <Form {...form}>
+                    <form
+                    id="crop-yield-form"
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="farm-data-form"
+                    >
+                        <div className="form-label">{t('cropYield.form.title')}</div>
 
-                    <FormField
-                        control={form.control}
-                        name="cropType"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('cropYield.form.cropType.label')}</FormLabel>
-                            <FormControl>
-                            <Input className='form-content' placeholder={t('cropYield.form.cropType.placeholder')} {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="soilType"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('cropYield.form.soilType.label')}</FormLabel>
-                            <FormControl>
-                            <Input className='form-content' placeholder={t('cropYield.form.soilType.placeholder')} {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="location"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('cropYield.form.location.label')}</FormLabel>
-                            <FormControl>
-                            <Input className='form-content' placeholder={t('cropYield.form.location.placeholder')} {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="farmSize"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('cropYield.form.farmSize.label')}</FormLabel>
-                            <FormControl>
-                            <Input className='form-content' placeholder={t('cropYield.form.farmSize.placeholder')} {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="fertilizerUse"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('cropYield.form.fertilizer.label')}</FormLabel>
-                            <FormControl>
-                            <Input className='form-content' placeholder={t('cropYield.form.fertilizer.placeholder')} {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="irrigationMethod"
-                        render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>{t('cropYield.form.irrigation.label')}</FormLabel>
-                            <FormControl>
-                            <Input className='form-content' placeholder={t('cropYield.form.irrigation.placeholder')} {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                        )}
-                    />
-                     <Button type="submit" form="crop-yield-form" disabled={isLoading} className="w-full">
-                        {isLoading ? (
-                        <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
-                            {t('cropYield.buttons.predicting')}
-                        </>
-                        ) : (
-                        t('cropYield.buttons.predict')
-                        )}
-                    </Button>
-                </form>
-            </Form>
+                        <FormField
+                            control={form.control}
+                            name="cropType"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.cropType.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.cropType.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="soilType"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.soilType.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.soilType.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="location"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.location.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.location.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="farmSize"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.farmSize.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.farmSize.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="fertilizerUse"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.fertilizer.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.fertilizer.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="irrigationMethod"
+                            render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>{t('cropYield.form.irrigation.label')}</FormLabel>
+                                <FormControl>
+                                <Input className='form-content' placeholder={t('cropYield.form.irrigation.placeholder')} {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                            )}
+                        />
+                    </form>
+                </Form>
+            </div>
+            <div className="voltage-button">
+                <button onClick={form.handleSubmit(onSubmit)} disabled={isLoading}>
+                {isLoading ? (
+                    <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
+                        {t('cropYield.buttons.predicting')}
+                    </>
+                    ) : (
+                    t('cropYield.buttons.predict')
+                    )}
+                </button>
+            </div>
         </div>
         
 
@@ -318,5 +319,3 @@ export default function CropYieldPage() {
     </>
   );
 }
-
-    
