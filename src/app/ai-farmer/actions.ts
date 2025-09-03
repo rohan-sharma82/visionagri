@@ -1,74 +1,69 @@
-
 'use server';
 
-import { sql } from '@vercel/postgres';
-import { v4 as uuidv4 } from 'uuid';
-import { cookies } from 'next/headers';
-import type { Message } from './page';
+import { db } from '@/lib/db';
+import { sql } from 'drizzle-orm';
 
-const USER_ID_COOKIE = 'agrivision_user_id';
-
-export async function createOrGetUserId() {
-  const cookieStore = cookies();
-  let userId = cookieStore.get(USER_ID_COOKIE)?.value;
-
-  if (!userId) {
-    userId = uuidv4();
-    cookieStore.set(USER_ID_COOKIE, userId, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 60 * 60 * 24 * 365, // 1 year
-    });
-  }
-
-  // Ensure the chats table exists
-  await sql`
-    CREATE TABLE IF NOT EXISTS chats (
-      id SERIAL PRIMARY KEY,
-      user_id VARCHAR(255) NOT NULL,
-      role VARCHAR(50) NOT NULL,
-      content TEXT NOT NULL,
-      audio_url TEXT,
-      created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-    );
-  `;
-  
-  return userId;
+interface Chat {
+  id: number;
+  user_id: string;
+  history: any; // Assuming history is a JSON object
 }
 
-export async function getMessages(userId: string): Promise<Message[]> {
+async function ensureTablesExist() {
+    await db.execute(sql`
+        CREATE TABLE IF NOT EXISTS chats (
+            id SERIAL PRIMARY KEY,
+            user_id VARCHAR(255) NOT NULL UNIQUE,
+            history JSONB NOT NULL
+        );
+    `);
+}
+
+
+export async function getChatHistory(userId: string): Promise<any[]> {
+    await ensureTablesExist();
     try {
-        const result = await sql`
-            SELECT id, role, content, audio_url as "audioUrl"
-            FROM chats 
-            WHERE user_id = ${userId} 
-            ORDER BY created_at ASC
-        `;
-        return result.rows as Message[];
+        const result = await db.execute(sql`
+            SELECT history FROM chats WHERE user_id = ${userId}
+        `);
+        return result.rows.length > 0 ? (result.rows[0].history as any[]) : [];
     } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to fetch messages.');
+        console.error('Error getting chat history:', error);
+        return [];
     }
 }
 
-export async function addMessage(userId: string, message: Message) {
-    const { role, content, audioUrl } = message;
+export async function saveChatHistory(userId: string, history: any[]): Promise<void> {
+    await ensureTablesExist();
     try {
-        await sql`
-            INSERT INTO chats (user_id, role, content, audio_url)
-            VALUES (${userId}, ${role}, ${content}, ${audioUrl ?? null})
-        `;
+        const historyJson = JSON.stringify(history);
+
+        // Check if history size exceeds a reasonable limit (e.g., 1MB)
+        if (historyJson.length > 1024 * 1024) {
+            console.error('Chat history size exceeds limit for user:', userId);
+            throw new Error('Chat history is too large to save.');
+        }
+
+        await db.execute(sql`
+            INSERT INTO chats (user_id, history)
+            VALUES (${userId}, ${historyJson})
+            ON CONFLICT (user_id) DO UPDATE
+            SET history = EXCLUDED.history;
+        `);
     } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to add message.');
+        console.error('Error saving chat history:', error);
+        // Rethrow to be caught by the calling function
+        throw error;
     }
 }
 
-export async function clearMessages(userId: string) {
+export async function clearChatHistory(userId: string): Promise<void> {
+    await ensureTablesExist();
     try {
-        await sql`DELETE FROM chats WHERE user_id = ${userId}`;
+        await db.execute(sql`
+            DELETE FROM chats WHERE user_id = ${userId}
+        `);
     } catch (error) {
-        console.error('Database Error:', error);
-        throw new Error('Failed to clear messages.');
+        console.error('Error clearing chat history:', error);
     }
 }

@@ -9,6 +9,7 @@
         "animalClassification": "Animal Classification",
         "govtSchemes": "Govt. Schemes"
     },
+    "kisanCallCenter": "Kisan Call Center -> 1800-180-1551",
     "header": {
         "menu": "Menu"
     },
@@ -536,48 +537,11 @@
     "dashboard": {
         "login": {
             "title": "Dashboard Access",
-            "description": "Please log in to view your personalized dashboard.",
-            "emailPlaceholder": "Email",
-            "passwordPlaceholder": "Password",
-            "button": "Login",
-            "error": "Invalid credentials. Please try again.",
-            "prism": {
-                "signIn": "Sign in",
-                "email": "e-mail",
-                "password": "password",
-                "forgotPassword": "Forgot Password?",
-                "notAUser": "Not a user? Sign up",
-                "subscribe": {
-                    "title": "Subscribe",
-                    "description": "Enter your email so we can send you the latest updates!"
-                },
-                "forgot": {
-                    "title": "Forgot your password?",
-                    "description": "Enter your email so we can send you a reset link for your password"
-                },
-                "signUp": {
-                    "title": "Sign up",
-                    "reEnterPassword": "re-enter password",
-                    "alreadyAUser": "Already a user? Sign in"
-                },
-                "contact": {
-                    "title": "Contact us",
-                    "name": "Name",
-                    "message": "your message"
-                },
-                "thankYou": "Thank you!",
-                "nav": {
-                    "login": "Login",
-                    "signUp": "Sign up",
-                    "forgotPassword": "Forgot password",
-                    "subscribe": "Subscribe",
-                    "contact": "Contact us"
-                }
-            },
-            "judgeInfo": {
-                "title": "For Judges: Dummy Credentials",
-                "description": "Use these accounts to test the dashboard with different data."
-            }
+            "description": "Please log in to view your personalized dashboard."
+        },
+        "selectProfile": {
+            "title": "Select a Demo Profile",
+            "description": "Choose a user profile to see a personalized dashboard demonstration."
         },
         "welcome": "Welcome back, Farmer!",
         "subtitle": "A personalized hub with weather forecasts, market analysis, and recommended schemes for your farm.",
@@ -624,5 +588,3 @@
         }
     }
 }
-
-    

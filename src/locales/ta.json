@@ -9,6 +9,7 @@
         "animalClassification": "விலங்கு வகைப்படுத்தல்",
         "govtSchemes": "அரசு திட்டங்கள்"
     },
+    "kisanCallCenter": "கிசான் கால் சென்டர் -> 1800-180-1551",
     "header": {
         "menu": "பட்டியல்"
     },
@@ -196,36 +197,55 @@
     },
     "dashboard": {
         "login": {
-            "title": "Dashboard Access",
-            "description": "Please log in to view your personalized dashboard.",
-            "emailPlaceholder": "Email",
-            "passwordPlaceholder": "Password",
-            "button": "Login",
-            "error": "Invalid credentials. Please try again."
+            "title": "டாஷ்போர்டு அணுகல்",
+            "description": "உங்கள் தனிப்பயனாக்கப்பட்ட டாஷ்போர்டைப் பார்க்க தயவுசெய்து உள்நுழையவும்."
         },
-        "welcome": "Welcome back, Farmer!",
-        "subtitle": "Here is an overview of your farm's status and history.",
+        "selectProfile": {
+            "title": "ஒரு டெமோ சுயவிவரத்தைத் தேர்ந்தெடுக்கவும்",
+            "description": "ஒரு தனிப்பயனாக்கப்பட்ட டாஷ்போர்டு ஆர்ப்பாட்டத்தைக் காண ஒரு பயனர் சுயவிவரத்தைத் தேர்ந்தெடுக்கவும்."
+        },
+        "welcome": "மீண்டும் வருக, விவசாயி!",
+        "subtitle": "உங்கள் பண்ணைக்கான வானிலை முன்னறிவிப்புகள், சந்தை பகுப்பாய்வு மற்றும் பரிந்துரைக்கப்பட்ட திட்டங்களுடன் ஒரு தனிப்பயனாக்கப்பட்ட மையம்.",
+        "logout": "வெளியேறு",
         "yieldHistory": {
-            "title": "Yield Prediction History",
-            "description": "Track AI predictions against your actual harvest to help us improve.",
+            "title": "விளைச்சல் கணிப்பு வரலாறு",
+            "description": "எங்களை மேம்படுத்த உதவ உங்கள் உண்மையான அறுவடைக்கு எதிராக AI கணிப்புகளைக் கண்காணிக்கவும்.",
             "table": {
-                "date": "Date",
-                "crop": "Crop",
-                "predicted": "Predicted Yield (Tonnes)",
-                "actual": "Actual Yield (Tonnes)",
-                "action": "Enter Actual Yield"
+                "date": "தேதி",
+                "crop": "பயிர்",
+                "predicted": "கணிக்கப்பட்ட விளைச்சல் (டன்கள்)",
+                "actual": "உண்மையான விளைச்சல் (டன்கள்)",
+                "action": "உண்மையான விளைச்சலை உள்ளிடவும்"
             },
-            "button": "Add Entry"
+            "button": "உள்ளீட்டைச் சேர்க்கவும்"
         },
         "schemes": {
-            "title": "Recommended Schemes for You",
-            "description": "Based on your profile, these government schemes might be beneficial."
+            "title": "உங்களுக்கான பரிந்துரைக்கப்பட்ட திட்டங்கள்",
+            "description": "உங்கள் சுயவிவரத்தின் அடிப்படையில், இந்த அரசாங்கத் திட்டங்கள் நன்மை பயக்கும்."
         },
         "weather": {
-            "title": "Weather Outlook & Alerts",
-            "description": "Current conditions and actionable advice for the week ahead."
+            "title": "வானிலை கண்ணோட்டம் & எச்சரிக்கைகள்",
+            "description": "உங்கள் இருப்பிடத்திற்கான தற்போதைய நிலைமைகள் மற்றும் செயல்படக்கூடிய ஆலோசனை: {location}.",
+            "current": "தற்போதைய",
+            "humidity": "ஈரப்பதம்",
+            "wind": "காற்று",
+            "aqi": "AQI",
+            "astronomy": "வானியல்",
+            "sunrise": "சூரிய உதயம்",
+            "sunset": "சூரிய அஸ்தமனம்",
+            "moon": "சந்திரன் கட்டம்",
+            "forecast": "3-நாள் முன்னறிவிப்பு",
+            "today": "இன்று",
+            "loading": "உங்கள் பண்ணைக்கான நேரடி வானிலை தரவைப் பெறுகிறது...",
+            "error": "வானிலை தரவை ஏற்ற முடியவில்லை. தயவுசெய்து பின்னர் மீண்டும் முயற்சிக்கவும்."
+        },
+        "market": {
+            "title": "{crop} க்கான சந்தை விலை பகுப்பாய்வு",
+            "description": "வரலாற்று விலைகளைக் கண்காணித்து, AI- ఆధారిత முன்னறிவிப்பைப் பெறுங்கள்.",
+            "loading": "சந்தை தரவை பகுப்பாய்வு செய்கிறது...",
+            "error": "சந்தை தரவை ஏற்ற முடியவில்லை. தயவுசெய்து பின்னர் மீண்டும் முயற்சிக்கவும்.",
+            "analysis": "AI போக்கு பகுப்பாய்வு",
+            "forecast": "AI முன்னறிவிப்பு"
         }
     }
 }
-
-    

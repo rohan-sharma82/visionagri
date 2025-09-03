@@ -2,13 +2,11 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Header from '@/components/layout/header';
-import LoginPrism from '@/components/login-prism';
 import { useTranslation } from '@/hooks/use-translation';
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -21,7 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, LogOut } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, LogOut, User } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -29,9 +27,12 @@ import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
+import { cn } from '@/lib/utils';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const allDashboardData: Record<string, any> = {
-    'user1@agrivision.ai': {
+    'user1': {
+        name: 'User 1 (Punjab)',
         location: 'Punjab, India',
         primaryCrop: 'Wheat',
         yieldHistory: [
@@ -44,7 +45,8 @@ const allDashboardData: Record<string, any> = {
             { name: 'schemes.pmfby.shortName', reason: 'Due to weather unpredictability in your region.' },
         ],
     },
-    'user2@agrivision.ai': {
+    'user2': {
+        name: 'User 2 (Maharashtra)',
         location: 'Maharashtra, India',
         primaryCrop: 'Sugarcane',
         yieldHistory: [
@@ -55,7 +57,8 @@ const allDashboardData: Record<string, any> = {
             { name: 'schemes.enam.name', reason: 'To get better prices for your sugarcane.' },
         ],
     },
-    'user3@agrivision.ai': {
+    'user3': {
+        name: 'User 3 (Kerala)',
         location: 'Kerala, India',
         primaryCrop: 'Cotton',
         yieldHistory: [
@@ -161,28 +164,34 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
   )
 }
 
+const DataSkeleton = () => (
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <Skeleton className="h-[400px] md:col-span-3" />
+        <Skeleton className="h-[300px] md:col-span-2" />
+        <Skeleton className="h-[300px]" />
+        <Skeleton className="h-[300px] md:col-span-3" />
+    </div>
+);
+
 export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
-  const [currentUser, setCurrentUser] = useState<string | null>(null);
+  const [currentUserKey, setCurrentUserKey] = useState<string | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isLoadingWeather, setIsLoadingWeather] = useState(true);
-  const [isLoadingMarket, setIsLoadingMarket] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const isAuthenticated = !!currentUser;
-  const userData = currentUser ? allDashboardData[currentUser] : null;
+  const isAuthenticated = !!currentUserKey;
+  const userData = currentUserKey ? allDashboardData[currentUserKey] : null;
 
   useEffect(() => {
     async function fetchData() {
         if (!isAuthenticated || !userData) {
-            setIsLoadingWeather(false);
-            setIsLoadingMarket(false);
+            setIsLoading(false);
             return;
         }
 
-        setIsLoadingWeather(true);
-        setIsLoadingMarket(true);
+        setIsLoading(true);
 
         try {
             const locationToFetch = globalLocation || userData.location;
@@ -198,15 +207,16 @@ export default function DashboardPage() {
         } catch (error) {
             console.error("Failed to fetch dashboard data:", error);
         } finally {
-            setIsLoadingWeather(false);
-            setIsLoadingMarket(false);
+            setIsLoading(false);
         }
     }
     fetchData();
   }, [isAuthenticated, userData, globalLocation]);
 
-  const handleLogout = () => {
-    setCurrentUser(null);
+  const handleClearUser = () => {
+    setCurrentUserKey(null);
+    setWeatherData(null);
+    setMarketData(null);
   };
 
 
@@ -222,26 +232,41 @@ export default function DashboardPage() {
             {isAuthenticated ? t('dashboard.subtitle') : t('dashboard.login.description')}
           </p>
            <p className="mt-4 text-base font-semibold text-primary">
-              Kisan Call Center -&gt; 1800-180-1551
+             {t('kisanCallCenter')}
           </p>
           {isAuthenticated && (
-             <button className="logout-button" onClick={handleLogout}>
+             <button className="logout-button" onClick={handleClearUser}>
                 <p>{t('dashboard.logout')}</p>
             </button>
           )}
         </div>
 
         {!isAuthenticated && (
-            <LoginPrism onLoginSuccess={(user) => setCurrentUser(user)} />
+             <Card className="max-w-2xl mx-auto bg-card/30 backdrop-blur-sm border-primary/20">
+                <CardHeader>
+                    <CardTitle>{t('dashboard.selectProfile.title')}</CardTitle>
+                    <CardDescription>{t('dashboard.selectProfile.description')}</CardDescription>
+                </CardHeader>
+                <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {Object.keys(allDashboardData).map((key) => (
+                        <button key={key} onClick={() => setCurrentUserKey(key)} className="group relative block h-24 w-full overflow-hidden rounded-lg bg-secondary text-secondary-foreground p-4 text-left transition-transform hover:scale-105">
+                           <div className="absolute inset-0 z-0 opacity-20 transition-opacity group-hover:opacity-30">
+                            <User className="h-24 w-24 absolute -right-4 -bottom-4 text-primary/30" />
+                           </div>
+                           <h3 className="font-bold relative z-10">{allDashboardData[key].name}</h3>
+                           <p className="text-xs relative z-10">{allDashboardData[key].primaryCrop}</p>
+                        </button>
+                    ))}
+                </CardContent>
+            </Card>
         )}
 
         {isAuthenticated && userData && (
+            isLoading ? <DataSkeleton /> : (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
             {/* Weather Card */}
-            {isLoadingWeather ? (
-                 <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
-            ) : weatherData ? (
+            {weatherData ? (
                 <WeatherCard weatherData={weatherData} />
             ) : (
                 <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
@@ -254,9 +279,7 @@ export default function DashboardPage() {
                     <CardDescription>{t('dashboard.market.description')}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {isLoadingMarket ? (
-                        <p className="text-center">{t('dashboard.market.loading')}</p>
-                    ) : marketData ? (
+                    {marketData ? (
                         <MarketPriceChart data={marketData} />
                     ) : (
                         <p className="text-center">{t('dashboard.market.error')}</p>
@@ -325,19 +348,17 @@ export default function DashboardPage() {
                     </TableBody>
                 </Table>
                 </CardContent>
-                <CardFooter>
+                <CardHeader>
                     <Button>
                         <PlusCircle className="mr-2 h-4 w-4" />
                         {t('dashboard.yieldHistory.button')}
                     </Button>
-                </CardFooter>
+                </CardHeader>
             </Card>
-
             </div>
+            )
         )}
       </div>
     </>
   );
 }
-
-    

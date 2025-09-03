@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useRef, useEffect, useCallback, useActionState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -13,7 +13,7 @@ import { textToSpeech } from '@/ai/flows/text-to-speech';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
-import { Loader2, Sparkles, User, Bot, Trash2, Send, Mic, Volume2, StopCircle } from 'lucide-react';
+import { Sparkles, User, Bot, Trash2, Send, Mic, Volume2, StopCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -31,7 +31,6 @@ import {
 } from "@/components/ui/alert-dialog"
 import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
-import { createOrGetUserId, getMessages, addMessage, clearMessages } from './actions';
 
 
 const formSchema = z.object({
@@ -130,9 +129,6 @@ export default function AiFarmerPage() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const [loadingMessage, setLoadingMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
-
-
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
@@ -156,42 +152,6 @@ export default function AiFarmerPage() {
     defaultValues: { query: '' },
   });
 
-  useEffect(() => {
-    async function initUser() {
-      try {
-        const id = await createOrGetUserId();
-        setUserId(id);
-      } catch (error) {
-        console.error("Failed to initialize user:", error);
-        toast({
-          title: "Error",
-          description: "Could not initialize user session.",
-          variant: "destructive",
-        });
-      }
-    }
-    initUser();
-  }, [toast]);
-  
-  useEffect(() => {
-    if (!userId) return;
-  
-    async function loadMessages() {
-      try {
-        const loadedMessages = await getMessages(userId!);
-        setMessages(loadedMessages);
-      } catch (error) {
-        console.error("Failed to fetch messages:", error);
-        toast({
-          title: "Error",
-          description: "Could not load chat history.",
-          variant: "destructive",
-        });
-      }
-    }
-    loadMessages();
-  }, [userId, toast]);
-
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -210,7 +170,7 @@ export default function AiFarmerPage() {
   }, []);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    if (isLoading || !userId) return;
+    if (isLoading) return;
 
     const userMessage: Message = { role: 'user', content: values.query };
     setMessages(prev => [...prev, userMessage]);
@@ -224,8 +184,6 @@ export default function AiFarmerPage() {
     abortControllerRef.current = controller;
   
     try {
-      await addMessage(userId, userMessage);
-
       const advicePromise = getFarmingAdvice({
         query: values.query,
         location: location || undefined,
@@ -260,7 +218,6 @@ export default function AiFarmerPage() {
         audioUrl: ttsResult?.media,
       };
       
-      await addMessage(userId, assistantMessage);
       setMessages(prev => [...prev, assistantMessage]);
   
     } catch (error: any) {
@@ -283,22 +240,11 @@ export default function AiFarmerPage() {
   }
 
   const handleClearChat = async () => {
-    if (!userId) return;
-    try {
-      await clearMessages(userId);
-      setMessages([]);
-      toast({
-        title: t('aiFarmer.toast.chatCleared.title'),
-        description: t('aiFarmer.toast.chatCleared.description'),
-      });
-    } catch (error) {
-       console.error("Failed to clear messages:", error);
-        toast({
-          title: "Error",
-          description: "Could not clear chat history.",
-          variant: "destructive",
-        });
-    }
+    setMessages([]);
+    toast({
+      title: t('aiFarmer.toast.chatCleared.title'),
+      description: t('aiFarmer.toast.chatCleared.description'),
+    });
   };
 
    const setupSpeechRecognition = () => {
@@ -374,7 +320,7 @@ export default function AiFarmerPage() {
             {t('aiFarmer.subtitle')}
           </p>
            <p className="mt-4 text-base font-semibold text-primary">
-              Kisan Call Center -&gt; 1800-180-1551
+              {t('kisanCallCenter')}
           </p>
         </div>
 
@@ -417,11 +363,11 @@ export default function AiFarmerPage() {
               {messages.map((message, index) => {
                 if (message.role === 'assistant') {
                   const isLastMessage = index === messages.length - 1;
-                  return <AssistantMessage key={message.id || index} message={message} isTyping={isLastMessage && isTyping} />;
+                  return <AssistantMessage key={index} message={message} isTyping={isLastMessage && isTyping} />;
                 }
                 return (
                 <motion.div
-                  key={message.id || index}
+                  key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
@@ -479,7 +425,7 @@ export default function AiFarmerPage() {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="flex items-center gap-4"
               >
-                <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading || !userId}>
+                <Button type="button" variant="ghost" size="icon" onClick={toggleRecording} className={cn(isRecording && "bg-red-500/20 text-red-500")} disabled={isLoading}>
                   <Mic className="h-4 w-4" />
                 </Button>
                 <FormField
@@ -493,7 +439,7 @@ export default function AiFarmerPage() {
                           className="resize-none no-scrollbar"
                           rows={1}
                           onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !e.shiftKey && !isLoading && userId) {
+                            if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
                               if (form.getValues("query").trim()) {
                                 e.preventDefault();
                                 form.handleSubmit(onSubmit)();
@@ -501,15 +447,15 @@ export default function AiFarmerPage() {
                             }
                           }}
                           {...field}
-                          disabled={isLoading || !userId}
+                          disabled={isLoading}
                         />
                       </FormControl>
                     </FormItem>
                   )}
                 />
-                <button type="submit" disabled={isLoading || !form.getValues("query").trim() || !userId} className="send-button-style">
+                <button type="submit" disabled={isLoading || !form.getValues("query").trim()} className="send-button-style">
                   {isLoading ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <div className="h-4 w-4 animate-spin" />
                   ) : (
                     <span><Send className="text-black" /></span>
                   )}
