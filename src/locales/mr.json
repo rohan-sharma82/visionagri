@@ -290,6 +290,12 @@
             "shortName": "PM-KUSUM",
             "shortDescription": "A scheme to subsidize farmers for installing solar irrigation pumps and setting up solar power plants on their land.",
             "description": "schemes.pmkusum.description"
+        },
+        "shc": {
+            "name": "Soil Health Card Scheme",
+            "shortName": "Soil Health Card",
+            "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
+            "description": "schemes.shc.description"
         }
     }
 }

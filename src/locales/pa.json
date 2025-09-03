@@ -174,26 +174,26 @@
         "n24_article": "<h3>🔬 What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>"
     },
     "categories": {
-        "all": "All Categories",
-        "marketPrices": "Market Prices",
-        "weatherUpdates": "Weather Updates",
-        "govtPolicies": "Government Policies",
-        "farmingTechniques": "Farming Techniques",
-        "technology": "Technology"
+        "all": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
+        "marketPrices": "ਬਾਜ਼ਾਰ ਦੀਆਂ ਕੀਮਤਾਂ",
+        "weatherUpdates": "ਮੌਸਮ ਦੇ ਅਪਡੇਟਸ",
+        "govtPolicies": "ਸਰਕਾਰੀ ਨੀਤੀਆਂ",
+        "farmingTechniques": "ਖੇਤੀ ਦੀਆਂ ਤਕਨੀਕਾਂ",
+        "technology": "ਤਕਨਾਲੋਜੀ"
     },
     "sources": {
-        "agriTech": "AgriTech Today",
-        "farmersJournal": "Farmer's Journal",
-        "globalFarming": "Global Farming Initiative",
-        "agriInvest": "Agri-Investments Daily",
-        "sustainableFarms": "Sustainable Farms",
-        "techCrunch": "TechCrunch Agriculture",
-        "govtIndia": "Govt. of India",
-        "imdNews": "IMD News",
-        "metDept": "Met Department",
-        "mhaNews": "MHA News",
-        "stateNews": "State News",
-        "agriKnowledge": "Agri-Knowledge Base"
+        "agriTech": "ਐਗਰੀਟੈੱਕ ਟੂਡੇ",
+        "farmersJournal": "ਕਿਸਾਨ ਦਾ ਜਰਨਲ",
+        "globalFarming": "ਗਲੋਬਲ ਫਾਰਮਿੰਗ ਪਹਿਲਕਦਮੀ",
+        "agriInvest": "ਐਗਰੀ-ਨਿਵੇਸ਼ ਰੋਜ਼ਾਨਾ",
+        "sustainableFarms": "ਟਿਕਾਊ ਖੇਤ",
+        "techCrunch": "ਟੈੱਕਕਰੰਚ ਖੇਤੀਬਾੜੀ",
+        "govtIndia": "ਭਾਰਤ ਸਰਕਾਰ",
+        "imdNews": "IMD ਨਿਊਜ਼",
+        "metDept": "ਮੌਸਮ ਵਿਭਾਗ",
+        "mhaNews": "MHA ਨਿਊਜ਼",
+        "stateNews": "ਰਾਜ ਨਿਊਜ਼",
+        "agriKnowledge": "ਐਗਰੀ-ਗਿਆਨ ਅਧਾਰ"
     },
     "aiFarmer": {
         "title": "ਏਆਈ ਕਿਸਾਨ ਸਹਾਇਕ",
@@ -244,7 +244,7 @@
             "listening": "ਸੁਣ ਰਿਹਾ ਹੈ...",
             "voiceError": {
                 "title": "ਆਵਾਜ਼ ਦੀ ਗਲਤੀ",
-                "description": "ਬੋਲੀ ਨੂੰ ਪਛਾਣ ਨਹੀਂ ਸਕਿਆ: {error}"
+                "description": "ਬੋਲੀ ਨੂੰ ਪਛਾณ ਨਹੀਂ ਸਕਿਆ: {error}"
             },
             "voiceNotSupported": {
                 "title": "ਆਵਾਜ਼ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ",
@@ -388,6 +388,12 @@
             "shortName": "PM-KUSUM",
             "shortDescription": "A scheme to subsidize farmers for installing solar irrigation pumps and setting up solar power plants on their land.",
             "description": "schemes.pmkusum.description"
+        },
+        "shc": {
+            "name": "Soil Health Card Scheme",
+            "shortName": "Soil Health Card",
+            "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
+            "description": "schemes.shc.description"
         }
     },
     "dashboard": {

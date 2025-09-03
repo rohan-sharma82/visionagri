@@ -1,4 +1,5 @@
 
+
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -378,6 +379,15 @@ export const schemesData = [
     description: 'schemes.pmkusum.description',
     imageUrl: 'https://bluebirdsolar.com/cdn/shop/articles/pm-kusum_655d3efc-4b18-4e4c-bedb-0850d1b671b7.jpg?v=1754551706',
     dataAiHint: 'solar panel farm',
+  },
+  {
+    id: 7,
+    name: 'schemes.shc.name',
+    shortName: 'schemes.shc.shortName',
+    shortDescription: 'schemes.shc.shortDescription',
+    description: 'schemes.shc.description',
+    imageUrl: 'https://kj1bcdn.b-cdn.net/media/102414/soil-health-card.jpg',
+    dataAiHint: 'soil health card',
   }
 ];
 

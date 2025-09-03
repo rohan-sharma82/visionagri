@@ -101,6 +101,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'kj1bcdn.b-cdn.net',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
