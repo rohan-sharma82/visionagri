@@ -1,5 +1,4 @@
 
-
 {
     "nav": {
         "home": "Home",
@@ -333,7 +332,8 @@
         },
         "buttons": {
             "predict": "Predict Yield",
-            "predicting": "Predicting..."
+            "predicting": "Predicting...",
+            "areaInfo": "Know your area"
         },
         "status": {
             "loading": "Your smart assistant is walking through the fields…",
@@ -428,7 +428,7 @@
             "name": "E-NAM (National Agriculture Market)",
             "shortName": "E-NAM",
             "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
-            "description": "<h4>National Agriculture Market (eNAM)</h4>\n\n<p>eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities. It was launched on April 14, 2016, by the Ministry of Agriculture and Farmers’ Welfare, Government of India, with the Small Farmers Agribusiness Consortium (SFAC) as the lead implementing agency.</p>\n\n<h4>Vision</h4>\n\n<p>To promote uniformity in agricultural marketing by streamlining procedures across integrated markets.</p>\n\n<p>To remove information gaps between buyers and sellers.</p>\n\n<p>To enable real-time price discovery based on actual demand and supply.</p>\n\n<h4>Mission</h4>\n\n<p>Integration of APMCs across the country through a common online market platform.</p>\n\n<p>To facilitate pan-India trade in agricultural commodities.</p>\n\n<p>To ensure better price discovery through a transparent auction process based on quality of produce.</p>\n\n<p>To provide timely online payments to farmers.</p>\n\n<h4>Key Benefits of eNAM</h4>\n\n<p>✅ Real-time price discovery based on demand & supply</p>\n<p>✅ Reduced transaction costs for farmers, traders, and buyers</p>\n<p>✅ Wider market access beyond local mandis</p>\n<p>✅ Transparent & accountable trading process</p>\n<p>✅ Improved mandi infrastructure and facilities</p>\n<p>✅ Faster payments through online system</p>\n\n<h4>eNAM in Numbers (as of March 8, 2023)</h4>\n\n<p>1,260 mandis onboarded across 22 states & 3 union territories</p>\n\n<p>Trade facilitated: 120+ million MT of commodities</p>\n\n<p>Value of trade: ₹1.2 trillion+</p>\n\n<h4>Key Features</h4>\n\n<p>A single-window platform for all APMC-related information and services.</p>\n\n<p>Online trading of agricultural commodities.</p>\n\n<p>Transparent auctions based on quality.</p>\n\n<p>Better market linkages for farmers across India.</p>\n\n<h4>India’s Largest Agriculture Market</h4>\n\n<p>The Enumamula Agriculture Market in Warangal, Telangana, is the largest wholesale turmeric market in the world and one of the biggest agricultural markets in India.</p>\n\n<p>✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency.</p>"
+            "description": "<h4>National Agriculture Market (eNAM)</h4>\n\n<p>eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities. It was launched on April 14, 2016, by the Ministry of Agriculture and Farmers’ Welfare, Government of India, with the Small Farmers Agribusiness Consortium (SFAC) as the lead implementing agency.</p>\n\n<h4>Vision</h4>\n\n<p>To promote uniformity in agricultural marketing by streamlining procedures across integrated markets.</p>\n\n<p>To remove information gaps between buyers and sellers.</p>\n\n<p>To enable real-time price discovery based on actual demand and supply.</p>\n\n<h4>Mission</h4>\n\n<p>Integration of APMCs across the country through a common online market platform.</p>\n\n<p>To facilitate pan-India trade in agricultural commodities.</p>\n\n<p>To ensure better price discovery through a transparent auction process based on quality of produce.</p>\n\n<p>To provide timely online payments to farmers.</p>\n\n<h4>Key Benefits of eNAM</h4>\n\n<p>✅ Real-time price discovery based on demand & supply</p>\n<p>✅ Reduced transaction costs for farmers, traders, and buyers</p>\n<p>✅ Wider market access beyond local mandis</p>\n<p>✅ Transparent & accountable trading process</p>\n<p>✅ Improved mandi infrastructure and facilities</p>\n<p>✅ Faster payments through online system</p>\n\n<h4>eNAM in Numbers (as of March 8, 2023)</h4>\n\n<p>1,260 mandis onboarded across 22 states & 3 union territories</p>\n\n<p>Trade facilitated: 120+ million MT of commodities</p>\n\n<p>Value of trade: ₹1.2 trillion+</p>\n\n<h4>Key Features</h4>\n\n<p>A single-window platform for all APMC-related information and services.</p>\n\n<p>Online trading of agricultural commodities.</p>\n\n<p>Transparent auctions based on quality.</p>\n\n<p>Better market linkages for farmers across India.</p>\n\n<p>✨ eNAM is a major government initiative aimed at transforming agricultural marketing in India by giving farmers fair prices, wider reach, and more transparency.</p>"
         },
         "pmkmy": {
             "name": "Pradhan Mantri Kisan Maandhan Yojana",
@@ -576,7 +576,7 @@
             "title": "Select a Demo Profile",
             "description": "Choose a user profile to see a personalized dashboard demonstration."
         },
-        "welcome": "Welcome back, Farmer!",
+        "welcome": "Welcome back, {name}!",
         "subtitle": "A personalized hub with weather forecasts, market analysis, and recommended schemes for your farm.",
         "logout": "Logout",
         "yieldHistory": {
@@ -615,7 +615,16 @@
             "forecast": "3-Day Forecast",
             "today": "Today",
             "loading": "Fetching live weather data for your farm...",
-            "error": "Could not load weather data. Please try again later."
+            "error": "Could not load weather data. Please try again later.",
+            "aqiLabels": {
+                "good": "Good",
+                "moderate": "Moderate",
+                "unhealthy_sensitive": "Unhealthy for sensitive groups",
+                "unhealthy": "Unhealthy",
+                "very_unhealthy": "Very Unhealthy",
+                "hazardous": "Hazardous",
+                "unknown": "Unknown"
+            }
         },
         "market": {
             "title": "Market Price Analysis for {crop}",
@@ -624,6 +633,12 @@
             "error": "Could not load market data. Please try again later.",
             "analysis": "AI Trend Analysis",
             "forecast": "AI Forecast"
+        },
+        "loading": {
+            "weather": "Loading Weather Outlook...",
+            "market": "Loading Market Analysis...",
+            "schemes": "Loading Recommended Schemes...",
+            "history": "Loading Yield History..."
         }
     }
 }

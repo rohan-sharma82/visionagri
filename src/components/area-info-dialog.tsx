@@ -29,7 +29,7 @@ export default function AreaInfoDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="button type1 mb-8">Know your area</Button>
+        <Button className="button type1 mb-8">{t('cropYield.buttons.areaInfo')}</Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl h-[80vh]">
         <DialogHeader>

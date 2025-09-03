@@ -73,15 +73,16 @@ const allDashboardData: Record<string, any> = {
     }
 };
 
-const aqiToLabel = (index: number | undefined) => {
-    if (index === undefined) return 'Unknown';
-    if (index <= 1) return 'Good';
-    if (index <= 2) return 'Moderate';
-    if (index <= 3) return 'Unhealthy for sensitive groups';
-    if (index <= 4) return 'Unhealthy';
-    if (index <= 5) return 'Very Unhealthy';
-    return 'Hazardous';
+const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
+    if (index === undefined) return t('dashboard.weather.aqiLabels.unknown');
+    if (index <= 1) return t('dashboard.weather.aqiLabels.good');
+    if (index <= 2) return t('dashboard.weather.aqiLabels.moderate');
+    if (index <= 3) return t('dashboard.weather.aqiLabels.unhealthy_sensitive');
+    if (index <= 4) return t('dashboard.weather.aqiLabels.unhealthy');
+    if (index <= 5) return t('dashboard.weather.aqiLabels.very_unhealthy');
+    return t('dashboard.weather.aqiLabels.hazardous');
 };
+
 
 const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) => {
   const { t } = useTranslation();
@@ -111,7 +112,7 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
                     <div className="text-sm text-muted-foreground mt-2 space-y-1 text-center">
                         <p>{t('dashboard.weather.humidity')}: {weatherData.current.humidity}%</p>
                         <p>{t('dashboard.weather.wind')}: {weatherData.current.wind_kph} km/h</p>
-                        <p>{t('dashboard.weather.aqi')}: {aqiToLabel(weatherData.current.air_quality?.['us-epa-index'])}</p>
+                        <p>{t('dashboard.weather.aqi')}: {aqiToLabel(weatherData.current.air_quality?.['us-epa-index'], t)}</p>
                     </div>
                 </div>
 
@@ -166,14 +167,17 @@ const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) =
   )
 }
 
-const DataSkeleton = () => (
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <Skeleton className="h-[400px] md:col-span-3" />
-        <Skeleton className="h-[300px] md:col-span-2" />
-        <Skeleton className="h-[300px]" />
-        <Skeleton className="h-[300px] md:col-span-3" />
-    </div>
-);
+const DataSkeleton = () => {
+    const { t } = useTranslation();
+    return (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="md:col-span-3"><CardHeader><CardTitle>{t('dashboard.loading.weather')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
+            <Card className="md:col-span-2"><CardHeader><CardTitle>{t('dashboard.loading.market')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
+            <Card><CardHeader><CardTitle>{t('dashboard.loading.schemes')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
+            <Card className="md:col-span-3"><CardHeader><CardTitle>{t('dashboard.loading.history')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[200px] w-full" /></CardContent></Card>
+        </div>
+    )
+};
 
 export default function DashboardPage() {
   const { t } = useTranslation();
@@ -212,8 +216,12 @@ export default function DashboardPage() {
             setIsLoading(false);
         }
     }
-    fetchData();
-  }, [isAuthenticated, userData, globalLocation]);
+    if (isAuthenticated) {
+        fetchData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated, userData?.location, userData?.primaryCrop, globalLocation]);
+
 
   const handleClearUser = () => {
     setCurrentUserKey(null);
@@ -234,7 +242,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {isAuthenticated ? t('dashboard.welcome') : t('dashboard.login.title')}
+            {isAuthenticated ? t('dashboard.welcome', { name: userData?.name }) : t('dashboard.login.title')}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {isAuthenticated ? t('dashboard.subtitle') : t('dashboard.login.description')}
