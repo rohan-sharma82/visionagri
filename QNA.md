@@ -29,9 +29,9 @@ In essence, we're not just another information portal; we are building an intell
 1.  **For the Hackathon & Prototype Phase:** We are leveraging the generous free tiers provided by Vercel (for hosting) and Supabase (for the Postgres database), along with the Google AI Platform (for Genkit and Gemini models). This is more than sufficient for demonstrating the full capabilities of our application.
 2.  **For Scalability & Production:** Our long-term plan involves a **Freemium model**.
     *   **Free Tier:** Core features like the news feed, government scheme information, and a limited number of AI Assistant queries or dashboard views per month would remain free. This ensures the app is accessible to all small and marginal farmers.
-    *   **Premium Tier:** For larger farms, agricultural co-operatives, or enterprise users, we would offer a subscription-based plan. This would unlock unlimited AI queries, advanced analytics on the dashboard, detailed historical data tracking, and API access. The revenue from this premium tier would subsidize the costs of the free tier, making the entire ecosystem sustainable.
+    *   **Premium Tier:** For larger farms, agricultural co-operatives, or enterprise users, we would offer a subscription-based plan. This would unlock unlimited AI queries, advanced analytics on the dashboard (like detailed historical yield tracking), API access, and other high-value features. The revenue from this premium tier would subsidize the costs of the free tier, making the entire ecosystem sustainable.
 
-Our choice of a serverless architecture with **Next.js and Supabase Postgres** means we have minimal fixed infrastructure costs. We only pay for what we use, which is a highly cost-effective model for scaling.
+Our choice of a serverless architecture with **Next.js and Supabase Postgres (using a connection pooler)** means we have minimal fixed infrastructure costs. We only pay for what we use, which is a highly cost-effective model for scaling to handle thousands of concurrent users without crashing the database.
 
 **Q: You've chosen to use a database. Why was this necessary, and what does it enable?**
 
@@ -51,7 +51,7 @@ In short, the database is what transforms AgriVision AI from a temporary-use too
 
 **Q: AI model accuracy is critical. How do you ensure your models for things like market analysis or disease diagnosis are accurate, and how do you handle potential errors?**
 
-**A:** This is a top priority, and our approach is based on continuous improvement, grounding, and transparency.
+**A:** This is a top priority, and our approach is based on grounding, continuous improvement, and transparency.
 
 1.  **Foundation Models:** We are building on top of Google's state-of-the-art **Gemini models**, which have powerful general reasoning and vision capabilities, giving us a strong baseline.
 2.  **Grounding with Real-Time Tools:** Our innovation is in the prompting and the use of tools.

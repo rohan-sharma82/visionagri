@@ -23,15 +23,15 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 **How it Addresses the Problem:**
 - **Reduces Guesswork:** Our AI models replace traditional guesswork with data-driven predictions for crop yield and disease detection, leading to better decision-making.
 - **Improves Financial Outcomes:** The **Market Price Analysis** feature provides historical price trends and an AI-driven forecast, empowering farmers to decide the most profitable time to sell their produce.
-- **Breaks Down Barriers:** The platform is fully multilingual and features a simple, intuitive UI, making advanced technology accessible to farmers of all literacy levels.
+- **Breaks Down Barriers:** The platform is fully multilingual and features a simple, intuitive UI with voice input/output, making advanced technology accessible to farmers of all literacy levels.
 - **Provides Instant Expertise:** The AI Farmer Assistant acts as a 24/7 agricultural expert, offering instant, weather-aware advice that was previously hard to obtain.
 - **Centralizes and Personalizes Information:** The **Personalized Dashboard** consolidates critical information like localized weather forecasts, market analysis for the farmer's specific crops, and recommended government schemes into a single, easy-to-use hub.
 
 **Innovation & Uniqueness:**
-- **Hyper-Localized & Context-Aware AI:** Our solution integrates real-time, location-specific weather data directly into our Genkit AI flows, providing highly contextual advice.
+- **Hyper-Localized & Context-Aware AI:** Our solution integrates real-time, location-specific weather data directly into our Genkit AI flows, providing highly contextual advice (e.g., suggesting not to spray pesticides before rain).
 - **Multi-Modal AI Interaction:** Farmers can interact via text or voice, and receive responses in text and audio format, catering to diverse user preferences and literacy levels.
 - **Proactive & Predictive Tools:** Instead of just providing information, our platform offers predictive tools for crop yield, early disease detection, and market price forecasting, enabling proactive farm management.
-- **Unified & Personalized Farmer Dashboard:** AgriVision AI is more than a collection of tools; it's a comprehensive ecosystem with a personalized dashboard that provides a holistic view of a farmer's operations, from weather to market prices, creating a single source of truth for decision-making.
+- **Unified & Personalized Farmer Dashboard:** AgriVision AI is more than a collection of tools; it's a comprehensive ecosystem with a personalized dashboard that provides a holistic view of a farmer's operations, creating a single source of truth for decision-making. This dashboard is powered by a **Supabase Postgres database**, enabling true personalization and persistent data storage.
 
 ---
 
@@ -48,7 +48,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
   - **Google AI Platform (Gemini Models):** We use the powerful Gemini family of models for their state-of-the-art multi-modal capabilities, handling everything from complex reasoning for the AI Assistant to market data analysis and image classification.
 
 - **Database:**
-  - **Supabase (Postgres):** A serverless PostgreSQL database used to store and manage user data, including chat history for the AI Farmer Assistant. This enables persistence and personalization features like the user dashboard.
+  - **Supabase (Postgres with Connection Pooling):** A serverless PostgreSQL database used to store and manage user data, including profiles and chat history for the AI Farmer Assistant. We use a **transaction pooler** to efficiently manage database connections, making the application scalable and resilient to handle a high volume of concurrent users.
 
 - **Hosting:**
   - **Vercel:** The ideal platform for deploying Next.js applications, providing a seamless CI/CD pipeline, global CDN, and serverless functions for scalability and performance.
@@ -61,7 +61,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 
 **User Interaction Flow:**
 *A farmer opens AgriVision AI and selects a feature (e.g., AI Assistant, Dashboard, Crop Prediction).*
-*The user provides input via text, forms, or image uploads. For the dashboard, a simulated login retrieves the user's profile.*
+*The user provides input via text, forms, or image uploads. For the dashboard, a simulated login retrieves the user's profile from the database.*
 *The Next.js frontend securely sends the data to the appropriate server-side Genkit flow.*
 
 **Genkit AI Flow (Backend):**
@@ -72,7 +72,7 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 *This result is sent back to the user's screen and rendered as text, charts, or audio.*
 *For the AI Assistant, conversations are saved to and retrieved from the Supabase Postgres database.*
 
-**(A flowchart image would be ideal here, showing User -> Next.js -> Genkit Flow (with Tools) -> Google AI -> DB -> User)**
+**(A flowchart image would be ideal here, showing User -> Next.js -> Genkit Flow (with Tools) -> Google AI -> Supabase DB -> User)**
 
 ![Flowchart Placeholder](https://picsum.photos/800/400?data-ai-hint=flowchart+diagram)
 
@@ -82,7 +82,9 @@ This document outlines the project details for the Smart India Hackathon 2025 su
 
 **Analysis of Feasibility:**
 - **Technical Feasibility:** The tech stack (Next.js, Genkit, Supabase) is modern, well-documented, and designed for scalability. The use of managed services reduces infrastructure overhead.
-- **Economic Feasibility:** The operational cost is low due to the serverless architecture. The platform can be offered on a freemium model, with premium features for larger agricultural enterprises.
+- **Economic Feasibility:** The operational cost is low due to the serverless architecture. We have a clear monetization path via a **Freemium model**:
+  - **Free Tier:** Core features (News, Schemes, limited AI Assistant) will be free to ensure wide accessibility.
+  - **Premium Tier:** A subscription will unlock advanced features like the personalized dashboard, unlimited AI queries, historical data analysis, and detailed farm analytics. Revenue from this tier will subsidize the free tier.
 - **Operational Feasibility:** The multilingual and voice-enabled interface ensures the platform is usable by the target demographic with minimal training.
 
 **Potential Challenges & Risks:**
