@@ -231,6 +231,12 @@
             "shortName": "KCC",
             "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
             "description": "schemes.kcc.description"
+        },
+        "pmkusum": {
+            "name": "Pradhan Mantri Kisan Urja Suraksha Evam Utthan Mahabhiyan (PM-KUSUM)",
+            "shortName": "PM-KUSUM",
+            "shortDescription": "A scheme to subsidize farmers for installing solar irrigation pumps and setting up solar power plants on their land.",
+            "description": "schemes.pmkusum.description"
         }
     },
     "dashboard": {

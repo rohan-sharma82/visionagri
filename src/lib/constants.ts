@@ -367,8 +367,17 @@ export const schemesData = [
     shortName: 'schemes.kcc.shortName',
     shortDescription: 'schemes.kcc.shortDescription',
     description: 'schemes.kcc.description',
-    imageUrl: 'https://picsum.photos/300/200',
+    imageUrl: 'https://picsum.photos/300/200?random=1',
     dataAiHint: 'credit card',
+  },
+  {
+    id: 6,
+    name: 'schemes.pmkusum.name',
+    shortName: 'schemes.pmkusum.shortName',
+    shortDescription: 'schemes.pmkusum.shortDescription',
+    description: 'schemes.pmkusum.description',
+    imageUrl: 'https://picsum.photos/300/200?random=2',
+    dataAiHint: 'solar panel farm',
   }
 ];
 
