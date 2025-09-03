@@ -268,8 +268,6 @@ const PillNav = ({
                     aria-label={item.label}
                     onMouseEnter={() => handleEnter(i)}
                     onMouseLeave={() => handleLeave(i)}
-                    target={item.href === '/farm-school' ? '_blank' : undefined}
-                    rel={item.href === '/farm-school' ? 'noopener noreferrer' : undefined}
                   >
                     <span
                       className="hover-circle"
@@ -327,8 +325,6 @@ const PillNav = ({
                   href={item.href}
                   className="mobile-menu-link"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  target={item.href === '/farm-school' ? '_blank' : undefined}
-                  rel={item.href === '/farm-school' ? 'noopener noreferrer' : undefined}
                 >
                   {item.label}
                 </Link>
