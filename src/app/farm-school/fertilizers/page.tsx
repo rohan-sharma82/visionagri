@@ -15,13 +15,6 @@ import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <div className="mb-4">
-    <h3 className="font-semibold text-lg mb-2 text-primary">{title}:</h3>
-    <div className="space-y-2">{children}</div>
-  </div>
-);
-
 export default function FarmFertilizersPage() {
   const { t } = useTranslation();
 
@@ -58,7 +51,7 @@ export default function FarmFertilizersPage() {
             
             <AccordionItem value="introduction">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    A. Introduction to Fertilizers
+                    A. Introduction
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose dark:prose-invert">
                     <h4>What are Fertilizers?</h4>
@@ -89,7 +82,7 @@ export default function FarmFertilizersPage() {
                         <li><strong>Potassium-based:</strong> e.g., potassium chloride, potassium sulfate, potassium nitrate</li>
                         <li><strong>NPK (Compound):</strong> Balanced blends or chemically bound mixes delivering N, P, and K simultaneously</li>
                     </ul>
-
+                    
                     <h4>2. Specialty Types</h4>
                     <h5>Controlled-Release Fertilizers</h5>
                     <p>Feature special coatings (sulfur or polymers) that regulate nutrient release—minimizing waste, preventing burn, and reducing environmental impacts.</p>
@@ -122,7 +115,7 @@ export default function FarmFertilizersPage() {
 
             <AccordionItem value="guide">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    D. How to Choose a Fertilizer
+                    D. Choosing Guide
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose dark:prose-invert">
                     <p>Choosing the right fertilizer depends on several factors:</p>
