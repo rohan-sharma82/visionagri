@@ -376,7 +376,7 @@ export const schemesData = [
     shortName: 'schemes.pmkusum.shortName',
     shortDescription: 'schemes.pmkusum.shortDescription',
     description: 'schemes.pmkusum.description',
-    imageUrl: 'https://picsum.photos/300/200?random=2',
+    imageUrl: 'https://bluebirdsolar.com/cdn/shop/articles/pm-kusum_655d3efc-4b18-4e4c-bedb-0850d1b671b7.jpg?v=1754551706',
     dataAiHint: 'solar panel farm',
   }
 ];
