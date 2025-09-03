@@ -388,6 +388,15 @@ export const schemesData = [
     description: 'schemes.shc.description',
     imageUrl: 'https://kj1bcdn.b-cdn.net/media/102414/soil-health-card.jpg',
     dataAiHint: 'soil health card',
+  },
+  {
+    id: 8,
+    name: 'schemes.smam.name',
+    shortName: 'schemes.smam.shortName',
+    shortDescription: 'schemes.smam.shortDescription',
+    description: 'schemes.smam.description',
+    imageUrl: 'https://cdn.tractorkarvan.com/tr:f-webp/images/Blogs/top-central-government-schemes-for-farmers-in-india/smam.jpg',
+    dataAiHint: 'farm machinery',
   }
 ];
 
