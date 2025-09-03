@@ -65,7 +65,10 @@ export const getWeatherForLocation = ai.defineTool(
     outputSchema: WeatherResponseSchema,
   },
   async (location) => {
-    const apiKey = 'b463cb8a6db74e73953122829253008';
+    const apiKey = process.env.WEATHER_API_KEY;
+    if (!apiKey) {
+        throw new Error('WEATHER_API_KEY is not set in the environment variables.');
+    }
     const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=yes&alerts=yes`;
 
     try {
