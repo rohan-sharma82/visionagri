@@ -502,7 +502,7 @@
 
 .farm-data-form ::placeholder {
   font-weight: 300;
-  color: #A96EAA !important;
+  color: hsl(316, 73%, 72%) !important;
   letter-spacing: 0.1rem;
 }
 
@@ -1199,7 +1199,7 @@
   display: inline-block;
   font-size: 15px;
   line-height: 15px;
-  padding: 18px 18px 17px;
+  padding: 18px 30px 17px;
   text-decoration: none;
   cursor: pointer;
   background: hsl(var(--card));
@@ -1257,4 +1257,5 @@
     
 
     
+
 
