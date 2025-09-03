@@ -22,13 +22,14 @@ import { Separator } from './ui/separator';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { useTranslation } from '@/hooks/use-translation';
+import { Button } from './ui/button';
 
 export default function AreaInfoDialog() {
   const { t } = useTranslation();
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="button type1 mb-8"></button>
+        <Button className="button type1 mb-8">Know your area</Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl h-[80vh]">
         <DialogHeader>

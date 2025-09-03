@@ -73,6 +73,7 @@ export default function CropYieldPage() {
     try {
       const result = await predictCropYield(values);
       setPrediction(result);
+      form.reset(values); // Keep submitted values in the form
     } catch (error) {
       console.error('Error predicting crop yield:', error);
       toast({

@@ -56,6 +56,8 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
     if (dummyUsers[email as keyof typeof dummyUsers] && dummyUsers[email as keyof typeof dummyUsers] === password) {
         onLoginSuccess(email);
         setError('');
+        setEmail('');
+        setPassword('');
     } else {
       setError(t('dashboard.login.error'));
     }
@@ -69,8 +71,6 @@ export default function LoginPrism({ onLoginSuccess }: LoginPrismProps) {
             <li onClick={() => showFace('login')}>{t('dashboard.login.prism.nav.login')}</li>
             <li onClick={() => showFace('signup')}>{t('dashboard.login.prism.nav.signup')}</li>
             <li onClick={() => showFace('forgotPassword')}>{t('dashboard.login.prism.nav.forgotPassword')}</li>
-            <li onClick={() => showFace('subscribe')}>{t('dashboard.login.prism.nav.subscribe')}</li>
-            <li onClick={() => showFace('contact')}>{t('dashboard.login.prism.nav.contactUs')}</li>
         </ul>
 
       <div className="login-prism-wrapper">

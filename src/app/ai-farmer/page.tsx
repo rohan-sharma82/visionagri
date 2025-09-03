@@ -31,6 +31,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
+import { getChatHistory, saveChatHistory, clearChatHistory } from './actions';
 
 
 const formSchema = z.object({
@@ -44,6 +45,9 @@ export interface Message {
   audioUrl?: string;
   createdAt?: any;
 }
+
+// A unique user ID for demo purposes. In a real app, this would come from an authentication system.
+const USER_ID = 'demo-user-123';
 
 const useTypingEffect = (text: string, speed = 50) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -132,6 +136,7 @@ export default function AiFarmerPage() {
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const [isHistoryLoading, setIsHistoryLoading] = useState(true);
 
   const loadingMessages = [
     t('aiFarmer.loadingMessages.m1'),
@@ -151,6 +156,30 @@ export default function AiFarmerPage() {
     resolver: zodResolver(formSchema),
     defaultValues: { query: '' },
   });
+
+  // Load chat history on initial render
+  useEffect(() => {
+    const loadHistory = async () => {
+        setIsHistoryLoading(true);
+        const history = await getChatHistory(USER_ID);
+        setMessages(history);
+        setIsHistoryLoading(false);
+    };
+    loadHistory();
+  }, []);
+
+  // Save history whenever messages change
+  useEffect(() => {
+    if (!isHistoryLoading) {
+        saveChatHistory(USER_ID, messages).catch(err => {
+            toast({
+                variant: 'destructive',
+                title: t('aiFarmer.toast.saveError.title'),
+                description: t('aiFarmer.toast.saveError.description'),
+            })
+        });
+    }
+  }, [messages, isHistoryLoading, t, toast]);
 
 
   useEffect(() => {
@@ -240,6 +269,7 @@ export default function AiFarmerPage() {
   }
 
   const handleClearChat = async () => {
+    await clearChatHistory(USER_ID);
     setMessages([]);
     toast({
       title: t('aiFarmer.toast.chatCleared.title'),
@@ -353,7 +383,13 @@ export default function AiFarmerPage() {
         <div className="flex-1 flex flex-col bg-card border rounded-xl shadow-lg overflow-hidden">
           <ScrollArea className="flex-1 p-6" ref={scrollAreaRef}>
             <div className="space-y-6">
-              {messages.length === 0 && !isLoading && (
+              {isHistoryLoading && (
+                <div className="text-center text-muted-foreground p-8 flex flex-col items-center justify-center h-full">
+                    <Sparkles className="mx-auto h-12 w-12 animate-spin text-muted-foreground/50" />
+                    <p className="mt-4 text-lg">Loading chat history...</p>
+                </div>
+              )}
+              {!isHistoryLoading && messages.length === 0 && !isLoading && (
                 <div className="text-center text-muted-foreground p-8 flex flex-col items-center justify-center h-full">
                   <Sparkles className="mx-auto h-12 w-12 text-muted-foreground/50" />
                   <p className="mt-4 text-lg">{t('aiFarmer.idle.prompt')}</p>
