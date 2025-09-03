@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -100,12 +101,29 @@ const predictCropYieldFlow = ai.defineFlow(
     outputSchema: PredictCropYieldOutputSchema,
   },
   async (input) => {
-    const weather = await getWeatherForLocation(input.location);
-    const {output} = await prompt({
-      ...input,
-      temperature: `${weather.temp_c}°C`,
-      rainfall: `${weather.precip_mm} mm (current)`,
-    });
-    return output!;
+    try {
+        const weather = await getWeatherForLocation(input.location);
+        const {output} = await prompt({
+            ...input,
+            temperature: `${weather.temp_c}°C`,
+            rainfall: `${weather.precip_mm} mm (current)`,
+        });
+        return output!;
+    } catch (error) {
+        console.error("Error in predictCropYieldFlow:", error);
+        // Return a fallback response in case of an API error (like 503)
+        return {
+            predictedYield: "N/A",
+            confidenceLevel: "0%",
+            yieldAnalysis: "The AI prediction service is temporarily unavailable. This can happen when the service is very busy. Please try again in a few moments.",
+            factorsInfluencingYield: ["Service availability"],
+            suggestedActions: ["Try submitting your request again."],
+            idealValues: {
+                fertilizer: "N/A",
+                irrigation: "N/A",
+            },
+        };
+    }
   }
 );
+
