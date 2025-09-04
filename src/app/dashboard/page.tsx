@@ -40,7 +40,7 @@ const allDashboardData: Record<string, any> = {
         yieldHistory: [
             { date: '2024-07-15', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
             { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
-            { date: '2023-11-10', crop: 'Soybeans', predicted: '3.5', actual: '3.5' },
+            { date: '4 August 2025', crop: 'Soybeans', predicted: '3.5', actual: '3.5' },
         ],
         recommendedSchemes: [
             { name: 'schemes.pmkisan.shortName', reason: 'dashboard.schemes.reasons.smallLandholding' },
@@ -65,7 +65,7 @@ const allDashboardData: Record<string, any> = {
         primaryCrop: 'Cotton',
         yieldHistory: [
             { date: '2024-06-25', crop: 'Cotton', predicted: '2.1', actual: '2.3' },
-            { date: '2023-12-15', crop: 'Mustard', predicted: '1.8', actual: '1.7' },
+            { date: '4 August 2025', crop: 'Mustard', predicted: '1.8', actual: '1.7' },
         ],
         recommendedSchemes: [
             { name: 'schemes.pmkmy.name', reason: 'dashboard.schemes.reasons.easyCredit' },
