@@ -1255,7 +1255,184 @@
   transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
     
+.action-button-3d {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #fff0f0;
+  border: 2px solid #b18597;
+  border-radius: 0.75em;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+ 
+.action-button-3d::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9c4d2;
+  border-radius: inherit;
+  -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0.75em, -1em);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1), -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+ 
+.action-button-3d:hover {
+  background: #ffe9e9;
+  -webkit-transform: translate(0, 0.25em);
+  transform: translate(0, 0.25em);
+}
+ 
+.action-button-3d:hover::before {
+  -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0.5em, -1em);
+  transform: translate3d(0, 0.5em, -1em);
+}
+ 
+.action-button-3d:active {
+  background: #ffe9e9;
+  -webkit-transform: translate(0em, 0.75em);
+  transform: translate(0em, 0.75em);
+}
+ 
+.action-button-3d:active::before {
+  -webkit-box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0, -1em);
+  transform: translate3d(0, 0, -1em);
+}
 
-    
+.slice {
+  --black: #000000;
+  --ch-black: #141214;
+  --vanilla: #f1eadc;
+  --vanilla-d: #d0c9b8;
+  --gray: #6d6d6d;
+  --gray-l: #a8a8a8;
+  --gray-d: #424242;
+  --white: #ffffff;
+  --orange: #f57742;
+  --orange-d: #e9632a;
+  --orange-l: #fa9569;
+  --green: #41a86c;
+  --green-l: #66c18b;
+  --green-d: #318a58;
+  --yellow: #f8c02c;
+  --yellow-d: #f2af06;
+  --brown: #66412c;
+  --pink: #ee81b2;
+  --pink-l: #f6a1cb;
+  --pink-d: #e6619a;
+  --blue: #2d58a7;
+  --blue-l: #4d75c1;
+  --red: #da3d3d;
+  --red-d: #b92f2f;
+  border-radius: 12px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--black);
+  padding: 16px 20px;
+  display: block;
+  width: 280px;
+  position: relative;
+  z-index: 1;
+}
 
+.slice:before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  display: block;
+  border-radius: 8px;
+  background-color: var(--green-l);
+  box-shadow: 0 3px 6px var(--green-d);
+  transition: all 0.2s ease;
+  z-index: -1;
+}
 
+.slice:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  border-radius: 12px;
+  background-color: var(--green);
+  z-index: -2;
+  transition: all 0.2s ease;
+}
+
+.slice .text {
+  transition: all 0.2s ease;
+}
+
+.slice:active {
+  padding-top: 19px;
+  padding-bottom: 13px;
+}
+
+.slice:active:before {
+  box-shadow: 0 1px 2px var(--green-d);
+  top: 6px;
+  bottom: 2px;
+}
+
+.slice:disabled {
+  color: var(--gray-d);
+  cursor: not-allowed;
+}
+
+.slice:disabled:active {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.slice:disabled:active:before {
+  top: 4px;
+  bottom: 4px;
+  box-shadow: 0 3px 6px var(--gray-d);
+}
+
+.slice:disabled:before {
+  background-color: var(--gray-l);
+  box-shadow: 0 3px 6px var(--gray-d);
+}
+
+.slice:disabled:after {
+  background-color: var(--gray);
+}

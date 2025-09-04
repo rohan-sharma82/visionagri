@@ -24,6 +24,7 @@ import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
+import Link from 'next/link';
 
 export default function AnimalClassificationPage() {
   const { t } = useTranslation();
@@ -143,7 +144,7 @@ export default function AnimalClassificationPage() {
         </div>
 
 
-        <div className="flex items-center justify-center min-h-[400px]">
+        <div className="flex flex-col items-center justify-center min-h-[400px] gap-4">
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
@@ -188,6 +189,14 @@ export default function AnimalClassificationPage() {
                     <p className="text-muted-foreground text-sm">{result.description}</p>
                   </div>
                 </CardContent>
+                 <CardFooter className="flex-col gap-4">
+                    <div className="flex gap-4">
+                      <Link href="/animal-comparison">
+                        <button className="action-button-3d">Compare Breed</button>
+                      </Link>
+                      <button className="action-button-3d">Find Veterinarian</button>
+                    </div>
+                  </CardFooter>
               </Card>
             </motion.div>
           )}
@@ -195,7 +204,7 @@ export default function AnimalClassificationPage() {
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
                 <Upload className="mx-auto h-12 w-12 text-muted-foreground/50" />
                 <p className="mt-4 text-lg">{t('animalClassification.status.idle')}</p>
-            </div>
+              </div>
           )}
         </div>
       </div>
