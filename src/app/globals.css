@@ -64,6 +64,16 @@
 }
 
 @layer components {
+    .vet-card {
+      @apply bg-card/50 border rounded-lg shadow-md transition-all hover:shadow-xl hover:border-primary/50;
+    }
+    .vet-card-footer {
+      @apply flex gap-2 pt-4 border-t border-dashed;
+    }
+    .vet-action-button {
+      @apply flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors;
+      @apply bg-primary/90 text-primary-foreground hover:bg-primary;
+    }
     .action-button-3d {
         position: relative;
         display: inline-block;
