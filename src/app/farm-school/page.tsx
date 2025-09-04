@@ -75,7 +75,7 @@ export default function FarmSchoolPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-muted-foreground">
                     {topic.description}
                   </p>
                 </CardContent>

@@ -37,8 +37,8 @@ const UnitSection = ({
 }) => (
   <div className="mb-4 rounded-md border p-4">
     <h4 className="font-bold text-lg mb-1 text-primary">{title}</h4>
-    <p className="text-sm text-muted-foreground mb-2">{description}</p>
-    <p className="text-sm font-semibold whitespace-pre-wrap">{conversion}</p>
+    <p className="text-base text-muted-foreground mb-2">{description}</p>
+    <p className="text-base font-semibold whitespace-pre-wrap">{conversion}</p>
   </div>
 );
 
@@ -113,5 +113,3 @@ export default function AreaCalculatorPage() {
     </>
   );
 }
-
-    

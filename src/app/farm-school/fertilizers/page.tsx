@@ -29,7 +29,7 @@ export default function FarmFertilizersPage() {
           </Button>
         </Link>
         <div className="text-center mb-12">
-            <h1 className="text-3xl font-bold text-center font-headline text-foreground">
+            <h1 className="text-4xl font-bold text-center font-headline text-foreground">
                 Fertilizer Types &amp; Uses
             </h1>
           <p className="mt-2 text-lg text-muted-foreground">

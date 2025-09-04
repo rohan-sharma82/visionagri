@@ -133,7 +133,7 @@ export default function ProfitMakingTipsPage() {
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">{tip.icon}</div>
-                <CardTitle className="text-lg">{tip.title}</CardTitle>
+                <CardTitle className="text-xl">{tip.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground">
