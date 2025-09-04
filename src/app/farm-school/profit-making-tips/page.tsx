@@ -136,7 +136,7 @@ export default function ProfitMakingTipsPage() {
                 <CardTitle className="text-lg">{tip.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground">
+                <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground">
                   {tip.points.map((point, i) => (
                     <li key={i}>{point}</li>
                   ))}

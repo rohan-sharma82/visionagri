@@ -28,7 +28,7 @@ const Section = ({
   title: string;
   content: string | string[];
 }) => (
-  <div className="mb-4">
+  <div className="mb-4 text-base">
     <h3 className="font-semibold text-lg mb-2 text-primary">{title}:</h3>
     {Array.isArray(content) ? (
       <ul className="list-disc list-inside space-y-1">
@@ -108,7 +108,7 @@ export default function FarmToolsPage() {
                   {tool.name}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg">
-                  <p className="italic mb-4">{tool.content.introduction}</p>
+                  <p className="italic mb-4 text-base">{tool.content.introduction}</p>
                   <Section title="Functions" content={tool.content.functions} />
                   <Section
                     title="How It Works"
