@@ -186,7 +186,7 @@ export default function Home() {
           ))}
         </div>
         <Dialog>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <div className="grid gap-8 md:grid-cols-3 justify-items-center">
             {filteredNews.map((news) => (
               <motion.div
                 key={news.id}
