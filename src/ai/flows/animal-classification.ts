@@ -75,7 +75,18 @@ const animalClassificationFlow = ai.defineFlow(
     outputSchema: AnimalClassificationOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
-    return output!;
+    try {
+        const {output} = await prompt(input);
+        return output!;
+    } catch (error) {
+        console.error("Error in animalClassificationFlow:", error);
+        // Return a fallback response in case of an API error (like 503)
+        return {
+            animalSpecies: "Service Unavailable",
+            confidence: 0,
+            description: "The AI classification service is temporarily overloaded. This can happen when the service is very busy. Please try again in a few moments.",
+            actionableSuggestion: "Please try submitting your request again. If the problem persists, consider trying at a later time."
+        };
+    }
   }
 );
