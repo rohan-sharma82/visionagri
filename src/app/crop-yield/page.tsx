@@ -31,16 +31,21 @@ import RotatingText from '@/components/ui/rotating-text';
 import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { Separator } from '@/components/ui/separator';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
   soilType: z.string().min(2, 'Soil type is required.'),
   temperature: z.string().min(1, 'Temperature is required.'),
   rainfall: z.string().min(1, 'Rainfall is required.'),
-  farmSize: z.string().min(1, 'Farm size is required.'),
+  farmSizeValue: z.string().min(1, 'Farm size is required.'),
+  farmSizeUnit: z.string().min(1, 'Please select a unit.'),
   fertilizerUse: z.string().optional(),
   irrigationMethod: z.string().optional(),
 });
+
+const landUnits = ["Acres", "Hectares", "Killa", "Bigha", "Marla", "Guntha", "Cent"];
+
 
 export default function CropYieldPage() {
   const { t } = useTranslation();
@@ -56,7 +61,8 @@ export default function CropYieldPage() {
       soilType: '',
       temperature: '',
       rainfall: '',
-      farmSize: '',
+      farmSizeValue: '',
+      farmSizeUnit: 'Acres',
       fertilizerUse: '',
       irrigationMethod: '',
     },
@@ -66,7 +72,11 @@ export default function CropYieldPage() {
     setIsLoading(true);
     setPrediction(null);
     try {
-      const result = await predictCropYield(values);
+      const combinedFarmSize = `${values.farmSizeValue} ${values.farmSizeUnit}`;
+      const result = await predictCropYield({
+        ...values,
+        farmSize: combinedFarmSize,
+      });
       setPrediction(result);
     } catch (error) {
       console.error('Error predicting crop yield:', error);
@@ -186,19 +196,43 @@ export default function CropYieldPage() {
                             </FormItem>
                             )}
                         />
-                        <FormField
-                            control={form.control}
-                            name="farmSize"
-                            render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>{t('cropYield.form.farmSize.label')}</FormLabel>
-                                <FormControl>
-                                <Input className='form-content' placeholder={t('cropYield.form.farmSize.placeholder')} {...field} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                            )}
-                        />
+                        <div className="grid grid-cols-2 gap-4">
+                            <FormField
+                                control={form.control}
+                                name="farmSizeValue"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>{t('cropYield.form.farmSize.label')}</FormLabel>
+                                    <FormControl>
+                                    <Input type="number" className='form-content' placeholder="e.g., 5" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                             <FormField
+                                control={form.control}
+                                name="farmSizeUnit"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Unit</FormLabel>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger className="form-content">
+                                            <SelectValue placeholder="Select a unit" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {landUnits.map(unit => (
+                                            <SelectItem key={unit} value={unit}>{unit}</SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                        </div>
                         <FormField
                             control={form.control}
                             name="fertilizerUse"
