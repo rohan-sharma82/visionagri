@@ -11,10 +11,13 @@ import {
   Thermometer,
   Leaf,
   Shield,
+  ArrowLeft,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const breedsData = {
   'Holstein Friesian': {
@@ -122,8 +125,14 @@ export default function AnimalComparisonPage() {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+      <div className="container mx-auto px-4 py-8 relative">
+        <Link href="/animal-classification" className="absolute top-8 left-4">
+          <Button variant="ghost">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Classification
+          </Button>
+        </Link>
+        <div className="text-center mb-12 pt-8">
           <h1 className="text-4xl font-bold font-headline text-foreground">
             Cattle Breed Comparison
           </h1>

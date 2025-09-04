@@ -90,7 +90,9 @@ export default function AnimalClassificationPage() {
           <Link href="/animal-comparison">
             <button className="action-button-3d">Compare Breed</button>
           </Link>
-          <button className="action-button-3d">Find Veterinarian</button>
+          <Link href="/find-veterinarian">
+            <button className="action-button-3d">Find Veterinarian</button>
+          </Link>
         </div>
       </div>
 
