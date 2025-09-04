@@ -44,7 +44,7 @@ export default function FarmFertilizersPage() {
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
                     A. Introduction
                 </AccordionTrigger>
-                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-lg dark:prose-invert">
+                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                     <h4>What are Fertilizers?</h4>
                     <p>Fertilizers are substances added to soil or plants to supply one or more nutrients essential to the growth of plants. The main objective is to increase crop yield and improve soil fertility.</p>
                     <h4>Importance of N-P-K</h4>
@@ -60,7 +60,7 @@ export default function FarmFertilizersPage() {
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
                     B. Fertilizer Categories
                 </AccordionTrigger>
-                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-lg dark:prose-invert">
+                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                     <h4>1. Major Classifications</h4>
                     <h5>Organic Fertilizers</h5>
                     <p>Derived from natural sources like plant or animal matter—compost, manure, bone meal, fish emulsion, and peat. They release nutrients slowly, improve soil health, and support beneficial soil organisms.</p>
@@ -87,7 +87,7 @@ export default function FarmFertilizersPage() {
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
                     C. Form & Application Methods
                 </AccordionTrigger>
-                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-lg dark:prose-invert">
+                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                     <h4>By Physical Form</h4>
                     <ul>
                         <li><strong>Liquid:</strong> Quick absorption, suitable for seedlings, foliar sprays, and stress recovery. Examples: seaweed extract, fish emulsion.</li>
@@ -108,7 +108,7 @@ export default function FarmFertilizersPage() {
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
                     D. Choosing Guide
                 </AccordionTrigger>
-                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-lg dark:prose-invert">
+                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                     <p>Choosing the right fertilizer depends on several factors:</p>
                     <ul>
                         <li><strong>Based on Plant Needs:</strong> Leafy crops need more Nitrogen, flowering/fruiting plants need more Phosphorus, and root crops benefit from more Potassium.</li>
@@ -123,7 +123,7 @@ export default function FarmFertilizersPage() {
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
                     E. Environmental Considerations
                 </AccordionTrigger>
-                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-lg dark:prose-invert">
+                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                      <ul>
                         <li>Overuse of synthetic fertilizers can cause soil burn, nutrient leaching into groundwater, and water pollution (eutrophication).</li>
                         <li>Organic and controlled-release fertilizers help preserve soil and water health by releasing nutrients slowly and reducing runoff.</li>

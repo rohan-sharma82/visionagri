@@ -107,7 +107,7 @@ export default function FarmToolsPage() {
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
                   {tool.name}
                 </AccordionTrigger>
-                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-lg dark:prose-invert">
+                <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                   <p className="italic mb-4">{tool.content.introduction}</p>
                   <Section title="Functions" content={tool.content.functions} />
                   <Section
