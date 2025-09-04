@@ -121,8 +121,8 @@ export default function CropYieldPage() {
       </div>
 
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
-        <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-8 lg:gap-12">
+        <div className="flex flex-col items-center gap-8 w-full max-w-2xl">
             <div className="farm-data-form-container w-full">
                 <AreaInfoDialog />
                 <div className="rays" />
@@ -253,92 +253,91 @@ export default function CropYieldPage() {
             </div>
         </div>
         
-
-        <div className="flex items-center justify-center min-h-[400px]">
-          {isLoading && (
-            <div className="text-center text-muted-foreground">
-              <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
-              <p className="mt-4 text-lg">{t('cropYield.status.loading')}</p>
-            </div>
-          )}
-          {prediction && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="w-full"
-            >
-              <Card className="shadow-xl" style={{ backgroundColor: '#D8CB76' }}>
-                <CardHeader>
-                  <CardTitle className="text-2xl" style={{ color: '#586E41' }}>{t('cropYield.results.title')}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-start space-x-4 p-4 rounded-lg" style={{backgroundColor: 'rgba(0,0,0,0.05)'}}>
-                    <TrendingUp className="h-8 w-8 mt-1" style={{ color: '#0000FF' }} />
-                    <div>
-                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.predictedYield')}</h3>
-                      <p className="text-2xl font-bold" style={{ color: 'black' }}>{prediction.predictedYield}</p>
-                      <p className="text-sm" style={{ color: 'black' }}>{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
+        <div className="w-full max-w-2xl mt-8">
+            {isLoading && (
+                <div className="text-center text-muted-foreground">
+                <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
+                <p className="mt-4 text-lg">{t('cropYield.status.loading')}</p>
+                </div>
+            )}
+            {prediction && (
+                <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="w-full"
+                >
+                <Card className="shadow-xl" style={{ backgroundColor: '#D8CB76' }}>
+                    <CardHeader>
+                    <CardTitle className="text-2xl" style={{ color: '#586E41' }}>{t('cropYield.results.title')}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                    <div className="flex items-start space-x-4 p-4 rounded-lg" style={{backgroundColor: 'rgba(0,0,0,0.05)'}}>
+                        <TrendingUp className="h-8 w-8 mt-1" style={{ color: '#0000FF' }} />
+                        <div>
+                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.predictedYield')}</h3>
+                        <p className="text-2xl font-bold" style={{ color: 'black' }}>{prediction.predictedYield}</p>
+                        <p className="text-sm" style={{ color: 'black' }}>{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
+                        </div>
                     </div>
-                  </div>
-                   <Separator />
-                   <div className="flex items-start space-x-4">
-                    <Info className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
-                    <div>
-                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.analysis')}</h3>
-                      <p className="mt-1 whitespace-pre-wrap" style={{ color: 'black' }}>{prediction.yieldAnalysis}</p>
+                    <Separator />
+                    <div className="flex items-start space-x-4">
+                        <Info className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
+                        <div>
+                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.analysis')}</h3>
+                        <p className="mt-1 whitespace-pre-wrap" style={{ color: 'black' }}>{prediction.yieldAnalysis}</p>
+                        </div>
                     </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <Wind className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
-                    <div>
-                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.factors')}</h3>
-                      <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
-                        {prediction.factorsInfluencingYield.map((factor, index) => (
-                          <li key={index}>{factor}</li>
-                        ))}
-                      </ul>
+                    <div className="flex items-start space-x-4">
+                        <Wind className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
+                        <div>
+                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.factors')}</h3>
+                        <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
+                            {prediction.factorsInfluencingYield.map((factor, index) => (
+                            <li key={index}>{factor}</li>
+                            ))}
+                        </ul>
+                        </div>
                     </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <Zap className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
-                    <div>
-                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.actions')}</h3>
-                      <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
-                        {prediction.suggestedActions.map((action, index) => {
-                           const parts = action.split(/:(.*)/s);
-                           const heading = parts[0];
-                           const body = parts[1];
-                          return (
-                          <li key={index}>
-                            <strong>{heading}:</strong>
-                            {body}
-                          </li>
-                        )})}
-                      </ul>
+                    <div className="flex items-start space-x-4">
+                        <Zap className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
+                        <div>
+                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.actions')}</h3>
+                        <ul className="list-disc pl-5 mt-1" style={{ color: 'black' }}>
+                            {prediction.suggestedActions.map((action, index) => {
+                            const parts = action.split(/:(.*)/s);
+                            const heading = parts[0];
+                            const body = parts[1];
+                            return (
+                            <li key={index}>
+                                <strong>{heading}:</strong>
+                                {body}
+                            </li>
+                            )})}
+                        </ul>
+                        </div>
                     </div>
-                  </div>
-                   <Separator />
-                   <div className="flex items-start space-x-4">
-                    <Wheat className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
-                    <div>
-                      <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.idealValues')}</h3>
-                      <div className="mt-1 space-y-1" style={{ color: 'black' }}>
-                        <p><strong>{t('cropYield.form.fertilizer.label')}:</strong> {prediction.idealValues.fertilizer}</p>
-                        <p><strong>{t('cropYield.form.irrigation.label')}:</strong> {prediction.idealValues.irrigation}</p>
-                      </div>
+                    <Separator />
+                    <div className="flex items-start space-x-4">
+                        <Wheat className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
+                        <div>
+                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.idealValues')}</h3>
+                        <div className="mt-1 space-y-1" style={{ color: 'black' }}>
+                            <p><strong>{t('cropYield.form.fertilizer.label')}:</strong> {prediction.idealValues.fertilizer}</p>
+                            <p><strong>{t('cropYield.form.irrigation.label')}:</strong> {prediction.idealValues.irrigation}</p>
+                        </div>
+                        </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          )}
-          {!isLoading && !prediction && (
-             <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
-                <TrendingUp className="mx-auto h-12 w-12 text-muted-foreground/50" />
-                <p className="mt-4 text-lg">{t('cropYield.status.idle')}</p>
-              </div>
-          )}
+                    </CardContent>
+                </Card>
+                </motion.div>
+            )}
+            {!isLoading && !prediction && (
+                <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg w-full">
+                    <TrendingUp className="mx-auto h-12 w-12 text-muted-foreground/50" />
+                    <p className="mt-4 text-lg">{t('cropYield.status.idle')}</p>
+                </div>
+            )}
         </div>
       </div>
     </div>
