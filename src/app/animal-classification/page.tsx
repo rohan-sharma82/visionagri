@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Loader2, PawPrint, Upload, BarChart, Info } from 'lucide-react';
+import { Loader2, PawPrint, Upload, BarChart, Info, Lightbulb, Milk, Scale, Thermometer, Globe, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
@@ -195,6 +195,28 @@ export default function AnimalClassificationPage() {
                        <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.description')}</h3>
                     </div>
                     <p className="text-muted-foreground text-sm">{result.description}</p>
+                  </div>
+
+                  {result.breedInfo && (
+                     <div>
+                        <h3 className="font-semibold text-foreground mb-3 text-lg">Breed Information</h3>
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+                            {result.breedInfo.localNames && <div className="flex items-center gap-2"><Tag className="h-4 w-4 text-primary" /> <strong>Local Names:</strong> {result.breedInfo.localNames}</div>}
+                            {result.breedInfo.origin && <div className="flex items-center gap-2"><Globe className="h-4 w-4 text-primary" /> <strong>Origin:</strong> {result.breedInfo.origin}</div>}
+                            {result.breedInfo.color && <div className="flex items-center gap-2"><div className="h-4 w-4 rounded-full border" style={{ backgroundColor: result.breedInfo.color.split(',')[0].toLowerCase() }} /> <strong>Color:</strong> {result.breedInfo.color}</div>}
+                            {result.breedInfo.weight && <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-primary" /> <strong>Weight:</strong> {result.breedInfo.weight}</div>}
+                            {result.breedInfo.milkYield && <div className="flex items-center gap-2"><Milk className="h-4 w-4 text-primary" /> <strong>Milk Yield:</strong> {result.breedInfo.milkYield}</div>}
+                            {result.breedInfo.suitability && <div className="flex items-center gap-2"><Thermometer className="h-4 w-4 text-primary" /> <strong>Suitability:</strong> {result.breedInfo.suitability}</div>}
+                        </div>
+                    </div>
+                  )}
+
+                  <div>
+                     <div className="flex items-center space-x-3 mb-2">
+                       <Lightbulb className="h-5 w-5 text-yellow-500" />
+                       <h3 className="font-semibold text-foreground">Actionable Suggestion</h3>
+                    </div>
+                    <p className="text-muted-foreground bg-primary/5 p-3 rounded-md border border-primary/20 text-sm">{result.actionableSuggestion}</p>
                   </div>
                 </CardContent>
               </Card>
