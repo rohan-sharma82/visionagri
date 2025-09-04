@@ -323,8 +323,7 @@
                 "placeholder": "e.g., 500"
             },
             "farmSize": {
-                "label": "Farm Size",
-                "placeholder": "e.g., 2 hectares"
+                "label": "Farm Size"
             },
             "fertilizer": {
                 "label": "Fertilizer Use (Optional)",
@@ -347,7 +346,7 @@
         },
         "results": {
             "title": "AI Prediction Results",
-            "predictedYield": "Predicted Yield (Tonnes/Hectare)",
+            "predictedYield": "Total Predicted Yield",
             "confidence": "Confidence",
             "analysis": "AI Analysis",
             "factors": "Influencing Factors",
@@ -459,6 +458,12 @@
             "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
             "description": "schemes.shc.description"
         },
+        "smam": {
+            "name": "Sub-mission On Agriculture Mechanization (SMAM)",
+            "shortName": "SMAM",
+            "shortDescription": "Promotes farm mechanization by providing subsidies on agricultural machinery to increase farm power availability.",
+            "description": "schemes.smam.description"
+        },
         "ahidf": {
             "name": "Animal Husbandry Infrastructure Development Fund (AHIDF)",
             "shortName": "AHIDF",
@@ -520,39 +525,6 @@
             "voiceNotSupported": {
                 "title": "Voice not supported",
                 "description": "Your browser does not support voice recognition."
-            }
-        }
-    },
-    "diseaseClassification": {
-        "title": "Crop Disease Classification",
-        "subtitle": "Upload an image of a crop leaf to detect diseases early.",
-        "uploadCard": {
-            "title": "Upload Crop Image",
-            "description": "For best results, use a clear, close-up image of a single leaf.",
-            "button": "Upload Image"
-        },
-        "buttons": {
-            "classify": "Classify Disease",
-            "analyzing": "Analyzing..."
-        },
-        "status": {
-            "loading": "AI is inspecting the leaf...",
-            "idle": "Upload an image to get a diagnosis."
-        },
-        "reportCard": {
-            "title": "Diagnosis Report",
-            "diagnosis": "Diagnosis",
-            "confidence": "Confidence Level",
-            "details": "Additional Details & Recommendations"
-        },
-        "toast": {
-            "noFile": {
-                "title": "No file selected",
-                "description": "Please upload an image of a crop leaf."
-            },
-            "failure": {
-                "title": "Classification Failed",
-                "description": "Could not analyze the image. Please try another one."
             }
         }
     },

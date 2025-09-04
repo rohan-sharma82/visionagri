@@ -305,13 +305,16 @@
                 "label": "Soil Type",
                 "placeholder": "e.g., Loamy, Sandy, Clay"
             },
-            "location": {
-                "label": "Location",
-                "placeholder": "e.g., Delhi, India"
+            "temperature": {
+                "label": "Temperature (°C)",
+                "placeholder": "e.g., 25"
+            },
+            "rainfall": {
+                "label": "Rainfall (mm)",
+                "placeholder": "e.g., 500"
             },
             "farmSize": {
-                "label": "Farm Size",
-                "placeholder": "e.g., 2 hectares, 5 acres"
+                "label": "Farm Size"
             },
             "fertilizer": {
                 "label": "Fertilizer Use (Optional)",
@@ -334,7 +337,7 @@
         },
         "results": {
             "title": "AI Prediction Results",
-            "predictedYield": "Predicted Yield (Tonnes/Hectare)",
+            "predictedYield": "Total Predicted Yield",
             "confidence": "Confidence",
             "analysis": "AI Analysis",
             "factors": "Influencing Factors",
@@ -405,13 +408,53 @@
             "name": "Animal Husbandry Infrastructure Development Fund (AHIDF)",
             "shortName": "AHIDF",
             "shortDescription": "Incentivizes investment in dairy processing, meat processing, and animal feed plants.",
-            "description": "<h4>BACKGROUND:</h4><p>Hon'ble Prime Minister has announced for setting up of Rs. 15000 crore Animal Husbandry Infrastructure Development Fund (AHIDF) under Atma Nirbhar Bharat Abhiyan stimulus package. The Animal Husbandry Infrastructure Development (AHIDF) has been approved for incentivizing investments by individual entrepreneurs, private companies, MSME, Farmers Producers Organizations (FPOs) and Section 8 companies to establish (i) the dairy processing and value addition infrastructure, (ii) meat processing and value addition infrastructure and (iii) Animal Feed Plant.</p><h4>OBJECTIVES:</h4><ul><li>To help increasing of milk and meat processing capacity and product diversification thereby providing greater access for unorganized rural milk and meat producers to organized milk and meat market.</li><li>To make available increased price realization for the producer.</li><li>To make available quality milk and meat products for the domestic consumer.</li><li>To fulfill the objective of protein enriched quality food requirement of the growing population of the country and prevent malnutrition in one of the highest malnourished children population in the world.</li><li>Develop enterpreneurship and generate employment.</li><li>To promote exports and increase the export contribution in the milk and meat sector.</li><li>To make available quality concentrated animals feed to the cattle, buffalo, sheep, goat, pig and poultry to provide balanced ration at affordable prices.</li></ul><h4>ELIGIBLE ENTITIES (EEs) FOR SUPPORT UNDER AHIDF</h4><p>Following are the eligible entities for availing benefits under the AHIDF Scheme:</p><ul><li>Farmer Producer Organization (FPO)</li><li>Private companies</li><li>Individual entrepreneurs</li><li>Section 8 companies</li><li>Micro Small and Medium Enterprises</li></ul><h4>IMPLEMENTING AGENCY</h4><p>Animal Husbandry Infrastructure Development Fund will be implemented by the Department of Animal Husbandry and Dairying, Ministry of Fisheries, Animal Husbandry and Dairying.</p><h4>ACTIVITIES ELIGIBLE FOR AVAILING BENEFITS UNDER AHIDF (Dairy processing and value addition )</h4><h5>6.1. Dairy Processing: Under the Dairy Processing infrastructure the EE can avail benefit for establishment of the following:</h5><p>6.1.1 Establishment of new units and strengthening of existing dairy processing units with quality and hygienic milk processing facilities, packaging facilities or any other activities related to dairy processing.</p><h5>6.1.2 Value added dairy product manufacturing:</h5><p>The EE can also avail loan for establishment of new units and strengthening of existing manufacturing units for value addition of the following milk Products:</p><ul><li>Ice Cream unit</li><li>Cheese manufacturing unit</li><li>Ultra High Temperature (UHT) Milk processing unit with tetra packaging facilities</li><li>Flavoured Milk manufacturing unit</li><li>Milk Powder manufacturing unit</li><li>Whey powder manufacturing unit</li><li>Any other milk products and value addition manufacturing unit.</li><li>Manufacture of any equipment and machinery required for dairy processing & value addition including the manufacturers for quality testing, adulterant and contaminants</li></ul><h5>6.2 Meat processing and Value addition of facilities:</h5><p>6.2.1. Establishment of new meat processing unit and strengthening of existing meat processing facilities for sheep/goat/ poultry/pig/buffalo in rural, semi-urban and urban areas.</p><p>6.2.2. Large scale integrated meat processing facilities/ plant/ unit.</p><p>6.2.3. Value Added Products: Establishment of new or strengthening of existing value addition facilities for meat products like Sausage, nuggets, ham, salami, bacon or any other meat products. These facilities could either be integral part of meat processing units or Standalone meat value addition unit.</p><p>6.2.4. The project cost of each meat processing plant should compulsorily include Effluent Treatment Plant (ETP), Meat Microbiological Testing Laboratory, Residue Testing laboratory, Cold storage for holding the offals, skin/ hide processing areas and their preservation and refrigeration facilities for holding the chilled products and value-added products for minimum of 24 hours.</p>"
+            "description": "<h4>BACKGROUND:</h4><p>Hon'ble Prime Minister has announced for setting up of Rs. 15000 crore Animal Husbandry Infrastructure Development Fund (AHIDF) under Atma Nirbhar Bharat Abhiyan stimulus package. The Animal Husbandry Infrastructure Development (AHIDF) has been approved for incentivizing investments by individual entrepreneurs, private companies, MSME, Farmers Producers Organizations (FPOs) and Section 8 companies to establish (i) the dairy processing and value addition infrastructure, (ii) meat processing and value addition infrastructure and (iii) Animal Feed Plant.</p><h4>OBJECTIVES:</h4><ul><li>To help increasing of milk and meat processing capacity and product diversification thereby providing greater access for unorganized rural milk and meat producers to organized milk and meat market.</li><li>To make available increased price realization for the producer.</li><li>To make available quality milk and meat products for the domestic consumer.</li><li>To fulfill the objective of protein enriched quality food requirement of the growing population of the country and prevent malnutrition in one of the highest malnourished children population in the world.</li><li>Develop enterpreneurship and generate employment.</li><li>To promote exports and increase the export contribution in the milk and meat sector.</li><li>To make available quality concentrated animals feed to the cattle, buffalo, sheep, goat, pig and poultry to provide balanced ration at affordable prices.</li></ul><h4>ELIGIBLE ENTITIES (EEs) FOR SUPPORT UNDER AHIDF</h4><p>Following are the eligible entities for availing benefits under the AHIDF Scheme:</p><ul><li>Farmer Producer Organization (FPO)</li><li>Private companies</li><li>Individual entrepreneurs</li><li>Section 8 companies</li><li>Micro Small and Medium Enterprises</li></ul><h4>IMPLEMENTING AGENCY</h4><p>Animal Husbandry Infrastructure Development Fund will be implemented by the Department of Animal Husbandry and Dairying, Ministry of Fisheries, Animal Husbandry and Dairying.</p><h4>ACTIVITIES ELIGIBLE FOR AVAILING BENEFITS UNDER AHIDF (Dairy processing and value addition )</h4><h5>6.1. Dairy Processing: Under the Dairy Processing infrastructure the EE can avail benefit for establishment of the following:</h5><p>6.1.1 Establishment of new units and strengthening of existing dairy processing units with quality and hygienic milk processing facilities, packaging facilities or any other activities related to dairy processing.</p><h5>6.1.2 Value added dairy product manufacturing:</h5><p>The EE can also avail loan for establishment of new or strengthening of existing manufacturing units for value addition of the following milk Products:</p><ul><li>Ice Cream unit</li><li>Cheese manufacturing unit</li><li>Ultra High Temperature (UHT) Milk processing unit with tetra packaging facilities</li><li>Flavoured Milk manufacturing unit</li><li>Milk Powder manufacturing unit</li><li>Whey powder manufacturing unit</li><li>Any other milk products and value addition manufacturing unit.</li><li>Manufacture of any equipment and machinery required for dairy processing & value addition including the manufacturers for quality testing, adulterant and contaminants</li></ul><h5>6.2 Meat processing and Value addition of facilities:</h5><p>6.2.1. Establishment of new meat processing unit and strengthening of existing meat processing facilities for sheep/goat/ poultry/pig/buffalo in rural, semi-urban and urban areas.</p><p>6.2.2. Large scale integrated meat processing facilities/ plant/ unit.</p><p>6.2.3. Value Added Products: Establishment of new or strengthening of existing value addition facilities for meat products like Sausage, nuggets, ham, salami, bacon or any other meat products. These facilities could either be integral part of meat processing units or Standalone meat value addition unit.</p><p>6.2.4. The project cost of each meat processing plant should compulsorily include Effluent Treatment Plant (ETP), Meat Microbiological Testing Laboratory, Residue Testing laboratory, Cold storage for holding the offals, skin/ hide processing areas and their preservation and refrigeration facilities for holding the chilled products and value-added products for minimum of 24 hours.</p>"
         }
+    },
+    "locationDialog": {
+        "title": "Enter Your Location",
+        "description": "If you want better results, enter your location for fetching today's weather data.",
+        "label": "Location",
+        "placeholder": "e.g., Delhi, India",
+        "ok": "OK",
+        "later": "Later"
     },
     "dashboard": {
         "login": {
             "title": "ਡੈਸ਼ਬੋਰਡ ਪਹੁੰਚ",
-            "description": "ਆਪਣਾ ਵਿਅਕਤੀਗਤ ਡੈਸ਼ਬੋਰਡ ਦੇਖਣ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਲੌਗਇਨ ਕਰੋ।"
+            "description": "ਆਪਣਾ ਵਿਅਕਤੀਗਤ ਡੈਸ਼ਬੋਰਡ ਦੇਖਣ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਲੌਗਇਨ ਕਰੋ।",
+            "error": "ਅਵੈਧ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ।",
+            "button": "ਲੌਗਇਨ",
+            "prism": {
+                "nav": {
+                    "login": "ਲੌਗਇਨ",
+                    "signup": "ਸਾਈਨ ਅੱਪ",
+                    "forgotPassword": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ",
+                    "subscribe": "ਸਬਸਕ੍ਰਾਈਬ",
+                    "contactUs": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"
+                },
+                "signIn": "ਸਾਈਨ ਇਨ",
+                "email": "ਈ - ਮੇਲ",
+                "username": "ਉਪਭੋਗਤਾ ਨਾਮ",
+                "password": "ਪਾਸਵਰਡ",
+                "forgotLink": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?",
+                "signupLink": "ਉਪਭੋਗਤਾ ਨਹੀਂ ਹੋ? ਸਾਈਨ ਅੱਪ ਕਰੋ",
+                "subscribeTitle": "ਸਬਸਕ੍ਰਾਈਬ",
+                "subscribeDescription": "ਆਪਣਾ ਈਮੇਲ ਦਰਜ ਕਰੋ ਤਾਂ ਜੋ ਅਸੀਂ ਤੁਹਾਨੂੰ ਨਵੀਨਤਮ ਅਪਡੇਟ ਭੇਜ ਸਕੀਏ!",
+                "forgotTitle": "ਕੀ ਤੁਸੀਂ ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?",
+                "forgotDescription": "ਆਪਣਾ ਈਮੇਲ ਦਰਜ ਕਰੋ ਤਾਂ ਜੋ ਅਸੀਂ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਲਈ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜ ਸਕੀਏ",
+                "signUp": "ਸਾਈਨ ਅਪ ਕਰੋ",
+                "reenterPassword": "ਪਾਸਵਰਡ ਦੁਬਾਰਾ ਦਾਖਲ ਕਰੋ",
+                "signInLink": "ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਉਪਭੋਗਤਾ ਹੋ? ਸਾਈਨ ਇਨ ਕਰੋ",
+                "contactTitle": "ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ",
+                "name": "ਨਾਮ",
+                "message": "ਤੁਹਾਡਾ ਸੁਨੇਹਾ",
+                "thankYou": "ਤੁਹਾਡਾ ਧੰਨਵਾਦ!"
+            },
+            "judgeInfo": {
+                "title": "SIH ਜੱਜਾਂ ਅਤੇ ਟੈਸਟਰਾਂ ਲਈ",
+                "description": "ਵਿਅਕਤੀਗਤ ਡੈਸ਼ਬੋਰਡ ਦ੍ਰਿਸ਼ਾਂ ਦੀ ਪੜਚੋਲ ਕਰਨ ਲਈ ਇਹਨਾਂ ਡਮੀ ਪ੍ਰਮਾਣ ਪੱਤਰਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ।"
+            }
         },
         "selectProfile": {
             "title": "ਇੱਕ ਡੈਮੋ ਪ੍ਰੋਫਾਈਲ ਚੁਣੋ",
@@ -434,7 +477,13 @@
         },
         "schemes": {
             "title": "ਤੁਹਾਡੇ ਲਈ ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੀਆਂ ਸਕੀਮਾਂ",
-            "description": "ਤੁਹਾਡੇ ਪ੍ਰੋਫ਼ਾਈਲ ਦੇ ਆਧਾਰ 'ਤੇ, ਇਹ ਸਰਕਾਰੀ ਸਕੀਮਾਂ ਲਾਭਦਾਇਕ ਹੋ ਸਕਦੀਆਂ ਹਨ।"
+            "description": "ਤੁਹਾਡੇ ਪ੍ਰੋਫ਼ਾਈਲ ਦੇ ਆਧਾਰ 'ਤੇ, ਇਹ ਸਰਕਾਰੀ ਸਕੀਮਾਂ ਲਾਭਦਾਇਕ ਹੋ ਸਕਦੀਆਂ ਹਨ।",
+            "reasons": {
+                "smallLandholding": "ਛੋਟੇ ਜ਼ਮੀਨੀ ਮਾਲਕ ਕਿਸਾਨਾਂ ਲਈ ਢੁਕਵਾਂ।",
+                "weatherUnpredictability": "ਤੁਹਾਡੇ ਖੇਤਰ ਵਿੱਚ ਮੌਸਮ ਦੀ ਅਨਿਸ਼ਚਿਤਤਾ ਕਾਰਨ।",
+                "betterPrices": "ਆਪਣੀ ਉਪਜ ਲਈ ਬਿਹਤਰ ਬਾਜ਼ਾਰ ਕੀਮਤਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ।",
+                "easyCredit": "ਖੇਤੀਬਾੜੀ ਕਰਜ਼ੇ ਤੱਕ ਆਸਾਨ ਪਹੁੰਚ ਲਈ।"
+            }
         },
         "weather": {
             "title": "ਮੌਸਮ ਦਾ ਦ੍ਰਿਸ਼ ਅਤੇ ਚੇਤਾਵਨੀਆਂ",
