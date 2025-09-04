@@ -12,6 +12,7 @@ import {
   Leaf,
   Shield,
   ArrowLeft,
+  MapPin,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/header';
@@ -35,12 +36,12 @@ const breedsData = {
     disease: 'Moderate',
     disease_rating: 3,
   },
-  Sahiwal: {
-    origin: 'Pakistan/India',
-    size: 'Medium (400-500 kg)',
-    size_rating: 3,
-    milk: '10-15 L/day',
-    milk_rating: 3,
+  'Sahiwal': {
+    origin: 'Punjab region (India/Pakistan)',
+    size: 'Large (600 kg)',
+    size_rating: 5,
+    milk: '7-10 L/day',
+    milk_rating: 2,
     temperament: 'Docile',
     temperament_rating: 4,
     climate: 'Excellent',
@@ -50,7 +51,7 @@ const breedsData = {
     disease: 'Excellent',
     disease_rating: 5,
   },
-  Jersey: {
+  'Jersey': {
     origin: 'Jersey Island',
     size: 'Small (350-450 kg)',
     size_rating: 2,
@@ -65,11 +66,11 @@ const breedsData = {
     disease: 'Good',
     disease_rating: 4,
   },
-  Gir: {
+  'Gir': {
     origin: 'Gujarat, India',
-    size: 'Large (550-650 kg)',
+    size: 'Large (544 kg)',
     size_rating: 4,
-    milk: '12-18 L/day',
+    milk: '12 L/day',
     milk_rating: 3,
     temperament: 'Calm',
     temperament_rating: 5,
@@ -79,6 +80,111 @@ const breedsData = {
     feed_rating: 3,
     disease: 'Excellent',
     disease_rating: 5,
+  },
+  'Red Sindhi': {
+    origin: 'Sindh, Pakistan',
+    size: 'Medium (Male: 530 kg)',
+    size_rating: 4,
+    milk: '12 L/day',
+    milk_rating: 3,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Excellent',
+    climate_rating: 5,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Excellent',
+    disease_rating: 5,
+  },
+  'Ongole': {
+    origin: 'Andhra Pradesh, India',
+    size: 'Large (Male: 500 kg)',
+    size_rating: 4,
+    milk: '17 L/day',
+    milk_rating: 4,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Excellent',
+    climate_rating: 5,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Excellent',
+    disease_rating: 5,
+  },
+  'Deoni': {
+    origin: 'Maharashtra, India',
+    size: 'Large (Male: 590 kg)',
+    size_rating: 5,
+    milk: '3-4 L/day',
+    milk_rating: 1,
+    temperament: 'Calm',
+    temperament_rating: 5,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Tharparkar': {
+    origin: 'Sindh, Pakistan',
+    size: 'Medium (450 kg)',
+    size_rating: 3,
+    milk: '8-10 L/day',
+    milk_rating: 2,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Excellent',
+    climate_rating: 5,
+    feed: 'Low',
+    feed_rating: 5,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Kankrej': {
+    origin: 'Gujarat, India',
+    size: 'Large (590 kg)',
+    size_rating: 5,
+    milk: '5-6 L/day',
+    milk_rating: 2,
+    temperament: 'Active',
+    temperament_rating: 3,
+    climate: 'Excellent',
+    climate_rating: 5,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Excellent',
+    disease_rating: 5,
+  },
+  'Krishna Valley': {
+    origin: 'Karnataka, India',
+    size: 'Large (550 kg)',
+    size_rating: 4,
+    milk: '3 L/day',
+    milk_rating: 1,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'High',
+    feed_rating: 2,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Hariana': {
+    origin: 'Haryana, India',
+    size: 'Medium (430 kg)',
+    size_rating: 3,
+    milk: '10-15 L/day',
+    milk_rating: 3,
+    temperament: 'Active',
+    temperament_rating: 3,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
   },
 };
 
@@ -108,7 +214,7 @@ const StarRating = ({ rating }: { rating: number }) => (
 
 export default function AnimalComparisonPage() {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState(['Holstein Friesian', 'Jersey']);
+  const [selected, setSelected] = useState<string[]>(['Sahiwal', 'Gir']);
 
   const handleSelect = (breed: string) => {
     setSelected((prev) => {
@@ -141,21 +247,21 @@ export default function AnimalComparisonPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
           {Object.keys(breedsData).map((breed) => (
             <div
               key={breed}
               onClick={() => handleSelect(breed)}
               className={cn(
-                'border rounded-lg p-4 text-center cursor-pointer transition-all',
+                'border rounded-lg p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-between',
                 selected.includes(breed)
                   ? 'border-green-500 bg-green-500/10 ring-2 ring-green-500'
                   : 'border-border hover:border-primary'
               )}
             >
-              <HelpCircle className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
               <h3 className="font-semibold">{breed}</h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground flex items-center gap-1">
+                <MapPin className="h-3 w-3" />
                 {breedsData[breed as keyof typeof breedsData].origin}
               </p>
               <div className="h-5 mt-2 flex justify-center items-center">
