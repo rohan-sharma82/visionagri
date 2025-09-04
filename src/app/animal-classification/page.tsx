@@ -86,6 +86,12 @@ export default function AnimalClassificationPage() {
          <p className="mt-4 text-base font-semibold text-primary">
             Kisan Call Center -&gt; 1800-180-1551
         </p>
+        <div className="flex justify-center gap-4 mt-6">
+          <Link href="/animal-comparison">
+            <button className="action-button-3d">Compare Breed</button>
+          </Link>
+          <button className="action-button-3d">Find Veterinarian</button>
+        </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mt-12">
@@ -189,14 +195,6 @@ export default function AnimalClassificationPage() {
                     <p className="text-muted-foreground text-sm">{result.description}</p>
                   </div>
                 </CardContent>
-                 <CardFooter className="flex-col gap-4">
-                    <div className="flex gap-4">
-                      <Link href="/animal-comparison">
-                        <button className="action-button-3d">Compare Breed</button>
-                      </Link>
-                      <button className="action-button-3d">Find Veterinarian</button>
-                    </div>
-                  </CardFooter>
               </Card>
             </motion.div>
           )}
