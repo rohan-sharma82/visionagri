@@ -321,9 +321,9 @@ class Media {
         this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
       }
     }
-    this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (1200 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (900 * this.scale)) / this.screen.width;
+    this.scale = this.screen.height / 2000;
+    this.plane.scale.y = (this.viewport.height * (1400 * this.scale)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (1100 * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
     this.padding = 2;
     this.width = this.plane.scale.x + this.padding;
@@ -571,6 +571,8 @@ interface CircularGalleryProps {
     }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
     return <div className="circular-gallery" ref={containerRef} />;
   }
+    
+
     
 
     
