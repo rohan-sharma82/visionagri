@@ -100,7 +100,7 @@ export default function AnimalClassificationPage() {
         </p>
       </div>
 
-      <div style={{ height: '400px', position: 'relative' }}>
+      <div style={{ height: '500px', position: 'relative' }}>
         <CircularGallery items={galleryImages} bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} />
       </div>
 
