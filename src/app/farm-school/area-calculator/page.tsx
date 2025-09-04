@@ -76,8 +76,10 @@ export default function AreaCalculatorPage() {
           <div className="flex justify-center mb-8">
             <Dialog>
                 <DialogTrigger asChild>
-                    <button className="btn">
-                      {t('farmSchool.areaCalculator.converter.button')}
+                    <button type="button" className="button-3d-pink">
+                      <div className="button-top">{t('farmSchool.areaCalculator.converter.button')}</div>
+                      <div className="button-bottom"></div>
+                      <div className="button-base"></div>
                     </button>
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl h-[80vh] flex flex-col">
