@@ -38,7 +38,7 @@ const allDashboardData: Record<string, any> = {
         location: 'Punjab, India',
         primaryCrop: 'Wheat',
         yieldHistory: [
-            { date: '2024-07-15', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
+            { date: '4 August 2025', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
             { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
             { date: '4 August 2025', crop: 'Soybeans', predicted: '3.5', actual: '3.5' },
         ],
@@ -185,7 +185,17 @@ export default function DashboardPage() {
   const [currentUserKey, setCurrentUserKey] = useState<string | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Check localStorage for a saved user on initial mount
+  useEffect(() => {
+    const savedUser = localStorage.getItem('agrivision_user');
+    if (savedUser && allDashboardData[savedUser]) {
+      setCurrentUserKey(savedUser);
+    } else {
+        setIsLoading(false); // If no user, stop loading
+    }
+  }, []);
 
   const isAuthenticated = !!currentUserKey;
   const userData = currentUserKey ? allDashboardData[currentUserKey] : null;
@@ -216,6 +226,7 @@ export default function DashboardPage() {
             setIsLoading(false);
         }
     }
+    
     if (isAuthenticated) {
         fetchData();
     }
@@ -224,6 +235,7 @@ export default function DashboardPage() {
 
 
   const handleClearUser = () => {
+    localStorage.removeItem('agrivision_user');
     setCurrentUserKey(null);
     setWeatherData(null);
     setMarketData(null);
@@ -232,6 +244,7 @@ export default function DashboardPage() {
   const handleLogin = (userEmail: string) => {
     const userKey = Object.keys(allDashboardData).find(key => key === userEmail);
     if(userKey) {
+        localStorage.setItem('agrivision_user', userKey);
         setCurrentUserKey(userKey);
     }
   };
