@@ -20,14 +20,15 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
     <Dialog>
       <div className="govt-scheme-card">
         <div className="govt-scheme-card__image-container">
+           <div className="relative w-[300px] h-[200px]">
             <Image
                 src={scheme.imageUrl}
                 alt={t(scheme.name)}
-                width={300}
-                height={200}
+                fill
                 className="rounded-lg object-cover"
                 data-ai-hint={scheme.dataAiHint}
             />
+           </div>
         </div>
         <div className="govt-scheme-card__content">
           <p className="govt-scheme-card__title">{t(scheme.shortName)}</p>
