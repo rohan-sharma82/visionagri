@@ -180,7 +180,7 @@ export default function AiFarmerPage() {
   }, []);
 
   const handleSaveHistory = useCallback(() => {
-    if (!isHistoryLoading && userId) {
+    if (userId) {
       saveChatHistory(userId, messages).catch(err => {
         toast({
           variant: 'destructive',
@@ -189,11 +189,14 @@ export default function AiFarmerPage() {
         });
       });
     }
-  }, [messages, isHistoryLoading, userId, t, toast]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId, messages]);
   
   useEffect(() => {
-    handleSaveHistory();
-  }, [messages, handleSaveHistory]);
+    if (!isHistoryLoading) {
+        handleSaveHistory();
+    }
+  }, [messages, isHistoryLoading, handleSaveHistory]);
 
 
   useEffect(() => {
@@ -237,7 +240,7 @@ export default function AiFarmerPage() {
 
       let ttsResult;
       try {
-        if (!controller.signal.aborted && !result.advice.toLowerCase().includes('error')) {
+        if (!controller.signal.aborted && result.advice && !result.advice.toLowerCase().includes("error")) {
             ttsResult = await textToSpeech(result.advice);
         }
       } catch (ttsError: any) {
@@ -496,13 +499,13 @@ export default function AiFarmerPage() {
                     </FormItem>
                   )}
                 />
-                <button type="submit" disabled={isLoading || !form.getValues("query").trim()} className="send-button-style">
+                <Button type="submit" disabled={isLoading || !form.getValues("query").trim()} className="send-button-style">
                   {isLoading ? (
-                    <div className="h-4 w-4 animate-spin" />
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent border-white" />
                   ) : (
                     <span><Send className="text-black" /></span>
                   )}
-                </button>
+                </Button>
               </form>
             </Form>
             )}

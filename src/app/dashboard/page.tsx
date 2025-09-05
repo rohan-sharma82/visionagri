@@ -275,9 +275,9 @@ export default function DashboardPage() {
              {t('kisanCallCenter')}
           </p>
           <form action={handleLogout}>
-             <button type="submit" className="logout-button">
+             <Button type="submit" className="logout-button">
                 <p>{t('dashboard.logout')}</p>
-            </button>
+            </Button>
           </form>
         </div>
 
