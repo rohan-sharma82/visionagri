@@ -85,6 +85,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'dehaat-kheti-prod.s3.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'www.gyan.bharatagri.com',
         port: '',
         pathname: '/**',
@@ -109,19 +115,19 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'prakati.in',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'static.langimg.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'dehaat-kheti-prod.s3.amazonaws.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'prakati.in',
+        hostname: 'vajiramandravi.com',
         port: '',
         pathname: '/**',
       },

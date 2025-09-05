@@ -413,16 +413,7 @@ export const schemesData = [
     shortName: 'schemes.pmkisan_new.shortName',
     shortDescription: 'schemes.pmkisan_new.shortDescription',
     description: 'schemes.pmkisan_new.description',
-    imageUrl: 'https://picsum.photos/300/200?random=12',
-    dataAiHint: 'placeholder image',
-  },
-  {
-    id: 13,
-    name: 'schemes.sis.name',
-    shortName: 'schemes.sis.shortName',
-    shortDescription: 'schemes.sis.shortDescription',
-    description: 'schemes.sis.description',
-    imageUrl: 'https://picsum.photos/300/200?random=13',
+    imageUrl: 'https://vajiramandravi.com/current-affairs/wp-content/uploads/2025/07/PM-1.webp',
     dataAiHint: 'placeholder image',
   }
 ];
