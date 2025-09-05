@@ -22,13 +22,17 @@ export default function LocationDialog() {
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    // We only want to run this on the client
+    // This effect runs once on the client when the component mounts.
     const savedLocation = localStorage.getItem('user-location');
-    if (!savedLocation) {
-      setIsOpen(true);
-    } else if (savedLocation) {
+
+    if (savedLocation) {
+      // If a location is saved, pre-fill the input and the global state.
+      setInputValue(savedLocation);
       setLocation(savedLocation);
     }
+    
+    // Always open the dialog on app load.
+    setIsOpen(true);
   }, [setLocation]);
 
   const handleSave = () => {
@@ -63,20 +67,24 @@ export default function LocationDialog() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder={t('locationDialog.placeholder')}
               className="col-span-3"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSave();
+                }
+              }}
             />
           </div>
         </div>
         <DialogFooter>
           <Button 
             onClick={handleLater} 
-            className="bg-red-800 hover:bg-red-900 text-white"
+            variant="outline"
           >
             {t('locationDialog.later')}
           </Button>
           <Button 
             onClick={handleSave} 
             disabled={!inputValue.trim()}
-            className="bg-blue-600 hover:bg-blue-700 text-white"
           >
             {t('locationDialog.ok')}
           </Button>
