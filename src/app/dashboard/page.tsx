@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -32,6 +32,8 @@ import MarketPriceChart from '@/components/market-price-chart';
 import { Skeleton } from '@/components/ui/skeleton';
 import { logout } from '@/app/auth/actions';
 import type { Session } from '@supabase/supabase-js';
+import { useToast } from '@/hooks/use-toast';
+
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -54,8 +56,17 @@ const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
 };
 
 
-const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput | null }) => {
+const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeatherOutput | null, isLoading: boolean }) => {
   const { t } = useTranslation();
+
+  if (isLoading) {
+    return (
+        <Card className="md:col-span-3">
+            <CardHeader><CardTitle>{t('dashboard.loading.weather')}</CardTitle></CardHeader>
+            <CardContent><Skeleton className="h-[250px] w-full" /></CardContent>
+        </Card>
+    );
+  }
 
   if (!weatherData) {
     return (
@@ -168,10 +179,13 @@ export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
   const router = useRouter();
+  const { toast } = useToast();
   const [session, setSession] = useState<Session | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isSessionLoading, setIsSessionLoading] = useState(true);
+  const [isWeatherLoading, setIsWeatherLoading] = useState(true);
+  const [isMarketLoading, setIsMarketLoading] = useState(false);
 
   // Mock user data - in a real app, this would come from your database
   const userData = {
@@ -186,80 +200,75 @@ export default function DashboardPage() {
     ],
   };
 
-  const fetchDashboardData = useCallback(async (currentSession: Session) => {
-    setIsLoading(true);
-    const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
-    
+  const handleFetchMarketData = useCallback(async () => {
+    setIsMarketLoading(true);
     try {
-        const [weatherResult, marketResult] = await Promise.allSettled([
-            getDashboardWeather({ location: locationToFetch }),
-            getMarketPriceAnalysis({ crop: userData.primaryCrop })
-        ]);
-
-        if (weatherResult.status === 'fulfilled') {
-            setWeatherData(weatherResult.value);
-        } else {
-            console.error("Failed to fetch weather data:", weatherResult.reason);
-            setWeatherData(null);
-        }
-
-        if (marketResult.status === 'fulfilled') {
-            setMarketData(marketResult.value);
-        } else {
-            console.error("Failed to fetch market data:", marketResult.reason);
-            setMarketData(null);
-        }
-    } catch (error) {
-        console.error("An unexpected error occurred while fetching dashboard data:", error);
-        setWeatherData(null);
+        const result = await getMarketPriceAnalysis({ crop: userData.primaryCrop });
+        setMarketData(result);
+    } catch(error) {
+        console.error("Failed to fetch market data:", error);
         setMarketData(null);
+        toast({
+            variant: 'destructive',
+            title: 'Market Analysis Failed',
+            description: 'Could not load market data. Please try again later.'
+        })
     } finally {
-        setIsLoading(false);
+        setIsMarketLoading(false);
     }
-  }, [globalLocation, userData.primaryCrop]);
-
+  }, [userData.primaryCrop, toast]);
 
   useEffect(() => {
-    const getSessionAndData = async () => {
-        const { data: { session: currentSession } } = await supabase.auth.getSession();
-        if (!currentSession) {
-            router.push('/login');
-        } else {
-            setSession(currentSession);
-            await fetchDashboardData(currentSession);
-        }
-    };
-    
-    getSessionAndData();
-
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      (_event, newSession) => {
-        if (!newSession) {
-            router.push('/login');
-        } else {
-            // Only update session and refetch if user changes
-            if (session?.user.id !== newSession.user.id) {
-                setSession(newSession);
-                fetchDashboardData(newSession);
-            }
-        }
+    const getSessionAndWeather = async () => {
+      setIsSessionLoading(true);
+      setIsWeatherLoading(true);
+      
+      const { data: { session: currentSession } } = await supabase.auth.getSession();
+      
+      if (!currentSession) {
+        router.push('/login');
+        return;
       }
-    );
+      
+      setSession(currentSession);
+      setIsSessionLoading(false);
+
+      const locationToFetch = globalLocation || 'Delhi, India';
+      try {
+        const weatherResult = await getDashboardWeather({ location: locationToFetch });
+        setWeatherData(weatherResult);
+      } catch (error) {
+        console.error("Failed to fetch weather data:", error);
+        setWeatherData(null);
+      } finally {
+        setIsWeatherLoading(false);
+      }
+    };
+
+    getSessionAndWeather();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, newSession) => {
+      if (!newSession) {
+        router.push('/login');
+      } else if (session?.user.id !== newSession.user.id) {
+        setSession(newSession);
+      }
+    });
 
     return () => {
       authListener?.subscription.unsubscribe();
     };
-    // Eslint-disable is used here because we only want this to run once on mount
-    // to check the initial session and set up the listener.
-    // Subsequent data fetches are handled by the auth listener or other triggers.
+    // Eslint-disable is used here because this effect should only run on mount and when location or router changes.
+    // Session is managed internally.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router, fetchDashboardData]);
+  }, [globalLocation, router]);
+
 
   const handleLogout = async () => {
     await logout();
   };
 
-  if (!session || isLoading) {
+  if (isSessionLoading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -268,7 +277,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {t('dashboard.welcome', { name: session.user.email?.split('@')[0] || 'Farmer' })}
+            {t('dashboard.welcome', { name: session?.user?.email?.split('@')[0] || 'Farmer' })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {t('dashboard.subtitle')}
@@ -285,7 +294,7 @@ export default function DashboardPage() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            <WeatherCard weatherData={weatherData} />
+            <WeatherCard weatherData={weatherData} isLoading={isWeatherLoading} />
             
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
@@ -293,10 +302,20 @@ export default function DashboardPage() {
                     <CardDescription>{t('dashboard.market.description')}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {marketData ? (
+                    {isMarketLoading ? (
+                         <div className="flex justify-center items-center h-[250px]">
+                            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                         </div>
+                    ) : marketData ? (
                         <MarketPriceChart data={marketData} />
                     ) : (
-                        <p className="p-6 text-center text-destructive">{t('dashboard.market.error')}</p>
+                        <div className="flex flex-col items-center justify-center h-[250px] text-center">
+                             <p className="mb-4 text-muted-foreground">{t('dashboard.market.initial_prompt')}</p>
+                             <Button onClick={handleFetchMarketData}>
+                                <TrendingUp className="mr-2 h-4 w-4" />
+                                {t('dashboard.market.button')}
+                            </Button>
+                        </div>
                     )}
                 </CardContent>
             </Card>
