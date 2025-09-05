@@ -17,8 +17,8 @@ export async function middleware(req: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession();
 
-  // if user is not signed in and the current path is not /login, redirect the user to /login
-  if (!session && req.nextUrl.pathname !== '/login') {
+  // if user is not signed in and the current path is the dashboard, redirect the user to /login
+  if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
     const redirectUrl = req.nextUrl.clone();
     redirectUrl.pathname = '/login';
     return NextResponse.redirect(redirectUrl);
@@ -37,10 +37,6 @@ export async function middleware(req: NextRequest) {
 export const config = {
   matcher: [
     '/dashboard',
-    '/crop-yield',
-    '/disease-classification',
-    '/animal-classification',
-    '/ai-farmer',
     '/login'
   ],
 };

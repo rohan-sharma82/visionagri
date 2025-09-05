@@ -210,7 +210,12 @@ export default function DashboardPage() {
     await logout();
   };
 
-  if (!user) {
+  if (!user && !isLoading) {
+      redirect('/login');
+      return null;
+  }
+
+  if (!user || isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="text-center">

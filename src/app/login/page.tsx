@@ -7,8 +7,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useTranslation } from '@/hooks/use-translation';
 import { cn } from '@/lib/utils';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Info } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function LoginPage() {
   const { t } = useTranslation();
@@ -44,7 +45,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background/50 backdrop-blur-sm p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background/50 backdrop-blur-sm p-4 gap-8">
       <div className={cn("login-slider-container", isSignUp && "right-panel-active")}>
         <div className="form-container sign-up-container">
           <form onSubmit={handleSubmit}>
@@ -96,6 +97,23 @@ export default function LoginPage() {
             </Alert>
         )}
       </div>
+
+       <Card className="bg-card/80 max-w-sm mx-auto">
+            <CardHeader className="pb-2">
+                <CardTitle className="text-sm flex items-center gap-2">
+                    <Info className="h-4 w-4" />
+                    For SIH Judges & Testers
+                </CardTitle>
+                <CardDescription className="text-xs">
+                    Use these dummy credentials to explore the personalized dashboard views.
+                </CardDescription>
+            </CardHeader>
+            <CardContent className="text-xs space-y-1 text-left">
+                <p><strong>User 1:</strong> user1@agrivision.ai | <strong>Pass:</strong> bitbusters</p>
+                <p><strong>User 2:</strong> user2@agrivision.ai | <strong>Pass:</strong> sihwinners</p>
+                <p><strong>User 3:</strong> user3@agrivision.ai | <strong>Pass:</strong> bitbust</p>
+            </CardContent>
+        </Card>
     </div>
   );
 }

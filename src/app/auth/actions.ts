@@ -45,9 +45,7 @@ export async function signup(formData: FormData) {
      return { error: 'Could not sign up user. This email might already be taken or the password is too weak.' };
   }
 
-  revalidatePath('/', 'layout');
-  // We don't redirect here. The user needs to verify their email first.
-  // The user will be redirected from the /auth/callback route after successful verification.
+  // No revalidate or redirect needed here anymore, just show success message.
   return { error: null, data: 'Confirmation link has been sent to your email address. Please verify to log in.' };
 }
 
@@ -55,5 +53,5 @@ export async function logout() {
     const cookieStore = cookies();
     const supabase = createServerActionClient({ cookies: () => cookieStore });
     await supabase.auth.signOut();
-    redirect('/login');
+    redirect('/');
 }
