@@ -32,7 +32,7 @@ import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { soilTypeExplanations } from '@/lib/area-data';
 import { Combobox } from '@/components/ui/combobox';
-import { cropOptions } from '@/lib/constants';
+import { categorizedCropOptions } from '@/lib/constants';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -151,7 +151,7 @@ export default function CropYieldPage() {
                                 render={({ field }) => (
                                 <FormItem className="w-full">
                                     <Combobox
-                                        options={cropOptions}
+                                        options={categorizedCropOptions}
                                         {...field}
                                         onChange={field.onChange}
                                         placeholder={t('cropYield.form.cropType.placeholder')}

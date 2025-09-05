@@ -24,8 +24,13 @@ export interface ComboboxOption {
     label: string
 }
 
+export interface CategorizedComboboxOption {
+    category: string;
+    options: ComboboxOption[];
+}
+
 interface ComboboxProps {
-  options: ComboboxOption[]
+  options: CategorizedComboboxOption[]
   value?: string
   onChange: (value: string) => void
   placeholder?: string
@@ -43,6 +48,15 @@ export function Combobox({
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false)
 
+  const findLabel = (val?: string) => {
+    if (!val) return placeholder;
+    for (const category of options) {
+        const foundOption = category.options.find(option => option.value.toLowerCase() === val.toLowerCase());
+        if (foundOption) return foundOption.label;
+    }
+    return val;
+  }
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -52,9 +66,9 @@ export function Combobox({
           aria-expanded={open}
           className="w-full justify-between flip-card__input"
         >
-          {value
-            ? options.find((option) => option.value.toLowerCase() === value.toLowerCase())?.label
-            : placeholder}
+          <span className="truncate">
+            {findLabel(value)}
+          </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -63,15 +77,17 @@ export function Combobox({
           <CommandInput 
             placeholder={inputPlaceholder}
             onValueChange={(search) => {
-                if (!options.find(opt => opt.value.toLowerCase() === search.toLowerCase())) {
+                const isOption = options.some(group => group.options.some(opt => opt.value.toLowerCase() === search.toLowerCase()));
+                if (!isOption) {
                     onChange(search)
                 }
             }}
           />
-          <CommandEmpty>{emptyMessage}</CommandEmpty>
           <CommandList>
-              <CommandGroup>
-                {options.map((option) => (
+            <CommandEmpty>{emptyMessage}</CommandEmpty>
+            {options.map((group) => (
+              <CommandGroup key={group.category} heading={group.category}>
+                {group.options.map((option) => (
                   <CommandItem
                     key={option.value}
                     value={option.value}
@@ -90,6 +106,7 @@ export function Combobox({
                   </CommandItem>
                 ))}
               </CommandGroup>
+            ))}
           </CommandList>
         </Command>
       </PopoverContent>

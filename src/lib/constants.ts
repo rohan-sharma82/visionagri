@@ -419,25 +419,75 @@ export const farmingQuotes = [
   "quotes.q61", "quotes.q62", "quotes.q63", "quotes.q64", "quotes.q65", "quotes.q66", "quotes.q67", "quotes.q68", "quotes.q69", "quotes.q70"
 ];
 
-export const cropOptions = [
-    // Kharif Crops
-    { value: 'Rice', label: 'Rice (Paddy)' },
-    { value: 'Maize', label: 'Maize (Corn)' },
-    { value: 'Cotton', label: 'Cotton (Kapās)' },
-    { value: 'Sugarcane', label: 'Sugarcane (Ganna)' },
-    { value: 'Soybean', label: 'Soybean (Bhat)' },
-    { value: 'Tur', label: 'Tur (Arhar / Pigeon Pea)' },
-    // Rabi Crops
-    { value: 'Wheat', label: 'Wheat (Gehu)' },
-    { value: 'Barley', label: 'Barley (Jau)' },
-    { value: 'Mustard', label: 'Mustard (Sarson)' },
-    { value: 'Gram', label: 'Gram (Chana)' },
-    { value: 'Peas', label: 'Peas (Matar)' },
-    // Zaid Crops
-    { value: 'Watermelon', label: 'Watermelon (Tarbooz)' },
-    { value: 'Muskmelon', label: 'Muskmelon (Kharbooja)' },
-    { value: 'Cucumber', label: 'Cucumber (Kheera)' },
+export const categorizedCropOptions = [
+    {
+        category: 'Kharif Crops',
+        options: [
+            { value: 'Rice', label: 'Rice (Paddy)' },
+            { value: 'Maize', label: 'Maize (Corn)' },
+            { value: 'Sugarcane', label: 'Sugarcane (Ganna)' },
+            { value: 'Soybean', label: 'Soybean (Bhat)' },
+            { value: 'Tur', label: 'Tur (Arhar / Pigeon Pea)' },
+        ],
+    },
+    {
+        category: 'Rabi Crops',
+        options: [
+            { value: 'Wheat', label: 'Wheat (Gehu)' },
+            { value: 'Barley', label: 'Barley (Jau)' },
+            { value: 'Mustard', label: 'Mustard (Sarson)' },
+            { value: 'Gram', label: 'Gram (Chana)' },
+            { value: 'Peas', label: 'Peas (Matar)' },
+        ],
+    },
+    {
+        category: 'Zaid Crops',
+        options: [
+            { value: 'Watermelon', label: 'Watermelon (Tarbooz)' },
+            { value: 'Muskmelon', label: 'Muskmelon (Kharbooja)' },
+            { value: 'Cucumber', label: 'Cucumber (Kheera)' },
+        ],
+    },
+    {
+        category: '🌿 Field & Commercial Crop',
+        options: [
+            { value: 'Castor', label: 'Castor (Arandi)'},
+            { value: 'Jowar', label: 'Jowar / Sorghum (Jowar / Cholam)'},
+            { value: 'Groundnut', label: 'Groundnut (Moongphali / Nilakadalai)'},
+            { value: 'Red Gram', label: 'Red Gram (Arhar / Tur Dal)'},
+            { value: 'Green Gram', label: 'Green Gram (Moong Dal / Hara Mung)'},
+            { value: 'Black Gram', label: 'Black Gram (Urad Dal / Kali Dal)'},
+            { value: 'Sesame', label: 'Sesame (Til / Gingelly / Ellu)'},
+        ]
+    },
+    {
+        category: '☕️ Plantation Crop',
+        options: [
+            { value: 'Tea', label: 'Tea (Chai Patti)'},
+            { value: 'Coffee', label: 'Coffee (Kafi / Kaapi)'},
+            { value: 'Rubber', label: 'Rubber (Rabar / Gutta Percha)'},
+            { value: 'Cotton', label: 'Cotton (Kapās)'},
+            { value: 'Jute', label: 'Jute (Pat / Resha / Gunnipat)'},
+        ]
+    },
+    {
+        category: '🍎 Fruits',
+        options: [
+            { value: 'Apples', label: 'Apples (Seb)'},
+            { value: 'Pears', label: 'Pears (Nashpati)'},
+            { value: 'Apricots', label: 'Apricots (Khubani)'},
+            { value: 'Walnuts', label: 'Walnuts (Akhrot)'},
+            { value: 'Grapes', label: 'Grapes (Angoor)'},
+            { value: 'Pineapples', label: 'Pineapples (Ananas)'},
+            { value: 'Litchi', label: 'Litchi (Lychee)'},
+            { value: 'Guava', label: 'Guava (Amrood)'},
+            { value: 'Bananas', label: 'Bananas (Kela)'},
+            { value: 'Oranges', label: 'Oranges (Santra / Narangi)'},
+            { value: 'Mangoes', label: 'Mangoes (Aam)'},
+        ]
+    }
 ];
+
 
 
 export const toolsData = [
@@ -613,4 +663,3 @@ export const toolsData = [
       },
     },
   ];
-
