@@ -56,6 +56,59 @@ import {
         </div>
   
         <div className="max-w-4xl mx-auto">
+          <SectionCard title="Major Foodgrain Crops">
+             <CropDetail
+              title="Rice"
+              details={{
+                Temperature: 'Between 22-32°C with high humidity.',
+                Rainfall: 'Around 150-300 cm.',
+                'Soil Type': 'Deep clayey and loamy soil.',
+                'Top Producing States': 'West Bengal > Punjab > Uttar Pradesh > Andhra Pradesh > Bihar.',
+                Notes: 'It is the staple food crop for a majority of Indian people. India is the second largest producer in the world. In states like Assam, West Bengal, and Odisha, three crops of paddy (Aus, Aman, and Boro) are grown in a year.',
+              }}
+            />
+             <CropDetail
+              title="Wheat"
+              details={{
+                Temperature: 'Between 10-15°C (Sowing) and 21-26°C (Ripening) with bright sunlight.',
+                Rainfall: 'Around 75-100 cm.',
+                'Soil Type': 'Well-drained fertile loamy and clayey loamy soil.',
+                'Top Producing States': 'Uttar Pradesh > Punjab > Madhya Pradesh > Haryana > Rajasthan.',
+                Notes: 'The second most important cereal crop and main food crop in north and north-western India. The Green Revolution significantly boosted its growth.',
+              }}
+            />
+            <CropDetail
+              title="Millets (Nutri-Cereals)"
+              details={{
+                Temperature: 'Between 27-32°C',
+                Rainfall: 'Around 50-100 cm.',
+                'Soil Type': 'Can be grown in inferior alluvial or loamy soil; less sensitive to deficiencies.',
+                'Top Producing States': 'Rajasthan > Karnataka > Maharashtra > Madhya Pradesh > Uttar Pradesh.',
+                Notes: 'Also known as coarse grains, they have high nutritional value. Ragi is rich in iron and calcium. Jowar is the third most important food crop in area and production.',
+              }}
+            />
+            <CropDetail
+              title="Maize"
+              details={{
+                Temperature: 'Between 21-27°C',
+                Rainfall: 'High rainfall.',
+                'Soil Type': 'Old alluvial soil.',
+                'Top Producing States': 'Karnataka > Maharashtra > Madhya Pradesh > Tamil Nadu > Telangana.',
+                Notes: 'Used both as food and fodder. Production has increased with modern inputs like HYV seeds and irrigation. India is the seventh largest producer worldwide.',
+              }}
+            />
+            <CropDetail
+              title="Pulses"
+              details={{
+                Temperature: 'Between 20-27°C',
+                Rainfall: 'Around 25-60 cm.',
+                'Soil Type': 'Sandy-loamy soil.',
+                'Top Producing States': 'Madhya Pradesh > Rajasthan > Maharashtra > Uttar Pradesh > Karnataka.',
+                Notes: 'India is the largest producer and consumer. Major source of protein in a vegetarian diet. Being leguminous, they help restore soil fertility by fixing nitrogen.',
+              }}
+            />
+          </SectionCard>
+
           <SectionCard title="Major Cash Crops">
             <CropDetail
               title="Sugarcane"
@@ -76,7 +129,7 @@ import {
                 'Soil Type': 'Loam to clayey loam and well drained sandy loams.',
                 'Top Producing States': 'Madhya Pradesh > Rajasthan > Gujarat > Maharashtra > Uttar Pradesh.',
                 Notes:
-                  'Main oil-seeds include groundnut, mustard, coconut, sesamum (til), soyabean, castor seeds, cotton seeds, linseed and sunflower. The Yellow Revolution and ISOPOM are key government initiatives.',
+                  'Main oil-seeds include groundnut, mustard, coconut, sesamum (til), soyabean, castor seeds, cotton seeds, linseed and sunflower. The Yellow Revolution and Integrated Scheme on Oilseeds, Pulses, Oil Palm and Maize (ISOPOM) are key government initiatives.',
               }}
             />
           </SectionCard>
@@ -179,3 +232,5 @@ import {
     );
   }
   
+
+    
