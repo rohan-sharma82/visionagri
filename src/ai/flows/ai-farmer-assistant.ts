@@ -10,8 +10,11 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {getWeatherForLocation, WeatherData} from '@/ai/tools/weather';
+import {getWeatherForLocation, WeatherResponseSchema} from '@/ai/tools/weather';
+import type { z as zod } from 'genkit';
 import {z} from 'genkit';
+
+type WeatherData = zod.infer<typeof WeatherResponseSchema>;
 
 const GetFarmingAdviceInputSchema = z.object({
   query: z.string().describe('The question or request for farming advice.'),
@@ -38,7 +41,7 @@ export async function getFarmingAdvice(
 // Define a new input schema for the prompt that includes optional weather data.
 const FarmingAdvicePromptSchema = z.object({
     query: z.string(),
-    weather: WeatherData.optional().describe("The current weather data, if available. This data should be used to provide context-aware advice."),
+    weather: WeatherResponseSchema.optional().describe("The current weather data, if available. This data should be used to provide context-aware advice."),
 });
 
 const farmingAdvicePrompt = ai.definePrompt({
