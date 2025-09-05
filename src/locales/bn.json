@@ -82,6 +82,73 @@
             "description": "Discover strategies to increase your farm's profitability."
         }
     },
+    "cropYield": {
+        "title": "ফসল ফলন ভবিষ্যদ্বাণী",
+        "subtitle": "আপনার ফসল কাটার পূর্বাভাস দিতে এবং আপনার কৌশলকে অপ্টিমাইজ করতে AI ব্যবহার করুন।",
+        "growing": "बढ़ रहा है",
+        "rotatingTexts": {
+            "knowledge": "জ্ঞান।",
+            "crops": "ফসল।",
+            "prosperity": "সমৃদ্ধি।",
+            "india": "ভারত।"
+        },
+        "form": {
+            "title": "বিবরণ লিখুন",
+            "cropType": {
+                "label": "ফসলের প্রকার",
+                "placeholder": "যেমন, গম, ভুট্টা, সয়াবিন"
+            },
+            "soilType": {
+                "label": "মাটির প্রকার",
+                "placeholder": "যেমন, দোআঁশ, বেলে, এঁটেল"
+            },
+            "temperature": {
+                "label": "তাপমাত্রা (°C)",
+                "placeholder": "যেমন, 25"
+            },
+            "rainfall": {
+                "label": "বৃষ্টিপাত (mm)",
+                "placeholder": "যেমন, 500"
+            },
+            "farmSize": {
+                "label": "খামারের আকার"
+            },
+            "fertilizer": {
+                "label": "সার",
+                "typePlaceholder": "সারের প্রকার",
+                "amountPlaceholder": "পরিমাণ (যেমন, 50kg)"
+            },
+            "irrigation": {
+                "label": "সেচ পদ্ধতি (ঐচ্ছিক)",
+                "placeholder": "যেমন, ড্রিপ, স্প্রিংকলার, খাল"
+            }
+        },
+        "buttons": {
+            "predict": "ফলন ভবিষ্যদ্বাণী করুন",
+            "predicting": "ভবিষ্যদ্বাণী করা হচ্ছে...",
+            "areaInfo": "দ্রুত তথ্য",
+            "knowYourArea": "আপনার এলাকা জানুন"
+        },
+        "status": {
+            "loading": "আপনার স্মার্ট সহকারী মাঠের মধ্য দিয়ে হাঁটছে...",
+            "fetchingWeather": "লাইভ আবহাওয়ার ডেটা আনা হচ্ছে",
+            "idle": "AI আপনার ফসল গণনা করার জন্য প্রস্তুত — শুধু ভবিষ্যদ্বাণী করুন।"
+        },
+        "results": {
+            "title": "AI ভবিষ্যদ্বাণী ফলাফল",
+            "predictedYield": "মোট পূর্বাভাসিত ফলন",
+            "confidence": "আত্মবিশ্বাস",
+            "analysis": "AI বিশ্লেষণ",
+            "factors": "প্রভাবশালী কারণ",
+            "actions": "প্রস্তাবিত পদক্ষেপ",
+            "idealValues": "আদর্শ ইনপুট পরামর্শ",
+            "fertilizerSuitability": "সারের উপযুক্ততা"
+        },
+        "toast": {
+            "errorTitle": "ত্রুটি",
+            "errorDescription": "ভবিষ্যদ্বাণী পেতে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।"
+        }
+    },
     "quotes": {
         "q1": "खेती केवल एक नौकरी नहीं है, यह जीवन का एक तरीका है।",
         "q2": "किसानों के बिना, कोई भोजन नहीं है। भोजन के बिना, कोई जीवन नहीं है।",
@@ -360,6 +427,28 @@
             "error": "మార్కెట్ డేటాను లోడ్ చేయలేకపోయాము. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి.",
             "analysis": "AI ట్రెండ్ విశ్లేషణ",
             "forecast": "AI సూచన"
+        }
+    },
+    "areaInfo": {
+        "title": "త్వరిత సమాచార కేంద్రం",
+        "description": "అవసరమైన వ్యవసాయ డేటా మీ చేతివేళ్ల వద్ద.",
+        "tabs": {
+            "states": "రాష్ట్రాలు",
+            "soil": "నేల రకాలు",
+            "fertilizers": "ఎరువులు"
+        },
+        "states": {
+            "title": "భారతీయ రాష్ట్రాల వ్యవసాయ డేటా",
+            "avgRainfall": "సగటు వర్షపాతం",
+            "avgTemp": "సగటు ఉష్ణోగ్రత",
+            "soilTypes": "సాధారణ నేల రకాలు",
+            "note": "గమనిక"
+        },
+        "soil": {
+            "title": "భారతదేశంలో సాధారణ నేల రకాలు"
+        },
+        "fertilizers": {
+            "title": "సాధారణ ఎరువులు"
         }
     }
 }
