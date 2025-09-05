@@ -30,14 +30,14 @@ export async function signup(formData: FormData) {
   const password = formData.get('password') as string;
   const cookieStore = cookies();
   const supabase = createServerActionClient({ cookies: () => cookieStore });
+  const origin = new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:9002');
+
 
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      // In a real app, you'd want to send a verification email.
-      // For this hackathon prototype, we'll disable it for simplicity.
-      // emailRedirectTo: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`,
+      emailRedirectTo: `${origin.origin}/auth/callback`,
     },
   });
 
@@ -45,10 +45,10 @@ export async function signup(formData: FormData) {
      return { error: 'Could not sign up user. This email might already be taken or the password is too weak.' };
   }
 
-  // With email verification disabled, Supabase automatically logs the user in upon sign-up.
-  // We just need to revalidate the path to let Next.js know the auth state has changed.
   revalidatePath('/', 'layout');
-  redirect('/dashboard');
+  // We don't redirect here. The user needs to verify their email first.
+  // The user will be redirected from the /auth/callback route after successful verification.
+  return { error: null, data: 'Confirmation link has been sent to your email address. Please verify to log in.' };
 }
 
 export async function logout() {

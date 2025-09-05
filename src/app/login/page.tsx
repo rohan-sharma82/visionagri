@@ -15,19 +15,29 @@ export default function LoginPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
     setMessage('');
+    setIsSuccess(false);
     
     const formData = new FormData(event.currentTarget);
-    const action = isSignUp ? signup : login;
     
-    const result = await action(formData);
-
-    if (result?.error) {
-      setMessage(result.error);
+    if (isSignUp) {
+        const result = await signup(formData);
+        if (result?.error) {
+            setMessage(result.error);
+        } else if (result?.data) {
+            setMessage(result.data);
+            setIsSuccess(true);
+        }
+    } else {
+        const result = await login(formData);
+        if (result?.error) {
+            setMessage(result.error);
+        }
     }
     
     setIsLoading(false);
@@ -42,7 +52,7 @@ export default function LoginPage() {
             <Label htmlFor="email-signup" className="sr-only">Email</Label>
             <Input id="email-signup" name="email" type="email" placeholder="Email" required />
             <Label htmlFor="password-signup" className="sr-only">Password</Label>
-            <Input id="password-signup" name="password" type="password" placeholder="Password" required />
+            <Input id="password-signup" name="password" type="password" placeholder="Password" required minLength={6} />
             <Button type="submit" disabled={isLoading} className="mt-4">
               {isLoading ? <Loader2 className="animate-spin" /> : 'Sign Up'}
             </Button>
@@ -66,22 +76,22 @@ export default function LoginPage() {
             <div className="overlay-panel overlay-left">
               <h1 className="text-2xl font-bold">Welcome Back!</h1>
               <p className="text-sm mt-2">To keep connected with us please login with your personal info</p>
-              <Button variant="ghost" className="mt-4" onClick={() => setIsSignUp(false)}>
+              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(false); setMessage(''); setIsSuccess(false); }}>
                 Sign In
               </Button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1 className="text-2xl font-bold">Hello, Farmer!</h1>
               <p className="text-sm mt-2">Enter your personal details and start your journey with us</p>
-              <Button variant="ghost" className="mt-4" onClick={() => setIsSignUp(true)}>
+              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(true); setMessage(''); setIsSuccess(false); }}>
                 Sign Up
               </Button>
             </div>
           </div>
         </div>
         {message && (
-            <Alert variant="destructive" className="absolute bottom-4 left-4 right-4 w-auto">
-                <AlertTitle>Error</AlertTitle>
+            <Alert variant={isSuccess ? 'default' : 'destructive'} className="absolute bottom-4 left-4 right-4 w-auto bg-card/90">
+                <AlertTitle>{isSuccess ? 'Success' : 'Error'}</AlertTitle>
                 <AlertDescription>{message}</AlertDescription>
             </Alert>
         )}
