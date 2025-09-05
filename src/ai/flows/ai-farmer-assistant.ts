@@ -25,7 +25,7 @@ export type GetFarmingAdviceInput = z.infer<typeof GetFarmingAdviceInputSchema>;
 const GetFarmingAdviceOutputSchema = z.object({
   advice: z
     .string()
-    .describe('The farming advice provided by the AI assistant.'),
+    .describe('The farming advice provided by the AI assistant, formatted as bullet points.'),
 });
 export type GetFarmingAdviceOutput = z.infer<
   typeof GetFarmingAdviceOutputSchema
@@ -64,7 +64,7 @@ const farmingAdvicePrompt = ai.definePrompt({
     You are providing general advice as no location or weather data was provided.
     {{/if}}
     
-    Provide your final response as a single, concise 'advice' string.`,
+    Provide your final response as a single 'advice' string. IMPORTANT: Format your advice as a list of bullet points (using '-' or '*') for easy readability.`,
 });
 
 
