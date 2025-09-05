@@ -27,7 +27,11 @@ export async function getChatHistory(userId: string): Promise<any[]> {
         const result = await db.execute(sql`
             SELECT history FROM chats WHERE user_id = ${userId}
         `);
-        return result.rows.length > 0 ? (result.rows[0].history as any[]) : [];
+        if (result.rows.length > 0) {
+            const history = result.rows[0].history;
+            return Array.isArray(history) ? history : [];
+        }
+        return [];
     } catch (error) {
         console.error('Error getting chat history:', error);
         return [];
