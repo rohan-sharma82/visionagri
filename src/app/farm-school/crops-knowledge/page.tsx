@@ -26,10 +26,10 @@ import {
     </div>
   );
   
-  const SectionCard = ({ title, children }: { title: string; children: React.ReactNode }) => (
+  const SectionCard = ({ title, children, titleStyle }: { title: string; children: React.ReactNode, titleStyle?: React.CSSProperties }) => (
     <Card className="mb-8">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold text-accent">{title}</CardTitle>
+        <CardTitle className="text-3xl font-bold text-accent" style={titleStyle}>{title}</CardTitle>
       </CardHeader>
       <CardContent>{children}</CardContent>
     </Card>
@@ -56,7 +56,7 @@ import {
         </div>
   
         <div className="max-w-4xl mx-auto">
-          <SectionCard title="Major Foodgrain Crops">
+          <SectionCard title="Major Foodgrain Crops" titleStyle={{ color: '#F48E34' }}>
              <CropDetail
               title="Rice"
               details={{
@@ -232,5 +232,4 @@ import {
     );
   }
   
-
     
