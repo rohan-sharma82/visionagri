@@ -5,6 +5,8 @@ import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { db } from '@/lib/db';
+import { profiles } from '@/lib/schema';
 
 export async function login(formData: FormData) {
   const email = formData.get('email') as string;
@@ -31,6 +33,7 @@ export async function signup(formData: FormData) {
   const cookieStore = cookies();
   const supabase = createServerActionClient({ cookies: () => cookieStore });
 
+  // Sign up the user
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -44,6 +47,22 @@ export async function signup(formData: FormData) {
   if (error) {
      return { error: 'Could not sign up user. This email might already be taken or the password is too weak.' };
   }
+
+  if (data.user) {
+    // Create a corresponding profile in the public.profiles table
+    try {
+      await db.insert(profiles).values({
+        id: data.user.id,
+        email: data.user.email,
+      });
+    } catch (dbError) {
+      console.error('Error creating profile:', dbError);
+      // Optional: handle profile creation error, e.g., by deleting the auth user
+      // For now, we'll just log it. The user will exist in auth but not have a profile.
+      return { error: 'An error occurred during profile creation. Please contact support.' };
+    }
+  }
+
 
   // Manually revalidate and redirect after successful signup
   revalidatePath('/', 'layout');

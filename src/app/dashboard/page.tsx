@@ -1,7 +1,8 @@
+
 'use client';
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js'
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { useTranslation } from '@/hooks/use-translation';
 import {
   Card,
@@ -52,8 +53,23 @@ const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
 };
 
 
-const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput }) => {
+const WeatherCard = ({ weatherData }: { weatherData: DashboardWeatherOutput | null }) => {
   const { t } = useTranslation();
+
+  if (!weatherData) {
+    return (
+        <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-destructive/50">
+            <CardHeader>
+                <CardTitle>{t('dashboard.weather.title')}</CardTitle>
+            </CardHeader>
+            <CardContent className="p-6 text-center text-destructive">
+                <AlertTriangle className="mx-auto h-8 w-8 mb-2" />
+                <p>{t('dashboard.weather.error')}</p>
+            </CardContent>
+        </Card>
+    )
+  }
+
   return (
     <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
         <CardHeader>
@@ -150,6 +166,7 @@ const DataSkeleton = () => {
 export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
+  const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
@@ -171,13 +188,14 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        redirect('/login');
+      if (user) {
+        setUser(user);
+      } else {
+        router.push('/login');
       }
-      setUser(user);
     };
     fetchUser();
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     async function fetchData() {
@@ -186,14 +204,29 @@ export default function DashboardPage() {
 
         const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
         try {
-            const [weatherResult, marketResult] = await Promise.all([
+            const [weatherResult, marketResult] = await Promise.allSettled([
                 getDashboardWeather({ location: locationToFetch }),
                 getMarketPriceAnalysis({ crop: userData.primaryCrop })
             ]);
-            setWeatherData(weatherResult);
-            setMarketData(marketResult);
+
+            if (weatherResult.status === 'fulfilled') {
+                setWeatherData(weatherResult.value);
+            } else {
+                console.error("Failed to fetch weather data:", weatherResult.reason);
+                setWeatherData(null);
+            }
+
+            if (marketResult.status === 'fulfilled') {
+                setMarketData(marketResult.value);
+            } else {
+                console.error("Failed to fetch market data:", marketResult.reason);
+                setMarketData(null);
+            }
+
         } catch (error) {
-            console.error("Failed to fetch dashboard data:", error);
+            console.error("An unexpected error occurred while fetching dashboard data:", error);
+            setWeatherData(null);
+            setMarketData(null);
         } finally {
             setIsLoading(false);
         }
@@ -208,19 +241,9 @@ export default function DashboardPage() {
     await logout();
   };
 
-  if (!user && !isLoading) {
-      redirect('/login');
-      return null;
-  }
-
-  if (!user || isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <div className="text-center">
-          <DataSkeleton />
-        </div>
-      </div>
-    );
+  if (!user) {
+    // This will show a loading state until the user is fetched or redirected.
+    return <DataSkeleton />;
   }
 
   return (
@@ -246,12 +269,8 @@ export default function DashboardPage() {
         {isLoading ? <DataSkeleton /> : (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            {weatherData ? (
-                <WeatherCard weatherData={weatherData} />
-            ) : (
-                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
-            )}
-
+            <WeatherCard weatherData={weatherData} />
+            
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                     <CardTitle>{t('dashboard.market.title', { crop: userData.primaryCrop })}</CardTitle>
@@ -261,7 +280,7 @@ export default function DashboardPage() {
                     {marketData ? (
                         <MarketPriceChart data={marketData} />
                     ) : (
-                        <p className="text-center">{t('dashboard.market.error')}</p>
+                        <p className="p-6 text-center text-destructive">{t('dashboard.market.error')}</p>
                     )}
                 </CardContent>
             </Card>
