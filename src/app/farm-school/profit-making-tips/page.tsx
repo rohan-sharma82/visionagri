@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import {
   ArrowLeft,
@@ -111,7 +110,6 @@ export default function ProfitMakingTipsPage() {
 
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-8">
         <Link href="/farm-school" className="absolute top-24 left-4">
           <Button variant="ghost">

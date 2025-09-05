@@ -28,7 +28,6 @@ import { Loader2, TrendingUp, Zap, Wind, Info, Wheat } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
-import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -99,7 +98,6 @@ export default function CropYieldPage() {
 
   return (
     <>
-    <Header />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">
@@ -378,4 +376,3 @@ export default function CropYieldPage() {
     </>
   );
 }
-

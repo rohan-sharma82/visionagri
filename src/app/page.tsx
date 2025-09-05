@@ -19,7 +19,6 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnimatedBeam } from '@/components/magicui/animated-beam';
 import { cn } from '@/lib/utils';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import LanguageSwitcher from '@/components/language-switcher';
 import FarmSchoolDialog from '@/components/farm-school-dialog';
@@ -98,7 +97,6 @@ export default function Home() {
 
   return (
     <>
-    <Header />
     <div className="container mx-auto px-4 pt-8">
       {/* SVG filter for gooey effect */}
       <svg style={{ position: 'absolute', width: 0, height: 0 }}>

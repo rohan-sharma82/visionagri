@@ -12,7 +12,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
@@ -60,7 +59,6 @@ export default function GovtSchemesPage() {
   const { t } = useTranslation();
   return (
     <>
-    <Header showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">

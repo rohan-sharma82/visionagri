@@ -45,7 +45,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background/50 backdrop-blur-sm p-4 gap-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-transparent pt-16 pb-8 px-4 gap-8">
       <div className={cn("login-slider-container", isSignUp && "right-panel-active")}>
         <div className="form-container sign-up-container">
           <form onSubmit={handleSubmit}>

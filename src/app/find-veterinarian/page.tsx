@@ -1,7 +1,6 @@
 
 'use client';
 
-import Header from '@/components/layout/header';
 import { Button } from '@/components/ui/button';
 import {
   ArrowLeft,
@@ -49,7 +48,6 @@ const vetData = [
 export default function FindVeterinarianPage() {
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-8 relative">
         <Link href="/animal-classification" className="absolute top-8 left-4">
           <Button variant="ghost">

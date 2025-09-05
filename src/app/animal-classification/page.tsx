@@ -22,7 +22,6 @@ import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import Link from 'next/link';
 
@@ -76,7 +75,6 @@ export default function AnimalClassificationPage() {
 
   return (
     <>
-    <Header showLanguageSwitcher={false} />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">{t('animalClassification.title')}</h1>

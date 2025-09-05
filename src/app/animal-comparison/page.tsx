@@ -15,7 +15,6 @@ import {
   MapPin,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -230,7 +229,6 @@ export default function AnimalComparisonPage() {
 
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-8 relative">
         <Link href="/animal-classification" className="absolute top-8 left-4">
           <Button variant="ghost">

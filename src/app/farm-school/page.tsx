@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import { Calculator, Lightbulb, Shovel, TestTube2 } from 'lucide-react';
 import Link from 'next/link';
@@ -45,7 +44,6 @@ export default function FarmSchoolPage() {
 
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold font-headline text-foreground">

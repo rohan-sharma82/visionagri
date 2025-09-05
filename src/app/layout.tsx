@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Galaxy from '@/components/galaxy';
 import { AppProvider } from '@/hooks/use-app-provider';
 import LocationDialog from '@/components/location-dialog';
+import Header from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'AgriVision AI',
@@ -65,6 +66,7 @@ export default function RootLayout({
               </defs>
             </svg>
             <div className="relative flex min-h-screen flex-col">
+              <Header />
               <main className="flex-1">{children}</main>
             </div>
             <Toaster />

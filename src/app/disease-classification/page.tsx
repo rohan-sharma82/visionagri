@@ -19,7 +19,6 @@ import { Loader2, HeartPulse, CheckCircle, AlertTriangle, Upload, BarChart } fro
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 
 export default function DiseaseClassificationPage() {
@@ -81,7 +80,6 @@ export default function DiseaseClassificationPage() {
 
   return (
     <>
-    <Header />
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline text-foreground">{t('diseaseClassification.title')}</h1>

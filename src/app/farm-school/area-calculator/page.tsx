@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, CalculatorIcon } from 'lucide-react';
@@ -47,7 +46,6 @@ export default function AreaCalculatorPage() {
 
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-8">
         <Link href="/farm-school" className="absolute top-24 left-4">
           <Button variant="ghost">

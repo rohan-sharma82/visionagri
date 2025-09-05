@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation';
-import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import {
   Card,
@@ -228,7 +227,6 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Header />
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
