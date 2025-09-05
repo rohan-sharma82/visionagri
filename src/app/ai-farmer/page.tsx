@@ -229,12 +229,11 @@ export default function AiFarmerPage() {
     abortControllerRef.current = controller;
   
     try {
-      const advicePromise = getFarmingAdvice({
+      const result: GetFarmingAdviceOutput = await getFarmingAdvice({
         query: values.query,
         location: location || undefined,
       });
 
-      const result: GetFarmingAdviceOutput = await advicePromise;
       if (controller.signal.aborted) return;
       if (!result.advice) throw new Error("No advice content received.");
 
@@ -347,7 +346,6 @@ export default function AiFarmerPage() {
       abortControllerRef.current = null;
       setIsLoading(false);
       setIsTyping(false);
-      setMessages(prev => prev.slice(0, -1));
     }
   };
 
@@ -437,7 +435,7 @@ export default function AiFarmerPage() {
                     </Avatar>
                 </motion.div>
               )})}
-              {isLoading && (
+              {isLoading && !isTyping && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

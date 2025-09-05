@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation';
 function SubmitButton({ isSignUp }: { isSignUp: boolean }) {
     const { pending } = useFormStatus();
     return (
-        <Button type="submit" disabled={pending} className="mt-4 w-full">
+        <Button type="submit" disabled={pending} className="mt-4">
             {pending ? <Loader2 className="animate-spin" /> : (isSignUp ? 'Sign Up' : 'Sign In')}
         </Button>
     );
@@ -74,14 +74,14 @@ export default function LoginPage() {
             <div className="overlay-panel overlay-left">
               <h1 className="text-2xl font-bold">Welcome Back!</h1>
               <p className="text-sm mt-2">To keep connected with us please login with your personal info</p>
-              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(false); }}>
+              <Button className="ghost" id="signIn" onClick={() => { setIsSignUp(false); }}>
                 Sign In
               </Button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1 className="text-2xl font-bold">Hello, Farmer!</h1>
               <p className="text-sm mt-2">Enter your personal details and start your journey with us</p>
-              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(true); }}>
+              <Button className="ghost" id="signUp" onClick={() => { setIsSignUp(true); }}>
                 Sign Up
               </Button>
             </div>

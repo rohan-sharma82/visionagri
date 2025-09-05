@@ -46,13 +46,15 @@ export default function Header() {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         setSession(session);
+        // Also set loading to false here to handle async updates
+        if (loading) setLoading(false);
       }
     );
 
     return () => {
       authListener?.subscription.unsubscribe();
     };
-  }, []);
+  }, [loading]);
 
   const allNavLinks = [
     ...mainNavLinks,
