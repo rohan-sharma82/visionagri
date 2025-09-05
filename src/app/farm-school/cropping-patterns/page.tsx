@@ -55,7 +55,7 @@ export default function CroppingPatternsPage() {
         <div className="max-w-4xl mx-auto space-y-8">
           <Card>
             <CardHeader>
-                <CardTitle className="text-primary">What are Cropping Patterns?</CardTitle>
+                <CardTitle style={{ color: '#E6FD9F' }}>What are Cropping Patterns?</CardTitle>
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
                 <p>The different crops grown in an area at a particular point in time are called cropping patterns. The cropping pattern in India depends on climate (temperature, rainfall, wind, etc.), soil, support price, value, demand-market, and labour availability.</p>
@@ -65,7 +65,7 @@ export default function CroppingPatternsPage() {
 
           <Card>
              <CardHeader>
-                <CardTitle className="text-primary">Types of Cropping Pattern in India</CardTitle>
+                <CardTitle style={{ color: '#E6FD9F' }}>Types of Cropping Pattern in India</CardTitle>
             </CardHeader>
              <CardContent className="prose dark:prose-invert max-w-none">
                 <ul>
@@ -85,7 +85,7 @@ export default function CroppingPatternsPage() {
 
           <Card>
             <CardHeader>
-                <CardTitle className="text-primary">Factors Affecting Cropping Pattern in India</CardTitle>
+                <CardTitle style={{ color: '#E6FD9F' }}>Factors Affecting Cropping Pattern in India</CardTitle>
                 <CardDescription>The cropping pattern of any region depends upon many factors, which are detailed below.</CardDescription>
             </CardHeader>
             <CardContent>
@@ -127,7 +127,7 @@ export default function CroppingPatternsPage() {
           </Card>
            <Card>
             <CardHeader>
-                <CardTitle className="text-primary">Conclusion</CardTitle>
+                <CardTitle style={{ color: '#E6FD9F' }}>Conclusion</CardTitle>
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
                 <p>Cropping patterns in India are shaped by a complex interplay of geographical features, economic conditions, political influences, and historical practices. These patterns vary significantly across regions due to climate, soil, and resource availability differences. By examining these influences, we gain insights into how and why certain crops dominate in specific areas and how these patterns can be managed to enhance agricultural efficiency and sustainability. Understanding these dynamics is crucial for developing targeted strategies to improve crop production and address regional agricultural challenges.</p>
