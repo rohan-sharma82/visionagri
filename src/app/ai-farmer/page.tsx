@@ -219,16 +219,16 @@ export default function AiFarmerPage() {
       });
 
       const result: GetFarmingAdviceOutput = await advicePromise;
-      if (controller.signal.aborted) {
-        setIsTyping(false);
-        setMessages(prev => prev.slice(0, -1)); // Remove optimistic user message
-        return;
-      };
+      if (controller.signal.aborted) return;
+      if (!result.advice) throw new Error("No advice content received.");
 
       let ttsResult;
       try {
         if (!controller.signal.aborted) {
-          ttsResult = await textToSpeech(result.advice);
+          // Don't generate audio for error messages
+          if (!result.advice.toLowerCase().includes('error')) {
+            ttsResult = await textToSpeech(result.advice);
+          }
         }
       } catch (ttsError: any) {
          if (ttsError.name !== 'AbortError') {
@@ -236,10 +236,7 @@ export default function AiFarmerPage() {
          }
       }
   
-      if (controller.signal.aborted) {
-        setIsTyping(false);
-        return;
-      };
+      if (controller.signal.aborted) return;
 
       const assistantMessage: Message = {
         role: 'assistant',
@@ -252,12 +249,12 @@ export default function AiFarmerPage() {
     } catch (error: any) {
        if (error.name !== 'AbortError') {
         console.error('Error getting farming advice:', error);
-        setMessages(prev => prev.slice(0, -1)); // Remove optimistic user message
-        toast({
-          title: t('aiFarmer.toast.adviceError.title'),
-          description: t('aiFarmer.toast.adviceError.description'),
-          variant: 'destructive',
-        });
+        
+        const assistantMessage: Message = {
+            role: 'assistant',
+            content: `An unexpected error occurred while fetching advice. Please check your connection or try again later. Details: ${error.message}`
+        };
+        setMessages(prev => [...prev, assistantMessage]);
       }
     } finally {
        if (!controller.signal.aborted) {
@@ -337,6 +334,13 @@ export default function AiFarmerPage() {
       abortControllerRef.current = null;
       setIsLoading(false);
       setIsTyping(false);
+       // Remove the optimistic user message if the request is cancelled
+      setMessages(prev => {
+        if (prev.length > 0 && prev[prev.length - 1].role === 'user') {
+          return prev.slice(0, -1);
+        }
+        return prev;
+      });
     }
   };
 
