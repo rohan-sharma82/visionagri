@@ -26,8 +26,12 @@ export default function LoginPage() {
     
     const formData = new FormData(event.currentTarget);
     
-    const action = isSignUp ? signup : login;
-    const result = await action(formData);
+    let result;
+    if (isSignUp) {
+      result = await signup(formData);
+    } else {
+      result = await login(formData);
+    }
     
     if (result?.error) {
         setMessage(result.error);
