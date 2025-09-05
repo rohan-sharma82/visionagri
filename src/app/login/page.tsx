@@ -41,6 +41,7 @@ export default function LoginPage() {
         if (result?.error) {
             setMessage(result.error);
         }
+        // On successful login, the action redirects, so no success message is needed here.
     }
     
     setIsLoading(false);
