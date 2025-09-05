@@ -31,6 +31,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
 import { Skeleton } from '@/components/ui/skeleton';
 import { logout } from '@/app/auth/actions';
+import type { Session } from '@supabase/supabase-js';
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -167,7 +168,7 @@ export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -186,20 +187,34 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUser(user);
-      } else {
-        router.push('/login');
-      }
+    const getSession = async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session) {
+            router.push('/login');
+        } else {
+            setSession(session);
+        }
     };
-    fetchUser();
+    getSession();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        if (!session) {
+          router.push('/login');
+        } else {
+          setSession(session);
+        }
+      }
+    );
+
+    return () => {
+      authListener?.subscription.unsubscribe();
+    };
   }, [router]);
 
   useEffect(() => {
     async function fetchData() {
-        if (!user) return;
+        if (!session) return;
         setIsLoading(true);
 
         const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
@@ -232,18 +247,18 @@ export default function DashboardPage() {
         }
     }
     
-    if (user) {
+    if (session) {
         fetchData();
     }
-  }, [user, globalLocation, userData.primaryCrop]);
+  }, [session, globalLocation, userData.primaryCrop]);
 
   const handleLogout = async () => {
     await logout();
   };
 
-  if (!user) {
+  if (!session) {
     // This will show a loading state until the user is fetched or redirected.
-    return <DataSkeleton />;
+    return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
   return (
@@ -251,7 +266,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {t('dashboard.welcome', { name: user.email.split('@')[0] })}
+            {t('dashboard.welcome', { name: session.user.email.split('@')[0] })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {t('dashboard.subtitle')}
