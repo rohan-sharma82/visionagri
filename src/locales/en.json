@@ -664,6 +664,11 @@
                 "unknown": "Unknown"
             }
         },
+        "weatherNews": {
+            "title": "Weather News",
+            "description": "Latest news and updates related to weather affecting agriculture.",
+            "noNews": "No recent weather news available."
+        },
         "market": {
             "title": "Market Price Analysis for {crop}",
             "description": "Track historical prices and get an AI-powered forecast.",

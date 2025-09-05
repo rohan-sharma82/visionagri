@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, TrendingUp, Loader2, Newspaper } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -33,7 +33,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { logout } from '@/app/auth/actions';
 import type { Session, User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
-
+import { newsData } from '@/lib/constants';
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -61,7 +61,7 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
 
   if (isLoading) {
     return (
-        <Card className="md:col-span-3">
+        <Card className="md:col-span-2">
             <CardHeader><CardTitle>{t('dashboard.loading.weather')}</CardTitle></CardHeader>
             <CardContent><Skeleton className="h-[250px] w-full" /></CardContent>
         </Card>
@@ -70,7 +70,7 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
 
   if (!weatherData) {
     return (
-        <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-destructive/50">
+        <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-destructive/50">
             <CardHeader>
                 <CardTitle>{t('dashboard.weather.title')}</CardTitle>
             </CardHeader>
@@ -83,7 +83,7 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
   }
 
   return (
-    <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
+    <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
         <CardHeader>
         <CardTitle>{t('dashboard.weather.title')}</CardTitle>
         <CardDescription>{t('dashboard.weather.description', { location: weatherData.location.name })}</CardDescription>
@@ -163,11 +163,39 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
   )
 }
 
+const WeatherNewsCard = () => {
+    const { t } = useTranslation();
+    const weatherNews = newsData.filter(item => item.category === 'categories.weatherUpdates');
+
+    return (
+        <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                    <Newspaper className="h-6 w-6" />
+                    {t('dashboard.weatherNews.title')}
+                </CardTitle>
+                <CardDescription>{t('dashboard.weatherNews.description')}</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                {weatherNews.slice(0, 3).map((news, index) => (
+                    <div key={index} className="border-b pb-2 last:border-b-0">
+                        <h4 className="font-semibold text-sm">{t(news.title)}</h4>
+                        <p className="text-xs text-muted-foreground mt-1">{t(news.snippet)}</p>
+                    </div>
+                ))}
+                 {weatherNews.length === 0 && <p className="text-sm text-muted-foreground">{t('dashboard.weatherNews.noNews')}</p>}
+            </CardContent>
+        </Card>
+    );
+};
+
+
 const DataSkeleton = () => {
     const { t } = useTranslation();
     return (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="md:col-span-3"><CardHeader><CardTitle>{t('dashboard.loading.weather')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
+            <Card className="md:col-span-2"><CardHeader><CardTitle>{t('dashboard.loading.weather')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
+            <Card><CardHeader><CardTitle>{t('dashboard.weatherNews.title')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
             <Card className="md:col-span-2"><CardHeader><CardTitle>{t('dashboard.loading.market')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
             <Card><CardHeader><CardTitle>{t('dashboard.loading.schemes')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
             <Card className="md:col-span-3"><CardHeader><CardTitle>{t('dashboard.loading.history')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[200px] w-full" /></CardContent></Card>
@@ -275,6 +303,7 @@ export default function DashboardPage() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
             <WeatherCard weatherData={weatherData} isLoading={loading} />
+            <WeatherNewsCard />
             
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
