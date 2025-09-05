@@ -84,14 +84,14 @@ export default function AnimalClassificationPage() {
           {t('animalClassification.subtitle')}
         </p>
          <p className="mt-4 text-base font-semibold text-primary">
-            Kisan Call Center -&gt; 1800-180-1551
+            {t('kisanCallCenter')}
         </p>
         <div className="flex justify-center gap-4 mt-6">
           <Link href="/animal-comparison">
-            <button className="action-button-3d">Compare Breed</button>
+            <button className="action-button-3d">{t('animalClassification.buttons.compare')}</button>
           </Link>
           <Link href="/find-veterinarian">
-            <button className="action-button-3d">Find Veterinarian</button>
+            <button className="action-button-3d">{t('animalClassification.buttons.findVet')}</button>
           </Link>
         </div>
       </div>
@@ -199,14 +199,14 @@ export default function AnimalClassificationPage() {
 
                   {result.breedInfo && (
                      <div>
-                        <h3 className="font-semibold text-foreground mb-3 text-lg">Breed Information</h3>
+                        <h3 className="font-semibold text-foreground mb-3 text-lg">{t('animalClassification.reportCard.breedInfo')}</h3>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                            {result.breedInfo.localNames && <div className="flex items-center gap-2"><Tag className="h-4 w-4 text-primary" /> <strong>Local Names:</strong> {result.breedInfo.localNames}</div>}
-                            {result.breedInfo.origin && <div className="flex items-center gap-2"><Globe className="h-4 w-4 text-primary" /> <strong>Origin:</strong> {result.breedInfo.origin}</div>}
-                            {result.breedInfo.color && <div className="flex items-center gap-2"><div className="h-4 w-4 rounded-full border" style={{ backgroundColor: result.breedInfo.color.split(',')[0].toLowerCase() }} /> <strong>Color:</strong> {result.breedInfo.color}</div>}
-                            {result.breedInfo.weight && <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-primary" /> <strong>Weight:</strong> {result.breedInfo.weight}</div>}
-                            {result.breedInfo.milkYield && <div className="flex items-center gap-2"><Milk className="h-4 w-4 text-primary" /> <strong>Milk Yield:</strong> {result.breedInfo.milkYield}</div>}
-                            {result.breedInfo.suitability && <div className="flex items-center gap-2"><Thermometer className="h-4 w-4 text-primary" /> <strong>Suitability:</strong> {result.breedInfo.suitability}</div>}
+                            {result.breedInfo.localNames && <div className="flex items-center gap-2"><Tag className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.localNames')}:</strong> {result.breedInfo.localNames}</div>}
+                            {result.breedInfo.origin && <div className="flex items-center gap-2"><Globe className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.origin')}:</strong> {result.breedInfo.origin}</div>}
+                            {result.breedInfo.color && <div className="flex items-center gap-2"><div className="h-4 w-4 rounded-full border" style={{ backgroundColor: result.breedInfo.color.split(',')[0].toLowerCase() }} /> <strong>{t('animalClassification.reportCard.color')}:</strong> {result.breedInfo.color}</div>}
+                            {result.breedInfo.weight && <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.weight')}:</strong> {result.breedInfo.weight}</div>}
+                            {result.breedInfo.milkYield && <div className="flex items-center gap-2"><Milk className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.milkYield')}:</strong> {result.breedInfo.milkYield}</div>}
+                            {result.breedInfo.suitability && <div className="flex items-center gap-2"><Thermometer className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.suitability')}:</strong> {result.breedInfo.suitability}</div>}
                         </div>
                     </div>
                   )}
@@ -214,7 +214,7 @@ export default function AnimalClassificationPage() {
                   <div>
                      <div className="flex items-center space-x-3 mb-2">
                        <Lightbulb className="h-5 w-5 text-yellow-500" />
-                       <h3 className="font-semibold text-foreground">Actionable Suggestion</h3>
+                       <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.suggestion')}</h3>
                     </div>
                     <p className="text-muted-foreground bg-primary/5 p-3 rounded-md border border-primary/20 text-sm">{result.actionableSuggestion}</p>
                   </div>

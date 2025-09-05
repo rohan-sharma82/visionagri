@@ -89,7 +89,7 @@ export default function DiseaseClassificationPage() {
           {t('diseaseClassification.subtitle')}
         </p>
          <p className="mt-4 text-base font-semibold text-primary">
-            Kisan Call Center -&gt; 1800-180-1551
+            {t('kisanCallCenter')}
         </p>
       </div>
 
