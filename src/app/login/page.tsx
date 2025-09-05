@@ -1,7 +1,7 @@
 
 'use client';
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useActionState, useState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { login, signup } from '@/app/auth/actions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,8 +27,8 @@ export default function LoginPage() {
   const router = useRouter();
   const [isSignUp, setIsSignUp] = useState(false);
   
-  const [loginState, loginAction] = useFormState(login, { success: false, message: '' });
-  const [signupState, signupAction] = useFormState(signup, { success: false, message: '' });
+  const [loginState, loginAction] = useActionState(login, { success: false, message: '' });
+  const [signupState, signupAction] = useActionState(signup, { success: false, message: '' });
 
   const state = isSignUp ? signupState : loginState;
 
