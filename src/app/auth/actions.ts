@@ -8,7 +8,7 @@ import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
 import { profiles } from '@/lib/schema';
 
-export async function login(formData: FormData) {
+export async function login(prevState: any, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
   const cookieStore = cookies();
@@ -20,14 +20,14 @@ export async function login(formData: FormData) {
   });
 
   if (error) {
-    return { error: 'Could not authenticate user. Please check your credentials.' };
+    return { success: false, message: 'Could not authenticate user. Please check your credentials.' };
   }
   
   revalidatePath('/', 'layout');
   redirect('/dashboard');
 }
 
-export async function signup(formData: FormData) {
+export async function signup(prevState: any, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
   const cookieStore = cookies();
@@ -45,7 +45,7 @@ export async function signup(formData: FormData) {
   });
 
   if (error) {
-     return { error: 'Could not sign up user. This email might already be taken or the password is too weak.' };
+     return { success: false, message: 'Could not sign up user. This email might already be taken or the password is too weak.' };
   }
 
   if (data.user) {
@@ -59,10 +59,9 @@ export async function signup(formData: FormData) {
       console.error('Error creating profile:', dbError);
       // Optional: handle profile creation error, e.g., by deleting the auth user
       // For now, we'll just log it. The user will exist in auth but not have a profile.
-      return { error: 'An error occurred during profile creation. Please contact support.' };
+      return { success: false, message: 'An error occurred during profile creation. Please contact support.' };
     }
   }
-
 
   // Manually revalidate and redirect after successful signup
   revalidatePath('/', 'layout');
