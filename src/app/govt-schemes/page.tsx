@@ -25,7 +25,7 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
                 alt={t(scheme.name)}
                 width={300}
                 height={200}
-                className="rounded-lg object-cover w-full h-full"
+                className="rounded-lg object-cover"
                 data-ai-hint={scheme.dataAiHint}
             />
         </div>
