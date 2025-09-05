@@ -208,7 +208,6 @@ export default function DashboardPage() {
 
   const handleLogout = async () => {
     await logout();
-    redirect('/login');
   };
 
   if (!user) {
