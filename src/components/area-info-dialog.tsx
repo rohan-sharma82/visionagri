@@ -29,8 +29,8 @@ export default function AreaInfoDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <button className="know-your-area-button mb-8">
-            <span className="text">Quick Info</span>
-            <span>Know Your Area</span>
+            <span className="text">{t('cropYield.buttons.areaInfo')}</span>
+            <span>{t('cropYield.buttons.knowYourArea')}</span>
         </button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl h-[80vh]">
