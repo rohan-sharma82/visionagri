@@ -17,6 +17,8 @@ import { toolsData } from '@/lib/constants';
 import {
   Dialog,
   DialogContent,
+  DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
 
@@ -61,6 +63,9 @@ const ImageGallery = ({ images }: { images: string[] }) => {
               </div>
             </DialogTrigger>
             <DialogContent className="max-w-4xl h-auto">
+              <DialogHeader>
+                <DialogTitle>Tool Image</DialogTitle>
+              </DialogHeader>
               <div className="relative aspect-video">
                 <Image
                   src={src}
