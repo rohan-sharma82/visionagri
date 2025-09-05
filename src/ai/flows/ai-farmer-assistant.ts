@@ -53,7 +53,7 @@ The user is located in {{{location}}}. Use the getWeatherForLocation tool to get
 
 Provide helpful and practical advice to the farmer. Focus on providing specific, actionable steps the farmer can take to improve their farming practices. Return the advice in a concise and easy-to-understand manner.`,
       tools: input.location ? [getWeatherForLocation] : [],
-      model: ai.model('gemini-2.5-flash'), // Ensure a specific model is used if needed
+      model: 'googleai/gemini-2.5-flash', // Ensure a specific model is used if needed
     });
     
     // The context for the tool needs to be the location string itself.
