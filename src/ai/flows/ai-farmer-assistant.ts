@@ -41,10 +41,8 @@ const getFarmingAdviceFlow = ai.defineFlow(
     outputSchema: GetFarmingAdviceOutputSchema,
   },
   async (input) => {
-    const promptConfig = {
+    const prompt = ai.definePrompt({
       name: 'getFarmingAdvicePrompt',
-      input: {schema: GetFarmingAdviceInputSchema},
-      output: {schema: GetFarmingAdviceOutputSchema},
       prompt: `You are an experienced AI farming assistant. A farmer has asked the following question:
 
 {{{query}}}
@@ -55,11 +53,13 @@ The user is located in {{{location}}}. Use the getWeatherForLocation tool to get
 
 Provide helpful and practical advice to the farmer. Focus on providing specific, actionable steps the farmer can take to improve their farming practices. Return the advice in a concise and easy-to-understand manner.`,
       tools: input.location ? [getWeatherForLocation] : [],
-    };
+      model: ai.model('gemini-2.5-flash'), // Ensure a specific model is used if needed
+    });
     
-    const prompt = ai.definePrompt(promptConfig);
-    
-    const {output} = await prompt(input);
+    // The context for the tool needs to be the location string itself.
+    const toolContext = input.location ? {tools: [{tool: getWeatherForLocation, input: input.location}]} : {};
+
+    const {output} = await prompt(input, toolContext);
     return output!;
   }
 );
