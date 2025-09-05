@@ -427,8 +427,8 @@ export const schemesData = [
   },
   {
     id: 12,
-    name: 'schemes.bro.name',
-    shortName: 'schemes.bro.shortName',
+    name: 'schemes.pmkisan_new.name',
+    shortName: 'schemes.pmkisan_new.shortName',
     shortDescription: 'schemes.bro.shortDescription',
     description: 'schemes.bro.description',
     imageUrl: 'https://picsum.photos/300/200?random=12',
