@@ -18,7 +18,8 @@ const PredictCropYieldInputSchema = z.object({
   temperature: z.string().describe('The current average temperature in Celsius.'),
   rainfall: z.string().describe('The recent rainfall in mm.'),
   farmSize: z.string().describe('The size of the farm (e.g., "2 hectares", "5 acres").'),
-  fertilizerUse: z.string().optional().describe('The amount and type of fertilizer used, e.g., "NPK 120-60-60 kg/hectare".'),
+  fertilizerType: z.string().optional().describe('The type of fertilizer used (e.g., Urea, DAP, NPK).'),
+  fertilizerAmount: z.string().optional().describe('The amount of fertilizer used, e.g., "50 kg/acre".'),
   irrigationMethod: z.string().optional().describe('The irrigation method used (e.g., Drip, Sprinkler, Canal).'),
 });
 export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
@@ -33,6 +34,10 @@ const PredictCropYieldOutputSchema = z.object({
   yieldAnalysis: z
     .string()
     .describe('A detailed, conversational analysis for the farmer. It should explain the prediction in simple terms, comparing current weather data to typical averages and explaining what factors are good or bad for the crop this season.'),
+  fertilizerSuitability: z
+    .string()
+    .optional()
+    .describe('A brief analysis on whether the chosen fertilizer is suitable for the crop, and why. For example: "Urea is a good choice for wheat during its growth stage as it provides essential nitrogen." or "DAP is not ideal for this stage; consider using a potassium-rich fertilizer instead." Omit this field if no fertilizer was specified.'),
   factorsInfluencingYield: z
     .array(z.string())
     .describe('A list of key factors that are influencing the predicted yield.'),
@@ -59,6 +64,10 @@ const prompt = ai.definePrompt({
   Based on the data provided, predict the **total crop yield for the entire farm size provided**. Use an appropriate unit like quintals or tonnes. Do not provide a "per unit" (e.g., per hectare) yield.
 
   Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good.
+  
+  {{#if fertilizerType}}
+  Analyze the suitability of the selected fertilizer ({{fertilizerType}}) for the specified crop ({{cropType}}). Provide this analysis in the 'fertilizerSuitability' field. Be specific, for example: "Urea is a good source of nitrogen, which is excellent for the vegetative growth phase of wheat." or "While DAP is useful, this crop would benefit more from a potassium-rich fertilizer at this stage."
+  {{/if}}
 
   List the key factors influencing the yield and suggest actionable steps for improvement.
   
@@ -67,7 +76,7 @@ const prompt = ai.definePrompt({
   If the irrigation method is not provided, include a suggestion for the best method in the 'suggestedActions'.
   {{/if}}
 
-  {{#if fertilizerUse}}
+  {{#if fertilizerAmount}}
   {{else}}
   If fertilizer use is not provided, include a suggestion for fertilizer application in the 'suggestedActions'.
   {{/if}}
@@ -80,7 +89,8 @@ const prompt = ai.definePrompt({
   - Farm Size: {{{farmSize}}}
   - Current Rainfall: {{{rainfall}}}
   - Current Temperature: {{{temperature}}}
-  - Fertilizer Use: {{{fertilizerUse}}}
+  - Fertilizer Type: {{{fertilizerType}}}
+  - Fertilizer Amount: {{{fertilizerAmount}}}
   - Irrigation Method: {{{irrigationMethod}}}
 `,
 });
@@ -112,5 +122,6 @@ const predictCropYieldFlow = ai.defineFlow(
     }
   }
 );
+
 
 

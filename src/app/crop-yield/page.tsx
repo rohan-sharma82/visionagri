@@ -23,7 +23,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Loader2, TrendingUp, Zap, Wind, Info, Wheat } from 'lucide-react';
+import { Loader2, TrendingUp, Zap, Wind, Info, Wheat, CheckCircle, AlertTriangle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
@@ -41,11 +41,14 @@ const formSchema = z.object({
   rainfall: z.string().min(1, 'Rainfall is required.'),
   farmSizeValue: z.string().min(1, 'Farm size is required.'),
   farmSizeUnit: z.string().min(1, 'Please select a unit.'),
-  fertilizerUse: z.string().optional(),
+  fertilizerType: z.string().optional(),
+  fertilizerAmount: z.string().optional(),
   irrigationMethod: z.string().optional(),
 });
 
 const landUnits = ["Acres", "Hectares", "Killa", "Bigha", "Marla", "Guntha", "Cent"];
+
+const fertilizerTypes = ["Urea", "DAP", "MOP", "SSP", "NPK", "Ammonium Sulphate"];
 
 
 export default function CropYieldPage() {
@@ -64,7 +67,8 @@ export default function CropYieldPage() {
       rainfall: '',
       farmSizeValue: '',
       farmSizeUnit: 'Acres',
-      fertilizerUse: '',
+      fertilizerType: '',
+      fertilizerAmount: '',
       irrigationMethod: '',
     },
   });
@@ -242,18 +246,41 @@ export default function CropYieldPage() {
                                     )}
                                 />
                             </div>
-                             <FormField
-                                control={form.control}
-                                name="fertilizerUse"
-                                render={({ field }) => (
-                                <FormItem className="w-full">
-                                    <FormControl>
-                                    <Input className='flip-card__input' placeholder={t('cropYield.form.fertilizer.label')} {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                                )}
-                            />
+                             <div className="grid grid-cols-2 gap-4 w-full">
+                                <FormField
+                                    control={form.control}
+                                    name="fertilizerType"
+                                    render={({ field }) => (
+                                    <FormItem>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger className="flip-card__input justify-between">
+                                                    <SelectValue placeholder={t('cropYield.form.fertilizer.typePlaceholder')} />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                {fertilizerTypes.map(type => (
+                                                    <SelectItem key={type} value={type}>{type}</SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="fertilizerAmount"
+                                    render={({ field }) => (
+                                    <FormItem>
+                                        <FormControl>
+                                        <Input className='flip-card__input' placeholder={t('cropYield.form.fertilizer.amountPlaceholder')} {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                    )}
+                                />
+                            </div>
                              <FormField
                                 control={form.control}
                                 name="irrigationMethod"
@@ -323,6 +350,25 @@ export default function CropYieldPage() {
                         <p className="text-sm" style={{ color: 'black' }}>{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
                         </div>
                     </div>
+                    
+                    {prediction.fertilizerSuitability && (
+                        <>
+                        <Separator />
+                        <div className="flex items-start space-x-4">
+                             {prediction.fertilizerSuitability.includes("not ideal") || prediction.fertilizerSuitability.includes("not recommended") ? (
+                                <AlertTriangle className="h-6 w-6 mt-1 flex-shrink-0 text-destructive" />
+                             ) : (
+                                <CheckCircle className="h-6 w-6 mt-1 flex-shrink-0 text-green-600" />
+                             )}
+                             <div>
+                                <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.fertilizerSuitability')}</h3>
+                                <p className="mt-1 whitespace-pre-wrap" style={{ color: 'black' }}>{prediction.fertilizerSuitability}</p>
+                             </div>
+                        </div>
+                        </>
+                    )}
+
+
                     <Separator />
                     <div className="flex items-start space-x-4">
                         <Info className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
