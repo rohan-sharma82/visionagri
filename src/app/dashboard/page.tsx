@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation';
 import { useTranslation } from '@/hooks/use-translation';
@@ -186,23 +186,62 @@ export default function DashboardPage() {
     ],
   };
 
+  const fetchDashboardData = useCallback(async (currentSession: Session) => {
+    setIsLoading(true);
+    const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
+    
+    try {
+        const [weatherResult, marketResult] = await Promise.allSettled([
+            getDashboardWeather({ location: locationToFetch }),
+            getMarketPriceAnalysis({ crop: userData.primaryCrop })
+        ]);
+
+        if (weatherResult.status === 'fulfilled') {
+            setWeatherData(weatherResult.value);
+        } else {
+            console.error("Failed to fetch weather data:", weatherResult.reason);
+            setWeatherData(null);
+        }
+
+        if (marketResult.status === 'fulfilled') {
+            setMarketData(marketResult.value);
+        } else {
+            console.error("Failed to fetch market data:", marketResult.reason);
+            setMarketData(null);
+        }
+    } catch (error) {
+        console.error("An unexpected error occurred while fetching dashboard data:", error);
+        setWeatherData(null);
+        setMarketData(null);
+    } finally {
+        setIsLoading(false);
+    }
+  }, [globalLocation, userData.primaryCrop]);
+
+
   useEffect(() => {
-    const getSession = async () => {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (!session) {
+    const getSessionAndData = async () => {
+        const { data: { session: currentSession } } = await supabase.auth.getSession();
+        if (!currentSession) {
             router.push('/login');
         } else {
-            setSession(session);
+            setSession(currentSession);
+            await fetchDashboardData(currentSession);
         }
     };
-    getSession();
+    
+    getSessionAndData();
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        if (!session) {
-          router.push('/login');
+      (_event, newSession) => {
+        if (!newSession) {
+            router.push('/login');
         } else {
-          setSession(session);
+            // Only update session and refetch if user changes
+            if (session?.user.id !== newSession.user.id) {
+                setSession(newSession);
+                fetchDashboardData(newSession);
+            }
         }
       }
     );
@@ -210,54 +249,17 @@ export default function DashboardPage() {
     return () => {
       authListener?.subscription.unsubscribe();
     };
-  }, [router]);
-
-  useEffect(() => {
-    async function fetchData() {
-        if (!session) return;
-        setIsLoading(true);
-
-        const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
-        try {
-            const [weatherResult, marketResult] = await Promise.allSettled([
-                getDashboardWeather({ location: locationToFetch }),
-                getMarketPriceAnalysis({ crop: userData.primaryCrop })
-            ]);
-
-            if (weatherResult.status === 'fulfilled') {
-                setWeatherData(weatherResult.value);
-            } else {
-                console.error("Failed to fetch weather data:", weatherResult.reason);
-                setWeatherData(null);
-            }
-
-            if (marketResult.status === 'fulfilled') {
-                setMarketData(marketResult.value);
-            } else {
-                console.error("Failed to fetch market data:", marketResult.reason);
-                setMarketData(null);
-            }
-
-        } catch (error) {
-            console.error("An unexpected error occurred while fetching dashboard data:", error);
-            setWeatherData(null);
-            setMarketData(null);
-        } finally {
-            setIsLoading(false);
-        }
-    }
-    
-    if (session) {
-        fetchData();
-    }
-  }, [session, globalLocation, userData.primaryCrop]);
+    // Eslint-disable is used here because we only want this to run once on mount
+    // to check the initial session and set up the listener.
+    // Subsequent data fetches are handled by the auth listener or other triggers.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router, fetchDashboardData]);
 
   const handleLogout = async () => {
     await logout();
   };
 
-  if (!session) {
-    // This will show a loading state until the user is fetched or redirected.
+  if (!session || isLoading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -266,7 +268,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {t('dashboard.welcome', { name: session.user.email.split('@')[0] })}
+            {t('dashboard.welcome', { name: session.user.email?.split('@')[0] || 'Farmer' })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {t('dashboard.subtitle')}
@@ -281,8 +283,7 @@ export default function DashboardPage() {
           </form>
         </div>
 
-        {isLoading ? <DataSkeleton /> : (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
             <WeatherCard weatherData={weatherData} />
             
@@ -367,7 +368,6 @@ export default function DashboardPage() {
                 </CardFooter>
             </Card>
             </div>
-        )}
       </div>
     </>
   );
