@@ -276,7 +276,7 @@
         },
         "toast": {
             "noFile": {
-                "title": "ਕੋਈ ਫਾਈਲ ਨਹੀਂ ਚੁਣੀ ਗਈ",
+                "title": "ਕੋਈ ਫਾਈਲ नहीं ਚੁਣੀ ਗਈ",
                 "description": "ਕਿਰਪਾ ਕਰਕੇ ਫਸਲ ਦੇ ਪੱਤੇ ਦੀ ਇੱਕ ਤਸਵੀਰ ਅੱਪਲੋਡ ਕਰੋ।"
             },
             "failure": {
@@ -318,7 +318,7 @@
             "suggestion": "ਕਾਰਵਾਈਯੋਗ ਸੁਝਾਅ"
         },
         "toast": {
-            "noFileTitle": "ਕੋਈ ਫਾਈਲ ਨਹੀਂ ਚੁਣੀ ਗਈ",
+            "noFileTitle": "ਕੋਈ ਫਾਈਲ नहीं ਚੁਣੀ ਗਈ",
             "noFileDescription": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਜਾਨਵਰ ਦੀ ਤਸਵੀਰ ਅੱਪਲੋਡ ਕਰੋ।",
             "failureTitle": "ਵਰਗੀਕਰਨ ਅਸਫਲ",
             "failureDescription": "ਚਿੱਤਰ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੂਜਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
@@ -451,12 +451,12 @@
         }
     },
     "locationDialog": {
-        "title": "Enter Your Location",
-        "description": "If you want better results, enter your location for fetching today's weather data.",
-        "label": "Location",
-        "placeholder": "e.g., Delhi, India",
-        "ok": "OK",
-        "later": "Later"
+        "title": "ਆਪਣਾ ਸਥਾਨ ਦਰਜ ਕਰੋ",
+        "description": "ਜੇਕਰ ਤੁਸੀਂ ਬਿਹਤਰ ਨਤੀਜੇ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਅੱਜ ਦੇ ਮੌਸਮ ਦਾ ਡਾਟਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣਾ ਸਥਾਨ ਦਰਜ ਕਰੋ।",
+        "label": "ਸਥਾਨ",
+        "placeholder": "ਉਦਾਹਰਨ ਲਈ, ਦਿੱਲੀ, ਭਾਰਤ",
+        "ok": "ਠੀਕ ਹੈ",
+        "later": "ਬਾਅਦ ਵਿੱਚ"
     },
     "dashboard": {
         "login": {
