@@ -419,6 +419,27 @@ export const farmingQuotes = [
   "quotes.q61", "quotes.q62", "quotes.q63", "quotes.q64", "quotes.q65", "quotes.q66", "quotes.q67", "quotes.q68", "quotes.q69", "quotes.q70"
 ];
 
+export const cropOptions = [
+    // Kharif Crops
+    { value: 'Rice', label: 'Rice (Paddy)' },
+    { value: 'Maize', label: 'Maize (Corn)' },
+    { value: 'Cotton', label: 'Cotton (Kapās)' },
+    { value: 'Sugarcane', label: 'Sugarcane (Ganna)' },
+    { value: 'Soybean', label: 'Soybean (Bhat)' },
+    { value: 'Tur', label: 'Tur (Arhar / Pigeon Pea)' },
+    // Rabi Crops
+    { value: 'Wheat', label: 'Wheat (Gehu)' },
+    { value: 'Barley', label: 'Barley (Jau)' },
+    { value: 'Mustard', label: 'Mustard (Sarson)' },
+    { value: 'Gram', label: 'Gram (Chana)' },
+    { value: 'Peas', label: 'Peas (Matar)' },
+    // Zaid Crops
+    { value: 'Watermelon', label: 'Watermelon (Tarbooz)' },
+    { value: 'Muskmelon', label: 'Muskmelon (Kharbooja)' },
+    { value: 'Cucumber', label: 'Cucumber (Kheera)' },
+];
+
+
 export const toolsData = [
     {
       id: 'rotavator',
@@ -592,3 +613,4 @@ export const toolsData = [
       },
     },
   ];
+

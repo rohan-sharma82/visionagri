@@ -31,6 +31,8 @@ import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { soilTypeExplanations } from '@/lib/area-data';
+import { Combobox } from '@/components/ui/combobox';
+import { cropOptions } from '@/lib/constants';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -84,7 +86,6 @@ export default function CropYieldPage() {
         description: t('cropYield.toast.errorDescription'),
         variant: 'destructive',
       });
-      form.reset();
     }
     setIsLoading(false);
   }
@@ -112,7 +113,7 @@ export default function CropYieldPage() {
             Kisan Call Center -&gt; 1800-180-1551
         </p>
         <div className="mt-4 text-xl text-muted-foreground flex items-center justify-center space-x-2 font-merienda">
-          <span>{t('cropYield.growing')}</span>
+          <span>{t('growing')}</span>
           <div className="w-40">
             <RotatingText
               texts={rotatingTexts}
@@ -135,7 +136,7 @@ export default function CropYieldPage() {
         <div className="flex flex-col items-center gap-8 w-full max-w-lg">
            <div className="wrapper w-full">
             <div className="flex justify-center mb-4"><AreaInfoDialog /></div>
-                <div className="flip-card__inner mx-auto" style={{ height: 'auto', minHeight: '350px' }}>
+                <div className="flip-card__inner mx-auto" style={{ minHeight: '350px' }}>
                   <div className="flip-card__front w-full p-4 md:p-6">
                     <div className="title">{t('cropYield.form.title')}</div>
                      <Form {...form}>
@@ -149,9 +150,14 @@ export default function CropYieldPage() {
                                 name="cropType"
                                 render={({ field }) => (
                                 <FormItem className="w-full">
-                                    <FormControl>
-                                    <Input className='flip-card__input' placeholder={t('cropYield.form.cropType.placeholder')} {...field} />
-                                    </FormControl>
+                                    <Combobox
+                                        options={cropOptions}
+                                        {...field}
+                                        onChange={field.onChange}
+                                        placeholder={t('cropYield.form.cropType.placeholder')}
+                                        emptyMessage="No crop found."
+                                        inputPlaceholder="Search crop..."
+                                    />
                                     <FormMessage />
                                 </FormItem>
                                 )}
