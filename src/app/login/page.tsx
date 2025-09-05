@@ -7,12 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useTranslation } from '@/hooks/use-translation';
 import { cn } from '@/lib/utils';
-import { Loader2, Info } from 'lucide-react';
+import { Loader2, Info, ArrowLeft } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const { t } = useTranslation();
+  const router = useRouter();
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -44,8 +46,21 @@ export default function LoginPage() {
     setIsLoading(false);
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-transparent pt-16 pb-8 px-4 gap-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-transparent pt-16 pb-8 px-4 gap-8 relative">
+      <Button
+        onClick={handleBack}
+        variant="ghost"
+        className="absolute top-20 left-4 md:top-24 md:left-8"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" />
+        Back
+      </Button>
+      
       <div className={cn("login-slider-container", isSignUp && "right-panel-active")}>
         <div className="form-container sign-up-container">
           <form onSubmit={handleSubmit}>
