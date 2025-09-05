@@ -31,7 +31,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
 import { Skeleton } from '@/components/ui/skeleton';
 import { logout } from '@/app/auth/actions';
-import type { Session } from '@supabase/supabase-js';
+import type { Session, User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -180,11 +180,10 @@ export default function DashboardPage() {
   const { location: globalLocation } = useLocation();
   const router = useRouter();
   const { toast } = useToast();
-  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isSessionLoading, setIsSessionLoading] = useState(true);
-  const [isWeatherLoading, setIsWeatherLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [isMarketLoading, setIsMarketLoading] = useState(false);
 
   // Mock user data - in a real app, this would come from your database
@@ -219,56 +218,37 @@ export default function DashboardPage() {
   }, [userData.primaryCrop, toast]);
 
   useEffect(() => {
-    const getSessionAndWeather = async () => {
-      setIsSessionLoading(true);
-      setIsWeatherLoading(true);
-      
-      const { data: { session: currentSession } } = await supabase.auth.getSession();
-      
-      if (!currentSession) {
-        router.push('/login');
-        return;
-      }
-      
-      setSession(currentSession);
-      setIsSessionLoading(false);
+    const fetchUserAndData = async () => {
+        setLoading(true);
+        const { data: { user } } = await supabase.auth.getUser();
 
-      const locationToFetch = globalLocation || 'Delhi, India';
-      try {
-        const weatherResult = await getDashboardWeather({ location: locationToFetch });
-        setWeatherData(weatherResult);
-      } catch (error) {
-        console.error("Failed to fetch weather data:", error);
-        setWeatherData(null);
-      } finally {
-        setIsWeatherLoading(false);
-      }
+        if (user) {
+            setUser(user);
+            const locationToFetch = globalLocation || 'Delhi, India';
+            try {
+                const weatherResult = await getDashboardWeather({ location: locationToFetch });
+                setWeatherData(weatherResult);
+            } catch (error) {
+                console.error("Failed to fetch weather data:", error);
+                setWeatherData(null);
+                toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
+            }
+        }
+        // No need to redirect here, middleware handles it.
+        setLoading(false);
     };
 
-    getSessionAndWeather();
-
-    const { data: authListener } = supabase.auth.onAuthStateChange((_event, newSession) => {
-      if (!newSession) {
-        router.push('/login');
-      } else if (session?.user.id !== newSession.user.id) {
-        setSession(newSession);
-      }
-    });
-
-    return () => {
-      authListener?.subscription.unsubscribe();
-    };
-    // Eslint-disable is used here because this effect should only run on mount and when location or router changes.
-    // Session is managed internally.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globalLocation, router]);
+    fetchUserAndData();
+  }, [globalLocation, toast]);
 
 
   const handleLogout = async () => {
     await logout();
+    // The middleware will handle the redirect after logout.
+    router.push('/');
   };
 
-  if (isSessionLoading) {
+  if (loading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -277,7 +257,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {t('dashboard.welcome', { name: session?.user?.email?.split('@')[0] || 'Farmer' })}
+            {t('dashboard.welcome', { name: user?.email?.split('@')[0] || 'Farmer' })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {t('dashboard.subtitle')}
@@ -294,7 +274,7 @@ export default function DashboardPage() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            <WeatherCard weatherData={weatherData} isLoading={isWeatherLoading} />
+            <WeatherCard weatherData={weatherData} isLoading={loading} />
             
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>

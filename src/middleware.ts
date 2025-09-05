@@ -13,14 +13,14 @@ export async function middleware(req: NextRequest) {
     data: { session },
   } = await supabase.auth.getSession();
 
-  // if user is not signed in and the current path is the dashboard, redirect the user to /login
+  // If user is not signed in and trying to access a protected route (like dashboard), redirect to login
   if (!session && req.nextUrl.pathname.startsWith('/dashboard')) {
     const redirectUrl = req.nextUrl.clone();
     redirectUrl.pathname = '/login';
     return NextResponse.redirect(redirectUrl);
   }
   
-  // if user is signed in and the current path is /login, redirect the user to /dashboard
+  // if user is signed in and tries to access the login page, redirect them to the dashboard
   if (session && req.nextUrl.pathname === '/login') {
       const redirectUrl = req.nextUrl.clone();
       redirectUrl.pathname = '/dashboard';
@@ -32,7 +32,13 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    '/dashboard',
-    '/login'
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * Feel free to modify this pattern to include more paths.
+     */
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };

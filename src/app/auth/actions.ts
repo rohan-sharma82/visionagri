@@ -63,7 +63,6 @@ export async function signup(prevState: any, formData: FormData) {
     }
   }
 
-  // Manually revalidate and redirect after successful signup
   revalidatePath('/', 'layout');
   redirect('/dashboard');
 }
@@ -72,5 +71,5 @@ export async function logout() {
     const cookieStore = cookies();
     const supabase = createServerActionClient({ cookies: () => cookieStore });
     await supabase.auth.signOut();
-    redirect('/');
+    revalidatePath('/', 'layout');
 }
