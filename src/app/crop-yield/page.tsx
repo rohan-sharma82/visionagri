@@ -110,7 +110,7 @@ export default function CropYieldPage() {
           {t('cropYield.subtitle')}
         </p>
         <p className="mt-4 text-base font-semibold text-primary">
-            Kisan Call Center -&gt; 1800-180-1551
+            {t('kisanCallCenter')}
         </p>
         <div className="mt-4 text-xl text-muted-foreground flex items-center justify-center space-x-2 font-merienda">
           <span>{t('growing')}</span>
