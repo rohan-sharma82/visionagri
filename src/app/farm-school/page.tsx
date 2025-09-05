@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { useTranslation } from '@/hooks/use-translation';
-import { Calculator, Lightbulb, Shovel, TestTube2, Leaf } from 'lucide-react';
+import { Calculator, Lightbulb, Shovel, TestTube2, Leaf, LayoutGrid } from 'lucide-react';
 import Link from 'next/link';
 
 export default function FarmSchoolPage() {
@@ -44,6 +44,12 @@ export default function FarmSchoolPage() {
         description: 'Learn about major crops grown across India.',
         icon: <Leaf className="h-8 w-8 text-accent" />,
         href: '/farm-school/crops-knowledge',
+    },
+    {
+        title: t('farmSchool.croppingPatterns.title'),
+        description: t('farmSchool.croppingPatterns.description'),
+        icon: <LayoutGrid className="h-8 w-8 text-accent" />,
+        href: '/farm-school/cropping-patterns',
     }
   ];
 
