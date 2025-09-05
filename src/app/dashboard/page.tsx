@@ -1,4 +1,3 @@
-
 'use client';
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js'
@@ -186,14 +185,18 @@ export default function DashboardPage() {
         setIsLoading(true);
 
         const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
-        const [weatherResult, marketResult] = await Promise.all([
-            getDashboardWeather({ location: locationToFetch }).catch(err => { console.error("Weather fetch failed:", err); return null; }),
-            getMarketPriceAnalysis({ crop: userData.primaryCrop }).catch(err => { console.error("Market analysis failed:", err); return null; })
-        ]);
-        
-        setWeatherData(weatherResult);
-        setMarketData(marketResult);
-        setIsLoading(false);
+        try {
+            const [weatherResult, marketResult] = await Promise.all([
+                getDashboardWeather({ location: locationToFetch }),
+                getMarketPriceAnalysis({ crop: userData.primaryCrop })
+            ]);
+            setWeatherData(weatherResult);
+            setMarketData(marketResult);
+        } catch (error) {
+            console.error("Failed to fetch dashboard data:", error);
+        } finally {
+            setIsLoading(false);
+        }
     }
     
     if (user) {
@@ -214,8 +217,7 @@ export default function DashboardPage() {
     return (
       <div className="flex h-screen items-center justify-center">
         <div className="text-center">
-          <Skeleton className="h-8 w-48 mb-4" />
-          <Skeleton className="h-4 w-64" />
+          <DataSkeleton />
         </div>
       </div>
     );

@@ -30,14 +30,14 @@ export async function signup(formData: FormData) {
   const password = formData.get('password') as string;
   const cookieStore = cookies();
   const supabase = createServerActionClient({ cookies: () => cookieStore });
-  const origin = new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:9002');
-
 
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      emailRedirectTo: `${origin.origin}/auth/callback`,
+      // In a real app, you'd want email verification.
+      // For this hackathon, we disable it to make testing easier.
+      // The user is logged in immediately after signing up.
     },
   });
 
@@ -45,8 +45,9 @@ export async function signup(formData: FormData) {
      return { error: 'Could not sign up user. This email might already be taken or the password is too weak.' };
   }
 
-  // No revalidate or redirect needed here anymore, just show success message.
-  return { error: null, data: 'Confirmation link has been sent to your email address. Please verify to log in.' };
+  // Manually revalidate and redirect after successful signup
+  revalidatePath('/', 'layout');
+  redirect('/dashboard');
 }
 
 export async function logout() {

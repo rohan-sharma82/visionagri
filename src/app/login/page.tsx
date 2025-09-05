@@ -18,31 +18,21 @@ export default function LoginPage() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
     setMessage('');
-    setIsSuccess(false);
     
     const formData = new FormData(event.currentTarget);
     
-    if (isSignUp) {
-        const result = await signup(formData);
-        if (result?.error) {
-            setMessage(result.error);
-        } else if (result?.data) {
-            setMessage(result.data);
-            setIsSuccess(true);
-        }
-    } else {
-        const result = await login(formData);
-        if (result?.error) {
-            setMessage(result.error);
-        }
-        // On successful login, the action redirects, so no success message is needed here.
+    const action = isSignUp ? signup : login;
+    const result = await action(formData);
+    
+    if (result?.error) {
+        setMessage(result.error);
     }
+    // On successful login or signup, the action redirects, so no success message is needed here.
     
     setIsLoading(false);
   };
@@ -93,22 +83,22 @@ export default function LoginPage() {
             <div className="overlay-panel overlay-left">
               <h1 className="text-2xl font-bold">Welcome Back!</h1>
               <p className="text-sm mt-2">To keep connected with us please login with your personal info</p>
-              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(false); setMessage(''); setIsSuccess(false); }}>
+              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(false); setMessage(''); }}>
                 Sign In
               </Button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1 className="text-2xl font-bold">Hello, Farmer!</h1>
               <p className="text-sm mt-2">Enter your personal details and start your journey with us</p>
-              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(true); setMessage(''); setIsSuccess(false); }}>
+              <Button variant="ghost" className="mt-4" onClick={() => { setIsSignUp(true); setMessage(''); }}>
                 Sign Up
               </Button>
             </div>
           </div>
         </div>
         {message && (
-            <Alert variant={isSuccess ? 'default' : 'destructive'} className="absolute bottom-4 left-4 right-4 w-auto bg-card/90">
-                <AlertTitle>{isSuccess ? 'Success' : 'Error'}</AlertTitle>
+            <Alert variant='destructive' className="absolute bottom-4 left-4 right-4 w-auto bg-card/90">
+                <AlertTitle>Error</AlertTitle>
                 <AlertDescription>{message}</AlertDescription>
             </Alert>
         )}

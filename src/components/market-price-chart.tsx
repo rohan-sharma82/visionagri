@@ -85,5 +85,3 @@ export default function MarketPriceChart({ data }: MarketPriceChartProps) {
     </div>
   );
 }
-
-    
