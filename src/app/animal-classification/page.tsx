@@ -13,7 +13,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -21,7 +20,6 @@ import { Loader2, PawPrint, Upload, BarChart, Info, Lightbulb, Milk, Scale, Ther
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
-import { cn } from '@/lib/utils';
 import { useTranslation } from '@/hooks/use-translation';
 import Link from 'next/link';
 

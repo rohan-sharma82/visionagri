@@ -185,19 +185,15 @@ export default function DashboardPage() {
         if (!user) return;
         setIsLoading(true);
 
-        try {
-            const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
-            const weatherPromise = getDashboardWeather({ location: locationToFetch });
-            const marketPromise = getMarketPriceAnalysis({ crop: userData.primaryCrop });
-            const [weatherResult, marketResult] = await Promise.all([weatherPromise, marketPromise]);
-            
-            setWeatherData(weatherResult);
-            setMarketData(marketResult);
-        } catch (error) {
-            console.error("Failed to fetch dashboard data:", error);
-        } finally {
-            setIsLoading(false);
-        }
+        const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
+        const [weatherResult, marketResult] = await Promise.all([
+            getDashboardWeather({ location: locationToFetch }).catch(err => { console.error("Weather fetch failed:", err); return null; }),
+            getMarketPriceAnalysis({ crop: userData.primaryCrop }).catch(err => { console.error("Market analysis failed:", err); return null; })
+        ]);
+        
+        setWeatherData(weatherResult);
+        setMarketData(marketResult);
+        setIsLoading(false);
     }
     
     if (user) {
@@ -251,7 +247,7 @@ export default function DashboardPage() {
             {weatherData ? (
                 <WeatherCard weatherData={weatherData} />
             ) : (
-                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
+                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.error')}</CardContent></Card>
             )}
 
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
@@ -263,7 +259,7 @@ export default function DashboardPage() {
                     {marketData ? (
                         <MarketPriceChart data={marketData} />
                     ) : (
-                        <p className="text-center">{t('dashboard.market.loading')}</p>
+                        <p className="text-center">{t('dashboard.market.error')}</p>
                     )}
                 </CardContent>
             </Card>

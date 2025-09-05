@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -32,7 +32,6 @@ import {
 import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { getChatHistory, saveChatHistory, clearChatHistory } from './actions';
 import { createClient } from '@supabase/supabase-js';
-import { redirect } from 'next/navigation';
 
 
 const formSchema = z.object({
@@ -173,8 +172,6 @@ export default function AiFarmerPage() {
             const history = await getChatHistory(user.id);
             setMessages(history);
         } else {
-            // In a real app, you might redirect to login if no user is found.
-            // For now, we allow access but history won't work.
             console.warn("No user logged in. Chat history will not be saved.");
         }
         setIsHistoryLoading(false);
@@ -182,17 +179,21 @@ export default function AiFarmerPage() {
     fetchUserAndHistory();
   }, []);
 
-  useEffect(() => {
+  const handleSaveHistory = useCallback(() => {
     if (!isHistoryLoading && userId) {
-        saveChatHistory(userId, messages).catch(err => {
-            toast({
-                variant: 'destructive',
-                title: t('aiFarmer.toast.saveError.title'),
-                description: t('aiFarmer.toast.saveError.description'),
-            })
+      saveChatHistory(userId, messages).catch(err => {
+        toast({
+          variant: 'destructive',
+          title: t('aiFarmer.toast.saveError.title'),
+          description: t('aiFarmer.toast.saveError.description'),
         });
+      });
     }
   }, [messages, isHistoryLoading, userId, t, toast]);
+  
+  useEffect(() => {
+    handleSaveHistory();
+  }, [messages, handleSaveHistory]);
 
 
   useEffect(() => {
@@ -241,7 +242,7 @@ export default function AiFarmerPage() {
         }
       } catch (ttsError: any) {
          if (ttsError.name !== 'AbortError') {
-            console.error("Text-to-speech conversion failed:", ttsError);
+            console.error("Text-to-speech conversion failed, but showing text response:", ttsError);
          }
       }
   
