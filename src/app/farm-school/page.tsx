@@ -4,12 +4,11 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { useTranslation } from '@/hooks/use-translation';
-import { Calculator, Lightbulb, Shovel, TestTube2 } from 'lucide-react';
+import { Calculator, Lightbulb, Shovel, TestTube2, Leaf } from 'lucide-react';
 import Link from 'next/link';
 
 export default function FarmSchoolPage() {
@@ -40,6 +39,12 @@ export default function FarmSchoolPage() {
       icon: <Lightbulb className="h-8 w-8 text-accent" />,
       href: '/farm-school/profit-making-tips',
     },
+    {
+        title: 'Crops Knowledge',
+        description: 'Learn about major crops grown across India.',
+        icon: <Leaf className="h-8 w-8 text-accent" />,
+        href: '/farm-school/crops-knowledge',
+    }
   ];
 
   return (
@@ -54,12 +59,12 @@ export default function FarmSchoolPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {schoolTopics.map((topic) => (
             <Link
               href={topic.href}
               key={topic.title}
-              className="w-full"
+              className="w-full max-w-sm"
               target={topic.href.startsWith('/') ? undefined : '_blank'}
               rel={topic.href.startsWith('/') ? undefined : 'noopener noreferrer'}
             >
@@ -73,7 +78,7 @@ export default function FarmSchoolPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-base text-muted-foreground">
                     {topic.description}
                   </p>
                 </CardContent>
