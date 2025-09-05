@@ -332,7 +332,7 @@ export const schemesData = [
     shortName: 'schemes.pmkisan.shortName',
     shortDescription: 'schemes.pmkisan.shortDescription',
     description: 'schemes.pmkisan.description',
-    imageUrl: 'https://cdn.tractorkarvan.com/tr:f-webp/images/Blogs/top-central-government-schemes-for-farmers-in-india/pm-kisan.jpg',
+    imageUrl: 'https://static.langimg.com/photo/imgsize-2180602,msid-121950981/navbharat-times.jpg',
     dataAiHint: 'government building',
   },
   {
@@ -406,6 +406,24 @@ export const schemesData = [
     description: 'schemes.ahidf.description',
     imageUrl: 'https://img.manoramayearbook.in/content/dam/yearbook/learn/world/images/2022/July/ahidf.jpg',
     dataAiHint: 'animal husbandry',
+  },
+  {
+    id: 10,
+    name: 'schemes.pmksy.name',
+    shortName: 'schemes.pmksy.shortName',
+    shortDescription: 'schemes.pmksy.shortDescription',
+    description: 'schemes.pmksy.description',
+    imageUrl: 'https://dehaat-kheti-prod.s3.amazonaws.com/django-summernote/2024-06-14/e8057db8-1c61-4ab3-bf79-4e06b3a6a0d7.webp',
+    dataAiHint: 'drip irrigation',
+  },
+  {
+    id: 11,
+    name: 'schemes.nbm.name',
+    shortName: 'schemes.nbm.shortName',
+    shortDescription: 'schemes.nbm.shortDescription',
+    description: 'schemes.nbm.description',
+    imageUrl: 'https://prakati.in/wp-content/uploads/2021/06/GEM-Bamboo-Market-Page-National-Bamboo-Mission-.jpg',
+    dataAiHint: 'bamboo mission',
   }
 ];
 

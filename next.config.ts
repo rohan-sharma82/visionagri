@@ -79,12 +79,6 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'dehaat.in',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'pbs.twimg.com',
         port: '',
         pathname: '/**',
@@ -110,6 +104,24 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'kj1bcdn.b-cdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static.langimg.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dehaat-kheti-prod.s3.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'prakati.in',
         port: '',
         pathname: '/**',
       },
