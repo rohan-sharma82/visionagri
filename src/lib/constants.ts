@@ -424,6 +424,24 @@ export const schemesData = [
     description: 'schemes.nbm.description',
     imageUrl: 'https://prakati.in/wp-content/uploads/2021/06/GEM-Bamboo-Market-Page-National-Bamboo-Mission-.jpg',
     dataAiHint: 'bamboo mission',
+  },
+  {
+    id: 12,
+    name: 'schemes.bro.name',
+    shortName: 'schemes.bro.shortName',
+    shortDescription: 'schemes.bro.shortDescription',
+    description: 'schemes.bro.description',
+    imageUrl: 'https://picsum.photos/300/200?random=12',
+    dataAiHint: 'placeholder image',
+  },
+  {
+    id: 13,
+    name: 'schemes.sis.name',
+    shortName: 'schemes.sis.shortName',
+    shortDescription: 'schemes.sis.shortDescription',
+    description: 'schemes.sis.description',
+    imageUrl: 'https://picsum.photos/300/200?random=13',
+    dataAiHint: 'placeholder image',
   }
 ];
 
