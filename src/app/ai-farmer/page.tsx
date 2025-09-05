@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -32,6 +32,8 @@ import {
 import Header from '@/components/layout/header';
 import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { getChatHistory, saveChatHistory, clearChatHistory } from './actions';
+import { createClient } from '@supabase/supabase-js';
+import { redirect } from 'next/navigation';
 
 
 const formSchema = z.object({
@@ -46,8 +48,14 @@ export interface Message {
   createdAt?: any;
 }
 
-// A unique user ID for demo purposes. In a real app, this would come from an authentication system.
-const USER_ID = 'demo-user-123';
+const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabase_url || !supabase_anon_key) {
+    throw new Error("Supabase URL or anon key is not defined");
+}
+const supabase = createClient(supabase_url, supabase_anon_key);
+
 
 const useTypingEffect = (text: string, speed = 50) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -83,7 +91,6 @@ const AssistantMessage = ({ message, isTyping }: { message: Message, isTyping: b
       audio.pause();
       audio.currentTime = 0;
     } else {
-      // Pause other audio elements
       document.querySelectorAll('audio').forEach(a => a.pause());
       audio.src = audioUrl;
       audio.play().catch(e => console.error("Audio playback failed", e));
@@ -137,6 +144,7 @@ export default function AiFarmerPage() {
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
+  const [userId, setUserId] = useState<string | null>(null);
 
   const loadingMessages = [
     t('aiFarmer.loadingMessages.m1'),
@@ -157,21 +165,27 @@ export default function AiFarmerPage() {
     defaultValues: { query: '' },
   });
 
-  // Load chat history on initial render
   useEffect(() => {
-    const loadHistory = async () => {
+    const fetchUserAndHistory = async () => {
         setIsHistoryLoading(true);
-        const history = await getChatHistory(USER_ID);
-        setMessages(history);
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+            setUserId(user.id);
+            const history = await getChatHistory(user.id);
+            setMessages(history);
+        } else {
+            // In a real app, you might redirect to login if no user is found.
+            // For now, we allow access but history won't work.
+            console.warn("No user logged in. Chat history will not be saved.");
+        }
         setIsHistoryLoading(false);
     };
-    loadHistory();
+    fetchUserAndHistory();
   }, []);
 
-  // Save history whenever messages change
   useEffect(() => {
-    if (!isHistoryLoading) {
-        saveChatHistory(USER_ID, messages).catch(err => {
+    if (!isHistoryLoading && userId) {
+        saveChatHistory(userId, messages).catch(err => {
             toast({
                 variant: 'destructive',
                 title: t('aiFarmer.toast.saveError.title'),
@@ -179,7 +193,7 @@ export default function AiFarmerPage() {
             })
         });
     }
-  }, [messages, isHistoryLoading, t, toast]);
+  }, [messages, isHistoryLoading, userId, t, toast]);
 
 
   useEffect(() => {
@@ -191,7 +205,6 @@ export default function AiFarmerPage() {
     }
   }, [messages, isTyping]);
 
-  // Cleanup effect to abort fetch on unmount
   useEffect(() => {
     return () => {
       abortControllerRef.current?.abort();
@@ -224,11 +237,8 @@ export default function AiFarmerPage() {
 
       let ttsResult;
       try {
-        if (!controller.signal.aborted) {
-          // Don't generate audio for error messages
-          if (!result.advice.toLowerCase().includes('error')) {
+        if (!controller.signal.aborted && !result.advice.toLowerCase().includes('error')) {
             ttsResult = await textToSpeech(result.advice);
-          }
         }
       } catch (ttsError: any) {
          if (ttsError.name !== 'AbortError') {
@@ -249,10 +259,9 @@ export default function AiFarmerPage() {
     } catch (error: any) {
        if (error.name !== 'AbortError') {
         console.error('Error getting farming advice:', error);
-        
         const assistantMessage: Message = {
             role: 'assistant',
-            content: `An unexpected error occurred while fetching advice. Please check your connection or try again later. Details: ${error.message}`
+            content: `An unexpected error occurred. Please try again. Details: ${error.message}`
         };
         setMessages(prev => [...prev, assistantMessage]);
       }
@@ -266,7 +275,8 @@ export default function AiFarmerPage() {
   }
 
   const handleClearChat = async () => {
-    await clearChatHistory(USER_ID);
+    if (!userId) return;
+    await clearChatHistory(userId);
     setMessages([]);
     toast({
       title: t('aiFarmer.toast.chatCleared.title'),
@@ -334,13 +344,7 @@ export default function AiFarmerPage() {
       abortControllerRef.current = null;
       setIsLoading(false);
       setIsTyping(false);
-       // Remove the optimistic user message if the request is cancelled
-      setMessages(prev => {
-        if (prev.length > 0 && prev[prev.length - 1].role === 'user') {
-          return prev.slice(0, -1);
-        }
-        return prev;
-      });
+      setMessages(prev => prev.slice(0, -1));
     }
   };
 

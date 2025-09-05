@@ -1,6 +1,8 @@
 
 'use client';
 import { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js'
+import { redirect } from 'next/navigation';
 import Header from '@/components/layout/header';
 import { useTranslation } from '@/hooks/use-translation';
 import {
@@ -20,7 +22,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, LogOut, User } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, LogOut } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -28,50 +30,18 @@ import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
-import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
-import LoginPrism from '@/components/login-prism';
+import { logout } from '@/app/auth/actions';
 
-const allDashboardData: Record<string, any> = {
-    'user1@agrivision.ai': {
-        name: 'Demo User (Punjab)',
-        location: 'Punjab, India',
-        primaryCrop: 'Wheat',
-        yieldHistory: [
-            { date: '4 August 2025', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
-            { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
-            { date: '4 August 2025', crop: 'Soybeans', predicted: '3.5', actual: '3.5' },
-        ],
-        recommendedSchemes: [
-            { name: 'schemes.pmkisan.shortName', reason: 'dashboard.schemes.reasons.smallLandholding' },
-            { name: 'schemes.pmfby.shortName', reason: 'dashboard.schemes.reasons.weatherUnpredictability' },
-        ],
-    },
-    'user2@agrivision.ai': {
-        name: 'Demo User (Maharashtra)',
-        location: 'Maharashtra, India',
-        primaryCrop: 'Sugarcane',
-        yieldHistory: [
-            { date: '2024-08-01', crop: 'Rice', predicted: '6.2', actual: '6.5' },
-            { date: '2024-04-10', crop: 'Sugarcane', predicted: '70.5', actual: null },
-        ],
-        recommendedSchemes: [
-            { name: 'schemes.enam.name', reason: 'dashboard.schemes.reasons.betterPrices' },
-        ],
-    },
-    'user3@agrivision.ai': {
-        name: 'Demo User (Kerala)',
-        location: 'Kerala, India',
-        primaryCrop: 'Cotton',
-        yieldHistory: [
-            { date: '2024-06-25', crop: 'Cotton', predicted: '2.1', actual: '2.3' },
-            { date: '4 August 2025', crop: 'Mustard', predicted: '1.8', actual: '1.7' },
-        ],
-        recommendedSchemes: [
-            { name: 'schemes.pmkmy.name', reason: 'dashboard.schemes.reasons.easyCredit' },
-        ],
-    }
-};
+const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabase_url || !supabase_anon_key) {
+    throw new Error("Supabase URL or anon key is not defined");
+}
+
+const supabase = createClient(supabase_url, supabase_anon_key);
+
 
 const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
     if (index === undefined) return t('dashboard.weather.aqiLabels.unknown');
@@ -182,44 +152,48 @@ const DataSkeleton = () => {
 export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
-  const [currentUserKey, setCurrentUserKey] = useState<string | null>(null);
+  const [user, setUser] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Check localStorage for a saved user on initial mount
-  useEffect(() => {
-    const savedUser = localStorage.getItem('agrivision_user');
-    if (savedUser && allDashboardData[savedUser]) {
-      setCurrentUserKey(savedUser);
-    } else {
-        setIsLoading(false); // If no user, stop loading
-    }
-  }, []);
+  // Mock user data - in a real app, this would come from your database
+  const userData = {
+    primaryCrop: 'Wheat', // Default crop
+    yieldHistory: [
+        { date: '4 August 2025', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
+        { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
+    ],
+    recommendedSchemes: [
+        { name: 'schemes.pmkisan.shortName', reason: 'dashboard.schemes.reasons.smallLandholding' },
+        { name: 'schemes.pmfby.shortName', reason: 'dashboard.schemes.reasons.weatherUnpredictability' },
+    ],
+  };
 
-  const isAuthenticated = !!currentUserKey;
-  const userData = currentUserKey ? allDashboardData[currentUserKey] : null;
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        redirect('/login');
+      }
+      setUser(user);
+    };
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
-        if (!isAuthenticated || !userData) {
-            setIsLoading(false);
-            return;
-        }
-
+        if (!user) return;
         setIsLoading(true);
 
         try {
-            const locationToFetch = globalLocation || userData.location;
-
+            const locationToFetch = globalLocation || 'Delhi, India'; // Fallback location
             const weatherPromise = getDashboardWeather({ location: locationToFetch });
             const marketPromise = getMarketPriceAnalysis({ crop: userData.primaryCrop });
-
             const [weatherResult, marketResult] = await Promise.all([weatherPromise, marketPromise]);
             
             setWeatherData(weatherResult);
             setMarketData(marketResult);
-
         } catch (error) {
             console.error("Failed to fetch dashboard data:", error);
         } finally {
@@ -227,27 +201,26 @@ export default function DashboardPage() {
         }
     }
     
-    if (isAuthenticated) {
+    if (user) {
         fetchData();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated, userData?.location, userData?.primaryCrop, globalLocation]);
+  }, [user, globalLocation, userData.primaryCrop]);
 
+  const handleLogout = async () => {
+    await logout();
+    redirect('/login');
+  };
 
-  const handleClearUser = () => {
-    localStorage.removeItem('agrivision_user');
-    setCurrentUserKey(null);
-    setWeatherData(null);
-    setMarketData(null);
-  };
-  
-  const handleLogin = (userEmail: string) => {
-    const userKey = Object.keys(allDashboardData).find(key => key === userEmail);
-    if(userKey) {
-        localStorage.setItem('agrivision_user', userKey);
-        setCurrentUserKey(userKey);
-    }
-  };
+  if (!user) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="text-center">
+          <Skeleton className="h-8 w-48 mb-4" />
+          <Skeleton className="h-4 w-64" />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -255,39 +228,30 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {isAuthenticated ? t('dashboard.welcome', { name: userData?.name }) : t('dashboard.login.title')}
+            {t('dashboard.welcome', { name: user.email.split('@')[0] })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
-            {isAuthenticated ? t('dashboard.subtitle') : t('dashboard.login.description')}
+            {t('dashboard.subtitle')}
           </p>
            <p className="mt-2 text-base font-semibold text-primary">
              {t('kisanCallCenter')}
           </p>
-          {isAuthenticated && (
-             <button className="logout-button" onClick={handleClearUser}>
+          <form action={handleLogout}>
+             <button type="submit" className="logout-button">
                 <p>{t('dashboard.logout')}</p>
             </button>
-          )}
+          </form>
         </div>
 
-        {!isAuthenticated && (
-            <div className="flex flex-col items-center justify-center">
-                <LoginPrism onLoginSuccess={handleLogin} />
-            </div>
-        )}
-
-        {isAuthenticated && userData && (
-            isLoading ? <DataSkeleton /> : (
+        {isLoading ? <DataSkeleton /> : (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-            {/* Weather Card */}
             {weatherData ? (
                 <WeatherCard weatherData={weatherData} />
             ) : (
                 <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20"><CardContent className="p-6 text-center">{t('dashboard.weather.loading')}</CardContent></Card>
             )}
 
-            {/* Market Price Analysis */}
             <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                     <CardTitle>{t('dashboard.market.title', { crop: userData.primaryCrop })}</CardTitle>
@@ -302,7 +266,6 @@ export default function DashboardPage() {
                 </CardContent>
             </Card>
 
-            {/* Recommended Schemes */}
             <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                 <CardTitle>{t('dashboard.schemes.title')}</CardTitle>
@@ -321,7 +284,6 @@ export default function DashboardPage() {
                 </CardContent>
             </Card>
 
-            {/* Yield Prediction History */}
             <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
                 <CardHeader>
                 <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
@@ -371,7 +333,6 @@ export default function DashboardPage() {
                 </CardFooter>
             </Card>
             </div>
-            )
         )}
       </div>
     </>
