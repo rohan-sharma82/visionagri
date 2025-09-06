@@ -498,6 +498,9 @@
                 "very_unhealthy": "Very Unhealthy",
                 "hazardous": "Hazardous",
                 "unknown": "Unknown"
+            },
+            "alerts": {
+                "title": "Active Weather Alerts"
             }
         },
         "market": {

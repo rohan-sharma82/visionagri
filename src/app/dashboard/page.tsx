@@ -27,12 +27,12 @@ import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
 import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
 import { Skeleton } from '@/components/ui/skeleton';
 import { logout } from '@/app/auth/actions';
 import type { User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
+import WeatherAlerts from '@/components/weather-alerts';
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -88,15 +88,6 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
         <CardDescription>{t('dashboard.weather.description', { location: weatherData.location.name })}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-            {weatherData.alerts?.alert?.length > 0 && (
-                <Alert variant="destructive">
-                    <AlertTriangle className="h-4 w-4" />
-                    <AlertTitle>{weatherData.alerts.alert[0].event}</AlertTitle>
-                    <AlertDescription>
-                        {weatherData.alerts.alert[0].headline}
-                    </AlertDescription>
-                </Alert>
-            )}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Current Weather */}
                 <div className="flex flex-col items-center justify-center p-4 rounded-lg bg-primary/10">
@@ -287,102 +278,107 @@ export default function DashboardPage() {
             </Button>
           </form>
         </div>
+        
+        <div className="space-y-8">
+            {weatherData && weatherData.alerts && weatherData.alerts.alert.length > 0 && (
+                <WeatherAlerts alerts={weatherData.alerts.alert} />
+            )}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <WeatherCard weatherData={weatherData} isLoading={loading} />
+                
+                <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
+                    <CardHeader>
+                        <CardTitle>{t('dashboard.market.title', { crop: userData.primaryCrop })}</CardTitle>
+                        <CardDescription>{t('dashboard.market.description')}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        {isMarketLoading ? (
+                            <div className="flex justify-center items-center h-[250px]">
+                                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                            </div>
+                        ) : marketData ? (
+                            <MarketPriceChart data={marketData} />
+                        ) : (
+                            <div className="flex flex-col items-center justify-center h-[250px] text-center">
+                                <p className="mb-4 text-muted-foreground">{t('dashboard.market.initial_prompt')}</p>
+                                <Button onClick={handleFetchMarketData}>
+                                    <TrendingUp className="mr-2 h-4 w-4" />
+                                    {t('dashboard.market.button')}
+                                </Button>
+                            </div>
+                        )}
+                    </CardContent>
+                </Card>
 
-            <WeatherCard weatherData={weatherData} isLoading={loading} />
-            
-            <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
-                <CardHeader>
-                    <CardTitle>{t('dashboard.market.title', { crop: userData.primaryCrop })}</CardTitle>
-                    <CardDescription>{t('dashboard.market.description')}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    {isMarketLoading ? (
-                         <div className="flex justify-center items-center h-[250px]">
-                            <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                         </div>
-                    ) : marketData ? (
-                        <MarketPriceChart data={marketData} />
-                    ) : (
-                        <div className="flex flex-col items-center justify-center h-[250px] text-center">
-                             <p className="mb-4 text-muted-foreground">{t('dashboard.market.initial_prompt')}</p>
-                             <Button onClick={handleFetchMarketData}>
-                                <TrendingUp className="mr-2 h-4 w-4" />
-                                {t('dashboard.market.button')}
-                            </Button>
+                <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
+                    <CardHeader>
+                    <CardTitle>{t('dashboard.schemes.title')}</CardTitle>
+                    <CardDescription>{t('dashboard.schemes.description')}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                    {userData.recommendedSchemes.map((scheme: any, index: number) => (
+                        <div key={index} className="flex items-start gap-4">
+                        <ShieldCheck className="h-6 w-6 text-green-500 mt-1" />
+                        <div>
+                            <p className="font-semibold">{t(scheme.name)}</p>
+                            <p className="text-sm text-muted-foreground">{t(scheme.reason)}</p>
                         </div>
-                    )}
-                </CardContent>
-            </Card>
-
-            <Card className="bg-card/30 backdrop-blur-sm border-primary/20">
-                <CardHeader>
-                <CardTitle>{t('dashboard.schemes.title')}</CardTitle>
-                <CardDescription>{t('dashboard.schemes.description')}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                {userData.recommendedSchemes.map((scheme: any, index: number) => (
-                    <div key={index} className="flex items-start gap-4">
-                    <ShieldCheck className="h-6 w-6 text-green-500 mt-1" />
-                    <div>
-                        <p className="font-semibold">{t(scheme.name)}</p>
-                        <p className="text-sm text-muted-foreground">{t(scheme.reason)}</p>
-                    </div>
-                    </div>
-                ))}
-                </CardContent>
-            </Card>
-
-            <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
-                <CardHeader>
-                <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
-                <CardDescription>
-                    {t('dashboard.yieldHistory.description')}
-                </CardDescription>
-                </CardHeader>
-                <CardContent>
-                <Table>
-                    <TableHeader>
-                    <TableRow>
-                        <TableHead>{t('dashboard.yieldHistory.table.date')}</TableHead>
-                        <TableHead>{t('dashboard.yieldHistory.table.crop')}</TableHead>
-                        <TableHead className="text-right">
-                        {t('dashboard.yieldHistory.table.predicted')}
-                        </TableHead>
-                        <TableHead className="text-right">
-                        {t('dashboard.yieldHistory.table.actual')}
-                        </TableHead>
-                    </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                    {userData.yieldHistory.map((entry: any, index: number) => (
-                        <TableRow key={index}>
-                        <TableCell>{entry.date}</TableCell>
-                        <TableCell>{entry.crop}</TableCell>
-                        <TableCell className="text-right">{entry.predicted}</TableCell>
-                        <TableCell className="text-right">
-                            {entry.actual ? (
-                            entry.actual
-                            ) : (
-                            <Button variant="outline" size="sm">
-                                {t('dashboard.yieldHistory.table.action')}
-                            </Button>
-                            )}
-                        </TableCell>
-                        </TableRow>
+                        </div>
                     ))}
-                    </TableBody>
-                </Table>
-                </CardContent>
-                <CardFooter>
-                    <Button>
-                        <PlusCircle className="mr-2 h-4 w-4" />
-                        {t('dashboard.yieldHistory.button')}
-                    </Button>
-                </CardFooter>
-            </Card>
+                    </CardContent>
+                </Card>
+
+                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
+                    <CardHeader>
+                    <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
+                    <CardDescription>
+                        {t('dashboard.yieldHistory.description')}
+                    </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                    <Table>
+                        <TableHeader>
+                        <TableRow>
+                            <TableHead>{t('dashboard.yieldHistory.table.date')}</TableHead>
+                            <TableHead>{t('dashboard.yieldHistory.table.crop')}</TableHead>
+                            <TableHead className="text-right">
+                            {t('dashboard.yieldHistory.table.predicted')}
+                            </TableHead>
+                            <TableHead className="text-right">
+                            {t('dashboard.yieldHistory.table.actual')}
+                            </TableHead>
+                        </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                        {userData.yieldHistory.map((entry: any, index: number) => (
+                            <TableRow key={index}>
+                            <TableCell>{entry.date}</TableCell>
+                            <TableCell>{entry.crop}</TableCell>
+                            <TableCell className="text-right">{entry.predicted}</TableCell>
+                            <TableCell className="text-right">
+                                {entry.actual ? (
+                                entry.actual
+                                ) : (
+                                <Button variant="outline" size="sm">
+                                    {t('dashboard.yieldHistory.table.action')}
+                                </Button>
+                                )}
+                            </TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
+                    </CardContent>
+                    <CardFooter>
+                        <Button>
+                            <PlusCircle className="mr-2 h-4 w-4" />
+                            {t('dashboard.yieldHistory.button')}
+                        </Button>
+                    </CardFooter>
+                </Card>
             </div>
+        </div>
       </div>
     </>
   );
