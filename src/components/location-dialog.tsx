@@ -20,18 +20,26 @@ export default function LocationDialog() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // This effect runs once on the client when the component mounts.
-    const savedLocation = localStorage.getItem('user-location');
-    if (!savedLocation) {
-        // Only open the dialog if no location is saved in localStorage.
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isMounted) {
+      const savedLocation = localStorage.getItem('user-location');
+      if (savedLocation) {
+        if (location !== savedLocation) {
+            setLocation(savedLocation);
+        }
+        setIsOpen(false);
+      } else {
         setIsOpen(true);
-    } else {
-        // If location is already set, ensure global state is updated.
-        setLocation(savedLocation);
+      }
     }
-  }, [setLocation]);
+  }, [isMounted, setLocation, location]);
+
 
   const handleSave = () => {
     if (inputValue.trim()) {
@@ -51,8 +59,20 @@ export default function LocationDialog() {
     setIsOpen(false);
   };
   
+  // To avoid a flash of the dialog on page load, we only render it when we are sure it should be open
+  if (!isOpen) {
+      return null;
+  }
+
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={(open) => {
+        // Don't allow closing without a decision if it was forced open
+        if (!localStorage.getItem('user-location')) {
+            if (!open) handleLater();
+        } else {
+            setIsOpen(open);
+        }
+    }}>
       <DialogContent className="sm:max-w-[425px] bg-amber-100/30 dark:bg-amber-950/30 backdrop-blur-sm">
         <DialogHeader>
           <DialogTitle>{t('locationDialog.title')}</DialogTitle>
