@@ -18,7 +18,7 @@ import {
 } from '@/ai/tools/market-price';
 
 
-export async function getMarketPriceAnalysis(input: MarketPriceHistoryInput): Promise<MarketPriceAnalysisOutput> {
+export async function getMarketPriceAnalysis(input: MarketPriceHistoryInput): Promise<MarketPriceAnalysisOutput | null> {
   return getMarketPriceAnalysisFlow(input);
 }
 
@@ -45,16 +45,23 @@ const getMarketPriceAnalysisFlow = ai.defineFlow(
   {
     name: 'getMarketPriceAnalysisFlow',
     inputSchema: MarketPriceHistoryInputSchema,
-    outputSchema: MarketPriceAnalysisOutputSchema,
+    outputSchema: MarketPriceAnalysisOutputSchema.nullable(),
   },
   async ({ crop }) => {
-    const history = await getMarketPriceHistory({ crop });
-    
-    const { output } = await prompt({ crop, history });
-    
-    return {
-        ...output!,
-        history: history,
-    };
+    try {
+        const history = await getMarketPriceHistory({ crop });
+        if (!history) throw new Error("Failed to fetch market history.");
+        
+        const { output } = await prompt({ crop, history });
+        if (!output) throw new Error("Failed to get AI analysis.");
+
+        return {
+            ...output,
+            history: history,
+        };
+    } catch(error) {
+        console.error("Error in getMarketPriceAnalysisFlow:", error);
+        return null; // Return null on error
+    }
   }
 );

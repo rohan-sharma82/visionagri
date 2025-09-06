@@ -174,11 +174,10 @@ export default function DashboardPage() {
   const [profile, setProfile] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isDataLoading, setIsDataLoading] = useState(true);
 
-  // Mock user data - in a real app, this would come from your database
   const userData = {
-    primaryCrop: 'Wheat', // Default crop
+    primaryCrop: 'Wheat',
     yieldHistory: [
         { date: '4 August 2025', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
         { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
@@ -189,9 +188,48 @@ export default function DashboardPage() {
     ],
   };
 
+  useEffect(() => {
+    const fetchAllData = async () => {
+        setIsDataLoading(true);
+
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+            setUser(user);
+            const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
+            if (profileData) setProfile(profileData);
+        } else {
+            setIsDataLoading(false);
+            return;
+        }
+
+        if (globalLocation) {
+            const [weatherResult, marketResult] = await Promise.all([
+                getDashboardWeather({ location: globalLocation }),
+                getMarketPriceAnalysis({ crop: userData.primaryCrop })
+            ]);
+
+            setWeatherData(weatherResult);
+            setMarketData(marketResult);
+            
+            if (!weatherResult) {
+                toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
+            }
+            if (!marketResult) {
+                 toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
+            }
+        }
+        setIsDataLoading(false);
+    };
+
+    if (globalLocation) {
+        fetchAllData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [globalLocation]);
+
+
   const handleFetchMarketData = useCallback(async () => {
     setMarketData(null);
-    setIsLoading(true);
     try {
         const result = await getMarketPriceAnalysis({ crop: userData.primaryCrop });
         setMarketData(result);
@@ -202,53 +240,8 @@ export default function DashboardPage() {
             title: t('dashboard.market.errorTitle'),
             description: t('dashboard.market.errorDescription')
         })
-    } finally {
-        setIsLoading(false);
     }
   }, [userData.primaryCrop, toast, t]);
-
-  useEffect(() => {
-    const fetchAllData = async () => {
-        setIsLoading(true);
-        
-        // 1. Fetch User and Profile
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-            setUser(user);
-            const { data: profileData } = await supabase
-              .from('profiles')
-              .select('full_name')
-              .eq('id', user.id)
-              .single();
-            if (profileData) {
-                setProfile(profileData);
-            }
-        } else {
-            // No user, can't proceed
-            setIsLoading(false);
-            return;
-        }
-
-        // 2. Fetch Weather Data (only if location is available)
-        if (globalLocation) {
-             try {
-                const weatherResult = await getDashboardWeather({ location: globalLocation });
-                setWeatherData(weatherResult);
-            } catch (error) {
-                console.error("Failed to fetch weather data:", error);
-                setWeatherData(null); // Set to null on error
-                toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
-            }
-        }
-
-        // 3. Initial Market Data Fetch
-        await handleFetchMarketData();
-        
-        setIsLoading(false);
-    };
-
-    fetchAllData();
-  }, [globalLocation, toast, handleFetchMarketData]);
 
 
   const getDisplayName = () => {
@@ -263,7 +256,7 @@ export default function DashboardPage() {
     router.push('/');
   };
 
-  if (isLoading && !weatherData) {
+  if (isDataLoading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -293,7 +286,7 @@ export default function DashboardPage() {
             )}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-                <WeatherCard weatherData={weatherData} isLoading={isLoading && !weatherData} />
+                <WeatherCard weatherData={weatherData} isLoading={isDataLoading} />
                 
                 <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                     <CardHeader>
@@ -301,15 +294,16 @@ export default function DashboardPage() {
                         <CardDescription>{t('dashboard.market.description')}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {isLoading && !marketData ? (
+                        {isDataLoading && !marketData ? (
                             <div className="flex justify-center items-center h-[250px]">
                                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
                             </div>
                         ) : marketData ? (
                             <MarketPriceChart data={marketData} />
                         ) : (
-                            <div className="flex flex-col items-center justify-center h-[250px] text-center">
-                                <p className="mb-4 text-muted-foreground">{t('dashboard.market.initial_prompt')}</p>
+                            <div className="flex flex-col items-center justify-center h-[250px] text-center text-destructive">
+                                <AlertTriangle className="h-8 w-8 mb-2" />
+                                <p className="mb-4">{t('dashboard.market.errorDescription')}</p>
                                 <Button onClick={handleFetchMarketData}>
                                     <TrendingUp className="mr-2 h-4 w-4" />
                                     {t('dashboard.market.button')}
@@ -391,5 +385,3 @@ export default function DashboardPage() {
     </>
   );
 }
-
-    
