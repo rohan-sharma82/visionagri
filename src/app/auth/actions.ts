@@ -30,6 +30,7 @@ export async function login(prevState: any, formData: FormData) {
 export async function signup(prevState: any, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
+  const fullName = formData.get('full_name') as string;
   const cookieStore = cookies();
   const supabase = createServerActionClient({ cookies: () => cookieStore });
 
@@ -54,6 +55,7 @@ export async function signup(prevState: any, formData: FormData) {
       await db.insert(profiles).values({
         id: data.user.id,
         email: data.user.email,
+        full_name: fullName,
       });
     } catch (dbError) {
       console.error('Error creating profile:', dbError);

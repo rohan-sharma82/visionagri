@@ -181,6 +181,7 @@ export default function DashboardPage() {
   const router = useRouter();
   const { toast } = useToast();
   const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
   const [loading, setLoading] = useState(true);
@@ -224,6 +225,17 @@ export default function DashboardPage() {
 
         if (user) {
             setUser(user);
+
+            const { data: profileData, error: profileError } = await supabase
+              .from('profiles')
+              .select('full_name')
+              .eq('id', user.id)
+              .single();
+            
+            if (profileData) {
+                setProfile(profileData);
+            }
+
             const locationToFetch = globalLocation || 'Delhi, India';
             try {
                 const weatherResult = await getDashboardWeather({ location: locationToFetch });
@@ -234,12 +246,17 @@ export default function DashboardPage() {
                 toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
             }
         }
-        // No need to redirect here, middleware handles it.
         setLoading(false);
     };
 
     fetchUserAndData();
   }, [globalLocation, toast]);
+
+  const getDisplayName = () => {
+      if (profile?.full_name) return profile.full_name;
+      if (user?.email) return user.email.split('@')[0];
+      return 'Farmer';
+  }
 
 
   const handleLogout = async () => {
@@ -257,7 +274,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {t('dashboard.welcome', { name: user?.email?.split('@')[0] || 'Farmer' })}
+            {t('dashboard.welcome', { name: getDisplayName() })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {t('dashboard.subtitle')}

@@ -51,6 +51,8 @@ export default function LoginPage() {
         <div className="form-container sign-up-container">
           <form action={signupAction}>
             <h1 className="text-2xl font-bold mb-4">Create Account</h1>
+            <Label htmlFor="full_name-signup" className="sr-only">Full Name</Label>
+            <Input id="full_name-signup" name="full_name" type="text" placeholder="Full Name" required />
             <Label htmlFor="email-signup" className="sr-only">Email</Label>
             <Input id="email-signup" name="email" type="email" placeholder="Email" required />
             <Label htmlFor="password-signup" className="sr-only">Password</Label>
