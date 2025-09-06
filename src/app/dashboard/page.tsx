@@ -247,7 +247,7 @@ export default function DashboardPage() {
     router.push('/');
   };
 
-  if (isDataLoading && !weatherData) {
+  if (isDataLoading && !weatherData && !marketData) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
