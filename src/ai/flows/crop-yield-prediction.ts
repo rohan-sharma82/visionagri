@@ -27,7 +27,7 @@ export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
 const PredictCropYieldOutputSchema = z.object({
   predictedYield: z
     .string()
-    .describe('The total predicted crop yield for the entire farm size provided, in a suitable unit (e.g., "50 quintals", "2 tonnes").'),
+    .describe('The predicted crop yield per unit of land, in a suitable unit (e.g., "12 quintals/acre", "5 tonnes/hectare"). Do not provide the total yield for the entire farm.'),
   confidenceLevel: z
     .string()
     .describe('The confidence level of the prediction as a percentage.'),
@@ -61,7 +61,7 @@ const prompt = ai.definePrompt({
   output: {schema: PredictCropYieldOutputSchema},
   prompt: `You are an expert in agricultural science, specializing in crop yield prediction for Indian farmers. Your language should be simple, encouraging, and easy to understand.
 
-  Based on the data provided, predict the **total crop yield for the entire farm size provided**. Use an appropriate unit like quintals or tonnes. Do not provide a "per unit" (e.g., per hectare) yield.
+  Based on the data provided, predict the crop yield **per unit of land** (e.g., "12 quintals per acre", "5 tonnes per hectare"). Use the unit from the 'farmSize' input. Do NOT provide the total yield for the entire farm.
 
   Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good.
   
@@ -122,7 +122,3 @@ const predictCropYieldFlow = ai.defineFlow(
     }
   }
 );
-
-
-
-

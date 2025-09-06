@@ -16,8 +16,8 @@ export default function FarmSchoolPage() {
 
   const schoolTopics = [
     {
-      title: t('features.farmSchool.tools.title'),
-      description: t('features.farmSchool.tools.description'),
+      title: t('farmSchool.tools.title'),
+      description: t('farmSchool.tools.description'),
       icon: <Shovel className="h-8 w-8 text-accent" />,
       href: '/farm-school/tools',
     },
@@ -40,8 +40,8 @@ export default function FarmSchoolPage() {
       href: '/farm-school/profit-making-tips',
     },
     {
-        title: 'Crops Knowledge',
-        description: 'Learn about major crops grown across India.',
+        title: t('farmSchool.cropsKnowledge.title'),
+        description: t('farmSchool.cropsKnowledge.description'),
         icon: <Leaf className="h-8 w-8 text-accent" />,
         href: '/farm-school/crops-knowledge',
     },

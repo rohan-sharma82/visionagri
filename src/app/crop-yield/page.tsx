@@ -350,6 +350,15 @@ export default function CropYieldPage() {
                         <p className="text-sm" style={{ color: 'black' }}>{t('cropYield.results.confidence')}: {prediction.confidenceLevel}</p>
                         </div>
                     </div>
+
+                    <Separator />
+                    <div className="flex items-start space-x-4">
+                        <Info className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
+                        <div>
+                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.analysis')}</h3>
+                        <p className="mt-1 whitespace-pre-wrap" style={{ color: 'black' }}>{prediction.yieldAnalysis}</p>
+                        </div>
+                    </div>
                     
                     {prediction.fertilizerSuitability && (
                         <>
@@ -368,15 +377,6 @@ export default function CropYieldPage() {
                         </>
                     )}
 
-
-                    <Separator />
-                    <div className="flex items-start space-x-4">
-                        <Info className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
-                        <div>
-                        <h3 className="font-semibold" style={{ color: '#0000FF' }}>{t('cropYield.results.analysis')}</h3>
-                        <p className="mt-1 whitespace-pre-wrap" style={{ color: 'black' }}>{prediction.yieldAnalysis}</p>
-                        </div>
-                    </div>
                     <div className="flex items-start space-x-4">
                         <Wind className="h-6 w-6 mt-1 flex-shrink-0" style={{ color: '#0000FF' }} />
                         <div>

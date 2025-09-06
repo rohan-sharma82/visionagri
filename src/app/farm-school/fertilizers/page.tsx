@@ -28,10 +28,10 @@ export default function FarmFertilizersPage() {
         </Link>
         <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-center font-headline text-foreground">
-                Fertilizer Types &amp; Uses
+                {t('farmSchool.fertilizers.pageTitle')}
             </h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            {t('farmSchool.fertilizers.description')}
+            {t('farmSchool.fertilizers.pageSubtitle')}
           </p>
         </div>
 
@@ -40,92 +40,92 @@ export default function FarmFertilizersPage() {
             
             <AccordionItem value="introduction">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    A. Introduction
+                    {t('farmSchool.fertilizers.sectionA.title')}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
-                    <h4>What are Fertilizers?</h4>
-                    <p>Fertilizers are substances added to soil or plants to supply one or more nutrients essential to the growth of plants. The main objective is to increase crop yield and improve soil fertility.</p>
-                    <h4>Importance of N-P-K</h4>
+                    <h4>{t('farmSchool.fertilizers.sectionA.q1')}</h4>
+                    <p>{t('farmSchool.fertilizers.sectionA.a1')}</p>
+                    <h4>{t('farmSchool.fertilizers.sectionA.q2')}</h4>
                     <ul>
-                        <li><strong>Nitrogen (N):</strong> Promotes leafy green growth (stems, leaves).</li>
-                        <li><strong>Phosphorus (P):</strong> Essential for root development, flowering, and fruiting.</li>
-                        <li><strong>Potassium (K):</strong> Improves overall plant health, disease resistance, and water regulation.</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionA.n')}</strong> {t('farmSchool.fertilizers.sectionA.n_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionA.p')}</strong> {t('farmSchool.fertilizers.sectionA.p_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionA.k')}</strong> {t('farmSchool.fertilizers.sectionA.k_desc')}</li>
                     </ul>
                 </AccordionContent>
             </AccordionItem>
             
             <AccordionItem value="categories">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    B. Fertilizer Categories
+                    {t('farmSchool.fertilizers.sectionB.title')}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
-                    <h4>1. Major Classifications</h4>
-                    <h5>Organic Fertilizers</h5>
-                    <p>Derived from natural sources like plant or animal matter—compost, manure, bone meal, fish emulsion, and peat. They release nutrients slowly, improve soil health, and support beneficial soil organisms.</p>
+                    <h4>{t('farmSchool.fertilizers.sectionB.q1')}</h4>
+                    <h5>{t('farmSchool.fertilizers.sectionB.organic_title')}</h5>
+                    <p>{t('farmSchool.fertilizers.sectionB.organic_desc')}</p>
                     
-                    <h5>Inorganic (Mineral/Chemical) Fertilizers</h5>
-                    <p>Manufactured synthetically to deliver precise doses of nutrients. They’re fast-acting and come in distinct nutrient types:</p>
+                    <h5>{t('farmSchool.fertilizers.sectionB.inorganic_title')}</h5>
+                    <p>{t('farmSchool.fertilizers.sectionB.inorganic_desc')}</p>
                     <ul>
-                        <li><strong>Nitrogen-based:</strong> e.g., urea, ammonium nitrate, ammonium sulfate</li>
-                        <li><strong>Phosphorus-based:</strong> e.g., single superphosphate (SSP), triple superphosphate (TSP), mono/di-ammonium phosphate (MAP/DAP)</li>
-                        <li><strong>Potassium-based:</strong> e.g., potassium chloride, potassium sulfate, potassium nitrate</li>
-                        <li><strong>NPK (Compound):</strong> Balanced blends or chemically bound mixes delivering N, P, and K simultaneously</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionB.n_based')}</strong> {t('farmSchool.fertilizers.sectionB.n_based_eg')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionB.p_based')}</strong> {t('farmSchool.fertilizers.sectionB.p_based_eg')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionB.k_based')}</strong> {t('farmSchool.fertilizers.sectionB.k_based_eg')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionB.npk')}</strong> {t('farmSchool.fertilizers.sectionB.npk_desc')}</li>
                     </ul>
                     
-                    <h4>2. Specialty Types</h4>
-                    <h5>Controlled-Release Fertilizers</h5>
-                    <p>Feature special coatings (sulfur or polymers) that regulate nutrient release—minimizing waste, preventing burn, and reducing environmental impacts.</p>
+                    <h4>{t('farmSchool.fertilizers.sectionB.q2')}</h4>
+                    <h5>{t('farmSchool.fertilizers.sectionB.controlled_title')}</h5>
+                    <p>{t('farmSchool.fertilizers.sectionB.controlled_desc')}</p>
 
-                    <h5>Biofertilizers</h5>
-                    <p>Contain live microorganisms (like Nitrobacteria or Phosphobacteria) that enhance nutrient uptake and soil health. Common examples include neem cake and nano-fertilizer variants like nano urea.</p>
+                    <h5>{t('farmSchool.fertilizers.sectionB.bio_title')}</h5>
+                    <p>{t('farmSchool.fertilizers.sectionB.bio_desc')}</p>
                 </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="application">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    C. Form & Application Methods
+                    {t('farmSchool.fertilizers.sectionC.title')}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
-                    <h4>By Physical Form</h4>
+                    <h4>{t('farmSchool.fertilizers.sectionC.q1')}</h4>
                     <ul>
-                        <li><strong>Liquid:</strong> Quick absorption, suitable for seedlings, foliar sprays, and stress recovery. Examples: seaweed extract, fish emulsion.</li>
-                        <li><strong>Granular/Powder:</strong> Applied before planting or as top dressing; releases nutrients over time and requires watering-in.</li>
-                        <li><strong>Powdered/Soluble Formats:</strong> Dissolve in water, suitable for fertigation systems.</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.liquid_title')}</strong> {t('farmSchool.fertilizers.sectionC.liquid_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.granular_title')}</strong> {t('farmSchool.fertilizers.sectionC.granular_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.powder_title')}</strong> {t('farmSchool.fertilizers.sectionC.powder_desc')}</li>
                     </ul>
-                    <h4>Common Application Methods</h4>
+                    <h4>{t('farmSchool.fertilizers.sectionC.q2')}</h4>
                      <ul>
-                        <li><strong>Broadcasting:</strong> Spreading fertilizer uniformly over the entire field.</li>
-                        <li><strong>Placement:</strong> Placing fertilizer in bands or pockets near the plant roots.</li>
-                        <li><strong>Foliar Spray:</strong> Applying liquid fertilizer directly to the leaves.</li>
-                        <li><strong>Fertigation:</strong> Applying fertilizers through the irrigation system.</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.broadcasting')}</strong></li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.placement')}</strong></li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.foliar')}</strong></li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionC.fertigation')}</strong></li>
                     </ul>
                 </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="guide">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    D. Choosing Guide
+                    {t('farmSchool.fertilizers.sectionD.title')}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
-                    <p>Choosing the right fertilizer depends on several factors:</p>
+                    <p>{t('farmSchool.fertilizers.sectionD.intro')}</p>
                     <ul>
-                        <li><strong>Based on Plant Needs:</strong> Leafy crops need more Nitrogen, flowering/fruiting plants need more Phosphorus, and root crops benefit from more Potassium.</li>
-                        <li><strong>Based on Soil Test Results:</strong> A soil test is the most accurate way to know which nutrients your soil is lacking.</li>
-                        <li><strong>Release Behavior:</strong> Choose fast-release for quick results or slow-release for sustained feeding.</li>
-                        <li><strong>Sustainability Goals:</strong> Opt for organic or biofertilizers to improve long-term soil health and reduce environmental impact.</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionD.p1_title')}</strong> {t('farmSchool.fertilizers.sectionD.p1_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionD.p2_title')}</strong> {t('farmSchool.fertilizers.sectionD.p2_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionD.p3_title')}</strong> {t('farmSchool.fertilizers.sectionD.p3_desc')}</li>
+                        <li><strong>{t('farmSchool.fertilizers.sectionD.p4_title')}</strong> {t('farmSchool.fertilizers.sectionD.p4_desc')}</li>
                     </ul>
                 </AccordionContent>
             </AccordionItem>
 
              <AccordionItem value="environmental">
                 <AccordionTrigger className="text-xl font-medium hover:no-underline">
-                    E. Environmental Considerations
+                    {t('farmSchool.fertilizers.sectionE.title')}
                 </AccordionTrigger>
                 <AccordionContent className="p-4 bg-card/50 rounded-b-lg prose lg:prose-xl dark:prose-invert">
                      <ul>
-                        <li>Overuse of synthetic fertilizers can cause soil burn, nutrient leaching into groundwater, and water pollution (eutrophication).</li>
-                        <li>Organic and controlled-release fertilizers help preserve soil and water health by releasing nutrients slowly and reducing runoff.</li>
-                        <li>Always follow the recommended dosage and application method to minimize environmental harm.</li>
+                        <li>{t('farmSchool.fertilizers.sectionE.p1')}</li>
+                        <li>{t('farmSchool.fertilizers.sectionE.p2')}</li>
+                        <li>{t('farmSchool.fertilizers.sectionE.p3')}</li>
                     </ul>
                 </AccordionContent>
             </AccordionItem>

@@ -13,27 +13,33 @@ import {
   import Link from 'next/link';
   import { Button } from '@/components/ui/button';
   
-  const CropDetail = ({ title, details }: { title: string; details: { [key: string]: string } }) => (
-    <div className="mb-6">
-      <h3 className="text-2xl font-semibold mb-3 text-primary">{title}</h3>
-      <div className="space-y-2 text-muted-foreground">
-        {Object.entries(details).map(([key, value]) => (
-          <p key={key}>
-            <strong className="text-foreground capitalize">{key}:</strong> {value}
-          </p>
-        ))}
-      </div>
-    </div>
-  );
+  const CropDetail = ({ title, details }: { title: string; details: { [key: string]: string } }) => {
+    const { t } = useTranslation();
+    return (
+        <div className="mb-6">
+        <h3 className="text-2xl font-semibold mb-3 text-primary">{t(title)}</h3>
+        <div className="space-y-2 text-muted-foreground">
+            {Object.entries(details).map(([key, value]) => (
+            <p key={key}>
+                <strong className="text-foreground capitalize">{t(key)}:</strong> {t(value)}
+            </p>
+            ))}
+        </div>
+        </div>
+    );
+  };
   
-  const SectionCard = ({ title, children, titleStyle }: { title: string; children: React.ReactNode, titleStyle?: React.CSSProperties }) => (
-    <Card className="mb-8">
-      <CardHeader>
-        <CardTitle className="text-3xl font-bold text-accent" style={titleStyle}>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-    </Card>
-  );
+  const SectionCard = ({ title, children, titleStyle }: { title: string; children: React.ReactNode, titleStyle?: React.CSSProperties }) => {
+    const { t } = useTranslation();
+    return (
+        <Card className="mb-8">
+            <CardHeader>
+                <CardTitle className="text-3xl font-bold text-accent" style={titleStyle}>{t(title)}</CardTitle>
+            </CardHeader>
+            <CardContent>{children}</CardContent>
+        </Card>
+    );
+  };
   
   export default function CropsKnowledgePage() {
     const { t } = useTranslation();
@@ -48,182 +54,180 @@ import {
         </Link>
         <div className="text-center mb-12">
           <h1 className="text-5xl font-extrabold font-headline text-foreground tracking-wide">
-            Major Crops of India
+            {t('farmSchool.cropsKnowledge.pageTitle')}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            An overview of the key crops that form the backbone of Indian agriculture.
+            {t('farmSchool.cropsKnowledge.pageSubtitle')}
           </p>
         </div>
   
         <div className="max-w-4xl mx-auto">
-          <SectionCard title="Major Foodgrain Crops" titleStyle={{ color: '#F48E34' }}>
+          <SectionCard title="farmSchool.cropsKnowledge.foodgrain_title" titleStyle={{ color: '#F48E34' }}>
              <CropDetail
-              title="Rice"
+              title="farmSchool.cropsKnowledge.rice.title"
               details={{
-                Temperature: 'Between 22-32°C with high humidity.',
-                Rainfall: 'Around 150-300 cm.',
-                'Soil Type': 'Deep clayey and loamy soil.',
-                'Top Producing States': 'West Bengal > Punjab > Uttar Pradesh > Andhra Pradesh > Bihar.',
-                Notes: 'It is the staple food crop for a majority of Indian people. India is the second largest producer in the world. In states like Assam, West Bengal, and Odisha, three crops of paddy (Aus, Aman, and Boro) are grown in a year.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.rice.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.rice.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.rice.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.rice.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.rice.notes',
               }}
             />
              <CropDetail
-              title="Wheat"
+              title="farmSchool.cropsKnowledge.wheat.title"
               details={{
-                Temperature: 'Between 10-15°C (Sowing) and 21-26°C (Ripening) with bright sunlight.',
-                Rainfall: 'Around 75-100 cm.',
-                'Soil Type': 'Well-drained fertile loamy and clayey loamy soil.',
-                'Top Producing States': 'Uttar Pradesh > Punjab > Madhya Pradesh > Haryana > Rajasthan.',
-                Notes: 'The second most important cereal crop and main food crop in north and north-western India. The Green Revolution significantly boosted its growth.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.wheat.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.wheat.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.wheat.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.wheat.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.wheat.notes',
               }}
             />
             <CropDetail
-              title="Millets (Nutri-Cereals)"
+              title="farmSchool.cropsKnowledge.millets.title"
               details={{
-                Temperature: 'Between 27-32°C',
-                Rainfall: 'Around 50-100 cm.',
-                'Soil Type': 'Can be grown in inferior alluvial or loamy soil; less sensitive to deficiencies.',
-                'Top Producing States': 'Rajasthan > Karnataka > Maharashtra > Madhya Pradesh > Uttar Pradesh.',
-                Notes: 'Also known as coarse grains, they have high nutritional value. Ragi is rich in iron and calcium. Jowar is the third most important food crop in area and production.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.millets.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.millets.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.millets.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.millets.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.millets.notes',
               }}
             />
             <CropDetail
-              title="Maize"
+              title="farmSchool.cropsKnowledge.maize.title"
               details={{
-                Temperature: 'Between 21-27°C',
-                Rainfall: 'High rainfall.',
-                'Soil Type': 'Old alluvial soil.',
-                'Top Producing States': 'Karnataka > Maharashtra > Madhya Pradesh > Tamil Nadu > Telangana.',
-                Notes: 'Used both as food and fodder. Production has increased with modern inputs like HYV seeds and irrigation. India is the seventh largest producer worldwide.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.maize.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.maize.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.maize.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.maize.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.maize.notes',
               }}
             />
             <CropDetail
-              title="Pulses"
+              title="farmSchool.cropsKnowledge.pulses.title"
               details={{
-                Temperature: 'Between 20-27°C',
-                Rainfall: 'Around 25-60 cm.',
-                'Soil Type': 'Sandy-loamy soil.',
-                'Top Producing States': 'Madhya Pradesh > Rajasthan > Maharashtra > Uttar Pradesh > Karnataka.',
-                Notes: 'India is the largest producer and consumer. Major source of protein in a vegetarian diet. Being leguminous, they help restore soil fertility by fixing nitrogen.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.pulses.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.pulses.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.pulses.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.pulses.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.pulses.notes',
               }}
             />
           </SectionCard>
 
-          <SectionCard title="Major Cash Crops">
+          <SectionCard title="farmSchool.cropsKnowledge.cash_title">
             <CropDetail
-              title="Sugarcane"
+              title="farmSchool.cropsKnowledge.sugarcane.title"
               details={{
-                Temperature: 'Between 21-27°C with hot and humid climate.',
-                Rainfall: 'Around 75-100 cm.',
-                'Soil Type': 'Deep rich loamy soil.',
-                'Top Producing States': 'Uttar Pradesh > Maharashtra > Karnataka > Tamil Nadu > Bihar.',
-                Notes:
-                  'India is the second largest producer. It is the main source of sugar, gur (jaggery), khandsari and molasses. SEFASU and the National Policy on Biofuels are key government initiatives.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.sugarcane.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.sugarcane.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.sugarcane.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.sugarcane.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.sugarcane.notes',
               }}
             />
             <CropDetail
-              title="Oil Seeds"
+              title="farmSchool.cropsKnowledge.oilseeds.title"
               details={{
-                Temperature: 'Between 15-30°C.',
-                Rainfall: 'Around 30-75 cm.',
-                'Soil Type': 'Loam to clayey loam and well drained sandy loams.',
-                'Top Producing States': 'Madhya Pradesh > Rajasthan > Gujarat > Maharashtra > Uttar Pradesh.',
-                Notes:
-                  'Main oil-seeds include groundnut, mustard, coconut, sesamum (til), soyabean, castor seeds, cotton seeds, linseed and sunflower. The Yellow Revolution and Integrated Scheme on Oilseeds, Pulses, Oil Palm and Maize (ISOPOM) are key government initiatives.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.oilseeds.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.oilseeds.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.oilseeds.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.oilseeds.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.oilseeds.notes',
               }}
             />
           </SectionCard>
   
-          <SectionCard title="Horticulture Crops">
-            <p className="mb-4 text-muted-foreground">India is the second largest producer of fruits and vegetables and produces both tropical and temperate fruits. It produces about 13% of the world’s vegetables. Key government initiatives include the Golden Revolution and MIDH.</p>
+          <SectionCard title="farmSchool.cropsKnowledge.horticulture_title">
+            <p className="mb-4 text-muted-foreground">{t('farmSchool.cropsKnowledge.horticulture_desc')}</p>
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
                         <tr className="bg-muted">
-                            <th className="p-2 border">Fruit</th>
-                            <th className="p-2 border">Major States</th>
+                            <th className="p-2 border">{t('farmSchool.cropsKnowledge.fruit_label')}</th>
+                            <th className="p-2 border">{t('farmSchool.cropsKnowledge.states_label')}</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td className="p-2 border">Mangoes</td><td className="p-2 border">Maharashtra, Andhra Pradesh, Telangana, Uttar Pradesh, West Bengal</td></tr>
-                        <tr><td className="p-2 border">Oranges</td><td className="p-2 border">Nagpur and Cherrapunjee (Meghalaya)</td></tr>
-                        <tr><td className="p-2 border">Bananas</td><td className="p-2 border">Kerala, Mizoram, Maharashtra, Tamil Nadu</td></tr>
-                        <tr><td className="p-2 border">Litchi and Guava</td><td className="p-2 border">Uttar Pradesh and Bihar</td></tr>
-                        <tr><td className="p-2 border">Pineapples</td><td className="p-2 border">Meghalaya</td></tr>
-                        <tr><td className="p-2 border">Grapes</td><td className="p-2 border">Andhra Pradesh, Telangana, Maharashtra</td></tr>
-                        <tr><td className="p-2 border">Apples, Pears, Apricots, Walnuts</td><td className="p-2 border">Jammu and Kashmir, Himachal Pradesh</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.mangoes')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.mangoes_states')}</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.oranges')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.oranges_states')}</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.bananas')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.bananas_states')}</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.litchi')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.litchi_states')}</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.pineapples')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.pineapples_states')}</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.grapes')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.grapes_states')}</td></tr>
+                        <tr><td className="p-2 border">{t('farmSchool.cropsKnowledge.apples')}</td><td className="p-2 border">{t('farmSchool.cropsKnowledge.apples_states')}</td></tr>
                     </tbody>
                 </table>
             </div>
           </SectionCard>
   
-          <SectionCard title="Plantation Crops">
+          <SectionCard title="farmSchool.cropsKnowledge.plantation_title">
             <CropDetail
-              title="Tea"
+              title="farmSchool.cropsKnowledge.tea.title"
               details={{
-                Temperature: 'Between 20-30°C.',
-                Rainfall: 'Around 150-300 cm.',
-                'Soil Type': 'Deep and fertile well-drained soil, rich in humus and organic matter.',
-                'Top Producing States': 'Assam > West Bengal > Tamil Nadu.',
-                Notes: 'India is the second largest producer. Tea is a labour-intensive industry.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.tea.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.tea.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.tea.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.tea.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.tea.notes',
               }}
             />
              <CropDetail
-              title="Coffee"
+              title="farmSchool.cropsKnowledge.coffee.title"
               details={{
-                Temperature: 'Between 15-28°C.',
-                Rainfall: 'Around 150-250 cm.',
-                'Soil Type': 'Well drained, deep friable loamy soil.',
-                'Top Producing States': 'Karnataka > Kerala > Tamil Nadu.',
-                Notes: 'India is the seventh largest producer. The "Arabica" variety is famous worldwide.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.coffee.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.coffee.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.coffee.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.coffee.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.coffee.notes',
               }}
             />
              <CropDetail
-              title="Rubber"
+              title="farmSchool.cropsKnowledge.rubber.title"
               details={{
-                Temperature: 'Above 25°C with moist and humid climate.',
-                Rainfall: 'More than 200 cm.',
-                'Soil Type': 'Rich well drained alluvial soil.',
-                'Top Producing States': 'Kerala > Tamil Nadu > Karnataka.',
-                Notes: 'It is an equatorial crop but also grown in tropical and sub-tropical areas. An important industrial raw material.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.rubber.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.rubber.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.rubber.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.rubber.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.rubber.notes',
               }}
             />
           </SectionCard>
   
-          <SectionCard title="Fibre Crops">
+          <SectionCard title="farmSchool.cropsKnowledge.fibre_title">
              <CropDetail
-              title="Cotton"
+              title="farmSchool.cropsKnowledge.cotton.title"
               details={{
-                Temperature: 'Between 21-30°C.',
-                Rainfall: 'Around 50-100cm.',
-                'Soil Type': 'Well drained black cotton soil of Deccan Plateau.',
-                'Top Producing States': 'Gujarat > Maharashtra > Telangana > Andhra Pradesh > Rajasthan.',
-                Notes: 'Requires 210 frost-free days and bright sunshine. It is a kharif crop. BT Cotton is a genetically modified variant.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.cotton.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.cotton.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.cotton.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.cotton.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.cotton.notes',
               }}
             />
             <CropDetail
-              title="Jute"
+              title="farmSchool.cropsKnowledge.jute.title"
               details={{
-                Temperature: 'Between 25-35°C.',
-                Rainfall: 'Around 150-250 cm.',
-                'Soil Type': 'Well drained alluvial soil.',
-                'Top Producing States': 'West Bengal > Bihar > Assam > Andhra Pradesh > Odisha.',
-                Notes: 'Known as the golden fibre. It is losing market to synthetic fibres due to its high cost.',
+                'farmSchool.cropsKnowledge.temp': 'farmSchool.cropsKnowledge.jute.temp',
+                'farmSchool.cropsKnowledge.rainfall': 'farmSchool.cropsKnowledge.jute.rainfall',
+                'farmSchool.cropsKnowledge.soil': 'farmSchool.cropsKnowledge.jute.soil',
+                'farmSchool.cropsKnowledge.states': 'farmSchool.cropsKnowledge.jute.states',
+                'farmSchool.cropsKnowledge.notes': 'farmSchool.cropsKnowledge.jute.notes',
               }}
             />
           </SectionCard>
 
           <Card>
             <CardHeader>
-                <CardTitle className="text-3xl font-bold text-accent">Changing Cropping Patterns</CardTitle>
+                <CardTitle className="text-3xl font-bold text-accent">{t('farmSchool.cropsKnowledge.changing_title')}</CardTitle>
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
-                <p>Cropping pattern is a dynamic concept because it changes over space and time. It can be defined as the proportion of area under various crops at a point of time. In India, it is determined by rainfall, climate, temperature, soil type, technology and socio-economic conditions of the farmers.</p>
+                <p>{t('farmSchool.cropsKnowledge.changing_p1')}</p>
                 <ul>
-                    <li>The Green Revolution led to changes, introducing rice to Punjab, Haryana and Uttar Pradesh.</li>
-                    <li>Farmers are more intensively moving towards cultivation of cash/commercial crops such as oilseeds, fruits, vegetables, and spices.</li>
-                    <li>Climate change has affected the Indian monsoon, which is also leading to shifts in cropping patterns.</li>
-                    <li>Population growth and urbanisation have led to land conversion, boosting intensive farming.</li>
+                    <li>{t('farmSchool.cropsKnowledge.changing_l1')}</li>
+                    <li>{t('farmSchool.cropsKnowledge.changing_l2')}</li>
+                    <li>{t('farmSchool.cropsKnowledge.changing_l3')}</li>
+                    <li>{t('farmSchool.cropsKnowledge.changing_l4')}</li>
                 </ul>
             </CardContent>
           </Card>
@@ -231,5 +235,3 @@ import {
       </div>
     );
   }
-  
-    
