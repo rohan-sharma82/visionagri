@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Moon, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -136,11 +136,11 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
                             <span className="font-medium">{index === 0 ? t('dashboard.weather.today') : new Date(day.date).toLocaleDateString(undefined, { weekday: 'short' })}</span>
                             <Image src={`https:${day.day.condition.icon}`} alt={day.day.condition.text} width={32} height={32} />
                             <div className="flex items-center gap-1">
-                                <CloudRain className="h-4 w-4 text-blue-400" />
+                                <span className="text-blue-400">🌧</span>
                                 <span>{day.day.daily_chance_of_rain}%</span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Thermometer className="h-4 w-4 text-red-500" />
+                                <span className="text-red-500">🌡</span>
                                 <span>{day.day.maxtemp_c.toFixed(0)}°</span>
                                 <span className="text-muted-foreground">/{day.day.mintemp_c.toFixed(0)}°</span>
                             </div>
@@ -192,38 +192,52 @@ export default function DashboardPage() {
     const fetchAllData = async () => {
         setIsDataLoading(true);
 
+        // First, get the user session and profile
         const { data: { user } } = await supabase.auth.getUser();
         if (user) {
             setUser(user);
             const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
             if (profileData) setProfile(profileData);
         } else {
+            // No user, stop loading and let the middleware handle redirection if needed
             setIsDataLoading(false);
             return;
         }
 
+        // IMPORTANT: Wait for globalLocation to be available before fetching data
         if (globalLocation) {
-            const [weatherResult, marketResult] = await Promise.all([
-                getDashboardWeather({ location: globalLocation }),
-                getMarketPriceAnalysis({ crop: userData.primaryCrop })
-            ]);
-
-            setWeatherData(weatherResult);
-            setMarketData(marketResult);
-            
-            if (!weatherResult) {
-                toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
-            }
-            if (!marketResult) {
-                 toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
+            try {
+                const [weatherResult, marketResult] = await Promise.all([
+                    getDashboardWeather({ location: globalLocation }),
+                    getMarketPriceAnalysis({ crop: userData.primaryCrop })
+                ]);
+    
+                setWeatherData(weatherResult);
+                setMarketData(marketResult);
+                
+                if (!weatherResult) {
+                    toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
+                }
+                if (!marketResult) {
+                     toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
+                }
+            } catch (error) {
+                console.error("Dashboard data fetching failed:", error);
+                toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
             }
         }
-        setIsDataLoading(false);
+        
+        // This should only be set to false after all dependent fetches are done.
+        // If globalLocation is not yet available, we stay in the loading state.
+        if (globalLocation) {
+            setIsDataLoading(false);
+        }
     };
+    
+    // The dependency array now includes globalLocation.
+    // The effect will re-run when globalLocation changes from null to a value.
+    fetchAllData();
 
-    if (globalLocation) {
-        fetchAllData();
-    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [globalLocation]);
 

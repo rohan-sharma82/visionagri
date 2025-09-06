@@ -28,7 +28,7 @@ export default function WeatherAlerts({ alerts }: WeatherAlertsProps) {
     }
 
     return (
-        <Alert variant="destructive" className="bg-card/30 backdrop-blur-sm">
+        <Alert variant="destructive" className="bg-destructive/10 backdrop-blur-sm border-destructive/50">
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>{t('dashboard.weather.alerts.title')}</AlertTitle>
             <AlertDescription>
