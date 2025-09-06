@@ -161,26 +161,26 @@ export default function DiseaseClassificationPage() {
                   <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
                     {getDiseaseIcon(result.disease)}
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('diseaseClassification.reportCard.diagnosis')}</h3>
-                      <p className="text-2xl font-bold text-primary capitalize">{result.disease}</p>
+                      <h3 className="font-semibold" style={{ color: 'black' }}>{t('diseaseClassification.reportCard.diagnosis')}</h3>
+                      <p className="text-2xl font-bold capitalize" style={{ color: 'black' }}>{result.disease}</p>
                     </div>
                   </div>
                   
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
                        <BarChart className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold text-foreground">{t('diseaseClassification.reportCard.confidence')}</h3>
+                       <h3 className="font-semibold" style={{ color: 'black' }}>{t('diseaseClassification.reportCard.confidence')}</h3>
                     </div>
                     <Progress value={result.confidence * 100} className="w-full h-3" />
-                    <p className="text-right text-sm text-muted-foreground mt-1">
+                    <p className="text-right text-sm mt-1" style={{ color: 'black' }}>
                       {(result.confidence * 100).toFixed(2)}%
                     </p>
                   </div>
                   
                   {result.additionalDetails && (
                     <div>
-                      <h3 className="font-semibold text-foreground mb-1">{t('diseaseClassification.reportCard.details')}</h3>
-                      <p className="text-muted-foreground">{result.additionalDetails}</p>
+                      <h3 className="font-semibold mb-1" style={{ color: 'black' }}>{t('diseaseClassification.reportCard.details')}</h3>
+                      <p className="text-black">{result.additionalDetails}</p>
                     </div>
                   )}
                 </CardContent>
