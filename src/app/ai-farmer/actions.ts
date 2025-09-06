@@ -65,8 +65,10 @@ export async function saveChatHistory(userId: string, history: any[]): Promise<v
 export async function clearChatHistory(userId: string): Promise<void> {
     await ensureTablesExist();
     try {
+        // Correctly using UPDATE to clear the history JSONB column instead of deleting the row.
+        // This prevents issues if the user starts a new chat immediately.
         await db.execute(sql`
-            DELETE FROM chats WHERE user_id = ${userId}
+            UPDATE chats SET history = '[]' WHERE user_id = ${userId}
         `);
     } catch (error) {
         console.error('Error clearing chat history:', error);
