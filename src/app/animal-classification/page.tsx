@@ -14,8 +14,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Loader2, PawPrint, Upload, BarChart, Info, Lightbulb, Milk, Scale, Thermometer, Globe, Tag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
@@ -134,7 +132,7 @@ export default function AnimalClassificationPage() {
             </CardContent>
             </Card>
             <button onClick={handleSubmit} disabled={isLoading || !preview} className="slice">
-                <span className="text">
+                <div className="text">
                     {isLoading ? (
                     <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin inline-block" />
@@ -143,7 +141,7 @@ export default function AnimalClassificationPage() {
                     ) : (
                       t('animalClassification.buttons.classify')
                     )}
-                </span>
+                </div>
             </button>
         </div>
 

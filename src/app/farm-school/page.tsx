@@ -71,8 +71,6 @@ export default function FarmSchoolPage() {
               href={topic.href}
               key={topic.title}
               className="w-full max-w-sm"
-              target={topic.href.startsWith('/') ? undefined : '_blank'}
-              rel={topic.href.startsWith('/') ? undefined : 'noopener noreferrer'}
             >
               <Card className="hover:shadow-lg hover:border-accent transition-all cursor-pointer h-full text-center">
                 <CardHeader className="items-center">

@@ -4,7 +4,6 @@
 import { useState } from 'react';
 import {
   Check,
-  HelpCircle,
   Scaling,
   Droplets,
   Heart,
@@ -233,7 +232,7 @@ export default function AnimalComparisonPage() {
         <Link href="/animal-classification" className="absolute top-8 left-4">
           <Button variant="ghost">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Classification
+            {t('farmSchool.backToHome')}
           </Button>
         </Link>
         <div className="text-center mb-12 pt-8">

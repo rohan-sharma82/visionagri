@@ -7,8 +7,6 @@ import {
   Phone,
   User,
   MapPin,
-  Mail,
-  Book,
 } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -18,7 +16,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { useTranslation } from '@/hooks/use-translation';
+
 
 const vetData = [
   { district: 'Amritsar', officerName: 'Dr. Navraj Singh Sandhu', telNo: '0183-2536283', mobile: '81465-24999' },
@@ -46,13 +45,14 @@ const vetData = [
 ];
 
 export default function FindVeterinarianPage() {
+  const { t } = useTranslation();
   return (
     <>
       <div className="container mx-auto px-4 py-8 relative">
         <Link href="/animal-classification" className="absolute top-8 left-4">
           <Button variant="ghost">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Classification
+            {t('farmSchool.backToHome')}
           </Button>
         </Link>
         <div className="text-center pt-16">

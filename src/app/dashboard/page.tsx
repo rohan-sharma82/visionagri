@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, TrendingUp, Loader2, Newspaper } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Wind, CloudRain, Thermometer, Moon, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -31,9 +31,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import MarketPriceChart from '@/components/market-price-chart';
 import { Skeleton } from '@/components/ui/skeleton';
 import { logout } from '@/app/auth/actions';
-import type { Session, User } from '@supabase/supabase-js';
+import type { User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
-import { newsData } from '@/lib/constants';
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -210,13 +209,13 @@ export default function DashboardPage() {
         setMarketData(null);
         toast({
             variant: 'destructive',
-            title: 'Market Analysis Failed',
-            description: 'Could not load market data. Please try again later.'
+            title: t('dashboard.market.errorTitle'),
+            description: t('dashboard.market.errorDescription')
         })
     } finally {
         setIsMarketLoading(false);
     }
-  }, [userData.primaryCrop, toast]);
+  }, [userData.primaryCrop, toast, t]);
 
   useEffect(() => {
     const fetchUserAndData = async () => {
@@ -226,7 +225,7 @@ export default function DashboardPage() {
         if (user) {
             setUser(user);
 
-            const { data: profileData, error: profileError } = await supabase
+            const { data: profileData } = await supabase
               .from('profiles')
               .select('full_name')
               .eq('id', user.id)
@@ -255,7 +254,7 @@ export default function DashboardPage() {
   const getDisplayName = () => {
       if (profile?.full_name) return profile.full_name;
       if (user?.email) return user.email.split('@')[0];
-      return 'Farmer';
+      return t('dashboard.defaultName');
   }
 
 

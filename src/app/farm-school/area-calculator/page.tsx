@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { useTranslation } from '@/hooks/use-translation';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, CalculatorIcon } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { regionalUnitsData } from '@/lib/area-data';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';

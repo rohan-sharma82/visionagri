@@ -14,10 +14,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useRouter } from 'next/navigation';
 
 function SubmitButton({ isSignUp }: { isSignUp: boolean }) {
+    const { t } = useTranslation();
     const { pending } = useFormStatus();
     return (
         <Button type="submit" disabled={pending} className="mt-4">
-            {pending ? <Loader2 className="animate-spin" /> : (isSignUp ? 'Sign Up' : 'Sign In')}
+            {pending ? <Loader2 className="animate-spin" /> : (isSignUp ? t('login.buttons.signup') : t('login.buttons.signin'))}
         </Button>
     );
 }
@@ -44,47 +45,47 @@ export default function LoginPage() {
         className="absolute top-20 left-4 md:top-24 md:left-8"
       >
         <ArrowLeft className="mr-2 h-4 w-4" />
-        Back
+        {t('login.back')}
       </Button>
       
       <div className={cn("login-slider-container", isSignUp && "right-panel-active")}>
         <div className="form-container sign-up-container">
           <form action={signupAction}>
-            <h1 className="text-2xl font-bold mb-4">Create Account</h1>
-            <Label htmlFor="full_name-signup" className="sr-only">Full Name</Label>
-            <Input id="full_name-signup" name="full_name" type="text" placeholder="Full Name" required />
-            <Label htmlFor="email-signup" className="sr-only">Email</Label>
-            <Input id="email-signup" name="email" type="email" placeholder="Email" required />
-            <Label htmlFor="password-signup" className="sr-only">Password</Label>
-            <Input id="password-signup" name="password" type="password" placeholder="Password" required minLength={6} />
+            <h1 className="text-2xl font-bold mb-4">{t('login.createAccount')}</h1>
+            <Label htmlFor="full_name-signup" className="sr-only">{t('login.fullName')}</Label>
+            <Input id="full_name-signup" name="full_name" type="text" placeholder={t('login.fullName')} required />
+            <Label htmlFor="email-signup" className="sr-only">{t('login.email')}</Label>
+            <Input id="email-signup" name="email" type="email" placeholder={t('login.email')} required />
+            <Label htmlFor="password-signup" className="sr-only">{t('login.password')}</Label>
+            <Input id="password-signup" name="password" type="password" placeholder={t('login.password')} required minLength={6} />
             <SubmitButton isSignUp={true} />
           </form>
         </div>
         <div className="form-container sign-in-container">
           <form action={loginAction}>
-            <h1 className="text-2xl font-bold mb-4">Sign In</h1>
-            <Label htmlFor="email-signin" className="sr-only">Email</Label>
-            <Input id="email-signin" name="email" type="email" placeholder="Email" required />
-            <Label htmlFor="password-signin" className="sr-only">Password</Label>
-            <Input id="password-signin" name="password" type="password" placeholder="Password" required />
-            <a href="#" className="text-xs my-2">Forgot your password?</a>
+            <h1 className="text-2xl font-bold mb-4">{t('login.signIn')}</h1>
+            <Label htmlFor="email-signin" className="sr-only">{t('login.email')}</Label>
+            <Input id="email-signin" name="email" type="email" placeholder={t('login.email')} required />
+            <Label htmlFor="password-signin" className="sr-only">{t('login.password')}</Label>
+            <Input id="password-signin" name="password" type="password" placeholder={t('login.password')} required />
+            <a href="#" className="text-xs my-2">{t('login.forgotPassword')}</a>
             <SubmitButton isSignUp={false} />
           </form>
         </div>
         <div className="overlay-container">
           <div className="overlay">
             <div className="overlay-panel overlay-left">
-              <h1 className="text-2xl font-bold">Welcome Back!</h1>
-              <p className="text-sm mt-2">To keep connected with us please login with your personal info</p>
+              <h1 className="text-2xl font-bold">{t('login.welcomeBack')}</h1>
+              <p className="text-sm mt-2">{t('login.leftPanelDescription')}</p>
               <Button className="ghost" id="signIn" onClick={() => { setIsSignUp(false); }}>
-                Sign In
+                {t('login.buttons.signin')}
               </Button>
             </div>
             <div className="overlay-panel overlay-right">
-              <h1 className="text-2xl font-bold">Hello, Farmer!</h1>
-              <p className="text-sm mt-2">Enter your personal details and start your journey with us</p>
+              <h1 className="text-2xl font-bold">{t('login.helloFriend')}</h1>
+              <p className="text-sm mt-2">{t('login.rightPanelDescription')}</p>
               <Button className="ghost" id="signUp" onClick={() => { setIsSignUp(true); }}>
-                Sign Up
+                {t('login.buttons.signup')}
               </Button>
             </div>
           </div>
@@ -93,8 +94,8 @@ export default function LoginPage() {
 
       {state && !state.success && state.message && (
           <Alert variant='destructive' className="max-w-md w-full bg-card/90">
-              <AlertTitle>Error</AlertTitle>
-              <AlertDescription>{state.message}</AlertDescription>
+              <AlertTitle>{t('login.error.title')}</AlertTitle>
+              <AlertDescription>{t(state.message)}</AlertDescription>
           </Alert>
       )}
 
@@ -102,16 +103,16 @@ export default function LoginPage() {
             <CardHeader className="pb-2">
                 <CardTitle className="text-sm flex items-center gap-2">
                     <Info className="h-4 w-4" />
-                    For SIH Judges & Testers
+                    {t('login.judgeInfo.title')}
                 </CardTitle>
                 <CardDescription className="text-xs">
-                    Use these dummy credentials to explore the personalized dashboard views.
+                    {t('login.judgeInfo.description')}
                 </CardDescription>
             </CardHeader>
             <CardContent className="text-xs space-y-1 text-left">
-                <p><strong>User 1:</strong> user1@agrivision.ai | <strong>Pass:</strong> bitbusters</p>
-                <p><strong>User 2:</strong> user2@agrivision.ai | <strong>Pass:</strong> sihwinners</p>
-                <p><strong>User 3:</strong> user3@agrivision.ai | <strong>Pass:</strong> bitbust</p>
+                <p><strong>{t('login.judgeInfo.user1.label')}:</strong> {t('login.judgeInfo.user1.value')}</p>
+                <p><strong>{t('login.judgeInfo.user2.label')}:</strong> {t('login.judgeInfo.user2.value')}</p>
+                <p><strong>{t('login.judgeInfo.user3.label')}:</strong> {t('login.judgeInfo.user3.value')}</p>
             </CardContent>
         </Card>
     </div>

@@ -20,7 +20,7 @@ export async function login(prevState: any, formData: FormData) {
   });
 
   if (error) {
-    return { success: false, message: 'Could not authenticate user. Please check your credentials.' };
+    return { success: false, message: 'login.error.invalidCredentials' };
   }
   
   revalidatePath('/', 'layout');
@@ -46,7 +46,7 @@ export async function signup(prevState: any, formData: FormData) {
   });
 
   if (error) {
-     return { success: false, message: 'Could not sign up user. This email might already be taken or the password is too weak.' };
+     return { success: false, message: 'login.error.signupFailed' };
   }
 
   if (data.user) {
@@ -61,7 +61,7 @@ export async function signup(prevState: any, formData: FormData) {
       console.error('Error creating profile:', dbError);
       // Optional: handle profile creation error, e.g., by deleting the auth user
       // For now, we'll just log it. The user will exist in auth but not have a profile.
-      return { success: false, message: 'An error occurred during profile creation. Please contact support.' };
+      return { success: false, message: 'login.error.profileCreation' };
     }
   }
 

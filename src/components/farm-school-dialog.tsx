@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shovel, TestTube2, Calculator, Lightbulb } from 'lucide-react';
+import { Shovel, TestTube2, Calculator, Lightbulb, Leaf, LayoutGrid } from 'lucide-react';
 import { useTranslation } from '@/hooks/use-translation';
 import Link from 'next/link';
 
@@ -19,8 +19,8 @@ export default function FarmSchoolDialog() {
   
   const schoolTopics = [
     {
-        title: t('features.farmSchool.tools.title'),
-        description: t('features.farmSchool.tools.description'),
+        title: t('farmSchool.tools.title'),
+        description: t('farmSchool.tools.description'),
         icon: <Shovel className="h-8 w-8 text-accent" />,
         href: '/farm-school/tools'
     },
@@ -41,8 +41,20 @@ export default function FarmSchoolDialog() {
         description: t('farmSchool.profitMakingTips.description'),
         icon: <Lightbulb className="h-8 w-8 text-accent" />,
         href: '/farm-school/profit-making-tips'
+    },
+    {
+        title: t('farmSchool.cropsKnowledge.title'),
+        description: t('farmSchool.cropsKnowledge.description'),
+        icon: <Leaf className="h-8 w-8 text-accent" />,
+        href: '/farm-school/crops-knowledge',
+    },
+    {
+        title: t('farmSchool.croppingPatterns.title'),
+        description: t('farmSchool.croppingPatterns.description'),
+        icon: <LayoutGrid className="h-8 w-8 text-accent" />,
+        href: '/farm-school/cropping-patterns',
     }
-]
+  ]
 
   return (
     <Dialog>
