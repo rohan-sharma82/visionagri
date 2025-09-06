@@ -153,9 +153,9 @@ export default function DiseaseClassificationPage() {
               transition={{ duration: 0.5 }}
               className="w-full"
             >
-              <Card className="shadow-xl bg-gradient-to-br from-card to-secondary">
+              <Card className="shadow-xl" style={{ backgroundColor: '#6096D3' }}>
                 <CardHeader>
-                  <CardTitle className="text-2xl">{t('diseaseClassification.reportCard.title')}</CardTitle>
+                  <CardTitle className="text-2xl" style={{ color: 'white' }}>{t('diseaseClassification.reportCard.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
