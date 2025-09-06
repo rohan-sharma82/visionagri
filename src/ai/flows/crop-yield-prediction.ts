@@ -28,7 +28,7 @@ export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
 const PredictCropYieldOutputSchema = z.object({
   predictedYield: z
     .string()
-    .describe('The predicted crop yield per unit of land, in a suitable unit (e.g., "12 quintals/acre", "5 tonnes/hectare"). Do not provide the total yield for the entire farm.'),
+    .describe('The predicted crop yield for the entire farm, in a suitable unit (e.g., "48 quintals", "20 tonnes"). The prediction should be for the total farm area specified in the input.'),
   confidenceLevel: z
     .string()
     .describe('The confidence level of the prediction as a percentage.'),
@@ -49,10 +49,6 @@ const PredictCropYieldOutputSchema = z.object({
     fertilizer: z.string().describe("Suggested fertilizer application based on farm size and crop type."),
     irrigation: z.string().describe("Suggested irrigation method based on farm size and crop type."),
   }).describe("Ideal input suggestions for the given farm size."),
-  contingencyPlan: z.object({
-      heavyRain: z.string().optional().describe('Actionable advice for unexpected heavy rainfall or waterlogging.'),
-      droughtOrHeatwave: z.string().optional().describe('Actionable advice for prolonged drought or a sudden heatwave.'),
-  }).describe('A contingency plan with actionable advice for potential extreme weather events.'),
 });
 export type PredictCropYieldOutput = z.infer<typeof PredictCropYieldOutputSchema>;
 
@@ -66,7 +62,7 @@ const prompt = ai.definePrompt({
   output: {schema: PredictCropYieldOutputSchema},
   prompt: `You are an expert in agricultural science, specializing in crop yield prediction for Indian farmers. Your language should be simple, encouraging, and easy to understand.
 
-  Based on the data provided, predict the crop yield **per unit of land** (e.g., "12 quintals per acre", "5 tonnes per hectare"). Use the unit from the 'farmSize' input. Do NOT provide the total yield for the entire farm.
+  Based on the data provided, predict the **total crop yield for the entire farm size provided in the input** (e.g., "48 quintals", "20 tonnes"). Do NOT provide a per-acre or per-hectare yield.
 
   Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good.
   
@@ -91,12 +87,6 @@ const prompt = ai.definePrompt({
   {{/if}}
 
   Finally, based on the farm size, provide ideal values for fertilizer and irrigation in the 'idealValues' object.
-
-  **Crucially, also create a 'contingencyPlan' for two potential extreme weather scenarios:**
-  1.  **heavyRain:** What should the farmer do if there is unexpected heavy rain or waterlogging? (e.g., ensure proper drainage, check for fungal diseases).
-  2.  **droughtOrHeatwave:** What actions can the farmer take if they face a sudden drought or heatwave? (e.g., apply mulch, use anti-transpirant sprays, time irrigation for early morning).
-
-  Provide concise, bullet-pointed advice for each scenario.
 
   Data:
   - Crop Type: {{{cropType}}}
@@ -133,10 +123,6 @@ const predictCropYieldFlow = ai.defineFlow(
             idealValues: {
                 fertilizer: "N/A",
                 irrigation: "N/A",
-            },
-            contingencyPlan: {
-                heavyRain: "Ensure field drainage is clear to prevent waterlogging.",
-                droughtOrHeatwave: "Apply mulch to conserve soil moisture.",
             }
         };
     }
