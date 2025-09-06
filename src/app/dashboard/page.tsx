@@ -188,50 +188,48 @@ export default function DashboardPage() {
     ],
   };
 
-  const fetchDashboardData = useCallback(async (location: string) => {
-    setIsDataLoading(true);
-    try {
-      const [weatherResult, marketResult] = await Promise.all([
-        getDashboardWeather({ location }),
-        getMarketPriceAnalysis({ crop: userData.primaryCrop })
-      ]);
-
-      setWeatherData(weatherResult);
-      setMarketData(marketResult);
-
-      if (!weatherResult) {
-        toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
-      }
-      if (!marketResult) {
-        toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
-      }
-    } catch (error) {
-      console.error("Dashboard data fetching failed:", error);
-      toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
-    } finally {
-      setIsDataLoading(false);
-    }
-  }, [t, toast, userData.primaryCrop]);
-
   useEffect(() => {
-    const fetchUserAndData = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-        setUser(user);
-        const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
-        if (profileData) setProfile(profileData);
-      } else {
-        setIsDataLoading(false); 
-      }
+    const fetchUserAndProfile = async () => {
+        const { data: { user: currentUser } } = await supabase.auth.getUser();
+        if (currentUser) {
+            setUser(currentUser);
+            const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', currentUser.id).single();
+            if (profileData) setProfile(profileData);
+        }
     };
-    fetchUserAndData();
+    fetchUserAndProfile();
   }, []);
   
   useEffect(() => {
-    if (globalLocation) {
-        fetchDashboardData(globalLocation);
-    }
-  }, [globalLocation, fetchDashboardData]);
+    const fetchDashboardData = async () => {
+      // Only proceed if we have a location.
+      if (!globalLocation) {
+        setIsDataLoading(true); // Keep showing loading skeleton
+        return;
+      }
+
+      setIsDataLoading(true);
+      try {
+        const [weatherResult, marketResult] = await Promise.all([
+          getDashboardWeather({ location: globalLocation }),
+          getMarketPriceAnalysis({ crop: userData.primaryCrop })
+        ]);
+
+        setWeatherData(weatherResult);
+        setMarketData(marketResult);
+
+      } catch (error) {
+        console.error("Dashboard data fetching failed:", error);
+        toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
+        setWeatherData(null);
+        setMarketData(null);
+      } finally {
+        setIsDataLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, [globalLocation, toast, userData.primaryCrop]);
 
 
   const getDisplayName = () => {
