@@ -287,8 +287,8 @@
         "pmkisan": {
             "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
             "shortName": "PM-KISAN",
-            "shortDescription": "The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country.",
-            "description": "<h4>What is it?</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country. This benefit is provided in three installments every 4 months. The objective of the PM-KISAN scheme is to promote farmers' income and make them self-reliant.</p><h4>Eligibility</h4><p>The eligibility criteria for the PM-KISAN scheme are as follows: The farmer must be a citizen of India. The farmer must be the owner of the land. The size of the farmer's land should not exceed 2 hectares. The farmer must have a bank account. To avail of the benefits of the PM-KISAN scheme, the farmer has to apply online on the official website of the scheme. Along with the application, the farmer has to upload his/her Aadhaar card, bank account details, and land ownership documents.</p><h4>Benefits</h4><p>Here are some of the benefits of the PM-KISAN scheme: It will provide financial assistance to small and marginal farmers. It will help to increase the income of farmers. It will help to make farmers self-reliant. It will help to reduce the burden on farmers. It will help to improve the farmers' standard of living. The PM-KISAN scheme is a very important initiative by the Government of India. This scheme will have a positive impact on the lives of millions of farmers in the country.</p>"
+            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
+            "description": "schemes.pmkisan.description"
         },
         "pmfby": {
             "name": "Pradhan Mantri Fasal Bima Yojana",
@@ -634,6 +634,9 @@
             "irrigation": {
                 "label": "Irrigation Method (Optional)",
                 "placeholder": "e.g., Drip, Sprinkler, Canal"
+            },
+            "additionalNotes": {
+                "placeholder": "Additional Notes (e.g., used other spray, pest issues)"
             }
         },
         "buttons": {
@@ -649,7 +652,7 @@
         },
         "results": {
             "title": "AI Prediction Results",
-            "predictedYield": "Total Predicted Yield",
+            "predictedYield": "Predicted Yield (per unit)",
             "confidence": "Confidence",
             "analysis": "AI Analysis",
             "factors": "Influencing Factors",

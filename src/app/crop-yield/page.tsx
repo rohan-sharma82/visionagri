@@ -33,6 +33,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { soilTypeExplanations } from '@/lib/area-data';
 import { Combobox } from '@/components/ui/combobox';
 import { categorizedCropOptions } from '@/lib/constants';
+import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -44,6 +45,7 @@ const formSchema = z.object({
   fertilizerType: z.string().optional(),
   fertilizerAmount: z.string().optional(),
   irrigationMethod: z.string().optional(),
+  additionalNotes: z.string().optional(),
 });
 
 const landUnits = ["Acres", "Hectares", "Killa", "Bigha", "Marla", "Guntha", "Cent"];
@@ -70,6 +72,7 @@ export default function CropYieldPage() {
       fertilizerType: '',
       fertilizerAmount: '',
       irrigationMethod: '',
+      additionalNotes: '',
     },
   });
 
@@ -288,6 +291,22 @@ export default function CropYieldPage() {
                                 <FormItem className="w-full">
                                     <FormControl>
                                     <Input className='flip-card__input' placeholder={t('cropYield.form.irrigation.label')} {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="additionalNotes"
+                                render={({ field }) => (
+                                <FormItem className="w-full">
+                                    <FormControl>
+                                        <Textarea
+                                            className="flip-card__input"
+                                            placeholder={t('cropYield.form.additionalNotes.placeholder')}
+                                            {...field}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

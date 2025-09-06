@@ -296,7 +296,7 @@
         },
         "uploadCard": {
             "title": "ਜਾਨਵਰ ਦੀ ਤਸਵੀਰ ਅੱਪਲੋਡ ਕਰੋ",
-            "description": "ਜਿਸ ਜਾਨਵਰ ਦੀ ਤੁਸੀਂ ਪਛਾਣ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਉਸਦੀ ਇੱਕ ਸਪਸ਼ਟ ਤਸਵੀਰ ਪ੍ਰਦਾਨ ਕਰੋ।",
+            "description": "ਜਿਸ ਜਾਨਵਰ ਦੀ ਤੁਸੀਂ ਪਛਾณ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਉਸਦੀ ਇੱਕ ਸਪਸ਼ਟ ਤਸਵੀਰ ਪ੍ਰਦਾਨ ਕਰੋ।",
             "button": "ਤਸਵੀਰ ਅੱਪਲੋਡ ਕਰੋ"
         },
         "status": {
@@ -363,6 +363,9 @@
             "irrigation": {
                 "label": "ਸਿੰਚਾਈ ਵਿਧੀ (ਵਿਕਲਪਿਕ)",
                 "placeholder": "ਉਦਾਹਰਨ ਲਈ, ਡਰਿਪ, ਸਪ੍ਰਿੰਕਲਰ, ਨਹਿਰ"
+            },
+            "additionalNotes": {
+                "placeholder": "ਵਾਧੂ ਨੋਟਸ (ਉਦਾਹਰਨ ਲਈ, ਹੋਰ ਸਪਰੇਅ ਦੀ ਵਰਤੋਂ, ਕੀੜਿਆਂ ਦੀਆਂ ਸਮੱਸਿਆਵਾਂ)"
             }
         },
         "buttons": {
@@ -378,7 +381,7 @@
         },
         "results": {
             "title": "AI ਭਵਿੱਖਬਾਣੀ ਦੇ ਨਤੀਜੇ",
-            "predictedYield": "ਕੁੱਲ ਅਨੁਮਾਨਿਤ ਝਾੜ",
+            "predictedYield": "ਅਨੁਮਾਨਿਤ ਝਾੜ (ਪ੍ਰਤੀ ਯੂਨਿਟ)",
             "confidence": "ਵਿਸ਼ਵਾਸ",
             "analysis": "AI ਵਿਸ਼ਲੇਸ਼ਣ",
             "factors": "ਪ੍ਰਭਾਵਿਤ ਕਰਨ ਵਾਲੇ ਕਾਰਕ",
@@ -402,7 +405,7 @@
             "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
             "shortName": "PM-KISAN",
             "shortDescription": "The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country.",
-            "description": "<h4>What is it?</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country. This benefit is provided in three installments every 4 months. The objective of the PM-KISAN scheme is to promote farmers' income and make them self-reliant.</p><h4>Eligibility</h4><p>The eligibility criteria for the PM-KISAN scheme are as follows: The farmer must be a citizen of India. The farmer must be the owner of the land. The size of the farmer's land should not exceed 2 hectares. The farmer must have a bank account. To avail of the benefits of the PM-KISAN scheme, the farmer has to apply online on the official website of the scheme. Along with the application, the farmer has to upload his/her Aadhaar card, bank account details, and land ownership documents.</p><h4>Benefits</h4><p>Here are some of the benefits of the PM-KISAN scheme: It will provide financial assistance to small and marginal farmers. It will help to increase the income of farmers. It will help to make farmers self-reliant. It will help to reduce the burden on farmers. It will help to improve the farmers' standard of living. The PM-KISAN scheme is a very important initiative by the Government of India. This scheme will have a positive impact on the lives of millions of farmers in the country.</p>"
+            "description": "schemes.pmkisan.description"
         },
         "pmfby": {
             "name": "Pradhan Mantri Fasal Bima Yojana",

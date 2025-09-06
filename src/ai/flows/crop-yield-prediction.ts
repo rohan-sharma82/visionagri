@@ -21,6 +21,7 @@ const PredictCropYieldInputSchema = z.object({
   fertilizerType: z.string().optional().describe('The type of fertilizer used (e.g., Urea, DAP, NPK).'),
   fertilizerAmount: z.string().optional().describe('The amount of fertilizer used, e.g., "50 kg/acre".'),
   irrigationMethod: z.string().optional().describe('The irrigation method used (e.g., Drip, Sprinkler, Canal).'),
+  additionalNotes: z.string().optional().describe('Any additional notes from the farmer, such as use of other sprays, observed pest issues, or mixed cropping details.'),
 });
 export type PredictCropYieldInput = z.infer<typeof PredictCropYieldInputSchema>;
 
@@ -69,6 +70,10 @@ const prompt = ai.definePrompt({
   Analyze the suitability of the selected fertilizer ({{fertilizerType}}) for the specified crop ({{cropType}}). Provide this analysis in the 'fertilizerSuitability' field. Be specific, for example: "Urea is a good source of nitrogen, which is excellent for the vegetative growth phase of wheat." or "While DAP is useful, this crop would benefit more from a potassium-rich fertilizer at this stage."
   {{/if}}
 
+  {{#if additionalNotes}}
+  The farmer has provided these additional notes: "{{{additionalNotes}}}". You MUST consider this information in your analysis and suggestions. For example, if they mention a weed controller, acknowledge it and factor it into your recommendations.
+  {{/if}}
+
   List the key factors influencing the yield and suggest actionable steps for improvement.
   
   {{#if irrigationMethod}}
@@ -92,6 +97,7 @@ const prompt = ai.definePrompt({
   - Fertilizer Type: {{{fertilizerType}}}
   - Fertilizer Amount: {{{fertilizerAmount}}}
   - Irrigation Method: {{{irrigationMethod}}}
+  - Additional Notes: {{{additionalNotes}}}
 `,
 });
 
