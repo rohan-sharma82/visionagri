@@ -1,6 +1,6 @@
 # AgriVision AI - The Owner's Manual (Raaz Di Gal)
 
-Hello! This is your personal guide to understanding and making changes to the AgriVision AI application. This document is written for someone who isn't a professional coder. Think of it as the "secret key" (`raaz di gal`) to controlling your app.
+This is your personal guide to understanding and making changes to the AgriVision AI application. This document is written for someone who isn't a professional coder. Think of it as the "secret key" (`raaz di gal`) to controlling your app.
 
 ---
 
@@ -123,10 +123,10 @@ Every piece of text in the app uses a translation key. This is what allows the a
     *   Change the text value on the right side: `"welcome": "Welcome, Farmer, to AgriVision AI"`.
     *   **IMPORTANT**: If you change it in `en.json`, you should also change it in the other language files (`pa.json`, `ta.json`, etc.) with the correct translation to keep everything consistent.
 
-### How to Add a New News Article
+### How to Add a New News Article or Govt. Scheme
 
 1.  **Go to the file**: `src/lib/constants.ts`
-2.  **Find the `newsData` array**: This is a list of all the news articles. Each article is an object `{ ... }`.
+2.  **Find the `newsData` or `schemesData` array**: This is a list of all the news articles or schemes. Each item is an object `{ ... }`.
 3.  **Add a New Object**: Copy an existing article object and paste it at the end of the list. Change the details:
 
     ```javascript
@@ -181,5 +181,64 @@ The "personality" and expertise of your AI assistants come from their prompts.
 4.  **How to Change it**: You can edit the text inside the backticks (` `) to change the AI's instructions. For example, if you wanted the AI to always start its response with "Greetings, Farmer!", you could add that to the beginning of the prompt.
 
     The `{{{cropType}}}` parts are placeholders where the app inserts the user's data. Don't change those.
+
+---
+
+## 4. How to Edit a Specific Page
+
+Each page of the app has its own folder and a `page.tsx` file inside it. This is where the layout and components for that specific page are defined.
+
+### **a. Crop Yield Prediction Page**
+
+*   **File to Edit**: `src/app/crop-yield/page.tsx`
+*   **What it does**: This file contains the main form that users fill out to get a yield prediction.
+*   **How it works**:
+    *   It uses a library called **React Hook Form** to manage the form fields (Crop Type, Soil Type, etc.).
+    *   The dropdowns for "Crop Type" and "Soil Type" are populated from lists defined in `src/lib/constants.ts` and `src/lib/area-data.ts`.
+    *   The "Know Your Area" button opens a dialog box. The content for this dialog (soil types, state data) is located in `src/lib/area-data.ts`.
+    *   When the "Predict Yield" button is clicked, it calls the `predictCropYield` function from `/src/ai/flows/crop-yield-prediction.ts` and displays the results in a green card.
+*   **How to Change**: To change the text or layout of the form, you would edit the `page.tsx` file. To change the AI's prediction logic, you would edit the `crop-yield-prediction.ts` file.
+
+### **b. AI Farmer Assistant Page**
+
+*   **File to Edit**: `src/app/ai-farmer/page.tsx`
+*   **What it does**: This is the chat interface for the AI assistant.
+*   **How it works**:
+    *   It manages a list of messages (the chat history).
+    *   When a user sends a message, it calls the `getFarmingAdvice` function from `/src/ai/flows/ai-farmer-assistant.ts`.
+    *   It also calls the `textToSpeech` function to create an audio version of the response.
+    *   The chat history is saved to the database using functions from `src/app/ai-farmer/actions.ts`.
+*   **How to Change**: To change the appearance of the chat bubbles or buttons, you would edit this `page.tsx` file. To change the AI's personality or the type of advice it gives, you would edit the `ai-farmer-assistant.ts` flow.
+
+### **c. Disease & Animal Classification Pages**
+
+*   **Files to Edit**: `src/app/disease-classification/page.tsx` and `src/app/animal-classification/page.tsx`
+*   **What they do**: These pages allow a user to upload an image and get an AI classification.
+*   **How they work**:
+    *   When a user selects a file, the app reads it and creates a preview.
+    *   When the "Classify" button is clicked, it sends the image data to the corresponding AI flow (`classifyCropDisease` or `animalClassification`).
+    *   The AI returns a structured result (disease name, confidence, suggestions), which is then displayed in a report card.
+*   **How to Change**: To change the layout of the upload button or the results card, you would edit the respective `page.tsx` file.
+
+### **d. Government Schemes & Farm School Pages**
+
+*   **Files to Edit**: `/src/app/govt-schemes/page.tsx` and `/src/app/farm-school/page.tsx`.
+*   **What they do**: These are information hubs.
+*   **How they work**:
+    *   They get their data from lists defined in `src/lib/constants.ts`.
+    *   They loop through this data and create a card for each item (each scheme or each school topic).
+    *   Clicking a card opens a dialog or navigates to a new page with more details.
+*   **How to Change**: To add a new scheme or a new school topic, you would first add the item to the list in `constants.ts`. Then, you would add the necessary translation keys to the `en.json` file (and other languages). The page will update automatically.
+
+### **e. Dashboard Page**
+
+*   **File to Edit**: `src/app/dashboard/page.tsx`
+*   **What it does**: This is the personalized hub for a logged-in user.
+*   **How it works**:
+    *   It first checks if a user is logged in.
+    *   It then fetches the user's data (like their name and primary crop) from the database.
+    *   It calls two AI flows at the same time: `getDashboardWeather` and `getMarketPriceAnalysis`.
+    *   It displays the weather report and the market price chart. It also shows a list of recommended schemes and a mock yield history table.
+*   **How to Change**: To change the layout of the dashboard cards, you would edit this `page.tsx` file. The content of the cards is dynamic and comes from the AI flows and the user's data.
 
 This guide should give you a solid starting point for making many common updates yourself. Good luck with your presentation to the SIH judges! You've got this.
