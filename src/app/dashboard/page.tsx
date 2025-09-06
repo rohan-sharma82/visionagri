@@ -189,73 +189,51 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    const fetchAllData = async () => {
-        setIsDataLoading(true);
-
-        // First, get the user session and profile
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-            setUser(user);
-            const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
-            if (profileData) setProfile(profileData);
-        } else {
-            // No user, stop loading and let the middleware handle redirection if needed
-            setIsDataLoading(false);
-            return;
-        }
-
-        // IMPORTANT: Wait for globalLocation to be available before fetching data
-        if (globalLocation) {
-            try {
-                const [weatherResult, marketResult] = await Promise.all([
-                    getDashboardWeather({ location: globalLocation }),
-                    getMarketPriceAnalysis({ crop: userData.primaryCrop })
-                ]);
-    
-                setWeatherData(weatherResult);
-                setMarketData(marketResult);
-                
-                if (!weatherResult) {
-                    toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
-                }
-                if (!marketResult) {
-                     toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
-                }
-            } catch (error) {
-                console.error("Dashboard data fetching failed:", error);
-                toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
-            }
-        }
-        
-        // This should only be set to false after all dependent fetches are done.
-        // If globalLocation is not yet available, we stay in the loading state.
-        if (globalLocation) {
-            setIsDataLoading(false);
-        }
+    const fetchUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUser(user);
+        const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
+        if (profileData) setProfile(profileData);
+      } else {
+        setIsDataLoading(false); // No user, stop loading
+      }
     };
-    
-    // The dependency array now includes globalLocation.
-    // The effect will re-run when globalLocation changes from null to a value.
-    fetchAllData();
+    fetchUser();
+  }, []);
 
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      // Only run this effect if we have a location
+      if (globalLocation) {
+        setIsDataLoading(true);
+        try {
+          const [weatherResult, marketResult] = await Promise.all([
+            getDashboardWeather({ location: globalLocation }),
+            getMarketPriceAnalysis({ crop: userData.primaryCrop })
+          ]);
+
+          setWeatherData(weatherResult);
+          setMarketData(marketResult);
+
+          if (!weatherResult) {
+            toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
+          }
+          if (!marketResult) {
+            toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
+          }
+        } catch (error) {
+          console.error("Dashboard data fetching failed:", error);
+          toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
+        } finally {
+          setIsDataLoading(false);
+        }
+      }
+    };
+
+    fetchDashboardData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globalLocation]);
-
-
-  const handleFetchMarketData = useCallback(async () => {
-    setMarketData(null);
-    try {
-        const result = await getMarketPriceAnalysis({ crop: userData.primaryCrop });
-        setMarketData(result);
-    } catch(error) {
-        console.error("Failed to fetch market data:", error);
-        toast({
-            variant: 'destructive',
-            title: t('dashboard.market.errorTitle'),
-            description: t('dashboard.market.errorDescription')
-        })
-    }
-  }, [userData.primaryCrop, toast, t]);
+  }, [globalLocation]); // This effect now correctly depends on globalLocation
 
 
   const getDisplayName = () => {
@@ -270,7 +248,7 @@ export default function DashboardPage() {
     router.push('/');
   };
 
-  if (isDataLoading) {
+  if (isDataLoading && !weatherData) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -318,7 +296,7 @@ export default function DashboardPage() {
                             <div className="flex flex-col items-center justify-center h-[250px] text-center text-destructive">
                                 <AlertTriangle className="h-8 w-8 mb-2" />
                                 <p className="mb-4">{t('dashboard.market.errorDescription')}</p>
-                                <Button onClick={handleFetchMarketData}>
+                                <Button onClick={() => getMarketPriceAnalysis({ crop: userData.primaryCrop }).then(setMarketData)}>
                                     <TrendingUp className="mr-2 h-4 w-4" />
                                     {t('dashboard.market.button')}
                                 </Button>
