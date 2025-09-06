@@ -1,6 +1,6 @@
-# AgriVision AI: How It Works
+# AgriVision AI: Technical Deep Dive for SIH Judges
 
-This document provides a detailed breakdown of the AgriVision AI application, explaining its architecture, technologies, features, and key components. Its purpose is to serve as a comprehensive guide for understanding how the project is built and functions.
+This document provides a comprehensive breakdown of the AgriVision AI application, explaining its architecture, technologies, features, and key components. Its purpose is to serve as a comprehensive guide for understanding how the project is built and functions.
 
 ---
 
@@ -27,7 +27,7 @@ AgriVision AI is built as a modern, server-centric web application. Most of the 
 ### UI & Styling
 
 - **Tailwind CSS & ShadCN UI**: This combination provides a vast library of pre-built, accessible, and easily customizable UI components (Buttons, Cards, Dialogs, etc.), which dramatically accelerates development.
-- **Framer Motion & Custom CSS**: We use these for fluid animations and unique visual effects, like the animated cards, "gooey" buttons, and the 3D login prism, to create a polished and engaging user experience.
+- **Framer Motion & Custom CSS**: We use these for fluid animations and unique visual effects, like the animated cards and gooey buttons, to create a polished and engaging user experience.
 - **Recharts**: A composable charting library used to display the market price analysis graph on the dashboard.
 
 ### AI & Backend Logic
@@ -50,33 +50,61 @@ AgriVision AI is built as a modern, server-centric web application. Most of the 
 
 ---
 
-## 3. Feature Breakdown
+## 3. Feature-by-Feature Breakdown
 
-### **Personalized Dashboard (`/dashboard`)**
-This is the central hub for the farmer.
-1.  **Authentication**: A user logs in via the interactive **3D Login Prism**. The prism is a CSS `preserve-3d` element where different faces (Login, Sign Up) are rotated into view.
-2.  **Data Fetching**: Upon login, the page fetches data from a hardcoded user profile (`allDashboardData`) which specifies the user's location and primary crop.
-3.  **Parallel AI Calls**: It then concurrently calls two Genkit flows:
-    - `getDashboardWeather`: Fetches a comprehensive weather report for the user's location.
-    - `getMarketPriceAnalysis`: Fetches historical prices for the user's primary crop and uses an AI prompt to generate a trend analysis and forecast.
-4.  **Dynamic Rendering**: The results are displayed in a series of cards, including a `MarketPriceChart` for price visualization. The UI shows loading states while the AI calls are in progress.
+### **a. Personalized Dashboard (`/dashboard`)**
 
-### **AI Farmer Assistant (`/ai-farmer`)**
-1.  **Chat Interface**: A standard chat UI that stores the conversation history in the **Supabase Postgres** database via Server Actions (`src/app/ai-farmer/actions.ts`). This ensures the conversation is persistent.
-2.  **AI Integration**: When a user sends a message, the `getFarmingAdvice` Genkit flow is called. If a location is set, this flow uses the `getWeatherForLocation` tool to make its advice more relevant.
-3.  **Speech-to-Text**: Uses the browser's native `SpeechRecognition` API to transcribe the user's voice into text, which is then submitted.
-4.  **Text-to-Speech**: After receiving a response, the `textToSpeech` flow is called to generate an audio version of the advice, enhancing accessibility.
+- **What it is**: A central, personalized hub for each farmer, providing the most critical information at a glance.
+- **How it works**:
+  1.  **Authentication**: Users sign in via the `/login` page. Supabase handles user authentication. The Next.js middleware protects the `/dashboard` route, redirecting unauthenticated users.
+  2.  **Data Fetching**: Upon a successful login, the dashboard fetches the user's profile from the Supabase database (e.g., their name, primary crop).
+  3.  **Parallel AI Calls**: It concurrently calls two Genkit flows:
+      - `getDashboardWeather`: Fetches a comprehensive weather report using the WeatherAPI tool.
+      - `getMarketPriceAnalysis`: Fetches historical prices for the user's primary crop and uses an AI prompt to generate a trend analysis and forecast.
+  4.  **Dynamic Rendering**: The results are displayed in a series of cards. The UI shows loading skeletons while the AI calls are in progress to provide a smooth user experience.
+- **Future Scope**:
+    - Allow farmers to enter their actual harvest data to compare against predictions, creating a feedback loop to fine-tune the AI models.
+    - Integrate live Mandi price APIs to replace the current mock data.
 
-### **Classification Tools (Disease & Animal)**
-These pages follow a similar pattern:
-1.  **Image Upload**: The user uploads an image. A `FileReader` converts it into a Base64 Data URI.
-2.  **API Call**: The Data URI is sent to the relevant Genkit flow (`classifyCropDisease` or `animalClassification`).
-3.  **Display Results**: The structured JSON response from the AI (e.g., disease name, confidence score) is displayed in a result card.
+### **b. AI Farmer Assistant (`/ai-farmer`)**
 
-### **Information Hubs (Govt. Schemes & Farm School)**
-- **Static Content with Dynamic UI**: These pages display information from static data arrays (`src/lib/constants.ts`).
-- **Interactive Components**: They use components like `Dialog` to show detailed information in pop-ups and `Accordion` to organize content neatly, providing a rich user experience without needing a complex backend.
+- **What it is**: A 24/7 conversational AI expert that answers farming-related questions.
+- **How it works**:
+  1.  **Chat Interface**: A standard chat UI that saves the conversation history to the **Supabase Postgres** database via Server Actions (`src/app/ai-farmer/actions.ts`). This makes the chat persistent across sessions.
+  2.  **Context-Aware AI**: When a user asks a question, the `getFarmingAdvice` Genkit flow is called. If the user has set a location, this flow first uses the `getWeatherForLocation` tool to fetch real-time weather data. It then includes this weather data in the prompt sent to the Gemini model, allowing the AI to give highly contextual advice (e.g., "Don't spray pesticides, it's about to rain.").
+  3.  **Accessibility**:
+      - **Speech-to-Text**: Uses the browser's native `SpeechRecognition` API to transcribe the user's voice into text.
+      - **Text-to-Speech**: After receiving a response, the `textToSpeech` flow is called to generate an audio version of the advice, making the app accessible to users with varying literacy levels.
+- **Future Scope**:
+    - Allow the AI Assistant to access more tools, like a tool to check the user's crop history or recent disease reports from the database.
+    - Implement multi-turn conversation memory to have more stateful, follow-up discussions.
 
-### **Internationalization (i18n)**
-- **`AppProvider` & `useTranslation` Hook**: This context/hook pattern provides a global `t(key)` function.
-- **JSON Files (`/locales`)**: All display text is stored as key-value pairs (e.g., `home.welcome`). This allows the entire UI to be translated by simply switching the active language, which then loads the corresponding JSON file.
+### **c. Disease & Animal Classification (`/disease-classification`, `/animal-classification`)**
+
+- **What it is**: AI-powered tools that use computer vision to identify crop diseases or animal species from an uploaded image.
+- **How it works**:
+  1.  **Image Upload**: The user uploads an image. The frontend uses a `FileReader` to convert the image into a Base64 Data URI.
+  2.  **API Call**: This Data URI is sent as a string to the appropriate Genkit flow (`classifyCropDisease` or `animalClassification`). The `{{media url=...}}` Handlebars helper in the prompt allows the Gemini Vision model to "see" the image.
+  3.  **Structured Output**: The AI is prompted to return a structured JSON object containing not just the classification, but also a confidence score, a description, and actionable suggestions.
+- **Future Scope**:
+    - Store classification history in the database so a farmer can track disease outbreaks over time.
+    - Expand the model to identify pests and nutrient deficiencies.
+
+### **d. Government Schemes & Farm School (`/govt-schemes`, `/farm-school`)**
+
+- **What they are**: Centralized, easy-to-navigate information hubs for critical farming knowledge.
+- **How they work**:
+  - **Static Content, Dynamic UI**: The information for these pages is stored in local data files (`src/lib/constants.ts`). This makes the pages extremely fast to load as no database call is needed.
+  - **Interactive Components**: They use UI components like `Dialog` (for pop-up details) and `Accordion` (for collapsible sections) to present a large amount of information in a clean, user-friendly way. This provides a rich user experience without the need for a complex backend.
+- **Future Scope**:
+    - **Personalized Scheme Suggestions**: Create a Genkit flow that analyzes a farmer's profile (location, crops, land size) and proactively recommends the most relevant government schemes, linking directly to them from the dashboard.
+
+### **e. Multilingual Support (Internationalization)**
+
+- **What it is**: The ability for the entire user interface to be displayed in multiple Indian languages.
+- **How it works**:
+  - **`AppProvider` & `useTranslation` Hook**: A React Context provider wraps the entire application. This provides a `t(key)` translation function to all components.
+  - **JSON Files (`/locales`)**: All display text is stored as key-value pairs in JSON files (e.g., `en.json`, `pa.json`). The `t('home.welcome')` function looks up the `home.welcome` key in the currently active language file.
+  - **Language Switcher**: The language switcher component simply calls `setLanguage('pa')`, which updates the context, loads the `pa.json` file, and causes React to re-render the UI with the new text.
+- **Future Scope**:
+    - Add real-time AI-powered translation for user-generated content, such as messages in a future community forum.
