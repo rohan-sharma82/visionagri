@@ -113,7 +113,7 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
                         </div>
                      </div>
                      <div className="flex items-center gap-4">
-                        <Sun className="h-10 w-10 text-orange-600" />
+                        <Moon className="h-10 w-10 text-slate-400" />
                         <div>
                             <p className="font-semibold">{t('dashboard.weather.sunset')}</p>
                             <p>{weatherData.forecast.forecastday[0].astro.sunset}</p>
@@ -188,52 +188,50 @@ export default function DashboardPage() {
     ],
   };
 
+  const fetchDashboardData = useCallback(async (location: string) => {
+    setIsDataLoading(true);
+    try {
+      const [weatherResult, marketResult] = await Promise.all([
+        getDashboardWeather({ location }),
+        getMarketPriceAnalysis({ crop: userData.primaryCrop })
+      ]);
+
+      setWeatherData(weatherResult);
+      setMarketData(marketResult);
+
+      if (!weatherResult) {
+        toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
+      }
+      if (!marketResult) {
+        toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
+      }
+    } catch (error) {
+      console.error("Dashboard data fetching failed:", error);
+      toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
+    } finally {
+      setIsDataLoading(false);
+    }
+  }, [t, toast, userData.primaryCrop]);
+
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUserAndData = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUser(user);
         const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', user.id).single();
         if (profileData) setProfile(profileData);
       } else {
-        setIsDataLoading(false); // No user, stop loading
+        setIsDataLoading(false); 
       }
     };
-    fetchUser();
+    fetchUserAndData();
   }, []);
-
+  
   useEffect(() => {
-    const fetchDashboardData = async () => {
-      // Only run this effect if we have a location
-      if (globalLocation) {
-        setIsDataLoading(true);
-        try {
-          const [weatherResult, marketResult] = await Promise.all([
-            getDashboardWeather({ location: globalLocation }),
-            getMarketPriceAnalysis({ crop: userData.primaryCrop })
-          ]);
-
-          setWeatherData(weatherResult);
-          setMarketData(marketResult);
-
-          if (!weatherResult) {
-            toast({ variant: 'destructive', title: t('dashboard.weather.error'), description: 'Could not load weather data.' });
-          }
-          if (!marketResult) {
-            toast({ variant: 'destructive', title: t('dashboard.market.errorTitle'), description: t('dashboard.market.errorDescription') });
-          }
-        } catch (error) {
-          console.error("Dashboard data fetching failed:", error);
-          toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
-        } finally {
-          setIsDataLoading(false);
-        }
-      }
-    };
-
-    fetchDashboardData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [globalLocation]); // This effect now correctly depends on globalLocation
+    if (globalLocation) {
+        fetchDashboardData(globalLocation);
+    }
+  }, [globalLocation, fetchDashboardData]);
 
 
   const getDisplayName = () => {
@@ -242,13 +240,12 @@ export default function DashboardPage() {
       return t('dashboard.defaultName');
   }
 
-
   const handleLogout = async () => {
     await logout();
     router.push('/');
   };
 
-  if (isDataLoading && !weatherData) {
+  if (isDataLoading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
