@@ -33,6 +33,7 @@ import { logout } from '@/app/auth/actions';
 import type { User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
 import WeatherAlerts from '@/components/weather-alerts';
+import { useApp } from '@/hooks/use-app-provider';
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -55,7 +56,7 @@ const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
 };
 
 
-const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeatherOutput | null, isLoading: boolean }) => {
+const WeatherCard = ({ weatherData, isLoading, onRetry }: { weatherData: DashboardWeatherOutput | null, isLoading: boolean, onRetry: () => void }) => {
   const { t } = useTranslation();
 
   if (isLoading) {
@@ -73,9 +74,12 @@ const WeatherCard = ({ weatherData, isLoading }: { weatherData: DashboardWeather
             <CardHeader>
                 <CardTitle>{t('dashboard.weather.title')}</CardTitle>
             </CardHeader>
-            <CardContent className="p-6 text-center text-destructive">
-                <AlertTriangle className="mx-auto h-8 w-8 mb-2" />
+            <CardContent className="p-6 text-center text-destructive flex flex-col items-center justify-center gap-4">
+                <AlertTriangle className="mx-auto h-8 w-8" />
                 <p>{t('dashboard.weather.error')}</p>
+                <Button onClick={onRetry} variant="destructive">
+                    {t('dashboard.weather.retryButton')}
+                </Button>
             </CardContent>
         </Card>
     )
@@ -168,6 +172,7 @@ const DataSkeleton = () => {
 export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
+  const { setLocationDialogOpen } = useApp();
   const router = useRouter();
   const { toast } = useToast();
   const [user, setUser] = useState<User | null>(null);
@@ -202,9 +207,8 @@ export default function DashboardPage() {
   
   useEffect(() => {
     const fetchDashboardData = async () => {
-      // Only proceed if we have a location.
       if (!globalLocation) {
-        setIsDataLoading(true); // Keep showing loading skeleton
+        setIsDataLoading(true); 
         return;
       }
 
@@ -243,7 +247,7 @@ export default function DashboardPage() {
     router.push('/');
   };
 
-  if (isDataLoading) {
+  if (isDataLoading && !weatherData) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -273,7 +277,11 @@ export default function DashboardPage() {
             )}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-                <WeatherCard weatherData={weatherData} isLoading={isDataLoading} />
+                <WeatherCard 
+                    weatherData={weatherData} 
+                    isLoading={isDataLoading} 
+                    onRetry={() => setLocationDialogOpen(true)}
+                />
                 
                 <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                     <CardHeader>

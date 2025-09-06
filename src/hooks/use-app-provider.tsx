@@ -1,6 +1,6 @@
 
 'use client';
-import { createContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import { createContext, useState, useEffect, useCallback, ReactNode, useContext } from 'react';
 import en from '@/locales/en.json';
 import pa from '@/locales/pa.json';
 import ta from '@/locales/ta.json';
@@ -23,6 +23,8 @@ type AppContextType = {
   t: (key: string, options?: { [key: string]: string | number }) => string;
   location: string | null;
   setLocation: (location: string | null) => void;
+  isLocationDialogOpen: boolean;
+  setLocationDialogOpen: (isOpen: boolean) => void;
 };
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -31,19 +33,20 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState('en');
   const [location, setLocationState] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [isLocationDialogOpen, setLocationDialogOpen] = useState(false);
+
 
   useEffect(() => {
-    // This effect runs only once on the client when the component mounts.
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && translations[savedLanguage]) {
       setLanguageState(savedLanguage);
     }
-    const savedLocation = localStorage.getItem('user-location');
+    const savedLocation = sessionStorage.getItem('user-location');
     if (savedLocation) {
         setLocationState(savedLocation);
+        setLocationDialogOpen(false);
     } else {
-        // If no location is saved, you might want to set a default or leave it null
-        // For now, we'll leave it null until the dialog is handled.
+        setLocationDialogOpen(true);
     }
     setIsMounted(true);
   }, []);
@@ -62,9 +65,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const setLocation = (loc: string | null) => {
     setLocationState(loc);
     if (loc) {
-        localStorage.setItem('user-location', loc);
+        sessionStorage.setItem('user-location', loc);
     } else {
-        localStorage.removeItem('user-location');
+        sessionStorage.removeItem('user-location');
     }
   }
 
@@ -99,9 +102,28 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     return translatedString;
   }, [language]);
 
+  const value = {
+    language,
+    setLanguage,
+    t,
+    location,
+    setLocation,
+    isLocationDialogOpen,
+    setLocationDialogOpen,
+  };
+
   return (
-    <AppContext.Provider value={{ language, setLanguage, t, location, setLocation }}>
+    <AppContext.Provider value={value}>
       {isMounted ? children : null}
     </AppContext.Provider>
   );
+};
+
+
+export const useApp = () => {
+    const context = useContext(AppContext);
+    if (context === undefined) {
+      throw new Error('useApp must be used within an AppProvider');
+    }
+    return context;
 };

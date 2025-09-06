@@ -490,6 +490,7 @@
             "forecast": "3-Day Forecast",
             "today": "Today",
             "error": "Could not load weather data. Please try again later.",
+            "retryButton": "Enter Location to Retry",
             "aqiLabels": {
                 "good": "Good",
                 "moderate": "Moderate",
