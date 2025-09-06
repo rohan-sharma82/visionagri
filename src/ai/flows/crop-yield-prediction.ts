@@ -49,6 +49,10 @@ const PredictCropYieldOutputSchema = z.object({
     fertilizer: z.string().describe("Suggested fertilizer application based on farm size and crop type."),
     irrigation: z.string().describe("Suggested irrigation method based on farm size and crop type."),
   }).describe("Ideal input suggestions for the given farm size."),
+  contingencyPlan: z.object({
+    heavyRain: z.string().optional().describe("Provide practical steps a farmer can take to mitigate the effects of unexpected heavy rain or waterlogging for this specific crop."),
+    droughtOrHeatwave: z.string().optional().describe("Provide practical steps a farmer can take to mitigate the effects of a sudden drought or heatwave for this specific crop."),
+  }).optional().describe("An optional contingency plan for extreme weather events. This should contain actionable advice."),
 });
 export type PredictCropYieldOutput = z.infer<typeof PredictCropYieldOutputSchema>;
 
@@ -87,6 +91,10 @@ const prompt = ai.definePrompt({
   {{/if}}
 
   Finally, based on the farm size, provide ideal values for fertilizer and irrigation in the 'idealValues' object.
+
+  **IMPORTANT**: Always generate a 'contingencyPlan'. This plan should offer practical, actionable advice for two potential extreme weather scenarios for the given crop:
+  1.  **Heavy Rain/Waterlogging**: What should the farmer do to protect the crop? (e.g., "Ensure proper drainage in the field to prevent water from standing...").
+  2.  **Drought/Heatwave**: What steps can be taken to minimize damage? (e.g., "Apply a layer of mulch like straw or dry leaves to retain soil moisture...").
 
   Data:
   - Crop Type: {{{cropType}}}
