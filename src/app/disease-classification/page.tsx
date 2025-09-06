@@ -161,8 +161,8 @@ export default function DiseaseClassificationPage() {
                   <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
                     {getDiseaseIcon(result.disease)}
                     <div>
-                      <h3 className="font-semibold" style={{ color: 'black' }}>{t('diseaseClassification.reportCard.diagnosis')}</h3>
-                      <p className="text-2xl font-bold capitalize" style={{ color: 'black' }}>{result.disease}</p>
+                      <h3 className="font-semibold" style={{ color: '#A42D2D' }}>{t('diseaseClassification.reportCard.diagnosis')}</h3>
+                      <p className="text-2xl font-bold capitalize" style={{ color: '#A42D2D' }}>{result.disease}</p>
                     </div>
                   </div>
                   
