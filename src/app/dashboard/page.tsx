@@ -174,7 +174,8 @@ export default function DashboardPage() {
   const [profile, setProfile] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [loadingWeather, setLoadingWeather] = useState(true);
   const [isMarketLoading, setIsMarketLoading] = useState(false);
 
   // Mock user data - in a real app, this would come from your database
@@ -208,39 +209,49 @@ export default function DashboardPage() {
     }
   }, [userData.primaryCrop, toast, t]);
 
+  // Effect for fetching user and profile
   useEffect(() => {
-    const fetchUserAndData = async () => {
-        setLoading(true);
+    const fetchUserAndProfile = async () => {
+        setLoadingUser(true);
         const { data: { user } } = await supabase.auth.getUser();
 
         if (user) {
             setUser(user);
-
             const { data: profileData } = await supabase
               .from('profiles')
               .select('full_name')
               .eq('id', user.id)
               .single();
-            
             if (profileData) {
                 setProfile(profileData);
             }
-
-            const locationToFetch = globalLocation || 'Delhi, India';
-            try {
-                const weatherResult = await getDashboardWeather({ location: locationToFetch });
-                setWeatherData(weatherResult);
-            } catch (error) {
-                console.error("Failed to fetch weather data:", error);
-                setWeatherData(null);
-                toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
-            }
         }
-        setLoading(false);
+        setLoadingUser(false);
     };
 
-    fetchUserAndData();
+    fetchUserAndProfile();
+  }, []);
+
+  // Effect for fetching weather data
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      setLoadingWeather(true);
+      const locationToFetch = globalLocation || 'Delhi, India';
+      try {
+          const weatherResult = await getDashboardWeather({ location: locationToFetch });
+          setWeatherData(weatherResult);
+      } catch (error) {
+          console.error("Failed to fetch weather data:", error);
+          setWeatherData(null);
+          toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
+      } finally {
+          setLoadingWeather(false);
+      }
+    };
+    
+    fetchWeatherData();
   }, [globalLocation, toast]);
+
 
   const getDisplayName = () => {
       if (profile?.full_name) return profile.full_name;
@@ -255,7 +266,7 @@ export default function DashboardPage() {
     router.push('/');
   };
 
-  if (loading) {
+  if (loadingUser) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -285,7 +296,7 @@ export default function DashboardPage() {
             )}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-                <WeatherCard weatherData={weatherData} isLoading={loading} />
+                <WeatherCard weatherData={weatherData} isLoading={loadingWeather} />
                 
                 <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                     <CardHeader>
