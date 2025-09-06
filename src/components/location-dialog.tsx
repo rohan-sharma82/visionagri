@@ -28,10 +28,10 @@ export default function LocationDialog() {
 
   useEffect(() => {
     if (isMounted) {
-      const savedLocation = localStorage.getItem('user-location');
+      const savedLocation = sessionStorage.getItem('user-location');
       if (savedLocation) {
         if (location !== savedLocation) {
-            setLocation(savedLocation);
+          setLocation(savedLocation);
         }
         setIsOpen(false);
       } else {
@@ -43,34 +43,35 @@ export default function LocationDialog() {
 
   const handleSave = () => {
     if (inputValue.trim()) {
-      setLocation(inputValue.trim());
-      localStorage.setItem('user-location', inputValue.trim());
+      const newLocation = inputValue.trim();
+      setLocation(newLocation);
+      sessionStorage.setItem('user-location', newLocation);
+      localStorage.setItem('user-location', newLocation); // Keep this for persistence if needed elsewhere
       setIsOpen(false);
     }
   };
 
   const handleLater = () => {
-    // If user clicks later, we can set a default location to unblock the app
+    // If user clicks later, we can set a default location to unblock the app for the session
     if (!location) {
         const defaultLocation = "Delhi, India";
         setLocation(defaultLocation);
+        sessionStorage.setItem('user-location', defaultLocation);
         localStorage.setItem('user-location', defaultLocation);
     }
     setIsOpen(false);
   };
   
-  // To avoid a flash of the dialog on page load, we only render it when we are sure it should be open
   if (!isOpen) {
       return null;
   }
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => {
-        // Don't allow closing without a decision if it was forced open
-        if (!localStorage.getItem('user-location')) {
-            if (!open) handleLater();
+        if (!open) {
+          handleLater();
         } else {
-            setIsOpen(open);
+          setIsOpen(open);
         }
     }}>
       <DialogContent className="sm:max-w-[425px] bg-amber-100/30 dark:bg-amber-950/30 backdrop-blur-sm">
