@@ -24,26 +24,30 @@ export default function LocationDialog() {
   useEffect(() => {
     // This effect runs once on the client when the component mounts.
     const savedLocation = localStorage.getItem('user-location');
-
-    if (savedLocation) {
-      // If a location is saved, pre-fill the input and the global state.
-      setInputValue(savedLocation);
-      setLocation(savedLocation);
+    if (!savedLocation) {
+        // Only open the dialog if no location is saved in localStorage.
+        setIsOpen(true);
+    } else {
+        // If location is already set, ensure global state is updated.
+        setLocation(savedLocation);
     }
-    
-    // Always open the dialog on app load.
-    setIsOpen(true);
   }, [setLocation]);
 
   const handleSave = () => {
     if (inputValue.trim()) {
-      setLocation(inputValue);
-      localStorage.setItem('user-location', inputValue);
+      setLocation(inputValue.trim());
+      localStorage.setItem('user-location', inputValue.trim());
       setIsOpen(false);
     }
   };
 
   const handleLater = () => {
+    // If user clicks later, we can set a default location to unblock the app
+    if (!location) {
+        const defaultLocation = "Delhi, India";
+        setLocation(defaultLocation);
+        localStorage.setItem('user-location', defaultLocation);
+    }
     setIsOpen(false);
   };
   

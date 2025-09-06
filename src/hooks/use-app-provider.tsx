@@ -20,7 +20,7 @@ const translations: Record<string, any> = {
 type AppContextType = {
   language: string;
   setLanguage: (language: string) => void;
-  t: (key: string, options?: { html?: boolean }) => string;
+  t: (key: string, options?: { [key: string]: string | number }) => string;
   location: string | null;
   setLocation: (location: string | null) => void;
 };
@@ -30,9 +30,10 @@ export const AppContext = createContext<AppContextType | undefined>(undefined);
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState('en');
   const [location, setLocationState] = useState<string | null>(null);
-  const [loadedTranslations, setLoadedTranslations] = useState(translations.en);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // This effect runs only once on the client when the component mounts.
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage && translations[savedLanguage]) {
       setLanguageState(savedLanguage);
@@ -40,13 +41,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     const savedLocation = localStorage.getItem('user-location');
     if (savedLocation) {
         setLocationState(savedLocation);
+    } else {
+        // If no location is saved, you might want to set a default or leave it null
+        // For now, we'll leave it null until the dialog is handled.
     }
+    setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    setLoadedTranslations(translations[language]);
-  }, [language]);
-  
   const setLanguage = (lang: string) => {
     if (translations[lang]) {
       setLanguageState(lang);
@@ -62,16 +63,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     setLocationState(loc);
     if (loc) {
         localStorage.setItem('user-location', loc);
+    } else {
+        localStorage.removeItem('user-location');
     }
   }
 
-  const t = useCallback((key: string, options?: { html: boolean }) => {
+  const t = useCallback((key: string, options?: { [key: string]: string | number }) => {
     const keys = key.split('.');
-    let result = loadedTranslations;
+    let result = translations[language];
     for (const k of keys) {
       result = result?.[k];
       if (result === undefined) {
-        // Fallback to English if key not found in current language
+        // Fallback to English if key not found
         let enResult = translations.en;
         for (const enK of keys) {
           enResult = enResult?.[enK];
@@ -79,15 +82,26 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
             return key; // Return key if not found in English either
           }
         }
-        return enResult;
+        result = enResult;
+        break; // Found in English, stop searching
       }
     }
-    return result || key;
-  }, [loadedTranslations]);
+    
+    let translatedString = result || key;
+
+    // Handle replacements for dynamic values like {name}
+    if (options && typeof translatedString === 'string') {
+        Object.keys(options).forEach(optionKey => {
+            translatedString = translatedString.replace(`{${optionKey}}`, String(options[optionKey]));
+        });
+    }
+
+    return translatedString;
+  }, [language]);
 
   return (
     <AppContext.Provider value={{ language, setLanguage, t, location, setLocation }}>
-      {children}
+      {isMounted ? children : null}
     </AppContext.Provider>
   );
 };

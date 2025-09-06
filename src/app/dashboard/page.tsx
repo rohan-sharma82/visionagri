@@ -234,22 +234,26 @@ export default function DashboardPage() {
 
   // Effect for fetching weather data
   useEffect(() => {
-    const fetchWeatherData = async () => {
-      setLoadingWeather(true);
-      const locationToFetch = globalLocation || 'Delhi, India';
-      try {
-          const weatherResult = await getDashboardWeather({ location: locationToFetch });
-          setWeatherData(weatherResult);
-      } catch (error) {
-          console.error("Failed to fetch weather data:", error);
-          setWeatherData(null);
-          toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
-      } finally {
-          setLoadingWeather(false);
-      }
-    };
-    
-    fetchWeatherData();
+    if (globalLocation !== null) { // Only run if location is set
+        const fetchWeatherData = async () => {
+          setLoadingWeather(true);
+          const locationToFetch = globalLocation || 'Delhi, India';
+          try {
+              const weatherResult = await getDashboardWeather({ location: locationToFetch });
+              setWeatherData(weatherResult);
+          } catch (error) {
+              console.error("Failed to fetch weather data:", error);
+              setWeatherData(null);
+              toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
+          } finally {
+              setLoadingWeather(false);
+          }
+        };
+        fetchWeatherData();
+    } else {
+        // If location is still null, keep loading state active
+        setLoadingWeather(true);
+    }
   }, [globalLocation, toast]);
 
 
