@@ -440,9 +440,9 @@ export default function CropYieldPage() {
                 </Card>
 
                  {prediction.contingencyPlan && (
-                    <Card className="shadow-xl bg-destructive/10 border-destructive">
+                    <Card className="shadow-xl bg-destructive/5 border-destructive/50">
                         <CardHeader>
-                            <CardTitle className="text-xl text-destructive-foreground flex items-center gap-2">
+                            <CardTitle className="text-xl text-destructive flex items-center gap-2">
                                 <ShieldAlert />
                                 Contingency Plan
                             </CardTitle>
@@ -453,7 +453,7 @@ export default function CropYieldPage() {
                                     <CloudRain className="h-5 w-5 mt-1 text-blue-500" />
                                     <div>
                                         <h4 className="font-semibold">Heavy Rain / Waterlogging</h4>
-                                        <p className="text-sm text-muted-foreground whitespace-pre-wrap">{prediction.contingencyPlan.heavyRain}</p>
+                                        <p className="text-sm text-foreground whitespace-pre-wrap">{prediction.contingencyPlan.heavyRain}</p>
                                     </div>
                                 </div>
                             )}
@@ -462,7 +462,7 @@ export default function CropYieldPage() {
                                     <Sun className="h-5 w-5 mt-1 text-orange-500" />
                                     <div>
                                         <h4 className="font-semibold">Drought / Heatwave</h4>
-                                        <p className="text-sm text-muted-foreground whitespace-pre-wrap">{prediction.contingencyPlan.droughtOrHeatwave}</p>
+                                        <p className="text-sm text-foreground whitespace-pre-wrap">{prediction.contingencyPlan.droughtOrHeatwave}</p>
                                     </div>
                                 </div>
                             )}
