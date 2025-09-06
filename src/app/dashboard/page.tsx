@@ -174,9 +174,7 @@ export default function DashboardPage() {
   const [profile, setProfile] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [loadingUser, setLoadingUser] = useState(true);
-  const [loadingWeather, setLoadingWeather] = useState(true);
-  const [isMarketLoading, setIsMarketLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Mock user data - in a real app, this would come from your database
   const userData = {
@@ -192,29 +190,29 @@ export default function DashboardPage() {
   };
 
   const handleFetchMarketData = useCallback(async () => {
-    setIsMarketLoading(true);
+    setMarketData(null);
+    setIsLoading(true);
     try {
         const result = await getMarketPriceAnalysis({ crop: userData.primaryCrop });
         setMarketData(result);
     } catch(error) {
         console.error("Failed to fetch market data:", error);
-        setMarketData(null);
         toast({
             variant: 'destructive',
             title: t('dashboard.market.errorTitle'),
             description: t('dashboard.market.errorDescription')
         })
     } finally {
-        setIsMarketLoading(false);
+        setIsLoading(false);
     }
   }, [userData.primaryCrop, toast, t]);
 
-  // Effect for fetching user and profile
   useEffect(() => {
-    const fetchUserAndProfile = async () => {
-        setLoadingUser(true);
+    const fetchAllData = async () => {
+        setIsLoading(true);
+        
+        // 1. Fetch User and Profile
         const { data: { user } } = await supabase.auth.getUser();
-
         if (user) {
             setUser(user);
             const { data: profileData } = await supabase
@@ -225,36 +223,32 @@ export default function DashboardPage() {
             if (profileData) {
                 setProfile(profileData);
             }
+        } else {
+            // No user, can't proceed
+            setIsLoading(false);
+            return;
         }
-        setLoadingUser(false);
+
+        // 2. Fetch Weather Data (only if location is available)
+        if (globalLocation) {
+             try {
+                const weatherResult = await getDashboardWeather({ location: globalLocation });
+                setWeatherData(weatherResult);
+            } catch (error) {
+                console.error("Failed to fetch weather data:", error);
+                setWeatherData(null); // Set to null on error
+                toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
+            }
+        }
+
+        // 3. Initial Market Data Fetch
+        await handleFetchMarketData();
+        
+        setIsLoading(false);
     };
 
-    fetchUserAndProfile();
-  }, []);
-
-  // Effect for fetching weather data
-  useEffect(() => {
-    if (globalLocation !== null) { // Only run if location is set
-        const fetchWeatherData = async () => {
-          setLoadingWeather(true);
-          const locationToFetch = globalLocation || 'Delhi, India';
-          try {
-              const weatherResult = await getDashboardWeather({ location: locationToFetch });
-              setWeatherData(weatherResult);
-          } catch (error) {
-              console.error("Failed to fetch weather data:", error);
-              setWeatherData(null);
-              toast({ variant: 'destructive', title: 'Error', description: 'Could not load weather data.' });
-          } finally {
-              setLoadingWeather(false);
-          }
-        };
-        fetchWeatherData();
-    } else {
-        // If location is still null, keep loading state active
-        setLoadingWeather(true);
-    }
-  }, [globalLocation, toast]);
+    fetchAllData();
+  }, [globalLocation, toast, handleFetchMarketData]);
 
 
   const getDisplayName = () => {
@@ -266,11 +260,10 @@ export default function DashboardPage() {
 
   const handleLogout = async () => {
     await logout();
-    // The middleware will handle the redirect after logout.
     router.push('/');
   };
 
-  if (loadingUser) {
+  if (isLoading && !weatherData) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -300,7 +293,7 @@ export default function DashboardPage() {
             )}
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-                <WeatherCard weatherData={weatherData} isLoading={loadingWeather} />
+                <WeatherCard weatherData={weatherData} isLoading={isLoading && !weatherData} />
                 
                 <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                     <CardHeader>
@@ -308,7 +301,7 @@ export default function DashboardPage() {
                         <CardDescription>{t('dashboard.market.description')}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {isMarketLoading ? (
+                        {isLoading && !marketData ? (
                             <div className="flex justify-center items-center h-[250px]">
                                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
                             </div>
@@ -398,3 +391,5 @@ export default function DashboardPage() {
     </>
   );
 }
+
+    
