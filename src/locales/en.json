@@ -410,47 +410,47 @@
         "ok": "OK",
         "later": "Later"
     },
-    "dashboard": {
-        "login": {
-            "title": "Login to your Dashboard",
-            "description": "Log in to view your personalized farm dashboard.",
-            "error": "Invalid email or password.",
-            "button": "Login",
-            "prism": {
-                "nav": {
-                    "login": "Login",
-                    "signup": "Sign up",
-                    "forgotPassword": "Forgot password",
-                    "subscribe": "Subscribe",
-                    "contactUs": "Contact us"
-                },
-                "signIn": "Sign in",
-                "email": "e-mail",
-                "username": "username",
-                "password": "password",
-                "forgotLink": "Forgot Password?",
-                "signupLink": "Not a user? Sign up",
-                "subscribeTitle": "Subscribe",
-                "subscribeDescription": "Enter your email so we can send you the latest updates!",
-                "forgotTitle": "Forgot your password?",
-                "forgotDescription": "Enter your email so we can send you a reset link for your password",
-                "signUp": "Sign up",
-                "reenterPassword": "re-enter password",
-                "signInLink": "Already a user? Sign in",
-                "contactTitle": "Contact us",
-                "name": "Name",
-                "message": "your message",
-                "thankYou": "Thank you!"
+    "login": {
+        "back": "Back",
+        "createAccount": "Create Account",
+        "signIn": "Sign In",
+        "fullName": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "forgotPassword": "Forgot your password?",
+        "buttons": {
+            "signin": "Sign In",
+            "signup": "Sign Up"
+        },
+        "welcomeBack": "Welcome Back!",
+        "leftPanelDescription": "To keep connected with us please login with your personal info",
+        "helloFriend": "Hello, Friend!",
+        "rightPanelDescription": "Enter your personal details and start journey with us",
+        "error": {
+            "title": "Authentication Error",
+            "invalidCredentials": "The email or password you entered is incorrect. Please try again.",
+            "signupFailed": "Could not sign up user. This email may already be in use.",
+            "profileCreation": "Failed to create user profile. Please contact support."
+        },
+        "judgeInfo": {
+            "title": "For SIH Judges & Testers",
+            "description": "Use these dummy credentials to explore the personalized dashboard views.",
+            "user1": {
+                "label": "User 1",
+                "value": "user1@agrivision.ai | pass: bitbusters"
             },
-            "judgeInfo": {
-                "title": "For SIH Judges & Testers",
-                "description": "Use these dummy credentials to explore the personalized dashboard views."
+            "user2": {
+                "label": "User 2",
+                "value": "user2@agrivision.ai | pass: sihwinners"
+            },
+            "user3": {
+                "label": "User 3",
+                "value": "user3@agrivision.ai | pass: bitbust"
             }
-        },
-        "selectProfile": {
-            "title": "Select a Demo Profile",
-            "description": "Choose a user profile to see a personalized dashboard demonstration."
-        },
+        }
+    },
+    "dashboard": {
+        "defaultName": "Farmer",
         "welcome": "Welcome back, {name}!",
         "subtitle": "A personalized hub with weather forecasts, market analysis, and recommended schemes for your farm.",
         "logout": "Logout",
@@ -489,7 +489,6 @@
             "moon": "Moon Phase",
             "forecast": "3-Day Forecast",
             "today": "Today",
-            "loading": "Fetching live weather data for your farm...",
             "error": "Could not load weather data. Please try again later.",
             "aqiLabels": {
                 "good": "Good",
@@ -501,16 +500,11 @@
                 "unknown": "Unknown"
             }
         },
-        "weatherNews": {
-            "title": "Weather News",
-            "description": "Latest news and updates related to weather affecting agriculture.",
-            "noNews": "No recent weather news available."
-        },
         "market": {
             "title": "Market Price Analysis for {crop}",
             "description": "Track historical prices and get an AI-powered forecast.",
-            "loading": "Analyzing market data...",
-            "error": "Could not load market data. Please try again later.",
+            "errorTitle": "Market Data Error",
+            "errorDescription": "Could not load market data. Please try again later.",
             "analysis": "AI Trend Analysis",
             "forecast": "AI Forecast",
             "initial_prompt": "Get a real-time AI analysis of the market for your primary crop.",
@@ -652,7 +646,7 @@
         },
         "results": {
             "title": "AI Prediction Results",
-            "predictedYield": "Predicted Yield (per unit)",
+            "predictedYield": "Total Predicted Yield",
             "confidence": "Confidence",
             "analysis": "AI Analysis",
             "factors": "Influencing Factors",

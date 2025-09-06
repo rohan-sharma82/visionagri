@@ -17,7 +17,7 @@ function SubmitButton({ isSignUp }: { isSignUp: boolean }) {
     const { t } = useTranslation();
     const { pending } = useFormStatus();
     return (
-        <Button type="submit" disabled={pending} className="mt-4">
+        <Button type="submit" disabled={pending}>
             {pending ? <Loader2 className="animate-spin" /> : (isSignUp ? t('login.buttons.signup') : t('login.buttons.signin'))}
         </Button>
     );
@@ -77,14 +77,14 @@ export default function LoginPage() {
             <div className="overlay-panel overlay-left">
               <h1 className="text-2xl font-bold">{t('login.welcomeBack')}</h1>
               <p className="text-sm mt-2">{t('login.leftPanelDescription')}</p>
-              <Button className="ghost" id="signIn" onClick={() => { setIsSignUp(false); }}>
+              <Button className="ghost mt-4" id="signIn" onClick={() => { setIsSignUp(false); }}>
                 {t('login.buttons.signin')}
               </Button>
             </div>
             <div className="overlay-panel overlay-right">
               <h1 className="text-2xl font-bold">{t('login.helloFriend')}</h1>
               <p className="text-sm mt-2">{t('login.rightPanelDescription')}</p>
-              <Button className="ghost" id="signUp" onClick={() => { setIsSignUp(true); }}>
+              <Button className="ghost mt-4" id="signUp" onClick={() => { setIsSignUp(true); }}>
                 {t('login.buttons.signup')}
               </Button>
             </div>
