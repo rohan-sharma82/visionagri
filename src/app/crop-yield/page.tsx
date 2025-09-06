@@ -23,7 +23,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Loader2, TrendingUp, Zap, Wind, Info, Wheat, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Loader2, TrendingUp, Zap, Wind, Info, Wheat, CheckCircle, AlertTriangle, ShieldAlert, Sun, CloudRain } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import AreaInfoDialog from '@/components/area-info-dialog';
 import RotatingText from '@/components/ui/rotating-text';
@@ -354,7 +354,7 @@ export default function CropYieldPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="w-full"
+                className="w-full space-y-6"
                 >
                 <Card className="shadow-xl" style={{ backgroundColor: '#D8CB76' }}>
                     <CardHeader>
@@ -438,6 +438,38 @@ export default function CropYieldPage() {
                     </div>
                     </CardContent>
                 </Card>
+
+                 {prediction.contingencyPlan && (
+                    <Card className="shadow-xl bg-destructive/10 border-destructive">
+                        <CardHeader>
+                            <CardTitle className="text-xl text-destructive-foreground flex items-center gap-2">
+                                <ShieldAlert />
+                                Contingency Plan
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            {prediction.contingencyPlan.heavyRain && (
+                                <div className="flex items-start gap-3">
+                                    <CloudRain className="h-5 w-5 mt-1 text-blue-500" />
+                                    <div>
+                                        <h4 className="font-semibold">Heavy Rain / Waterlogging</h4>
+                                        <p className="text-sm text-muted-foreground whitespace-pre-wrap">{prediction.contingencyPlan.heavyRain}</p>
+                                    </div>
+                                </div>
+                            )}
+                            {prediction.contingencyPlan.droughtOrHeatwave && (
+                                <div className="flex items-start gap-3">
+                                    <Sun className="h-5 w-5 mt-1 text-orange-500" />
+                                    <div>
+                                        <h4 className="font-semibold">Drought / Heatwave</h4>
+                                        <p className="text-sm text-muted-foreground whitespace-pre-wrap">{prediction.contingencyPlan.droughtOrHeatwave}</p>
+                                    </div>
+                                </div>
+                            )}
+                        </CardContent>
+                    </Card>
+                 )}
+
                 </motion.div>
             )}
             {!isLoading && !prediction && (
