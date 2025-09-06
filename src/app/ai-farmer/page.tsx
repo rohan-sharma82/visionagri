@@ -32,6 +32,7 @@ import {
 import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { getChatHistory, saveChatHistory, clearChatHistory } from './actions';
 import { createClient } from '@supabase/supabase-js';
+import JumpingDotsLoader from '@/components/ui/jumping-dots-loader';
 
 
 const formSchema = z.object({
@@ -221,7 +222,6 @@ export default function AiFarmerPage() {
     setMessages(prev => [...prev, userMessage]);
     
     setIsLoading(true);
-    setIsTyping(true);
     setLoadingMessage(loadingMessages[Math.floor(Math.random() * loadingMessages.length)]);
     form.reset();
 
@@ -249,6 +249,8 @@ export default function AiFarmerPage() {
       }
   
       if (controller.signal.aborted) return;
+      
+      setIsTyping(true);
 
       const assistantMessage: Message = {
         role: 'assistant',
@@ -435,7 +437,7 @@ export default function AiFarmerPage() {
                     </Avatar>
                 </motion.div>
               )})}
-              {isLoading && !isTyping && (
+              {isLoading && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -448,7 +450,8 @@ export default function AiFarmerPage() {
                     </AvatarFallback>
                   </Avatar>
                   <div className="bg-muted rounded-lg px-4 py-3 flex items-center">
-                    <p className='text-sm text-muted-foreground'>{loadingMessage}</p>
+                    <JumpingDotsLoader />
+                    <p className='text-sm text-muted-foreground ml-2'>{loadingMessage}</p>
                   </div>
                 </motion.div>
               )}
