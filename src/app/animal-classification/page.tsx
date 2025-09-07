@@ -160,7 +160,7 @@ export default function AnimalClassificationPage() {
               transition={{ duration: 0.5 }}
               className="w-full"
             >
-              <Card className="shadow-xl bg-[#80392A] text-white">
+              <Card className="shadow-xl bg-[#80392A]/80 text-white">
                 <CardHeader>
                   <CardTitle className="text-2xl">{t('animalClassification.reportCard.title')}</CardTitle>
                 </CardHeader>
