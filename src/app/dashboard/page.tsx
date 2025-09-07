@@ -1,7 +1,6 @@
 
 'use client';
 import { useState, useEffect, useCallback } from 'react';
-import { createClient } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation';
 import { useTranslation } from '@/hooks/use-translation';
 import {
@@ -29,22 +28,11 @@ import { useLocation } from '@/hooks/use-translation';
 import Image from 'next/image';
 import MarketPriceChart from '@/components/market-price-chart';
 import { Skeleton } from '@/components/ui/skeleton';
-import { logout } from '@/app/auth/actions';
-import type { User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
 import WeatherAlerts from '@/components/weather-alerts';
 import { useApp } from '@/hooks/use-app-provider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { categorizedCropOptions } from '@/lib/constants';
-
-const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-if (!supabase_url || !supabase_anon_key) {
-    throw new Error("Supabase URL or anon key is not defined");
-}
-
-const supabase = createClient(supabase_url, supabase_anon_key);
 
 
 const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
@@ -175,14 +163,12 @@ export default function DashboardPage() {
   const { t } = useTranslation();
   const { location: globalLocation } = useLocation();
   const { setLocationDialogOpen } = useApp();
-  const router = useRouter();
   const { toast } = useToast();
-  const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
   const [isWeatherLoading, setIsWeatherLoading] = useState(true);
   const [isMarketLoading, setIsMarketLoading] = useState(true);
+  const [isDataLoading, setIsDataLoading] = useState(true);
   const [selectedCrop, setSelectedCrop] = useState('Wheat');
 
   const userData = {
@@ -197,23 +183,11 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    const fetchUserAndProfile = async () => {
-        const { data: { user: currentUser } } = await supabase.auth.getUser();
-        if (currentUser) {
-            setUser(currentUser);
-            const { data: profileData } = await supabase.from('profiles').select('full_name').eq('id', currentUser.id).single();
-            if (profileData) setProfile(profileData);
-        }
-    };
-    fetchUserAndProfile();
-  }, []);
-  
-  useEffect(() => {
-    if (!globalLocation) {
-      setIsWeatherLoading(true);
-      return;
-    }
     const fetchWeather = async () => {
+      if (!globalLocation) {
+        setIsWeatherLoading(true);
+        return;
+      }
       setIsWeatherLoading(true);
       try {
         const weatherResult = await getDashboardWeather({ location: globalLocation });
@@ -244,22 +218,13 @@ export default function DashboardPage() {
     };
     fetchMarketData();
   }, [selectedCrop, toast]);
-
-
-  const getDisplayName = () => {
-      if (profile?.full_name) return profile.full_name;
-      if (user?.email) return user.email.split('@')[0];
-      return t('dashboard.defaultName');
-  }
-
-  const handleLogout = async () => {
-    await logout();
-    router.push('/');
-  };
+  
+  useEffect(() => {
+    setIsDataLoading(isWeatherLoading || isMarketLoading);
+  }, [isWeatherLoading, isMarketLoading]);
 
   const allCrops = categorizedCropOptions.flatMap(category => category.options);
-
-  if (isWeatherLoading && isMarketLoading) {
+  if (isDataLoading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -268,7 +233,7 @@ export default function DashboardPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            {t('dashboard.welcome', { name: getDisplayName() })}
+            {t('dashboard.welcome', { name: t('dashboard.defaultName') })}
           </h1>
           <p className="mt-2 text-lg text-muted-foreground max-w-2xl">
             {t('dashboard.subtitle')}
@@ -276,11 +241,6 @@ export default function DashboardPage() {
            <p className="mt-2 text-base font-semibold text-primary">
              {t('kisanCallCenter')}
           </p>
-          <form action={handleLogout}>
-             <Button type="submit" className="logout-button">
-                <p>{t('dashboard.logout')}</p>
-            </Button>
-          </form>
         </div>
         
         <div className="space-y-8">

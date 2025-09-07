@@ -70,5 +70,6 @@ export async function clearChatHistory(userId: string): Promise<void> {
         `);
     } catch (error) {
         console.error('Error clearing chat history:', error);
+        throw error;
     }
 }

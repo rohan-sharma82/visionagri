@@ -279,9 +279,19 @@ export default function AiFarmerPage() {
   }
 
   const handleClearChat = async () => {
-    if (!userId) return;
-    await clearChatHistory(userId);
+    // Clear the chat from the local state immediately for all users.
     setMessages([]);
+    
+    // If the user is logged in, also clear it from the database.
+    if (userId) {
+      try {
+        await clearChatHistory(userId);
+      } catch (error) {
+        console.error("Failed to clear chat history from DB:", error);
+        // Optionally, inform the user that clearing from DB failed but local chat is cleared.
+      }
+    }
+
     toast({
       title: t('aiFarmer.toast.chatCleared.title'),
       description: t('aiFarmer.toast.chatCleared.description'),
