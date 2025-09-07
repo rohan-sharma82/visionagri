@@ -23,7 +23,8 @@ export type ClassifyCropDiseaseInput = z.infer<typeof ClassifyCropDiseaseInputSc
 const ClassifyCropDiseaseOutputSchema = z.object({
   disease: z.string().describe('The identified disease of the crop, or "healthy" if no disease is detected.'),
   confidence: z.number().describe('The confidence level of the disease classification, between 0 and 1.'),
-  additionalDetails: z.string().optional().describe('Any additional details or recommendations regarding the identified disease.'),
+  description: z.string().optional().describe('A brief description of the identified disease.'),
+  recommendations: z.array(z.string()).optional().describe('A list of actionable recommendations or treatment suggestions for the identified disease.'),
 });
 export type ClassifyCropDiseaseOutput = z.infer<typeof ClassifyCropDiseaseOutputSchema>;
 
@@ -35,7 +36,11 @@ const prompt = ai.definePrompt({
   name: 'classifyCropDiseasePrompt',
   input: {schema: ClassifyCropDiseaseInputSchema},
   output: {schema: ClassifyCropDiseaseOutputSchema},
-  prompt: `You are an expert in identifying crop diseases from images. Analyze the provided image and identify any diseases present. If no disease is detected, respond with \"healthy\".  Include a confidence level between 0 and 1 for your classification. Provide additional details or recommendations if possible.
+  prompt: `You are an expert in identifying crop diseases from images. Analyze the provided image and perform the following tasks:
+1.  Identify the disease present. If no disease is detected, respond with "healthy" for the 'disease' field.
+2.  Provide a confidence level between 0 and 1 for your classification.
+3.  Write a brief 'description' of the disease.
+4.  Provide a list of actionable 'recommendations' for treatment or prevention. Format this as an array of strings.
 
 Image: {{media url=photoDataUri}}
 `,

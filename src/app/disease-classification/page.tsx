@@ -15,11 +15,12 @@ import {
   CardTitle,
   CardFooter,
 } from '@/components/ui/card';
-import { Loader2, HeartPulse, CheckCircle, AlertTriangle, Upload, BarChart } from 'lucide-react';
+import { Loader2, HeartPulse, CheckCircle, AlertTriangle, Upload, BarChart, Info, FlaskConical } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Image from 'next/image';
 import { Progress } from '@/components/ui/progress';
 import { useTranslation } from '@/hooks/use-translation';
+import { Separator } from '@/components/ui/separator';
 
 export default function DiseaseClassificationPage() {
   const { t } = useTranslation();
@@ -153,34 +154,53 @@ export default function DiseaseClassificationPage() {
               transition={{ duration: 0.5 }}
               className="w-full"
             >
-              <Card className="shadow-xl" style={{ backgroundColor: '#6096D3' }}>
+              <Card className="shadow-xl bg-gradient-to-br from-card to-secondary/20">
                 <CardHeader>
-                  <CardTitle className="text-2xl" style={{ color: 'white' }}>{t('diseaseClassification.reportCard.title')}</CardTitle>
+                  <CardTitle className="text-2xl text-foreground">{t('diseaseClassification.reportCard.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
                     {getDiseaseIcon(result.disease)}
                     <div>
-                      <h3 className="font-semibold" style={{ color: '#A42D2D' }}>{t('diseaseClassification.reportCard.diagnosis')}</h3>
-                      <p className="text-2xl font-bold capitalize" style={{ color: '#A42D2D' }}>{result.disease}</p>
+                      <h3 className="font-semibold text-primary">{t('diseaseClassification.reportCard.diagnosis')}</h3>
+                      <p className="text-2xl font-bold capitalize text-foreground">{result.disease}</p>
                     </div>
                   </div>
                   
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
                        <BarChart className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold" style={{ color: 'black' }}>{t('diseaseClassification.reportCard.confidence')}</h3>
+                       <h3 className="font-semibold text-foreground">{t('diseaseClassification.reportCard.confidence')}</h3>
                     </div>
                     <Progress value={result.confidence * 100} className="w-full h-3" />
-                    <p className="text-right text-sm mt-1" style={{ color: 'black' }}>
+                    <p className="text-right text-sm mt-1 text-muted-foreground">
                       {(result.confidence * 100).toFixed(2)}%
                     </p>
                   </div>
                   
-                  {result.additionalDetails && (
-                    <div>
-                      <h3 className="font-semibold mb-1" style={{ color: 'black' }}>{t('diseaseClassification.reportCard.details')}</h3>
-                      <p className="text-black">{result.additionalDetails}</p>
+                  <Separator />
+
+                  {result.description && (
+                    <div className="flex items-start space-x-4">
+                      <Info className="h-5 w-5 mt-1 flex-shrink-0 text-primary" />
+                      <div>
+                        <h3 className="font-semibold text-primary">{t('diseaseClassification.reportCard.description')}</h3>
+                        <p className="text-foreground">{result.description}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {result.recommendations && result.recommendations.length > 0 && (
+                     <div className="flex items-start space-x-4">
+                       <FlaskConical className="h-5 w-5 mt-1 flex-shrink-0 text-primary" />
+                       <div>
+                         <h3 className="font-semibold text-primary mb-1">{t('diseaseClassification.reportCard.recommendations')}</h3>
+                         <ul className="list-disc pl-5 text-foreground space-y-1">
+                           {result.recommendations.map((rec, index) => (
+                             <li key={index}>{rec}</li>
+                           ))}
+                         </ul>
+                       </div>
                     </div>
                   )}
                 </CardContent>
