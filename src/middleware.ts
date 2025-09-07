@@ -61,7 +61,7 @@ export async function middleware(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
 
-  const protectedRoutes = ['/dashboard', '/ai-farmer', '/crop-yield', '/disease-classification', '/animal-classification'];
+  const protectedRoutes = ['/dashboard'];
 
   // If user is not signed in and trying to access a protected route, redirect to login
   if (!session && protectedRoutes.some(route => pathname.startsWith(route))) {
