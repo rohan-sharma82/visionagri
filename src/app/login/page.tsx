@@ -1,7 +1,7 @@
 
 'use client';
-import { useState } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useState, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { login, signup } from '@/app/auth/actions';
 import { useTranslation } from '@/hooks/use-translation';
 import { cn } from '@/lib/utils';
@@ -26,8 +26,8 @@ export default function LoginPage() {
   const { t } = useTranslation();
   const [isActive, setIsActive] = useState(false);
   
-  const [loginState, loginAction] = useFormState(login, { success: true, message: '' });
-  const [signupState, signupAction] = useFormState(signup, { success: true, message: '' });
+  const [loginState, loginAction] = useActionState(login, { success: true, message: '' });
+  const [signupState, signupAction] = useActionState(signup, { success: true, message: '' });
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-transparent p-4">
