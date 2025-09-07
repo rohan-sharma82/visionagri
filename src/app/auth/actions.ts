@@ -4,8 +4,6 @@
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { db } from '@/lib/db';
-import { profiles } from '@/lib/schema';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 
 export async function login(prevState: any, formData: FormData) {
@@ -69,10 +67,13 @@ export async function signup(prevState: any, formData: FormData) {
   const fullName = formData.get('full_name') as string;
 
   // Sign up the user
-  const { data, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
+      data: {
+        full_name: fullName,
+      },
       // In a real app, you'd want email verification.
       // For this hackathon, we disable it to make testing easier.
       // The user is logged in immediately after signing up.
@@ -81,22 +82,6 @@ export async function signup(prevState: any, formData: FormData) {
 
   if (error) {
      return { success: false, message: 'login.error.signupFailed' };
-  }
-
-  if (data.user) {
-    // Create a corresponding profile in the public.profiles table
-    try {
-      await db.insert(profiles).values({
-        id: data.user.id,
-        email: data.user.email,
-        full_name: fullName,
-      });
-    } catch (dbError) {
-      console.error('Error creating profile:', dbError);
-      // Optional: handle profile creation error, e.g., by deleting the auth user
-      // For now, we'll just log it. The user will exist in auth but not have a profile.
-      return { success: false, message: 'login.error.profileCreation' };
-    }
   }
 
   revalidatePath('/', 'layout');
