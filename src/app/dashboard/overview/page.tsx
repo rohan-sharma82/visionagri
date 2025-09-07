@@ -72,7 +72,7 @@ const WeatherCard = ({ weatherData, isLoading, onRetry }: { weatherData: Dashboa
             <CardContent className="p-6 text-center text-destructive flex flex-col items-center justify-center gap-4">
                 <AlertTriangle className="mx-auto h-8 w-8" />
                 <p>{t('dashboard.weather.error')}</p>
-                <Button onClick={onRetry} variant="destructive">
+                <Button type="button" onClick={onRetry} variant="destructive">
                     {t('dashboard.weather.retryButton')}
                 </Button>
             </CardContent>
@@ -308,7 +308,7 @@ export default function DashboardPage() {
                             <div className="flex flex-col items-center justify-center h-[250px] text-center text-destructive">
                                 <AlertTriangle className="h-8 w-8 mb-2" />
                                 <p className="mb-4">{t('dashboard.market.errorDescription')}</p>
-                                <Button onClick={() => getMarketPriceAnalysis({ crop: selectedCrop }).then(setMarketData)}>
+                                <Button type="button" onClick={() => getMarketPriceAnalysis({ crop: selectedCrop }).then(setMarketData)}>
                                     <TrendingUp className="mr-2 h-4 w-4" />
                                     {t('dashboard.market.button')}
                                 </Button>
@@ -372,12 +372,12 @@ export default function DashboardPage() {
                                                         className="h-8 w-24"
                                                         placeholder="e.g. 45"
                                                     />
-                                                    <Button size="sm" onClick={() => handleUpdateYield(entry.id)}>Save</Button>
+                                                    <Button type="button" size="sm" onClick={() => handleUpdateYield(entry.id)}>Save</Button>
                                                 </div>
                                             ) : entry.actualYield ? (
                                                 entry.actualYield
                                             ) : (
-                                                <Button variant="outline" size="sm" onClick={() => setEditingYieldId(entry.id)}>
+                                                <Button type="button" variant="outline" size="sm" onClick={() => setEditingYieldId(entry.id)}>
                                                     {t('dashboard.yieldHistory.table.action')}
                                                 </Button>
                                             )}
@@ -390,7 +390,7 @@ export default function DashboardPage() {
                     </CardContent>
                     <CardFooter>
                        <Link href="/crop-yield">
-                            <Button>
+                            <Button type="button">
                                 <PlusCircle className="mr-2 h-4 w-4" />
                                 {t('dashboard.yieldHistory.button')}
                             </Button>
@@ -417,7 +417,7 @@ export default function DashboardPage() {
                     </CardContent>
                     <CardFooter>
                         <Link href="/ai-farmer">
-                            <Button>
+                            <Button type="button">
                                 <MessageSquare className="mr-2 h-4 w-4" />
                                 {t('dashboard.chatHistory.button')}
                             </Button>
