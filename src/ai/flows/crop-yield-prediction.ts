@@ -118,7 +118,10 @@ const predictCropYieldFlow = ai.defineFlow(
   async (input) => {
     try {
         const {output} = await prompt(input);
-        return output!;
+        if (!output) {
+          throw new Error("No output from model.");
+        }
+        return output;
     } catch (error) {
         console.error("Error in predictCropYieldFlow:", error);
         // Return a fallback response in case of an API error (like 503)
