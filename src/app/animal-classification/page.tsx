@@ -146,7 +146,7 @@ export default function AnimalClassificationPage() {
         </div>
 
 
-        <div className="flex flex-col items-center justify-center w-full max-w-lg min-h-[400px] gap-4">
+        <div className="flex flex-col items-center justify-center w-full max-w-2xl min-h-[400px] gap-4">
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
