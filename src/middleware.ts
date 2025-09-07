@@ -2,10 +2,10 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-export async function middleware(req: NextRequest) {
+export async function middleware(request: NextRequest) {
   let response = NextResponse.next({
     request: {
-      headers: req.headers,
+      headers: request.headers,
     },
   })
 
@@ -15,17 +15,17 @@ export async function middleware(req: NextRequest) {
     {
       cookies: {
         get(name: string) {
-          return req.cookies.get(name)?.value
+          return request.cookies.get(name)?.value
         },
         set(name: string, value: string, options: CookieOptions) {
-          req.cookies.set({
+          request.cookies.set({
             name,
             value,
             ...options,
           })
           response = NextResponse.next({
             request: {
-              headers: req.headers,
+              headers: request.headers,
             },
           })
           response.cookies.set({
@@ -35,14 +35,14 @@ export async function middleware(req: NextRequest) {
           })
         },
         remove(name: string, options: CookieOptions) {
-          req.cookies.set({
+          request.cookies.set({
             name,
             value: '',
             ...options,
           })
           response = NextResponse.next({
             request: {
-              headers: req.headers,
+              headers: request.headers,
             },
           })
           response.cookies.set({
@@ -55,24 +55,16 @@ export async function middleware(req: NextRequest) {
     }
   )
 
+  // refreshing the session cookie
+  await supabase.auth.getSession()
+
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
-  const { pathname } = req.nextUrl;
-
-  const protectedRoutes = ['/dashboard'];
-
-  // If user is not signed in and trying to access a protected route, redirect to login
-  if (!session && protectedRoutes.some(route => pathname.startsWith(route))) {
-    const redirectUrl = req.nextUrl.clone();
-    redirectUrl.pathname = '/login'; // Assuming your login page is at /login
-    return NextResponse.redirect(redirectUrl);
-  }
-  
   // if user is signed in and tries to access the login page, redirect them to the dashboard
-  if (session && pathname === '/login') {
-      const redirectUrl = req.nextUrl.clone();
+  if (session && request.nextUrl.pathname.startsWith('/login')) {
+      const redirectUrl = request.nextUrl.clone();
       redirectUrl.pathname = '/dashboard';
       return NextResponse.redirect(redirectUrl);
   }
@@ -91,4 +83,4 @@ export const config = {
      */
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
-};
+}
