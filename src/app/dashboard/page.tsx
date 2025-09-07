@@ -34,6 +34,8 @@ import type { User } from '@supabase/supabase-js';
 import { useToast } from '@/hooks/use-toast';
 import WeatherAlerts from '@/components/weather-alerts';
 import { useApp } from '@/hooks/use-app-provider';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { categorizedCropOptions } from '@/lib/constants';
 
 const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -179,10 +181,11 @@ export default function DashboardPage() {
   const [profile, setProfile] = useState<any>(null);
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
-  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [isWeatherLoading, setIsWeatherLoading] = useState(true);
+  const [isMarketLoading, setIsMarketLoading] = useState(true);
+  const [selectedCrop, setSelectedCrop] = useState('Wheat');
 
   const userData = {
-    primaryCrop: 'Wheat',
     yieldHistory: [
         { date: '4 August 2025', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
         { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
@@ -206,34 +209,41 @@ export default function DashboardPage() {
   }, []);
   
   useEffect(() => {
-    const fetchDashboardData = async () => {
-      if (!globalLocation) {
-        setIsDataLoading(true); 
-        return;
-      }
-
-      setIsDataLoading(true);
+    if (!globalLocation) {
+      setIsWeatherLoading(true);
+      return;
+    }
+    const fetchWeather = async () => {
+      setIsWeatherLoading(true);
       try {
-        const [weatherResult, marketResult] = await Promise.all([
-          getDashboardWeather({ location: globalLocation }),
-          getMarketPriceAnalysis({ crop: userData.primaryCrop })
-        ]);
-
+        const weatherResult = await getDashboardWeather({ location: globalLocation });
         setWeatherData(weatherResult);
-        setMarketData(marketResult);
-
       } catch (error) {
-        console.error("Dashboard data fetching failed:", error);
-        toast({ variant: 'destructive', title: "Error", description: "Failed to fetch dashboard data." });
+        console.error("Weather data fetching failed:", error);
         setWeatherData(null);
-        setMarketData(null);
       } finally {
-        setIsDataLoading(false);
+        setIsWeatherLoading(false);
       }
     };
+    fetchWeather();
+  }, [globalLocation]);
 
-    fetchDashboardData();
-  }, [globalLocation, toast, userData.primaryCrop]);
+  useEffect(() => {
+    const fetchMarketData = async () => {
+      setIsMarketLoading(true);
+      try {
+        const marketResult = await getMarketPriceAnalysis({ crop: selectedCrop });
+        setMarketData(marketResult);
+      } catch (error) {
+        console.error("Market data fetching failed:", error);
+        toast({ variant: 'destructive', title: "Error", description: "Failed to fetch market data." });
+        setMarketData(null);
+      } finally {
+        setIsMarketLoading(false);
+      }
+    };
+    fetchMarketData();
+  }, [selectedCrop, toast]);
 
 
   const getDisplayName = () => {
@@ -247,7 +257,9 @@ export default function DashboardPage() {
     router.push('/');
   };
 
-  if (isDataLoading && !weatherData && !marketData) {
+  const allCrops = categorizedCropOptions.flatMap(category => category.options);
+
+  if (isWeatherLoading && isMarketLoading) {
     return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
   }
 
@@ -279,17 +291,33 @@ export default function DashboardPage() {
 
                 <WeatherCard 
                     weatherData={weatherData} 
-                    isLoading={isDataLoading} 
+                    isLoading={isWeatherLoading} 
                     onRetry={() => setLocationDialogOpen(true)}
                 />
                 
                 <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                     <CardHeader>
-                        <CardTitle>{t('dashboard.market.title', { crop: userData.primaryCrop })}</CardTitle>
-                        <CardDescription>{t('dashboard.market.description')}</CardDescription>
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <div>
+                                <CardTitle>{t('dashboard.market.title', { crop: selectedCrop })}</CardTitle>
+                                <CardDescription>{t('dashboard.market.description')}</CardDescription>
+                            </div>
+                            <Select onValueChange={setSelectedCrop} defaultValue={selectedCrop}>
+                                <SelectTrigger className="w-full sm:w-[200px]">
+                                    <SelectValue placeholder="Select a crop" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {allCrops.map(crop => (
+                                        <SelectItem key={crop.value} value={crop.value}>
+                                            {crop.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        </div>
                     </CardHeader>
                     <CardContent>
-                        {isDataLoading && !marketData ? (
+                        {isMarketLoading ? (
                             <div className="flex justify-center items-center h-[250px]">
                                 <Loader2 className="h-8 w-8 animate-spin text-primary" />
                             </div>
@@ -299,7 +327,7 @@ export default function DashboardPage() {
                             <div className="flex flex-col items-center justify-center h-[250px] text-center text-destructive">
                                 <AlertTriangle className="h-8 w-8 mb-2" />
                                 <p className="mb-4">{t('dashboard.market.errorDescription')}</p>
-                                <Button onClick={() => getMarketPriceAnalysis({ crop: userData.primaryCrop }).then(setMarketData)}>
+                                <Button onClick={() => getMarketPriceAnalysis({ crop: selectedCrop }).then(setMarketData)}>
                                     <TrendingUp className="mr-2 h-4 w-4" />
                                     {t('dashboard.market.button')}
                                 </Button>
