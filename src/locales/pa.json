@@ -50,7 +50,11 @@
         },
         "farmSchool": {
             "title": "ਫਾਰਮ ਸਕੂਲ",
-            "description": "ਖੇਤੀ ਬਾਰੇ ਸਭ ਕੁਝ ਸਿੱਖੋ।"
+            "description": "ਖੇਤੀ ਬਾਰੇ ਸਭ ਕੁਝ ਸਿੱਖੋ।",
+            "tools": {
+                "title": "Tools",
+                "description": "Learn about essential farming tools and machinery."
+            }
         },
         "dashboard": {
             "title": "ਵਿਅਕਤੀਗਤ ਡੈਸ਼ਬੋਰਡ",
@@ -71,7 +75,8 @@
         },
         "fertilizers": {
             "title": "ਖਾਦਾਂ",
-            "description": "ਵੱਖ-ਵੱਖ ਕਿਸਮਾਂ ਦੀਆਂ ਖਾਦਾਂ ਅਤੇ ਉਹਨਾਂ ਦੀ ਵਰਤੋਂ ਨੂੰ ਸਮਝੋ."
+            "description": "ਵੱਖ-ਵੱਖ ਕਿਸਮਾਂ ਦੀਆਂ ਖਾਦਾਂ ਅਤੇ ਉਹਨਾਂ ਦੀ ਵਰਤੋਂ ਨੂੰ ਸਮਝੋ.",
+            "pageSubtitle": "A comprehensive guide to fertilizers, their types, and their impact on modern farming."
         },
         "areaCalculator": {
             "title": "ਖੇਤਰ ਕੈਲਕੁਲੇਟਰ",
@@ -98,29 +103,264 @@
         },
         "profitMakingTips": {
             "title": "ਮੁਨਾਫਾ ਕਮਾਉਣ ਦੇ ਸੁਝਾਅ",
-            "description": "ਆਪਣੇ ਖੇਤ ਦੀ ਮੁਨਾਫੇਯੋਗਤਾ ਨੂੰ ਵਧਾਉਣ ਲਈ ਰਣਨੀਤੀਆਂ ਖੋਜੋ।"
+            "description": "ਆਪਣੇ ਖੇਤ ਦੀ ਮੁਨਾਫੇਯੋਗਤਾ ਨੂੰ ਵਧਾਉਣ ਲਈ ਰਣਨੀਤੀਆਂ ਖੋਜੋ।",
+            "pageTitle": "Top 10 Tips for Profitable Farming",
+            "pageSubtitle": "Smart strategies to boost your agricultural income and ensure sustainability.",
+            "tip1_title": "1. Choose High-Demand Crops",
+            "tip1_desc": "Focus on crops with consistent market demand like organic vegetables, turmeric, mushrooms, or medicinal herbs. These often fetch premium prices and have shorter cycles.",
+            "tip2_title": "2. Track Yield per Acre",
+            "tip2_desc": "Use data to compare crop performance across seasons. This helps you identify which crops give the best return on investment and where to optimize inputs.",
+            "tip3_title": "3. Optimize Water Usage",
+            "tip3_desc": "Drip irrigation, rainwater harvesting, and soil moisture sensors can drastically reduce water waste and improve crop health—especially in water-scarce regions.",
+            "tip4_title": "4. Test Soil Regularly",
+            "tip4_desc": "Soil testing helps you apply the right fertilizer in the right quantity. It prevents overuse, saves money, and boosts yield. You can even integrate this logic into your app’s form flow.",
+            "tip5_title": "5. Diversify with Allied Activities",
+            "tip5_desc": "Add beekeeping, dairy, or poultry to your farm. These provide steady income and complement crop cycles. Bonus: bees improve pollination and yield.",
+            "tip6_title": "6. Use AI for Crop Prediction",
+            "tip6_desc": "Leverage Genkit AI or similar models to simulate crop outcomes based on fertilizer, weather, and soil data. This helps in planning and risk reduction.",
+            "tip7_title": "7. Add Value Through Processing",
+            "tip7_desc": "Instead of selling raw produce, process it—like turning tomatoes into puree or turmeric into powder. Value-added products sell for more and last longer.",
+            "tip8_title": "8. Sell Direct to Consumers",
+            "tip8_desc": "Use WhatsApp catalogs, local farmer markets, or even a simple web app to bypass middlemen. Direct sales = better margins and customer feedback.",
+            "tip9_title": "9. Rotate Crops Smartly",
+            "tip9_desc": "Crop rotation improves soil health and reduces pest buildup. Pair legumes with cereals or oilseeds to balance nitrogen levels naturally.",
+            "tip10_title": "10. Digitize Your Farm Records",
+            "tip10_desc": "Track expenses, yields, weather, and market prices digitally. This helps with audits, subsidy applications, and smarter decision-making."
+        },
+        "croppingPatterns": {
+            "title": "Cropping Patterns",
+            "description": "Understand how cropping patterns vary across India and what factors influence them."
+        },
+        "cropsKnowledge": {
+            "title": "Crops Knowledge",
+            "description": "Detailed information about major crops grown in India, their requirements, and ideal conditions.",
+            "pageTitle": "Detailed Crop Information",
+            "pageSubtitle": "A comprehensive guide to India's major agricultural crops.",
+            "foodgrain_title": "Foodgrain Crops",
+            "cash_title": "Cash Crops",
+            "horticulture_title": "Horticulture Crops",
+            "plantation_title": "Plantation Crops",
+            "fibre_title": "Fibre Crops",
+            "changing_title": "Changing Cropping Patterns",
+            "temp": "Temperature",
+            "rainfall": "Rainfall",
+            "soil": "Soil Type",
+            "states": "Top Producing States",
+            "notes": "Notes",
+            "fruit_label": "Fruit",
+            "states_label": "States",
+            "rice": {
+                "title": "Rice",
+                "temp": "Between 22-32°C with high humidity.",
+                "rainfall": "Around 150-300 cm.",
+                "soil": "Deep clayey and loamy soil.",
+                "states": "West Bengal > Punjab > Uttar Pradesh > Andhra Pradesh > Bihar.",
+                "notes": "Staple food for the majority. India is the 2nd largest producer. Three crops (Aus, Aman, Boro) are grown in some states."
+            },
+            "wheat": {
+                "title": "Wheat",
+                "temp": "10-15°C (Sowing) and 21-26°C (Ripening) with bright sunlight.",
+                "rainfall": "Around 75-100 cm.",
+                "soil": "Well-drained fertile loamy and clayey loamy soils.",
+                "states": "Uttar Pradesh > Punjab > Madhya Pradesh > Haryana > Rajasthan.",
+                "notes": "Second most important cereal crop, main food in North India. Green Revolution greatly boosted its growth."
+            },
+            "millets": {
+                "title": "Millets (Nutri-Cereals)",
+                "temp": "Between 27-32°C",
+                "rainfall": "Around 50-100 cm.",
+                "soil": "Can be grown in inferior alluvial or loamy soil.",
+                "states": "Rajasthan > Karnataka > Maharashtra > Madhya Pradesh > Uttar Pradesh",
+                "notes": "Also known as coarse grains, high nutritional value. Ragi is rich in iron and calcium."
+            },
+            "maize": {
+                "title": "Maize",
+                "temp": "Between 21-27°C",
+                "rainfall": "High rainfall.",
+                "soil": "Old alluvial soil.",
+                "states": "Karnataka > Maharashtra > Madhya Pradesh > Tamil Nadu > Telangana",
+                "notes": "India is the 7th largest producer. Used as both food and fodder. Production increased with HYV seeds."
+            },
+            "pulses": {
+                "title": "Pulses",
+                "temp": "Between 20-27°C",
+                "rainfall": "Around 25-60 cm.",
+                "soil": "Sandy-loamy soil.",
+                "states": "Madhya Pradesh > Rajasthan > Maharashtra > Uttar Pradesh > Karnataka.",
+                "notes": "India is the largest producer and consumer. Major source of protein. Leguminous crops restore soil fertility."
+            },
+            "sugarcane": {
+                "title": "Sugarcane",
+                "temp": "Between 21-27°C with hot and humid climate.",
+                "rainfall": "Around 75-100 cm.",
+                "soil": "Deep rich loamy soil.",
+                "states": "Uttar Pradesh > Maharashtra > Karnataka > Tamil Nadu > Bihar.",
+                "notes": "India is the 2nd largest producer after Brazil. Main source of sugar, jaggery, and molasses."
+            },
+            "oilseeds": {
+                "title": "Oilseeds",
+                "temp": "Between 15-30°C",
+                "rainfall": "Around 30-75 cm.",
+                "soil": "Loam to clayey loam and well drained sandy loams.",
+                "states": "Madhya Pradesh > Rajasthan > Gujarat > Maharashtra > Uttar Pradesh.",
+                "notes": "Includes groundnut, mustard, soyabean, etc. Most are edible; some used for soaps and cosmetics."
+            },
+            "horticulture_desc": "India is the second largest producer of fruits and vegetables. It produces about 13 percent of the world’s vegetables.",
+            "mangoes": "Mangoes",
+            "mangoes_states": "Maharashtra, Andhra Pradesh, Telangana, Uttar Pradesh and West Bengal",
+            "oranges": "Oranges",
+            "oranges_states": "Nagpur and Cherrapunjee (Meghalaya)",
+            "bananas": "Bananas",
+            "bananas_states": "Kerala, Mizoram, Maharashtra and Tamil Nadu",
+            "litchi": "Litchi and Guava",
+            "litchi_states": "Uttar Pradesh and Bihar",
+            "pineapples": "Pineapples",
+            "pineapples_states": "Meghalaya",
+            "grapes": "Grapes",
+            "grapes_states": "Andhra Pradesh, Telangana and Maharashtra",
+            "apples": "Apples, Pears, Apricots and Walnuts",
+            "apples_states": "Jammu and Kashmir and Himachal Pradesh",
+            "tea": {
+                "title": "Tea",
+                "temp": "Between 20-30°C",
+                "rainfall": "Around 150-300 cm.",
+                "soil": "Deep and fertile well-drained soil, rich in humus.",
+                "states": "Assam > West Bengal > Tamil Nadu.",
+                "notes": "India is the 2nd largest producer. It is a labor-intensive industry requiring skilled labor."
+            },
+            "coffee": {
+                "title": "Coffee",
+                "temp": "Between 15-28°C",
+                "rainfall": "Around 150-250 cm.",
+                "soil": "Well drained, deep friable loamy soil.",
+                "states": "Karnataka > Kerala > Tamil Nadu.",
+                "notes": "India is the 7th largest producer. The 'Arabica' variety from India is famous worldwide."
+            },
+            "rubber": {
+                "title": "Rubber",
+                "temp": "Above 25°C with moist and humid climate.",
+                "rainfall": "More than 200 cm.",
+                "soil": "Rich well drained alluvial soil.",
+                "states": "Kerala > Tamil Nadu > Karnataka.",
+                "notes": "It is an equatorial crop but can be grown in tropical and sub-tropical areas. It's an important industrial raw material."
+            },
+            "cotton": {
+                "title": "Cotton",
+                "temp": "Between 21-30°C",
+                "rainfall": "Around 50-100cm.",
+                "soil": "Well drained black cotton soil of Deccan Plateau.",
+                "states": "Gujarat > Maharashtra > Telangana > Andhra Pradesh > Rajasthan.",
+                "notes": "Requires 210 frost-free days and bright sunshine. BT Cotton is a genetically modified variety."
+            },
+            "jute": {
+                "title": "Jute",
+                "temp": "Between 25-35°C",
+                "rainfall": "Around 150-250 cm",
+                "soil": "Well drained alluvial soil.",
+                "states": "West Bengal > Bihar > Assam > Andhra Pradesh > Odisha.",
+                "notes": "Known as the golden fibre. Used in making bags, ropes, etc. Losing market to synthetic fibres."
+            },
+            "changing_p1": "Cropping pattern is a dynamic concept, referring to the proportion of area under various crops at a point in time, and the sequence and spatial arrangement of crops.",
+            "changing_l1": "The Green Revolution led to changes, introducing rice to Punjab and Haryana.",
+            "changing_l2": "New technologies have made food crop cultivation more productive.",
+            "changing_l3": "There's a shift towards cash crops like oilseeds, fruits, and vegetables.",
+            "changing_l4": "Factors like climate change, economic expansion, and urbanization continue to influence these patterns."
         }
     },
     "quotes": {
         "q1": "ਖੇਤੀ ਸਿਰਫ਼ ਇੱਕ ਨੌਕਰੀ ਨਹੀਂ, ਇਹ ਜੀਵਨ ਦਾ ਇੱਕ ਢੰਗ ਹੈ।",
         "q2": "किसान हमारी अर्थव्यवस्था में एकमात्र व्यक्ति है जो सब कुछ खुदरा में खरीदता है, सब कुछ थोक में बेचता है, और दोनों तरफ का भाड़ा चुकाता है।",
-        "q3": "ਕਿਸਾਨਾਂ ਤੋਂ ਬਿਨਾਂ, ਭੋਜਨ ਨਹੀਂ ਹੈ। ਭੋਜਨ ਤੋਂ ਬਿਨਾਂ, ਜੀਵਨ ਨਹੀਂ ਹੈ।"
+        "q3": "ਕਿਸਾਨਾਂ ਤੋਂ ਬਿਨਾਂ, ਭੋਜਨ ਨਹੀਂ ਹੈ। ਭੋਜਨ ਤੋਂ ਬਿਨਾਂ, ਜੀਵਨ ਨਹੀਂ ਹੈ।",
+        "q4": "To forget how to dig the earth and tend the soil is to forget ourselves.",
+        "q5": "Farming is the art of patience, the science of soil, and the soul of survival.",
+        "q6": "The ultimate goal of farming is not the growing of crops, but the cultivation of humans.",
+        "q7": "Agriculture is the backbone of the nation.",
+        "q8": "Farmers feed the world, yet they often eat last.",
+        "q9": "When tillage begins, other arts follow. The farmers are the founders of human civilization.",
+        "q10": "Soil is the great connector of lives, the source and destination of all.",
+        "q11": "A farmer’s hands may be rough, but they grow the world’s softest bread.",
+        "q12": "Farming is the profession of hope.",
+        "q13": "Healthy soil, healthy food, healthy people.",
+        "q14": "The best fertilizer for the land is the farmer’s footsteps.",
+        "q15": "A society that forgets its farmers is a society without a future.",
+        "q16": "Farming is the only business where you truly work with nature, not against it.",
+        "q17": "The miracle of agriculture is turning a seed into a thousand meals.",
+        "q18": "Farmers plant hope for the future in every seed.",
+        "q19": "Good farmers take care of the soil, and the soil takes care of them.",
+        "q20": "Farming is the greatest service to humanity.",
+        "q21": "The future belongs to those who feed it.",
+        "q22": "Rain or shine, farmers keep the world alive.",
+        "q23": "Farmers don’t just grow crops, they grow nations.",
+        "q24": "Every farmer is a scientist, experimenting with the earth.",
+        "q25": "Respect the hands that feed you.",
+        "q26": "A good farmer is nothing less than a hero.",
+        "q27": "The land is more than soil; it is history, roots, and identity.",
+        "q28": "In every seed lies a story of tomorrow.",
+        "q29": "Farming is both tradition and innovation.",
+        "q30": "A farmer’s sweat is sweeter than gold, because it grows life.",
+        "q31": "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "q32": "Why don’t farmers ever get lost? Because they always follow the tractor’s GPS… “Ground Positioning System.”",
+        "q33": "Why did the cow go to space? To see the “milky way!”",
+        "q34": "What did the farmer say after he lost his tractor? “Where’s my tractor?”",
+        "q35": "Why did the tomato blush? Because it saw the farmer dressing his salad!",
+        "q36": "Why did the farmer bring a pencil to the field? To draw his crops.",
+        "q37": "What’s a farmer’s favorite type of music? “Crop” music.",
+        "q38": "Why are farmers so good at math? Because they’re used to “multiplying” crops.",
+        "q39": "Why was the farmer always calm? Because he knew how to “keep his peas.”",
+        "q40": "What do farmers use to make crop circles? A pro-tractor!",
+        "q41": "Why did the cow sit under the tree? Because it wanted some “moo-d” shade.",
+        "q42": "Why do potatoes make good detectives? Because they keep their “eyes” open.",
+        "q43": "What’s a farmer’s favorite type of joke? Corny ones. 🌽",
+        "q44": "Why did the tractor blush? Because it saw the farmer plow-ing.",
+        "q45": "Why don’t chickens ever tell secrets? Because they might “egg-spose” them.",
+        "q46": "Why did the farmer plant a seed in his computer? To grow a website!",
+        "q47": "Why are farmers good comedians? Because they have “field experience.”",
+        "q48": "What did the farmer say when his crops were singing? “Sounds like a good harvest tune.”",
+        "q49": "Why did the farmer start using AI? Because his crops needed a little “byte” of help.",
+        "q50": "Why do cows wear bells? Because their horns don’t work!",
+        "q51": "Without farmers, there is no food security.",
+        "q52": "Every time you waste food, remember a farmer’s sweat went into it.",
+        "q53": "Save water today, so crops can grow tomorrow.",
+        "q54": "Support local farmers — they feed your community.",
+        "q55": "Sustainable farming is the future of food.",
+        "q56": "Healthy soil, healthy food, healthy people.",
+        "q57": "Climate change affects farmers first — act now.",
+        "q58": "Fair price for farmers means fair food for all.",
+        "q59": "Farmers don’t need sympathy, they need support.",
+        "q60": "Buying local helps farmers survive.",
+        "q61": "Use organic methods, protect future generations.",
+        "q62": "Technology in farming can double food security.",
+        "q63": "Protect the farmer, protect the nation.",
+        "q64": "Farming is not just work, it’s service to humanity.",
+        "q65": "A hungry farmer cannot feed a hungry nation.",
+        "q66": "Agriculture is not an industry, it’s a lifeline.",
+        "q67": "Invest in farmers, and you invest in the nation’s future.",
+        "q68": "Respect food, respect farmers.",
+        "q69": "Don’t take your plate for granted — thank a farmer.",
+        "q70": "When farmers grow, nations prosper."
     },
     "news": {
         "n1_title": "New Drone Technology Revolutionizes Crop Monitoring",
         "n1_snippet": "Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease.",
+        "n1_article": "Advanced drones equipped with multispectral sensors are providing farmers with unprecedented insights into crop health, enabling early detection of stress and disease. This technology allows for targeted intervention, reducing the need for broad-spectrum pesticides and optimizing resource use. The result is higher yields, lower costs, and a more sustainable approach to farming.",
         "n2_title": "Government Announces Increased Subsidies for Organic Farming",
         "n2_snippet": "In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods.",
+        "n2_article": "In a move to promote sustainable agriculture, the government has rolled out a new package of subsidies aimed at farmers transitioning to or practicing organic farming methods. The package includes financial incentives for certification, market access support, and training programs on organic practices. This initiative is expected to significantly boost the organic sector in the coming years.",
         "n3_title": "Weather Patterns Shift: Farmers Adapt to a Changing Climate",
         "n3_snippet": "A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems.",
+        "n3_article": "A new report highlights the innovative strategies farmers are adopting to cope with unpredictable weather, from drought-resistant crops to advanced irrigation systems. The report emphasizes the importance of climate-resilient agriculture and showcases case studies of successful adaptation from around the world, offering valuable lessons for farmers everywhere.",
         "n4_title": "Corn Prices Surge Amidst Global Supply Concerns",
         "n4_snippet": "Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain.",
+        "n4_article": "Analysts report a significant increase in corn futures as poor weather conditions in major producing regions threaten the global supply chain. The surge is putting pressure on livestock feed prices and raising concerns about food inflation. Experts are closely monitoring the situation as the harvest season progresses.",
         "n5_title": "The Rise of No-Till Farming: A Guide for Beginners",
         "n5_snippet": "No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started.",
+        "n5_article": "No-till farming is gaining popularity for its benefits to soil health and water conservation. This guide breaks down how to get started, covering topics such as equipment needs, cover cropping strategies, and potential challenges. By minimizing soil disturbance, farmers can enhance biodiversity and reduce erosion.",
         "n6_title": "New AI-Powered App Helps Farmers Identify Pests Instantly",
         "n6_snippet": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations.",
+        "n6_article": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations. The app, which has a database of thousands of pests, aims to democratize access to expert agronomic advice and help farmers make timely decisions to protect their crops.",
         "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
         "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age.",
+        "n7_article": "<div><p>The <strong>Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)</strong> is a <strong>voluntary and contributory pension scheme</strong> launched by the Government of India on <strong>12 September 2019</strong>. The scheme is specially designed for <strong>small and marginal farmers</strong> to ensure financial security in their old age.</p><p>It was introduced by Prime Minister <strong>Narendra Modi</strong> with the vision of providing farmers a dignified life after retirement.</p><hr class=\"my-4\"/><h4>Objective of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>To provide <strong>financial assistance</strong> to small and marginal farmers after 60 years of age.</li><li>To ensure that farmers do not remain dependent on others for their daily needs in old age.</li><li>To give a <strong>guaranteed monthly pension of ₹3,000</strong> for a secure future.</li></ul><hr class=\"my-4\"/><h4>Eligibility</h4><ul class=\"list-disc pl-5 space-y-1\"><li>Small and marginal farmers with <strong>cultivable land up to 2 hectares</strong>.</li><li>Age between <strong>18 and 40 years</strong> at the time of joining.</li></ul><p class=\"mt-2\"><strong>Not Eligible:</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Farmers covered under NPS, EPF, or ESIC.</li><li>Institutional landholders and big landlords.</li><li>Present or former constitutional post holders, ministers, MLAs/MPs.</li><li>Government employees (except Class IV/Group D staff).</li><li>Income tax payers in the last financial year.</li><li>Professionals such as doctors, engineers, lawyers, CAs, architects, etc.</li></ul><hr class=\"my-4\"/><h4>Contribution Details</h4><p>Farmers need to contribute a small fixed amount <strong>(₹55 to ₹200 per month)</strong> depending on their entry age.</p><ul class=\"list-disc pl-5 space-y-1\"><li>The <strong>government matches the farmer’s contribution</strong> on a 1:1 basis.</li><li>Contributions continue until the farmer reaches <strong>60 years of age</strong>.</li><li>After 60 years, the farmer receives <strong>₹3,000 monthly pension for life</strong>.</li></ul><hr class=\"my-4\"/><h4>How to Apply</h4><ol class=\"list-decimal pl-5 space-y-1\"><li>Visit the nearest <strong>Common Service Centre (CSC)</strong>.</li><li>Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.</li><li>Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.</li><li>Provide <strong>auto-debit mandate</strong> so the contribution is deducted automatically.</li><li>After verification, the farmer is issued a <strong>Unique Pension Account Number</strong>.</li></ol><hr class=\"my-4\"/><h4>Contribution Chart</h4><div class=\"overflow-x-auto\"><table class=\"w-full text-left border-collapse\"><thead><tr><th class=\"border p-2\">Entry Age (Years)</th><th class=\"border p-2\">Retirement Age</th><th class=\"border p-2\">Farmer’s Contribution (₹/month)</th><th class=\"border p-2\">Government’s Contribution (₹/month)</th><th class=\"border p-2\">Total Contribution (₹/month)</th></tr></thead><tbody><tr><td class=\"border p-2\">18</td><td class=\"border p-2\">60</td><td class=\"border p-2\">55</td><td class=\"border p-2\">55</td><td class=\"border p-2\">110</td></tr><tr><td class=\"border p-2\">19</td><td class=\"border p-2\">60</td><td class=\"border p-2\">58</td><td class=\"border p-2\">58</td><td class=\"border p-2\">116</td></tr><tr><td class=\"border p-2\">20</td><td class=\"border p-2\">60</td><td class=\"border p-2\">61</td><td class=\"border p-2\">61</td><td class=\"border p-2\">122</td></tr><tr><td class=\"border p-2\">21</td><td class=\"border p-2\">60</td><td class=\"border p-2\">64</td><td class=\"border p-2\">64</td><td class=\"border p-2\">128</td></tr><tr><td class=\"border p-2\">22</td><td class=\"border p-2\">60</td><td class=\"border p-2\">68</td><td class=\"border p-2\">68</td><td class=\"border p-2\">136</td></tr><tr><td class=\"border p-2\">23</td><td class=\"border p-2\">60</td><td class=\"border p-2\">72</td><td class=\"border p-2\">72</td><td class=\"border p-2\">144</td></tr><tr><td class=\"border p-2\">24</td><td class=\"border p-2\">60</td><td class=\"border p-2\">76</td><td class=\"border p-2\">76</td><td class=\"border p-2\">152</td></tr><tr><td class=\"border p-2\">25</td><td class=\"border p-2\">60</td><td class=\"border p-2\">80</td><td class=\"border p-2\">80</td><td class=\"border p-2\">160</td></tr><tr><td class=\"border p-2\">26</td><td class=\"border p-2\">60</td><td class=\"border p-2\">85</td><td class=\"border p-2\">85</td><td class=\"border p-2\">170</td></tr><tr><td class=\"border p-2\">27</td><td class=\"border p-2\">60</td><td class=\"border p-2\">90</td><td class=\"border p-2\">90</td><td class=\"border p-2\">180</td></tr><tr><td class=\"border p-2\">28</td><td class=\"border p-2\">60</td><td class=\"border p-2\">95</td><td class=\"border p-2\">95</td><td class=\"border p-2\">190</td></tr><tr><td class=\"border p-2\">29</td><td class=\"border p-2\">60</td><td class=\"border p-2\">100</td><td class=\"border p-2\">100</td><td class=\"border p-2\">200</td></tr><tr><td class=\"border p-2\">30</td><td class=\"border p-2\">60</td><td class=\"border p-2\">105</td><td class=\"border p-2\">105</td><td class=\"border p-2\">210</td></tr><tr><td class=\"border p-2\">31</td><td class=\"border p-2\">60</td><td class=\"border p-2\">110</td><td class=\"border p-2\">110</td><td class=\"border p-2\">220</td></tr><tr><td class=\"border p-2\">32</td><td class=\"border p-2\">60</td><td class=\"border p-2\">120</td><td class=\"border p-2\">120</td><td class=\"border p-2\">240</td></tr><tr><td class=\"border p-2\">33</td><td class=\"border p-2\">60</td><td class=\"border p-2\">130</td><td class=\"border p-2\">130</td><td class=\"border p-2\">260</td></tr><tr><td class=\"border p-2\">34</td><td class=\"border p-2\">60</td><td class=\"border p-2\">140</td><td class=\"border p-2\">140</td><td class=\"border p-2\">280</td></tr><tr><td class=\"border p-2\">35</td><td class=\"border p-2\">60</td><td class=\"border p-2\">150</td><td class=\"border p-2\">150</td><td class=\"border p-2\">300</td></tr><tr><td class=\"border p-2\">36</td><td class=\"border p-2\">60</td><td class=\"border p-2\">160</td><td class=\"border p-2\">160</td><td class=\"border p-2\">320</td></tr><tr><td class=\"border p-2\">37</td><td class=\"border p-2\">60</td><td class=\"border p-2\">170</td><td class=\"border p-2\">170</td><td class=\"border p-2\">340</td></tr><tr><td class=\"border p-2\">38</td><td class=\"border p-2\">60</td><td class=\"border p-2\">180</td><td class=\"border p-2\">180</td><td class=\"border p-2\">360</td></tr><tr><td class=\"border p-2\">39</td><td class=\"border p-2\">60</td><td class=\"border p-2\">190</td><td class=\"border p-2\">190</td><td class=\"border p-2\">380</td></tr><tr><td class=\"border p-2\">40</td><td class=\"border p-2\">60</td><td class=\"border p-2\">200</td><td class=\"border p-2\">200</td><td class=\"border p-2\">400</td></tr></tbody></table></div><hr class=\"my-4\"/><h4>Special Rule for PM-Kisan Beneficiaries</h4><p>Farmers who are already receiving <strong>₹6,000 per year under PM-Kisan Samman Nidhi</strong> can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.</p><hr class=\"my-4\"/><h4>FAQs</h4><p><strong>1. Is there any enrollment fee?</strong></p><p>A nominal fee of ₹30 is charged at CSCs, which is paid by the government.</p><p><strong>2. What if the farmer dies before 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse can continue the scheme by contributing further.</li><li>If not, the total contribution made by the farmer (with interest) will be returned to the nominee.</li></ul><p><strong>3. What if the farmer dies after 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse will receive <strong>50% of the pension</strong> as family pension (if not already a PM-KMY member).</li></ul><p><strong>4. What if contributions are not paid on time?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Auto-debit happens on <strong>1st, 11th, or 21st</strong> of the month.</li><li>If missed, contributions can be paid later with interest.</li><li>Accounts inactive for more than 3 years may be closed.</li></ul><hr class=\"my-4\"/><h4>Key Benefits of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>✅ Guaranteed <strong>₹3,000 monthly pension</strong> after 60 years</li><li>✅ Equal contribution by Government</li><li>✅ Financial security in old age</li><li>✅ Family pension to spouse in case of death</li><li>✅ Simple enrollment through CSCs</li></ul><hr class=\"my-4\"/><p>✨ <strong>The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.</strong></p></div>",
         "n8_title": "ਪੰਜਾਬ ਵਿੱਚ ਰੈੱਡ ਅਲਰਟ, ਭਾਰੀ ਬਾਰਸ਼ ਦੀ ਸੰਭਾਵਨਾ",
         "n8_snippet": "IMD ਨੇ ਪੰਜਾਬ ਲਈ ਰੈੱਡ ਅਲਰਟ ਜਾਰੀ ਕੀਤਾ ਹੈ, ਅਗਲੇ 48 ਘੰਟਿਆਂ ਵਿੱਚ ਬਹੁਤ ਭਾਰੀ ਬਾਰਸ਼ ਦੀ ਚੇਤਾਵਨੀ। ਸਕੂਲ 3 ਸਤੰਬਰ ਤੱਕ ਬੰਦ।",
         "n8_article": "ਭਾਰਤ ਮੌਸਮ ਵਿਭਾਗ (IMD) ਨੇ ਐਤਵਾਰ ਨੂੰ ਪੰਜਾਬ ਲਈ ਰੈੱਡ ਅਲਰਟ ਜਾਰੀ ਕੀਤਾ, ਅਗਲੇ 48 ਘੰਟਿਆਂ ਵਿੱਚ ਬਹੁਤ ਭਾਰੀ ਤੋਂ ਬੇਹੱਦ ਭਾਰੀ ਬਾਰਸ਼ ਦੀ ਚੇਤਾਵਨੀ ਦਿੱਤੀ। ਇਹ ਖੇਤਰ ਪਹਿਲਾਂ ਹੀ ਲਗਾਤਾਰ ਬਾਰਸ਼ ਅਤੇ ਹੜ੍ਹ ਵਰਗੀ ਸਥਿਤੀ ਨਾਲ ਜੂਝ ਰਿਹਾ ਹੈ। ਮੌਸਮ ਅਧਿਕਾਰੀਆਂ ਦੇ ਅਨੁਸਾਰ, ਤੇਜ਼ ਬਾਰਸ਼ ਨਾਲ ਪਹਾੜੀ ਖੇਤਰਾਂ ਵਿੱਚ ਹੜ੍ਹ ਅਤੇ ਜ਼ਮੀਨ ਖਿਸਕਣ ਦੀ ਸੰਭਾਵਨਾ ਹੈ, ਜਿਸ ਨਾਲ ਨੀਵੇਂ ਸ਼ਹਿਰੀ ਖੇਤਰਾਂ ਵਿੱਚ ਗੰਭੀਰ ਜਲ-ਜਮਾਵ ਹੋ ਸਕਦਾ ਹੈ। ਵਿਭਾਗ ਨੇ ਲੋਕਾਂ ਨੂੰ ਇਹ ਵੀ ਚੇਤਾਵਨੀ ਦਿੱਤੀ ਕਿ ਕਮਜ਼ੋਰ ਢਾਂਚੇ ਬਾਰਸ਼ ਦੀ ਮਾਤਰਾ ਅਤੇ ਜ਼ੋਰ ਨਾਲ ਨੁਕਸਾਨੇ ਜਾ ਸਕਦੇ ਹਨ।",
@@ -171,29 +411,103 @@
         "n23_article": "<h3>Why is Seed Technology Important for Indian Agriculture?</h3><h4>Higher Productivity:</h4><ul><li>Seed technology can increase the yield potential of crops by developing improved varieties that have desirable traits, such as high grain or fruit quality, resistance to pests and diseases, tolerance to drought or salinity, etc.</li><li>Seed technology can also improve the germination rate, seedling vigour, and plant establishment of seeds by using priming or physiological advancement protocols.</li></ul><h4>Higher Input Use Efficiency:</h4><ul><li>Seed technology can reduce the amount and cost of inputs such as fertilizers, pesticides, and water by using film coating, pelleting, or seed treatments that can deliver these inputs directly to the seeds or plants in optimal doses.</li><li>Seed technology can also enhance the nutrient uptake and utilization of plants by using bio-stimulants and nutrients that can stimulate plant growth and metabolism.</li></ul><h4>Higher Resilience:</h4><ul><li>Seed technology can improve the adaptability and stability of crops under changing and unpredictable climatic conditions by using genetic manipulation, speed breeding, gene-editing-tools, or AI-responsive sensors or substances that can modulate plant responses to external stimuli.</li><li>Seed technology can also improve the diversity and health of crops by using biologicals or microbial inoculum that can enhance plant immunity and soil fertility.</li></ul>",
         "n24_title": "Examples of Seed Technologies in India",
         "n24_snippet": "Exploring advancements in millet, cotton, and vegetable seeds that are transforming Indian agriculture.",
-        "n24_article": "<h3>What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>"
+        "n24_article": "<h3>What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>",
+        "n25_title_new": "Top 16 Most Profitable Farming Types in India",
+        "n25_snippet_new": "We have shared the most profitable farming crops in India in 5 categories; read about each category.",
+        "n25_article_new": "<h3>Top 16 Most Profitable Farming Types in India</h3><p>We have shared the most profitable farming crops in India in 5 categories; read about each category:</p><h4>High-Value Farming</h4><p>High-value crops are those that can generate higher income per unit area compared to traditional crops. They require specific cultivation practices but offer considerable returns due to their demand in various markets.</p><h5>#1: Saffron</h5><ul><li>Saffron is one of the most expensive spices in the world and is referred to as ‘red gold.’</li><li>It grows best in regions with low temperatures, as can be observed from its large-scale production in Kashmir.</li><li>The process of cultivation demands the picking by hand of the f fragile stigmas of the plant.</li><li>The global usage of saffron is relatively steady and, especially in culinary and other medicinal demands.</li><li>If adequately cultivated and managed, saffron farming has been known to break the backbone due to its high commercial value.</li></ul><h5>#2: Cardamom</h5><ul><li>This is an essential spice in food preparation, especially those originating from the Indian sub-region, and is also extensively used in the Ayurvedic systems of medication.</li><li>Cardamom grows well in warm, humid regions of the tropical type as those found in Kerala and Tamil Nadu.</li><li>Cultivation of this crop entails shade growth of the plant and frequent watering.</li><li>The market for cardamom export is relatively stable and there is a favorable demand to most of the Middle Eastern nations.</li><li>Due to expensiveness per unit of weight, it presents an excellent opportunity for farmers to venture into its production.</li></ul><h5>#3: Turmeric</h5><ul><li>Turmeric is slowly and gradually getting accepted across the world for its bitter and inflammatory effects, as well as antioxidants.</li><li>It is one of the most profitable crops in India and suitable for cultivation in tropical and sub-tropical holdings all over the country.</li><li>It is relatively easy to promote the cultivation of this plant because it is xerophytic.</li><li>A growing knowledge of the various health benefits of turmeric has quickened domestic and export demand.</li><li>Other profit spin-offs include value-added products such as turmeric powder and supplements.</li></ul><h5>#4: Ginger</h5><ul><li>Ginger is widely used in culinary, medicinal, and cosmetic applications.</li><li>It thrives in warm, humid regions with well-draining soil.</li><li>Cultivation requires careful management of soil moisture and shade.</li><li>The versatility of ginger ensures a steady market demand year-round.</li><li>Fresh, dried, and processed ginger products all offer good profit potential.</li></ul><h5>#5: Black Pepper</h5><ul><li>Known as the “King of Spices,” black pepper is a staple in kitchens worldwide.</li><li>It grows best in tropical climates like Kerala and Karnataka.</li><li>Cultivation involves growing vines on supporting trees or poles.</li><li>The global demand for black pepper remains strong, especially for high-quality varieties.</li><li>Value-added products like pepper oil can increase profitability.</li></ul><h4>Aromatic Plants</h4><p>If you also think, “Is farming profitable in India?” Then you must read about the aromatic plants. These plants are used in food, cosmetics, and aromatherapy.</p><h5>#6: Lavender</h5><ul><li>Lavender is well recognizable, universal, and appreciated for its fragrance and also for its healing properties.</li><li>It grows best in regions of temperate climate, and it is suited to areas where the soil is well drained.</li><li>It is also reasonably simple to cultivate since it does not require so much water and it does not require successive planting.</li><li>Lavender is in high demand in aromatherapy and cosmetics products, in addition to being used for cooking.</li><li>Products such as essential oils, therefore, are important in increasing revenues.</li></ul><h5>#7: Rose</h5><ul><li>Roses are in high demand for perfumes, cosmetics, and culinary uses.</li><li>They thrive in a variety of climates across India.</li><li>Cultivation requires regular pruning and pest management.</li><li>The market for rose products, significantly rose water and essential oil, is expanding.</li><li>Organic rose farming can command premium prices in the market.</li></ul><h5>#8: Jasmine</h5><ul><li>Jasmine is valued for its fragrance in perfumes and teas.</li><li>It grows well in warm, humid climates.</li><li>Cultivation involves regular pruning and night-time harvesting of flowers.</li><li>There’s a steady demand for jasmine in the perfume industry and for religious offerings.</li><li>Jasmine concrete (a waxy aromatic compound) fetches high prices in the international market.</li></ul><h4>Cash Crops</h4><p>Cash crops are grown for commercial value rather than for use as food by the farmer.</p><h5>#9: Cotton</h5><ul><li>Cotton is a cash crop in India and is widely used in textile industries all over the world.</li><li>It does well in areas where they experience a long duration of frost-free and adequate sunshine.</li><li>Irrigation and pest control are other factors that are used in the cultivation of the marijuana plant.</li><li>The domestic and international demand for cotton remains strong.</li><li>Organic and fair-trade cotton can command premium prices.</li></ul><h5>#10: Sugarcane</h5><ul><li>Sugarcane is the new crop that makes India famous for sugar and biofuel production.</li><li>It is mainly distributed in tropical and sub-tropical areas where there is adequate rainfall.</li><li>Cultivation: much attention should be paid to watering and harvesting at the appropriate time.</li><li>The demand for sugar and its byproducts ensures a steady market.</li><li>Value-added products like jaggery can increase profitability.</li></ul><h5>#11: Tea</h5><ul><li>Tea is one of India’s most famous exports and most lucrative crops which are enjoyed worldwide.</li><li>It grows best in cool, moist climates like Assam and Darjeeling.</li><li>Cultivation involves regular pruning and careful plucking of leaves.</li><li>The global demand for various types of tea continues to grow.</li><li>Specialty and organic teas can fetch premium prices in the market.</li></ul><h5>#12: Coffee</h5><ul><li>Indian coffee, especially from the South, is gaining international recognition.</li><li>It grows well in the hills of Southern India with adequate shade.</li><li>Cultivation requires careful management of shade, soil, and water.</li><li>The specialty coffee market offers opportunities for higher profits.</li><li>Direct farmer-to-consumer sales can increase revenue for coffee growers.</li></ul><h4>Organic Farming</h4><p>Organic farming is becoming increasingly popular as consumers seek chemical-free produce.</p><h5>#13: Organic Vegetables</h5><ul><li>Organic vegetables are increasingly popular due to health and environmental concerns.</li><li>Since they are local seeds, they can be grown in different climatic conditions, naturally, and no extensive use of fertilizers is necessary.</li><li>It entails the use of organic manure and the non use of chemicals for controlling pests and diseases.</li><li>Organic produce is in high demand in urban markets and for export markets.</li><li>Direct marketing and value-added products can increase profitability.</li></ul><h5>#14: Organic Fruits</h5><ul><li>Organic fruits are relatively expensive within the country’s market and even in the global market.</li><li>They can be grown in different climate regions depending on the kind of fruit that is being grown.</li><li>Agriculture is not an instant business because trees and some crops often take their natural period to start producing fruits, and such fruits are not as numerous as one might expect.</li><li>There is increased consumer demand for fruits with an organic nature, which is due to the conscious set within the market.</li><li>Fruit processing and export can offer additional revenue streams.</li></ul><h4>Livestock Farming</h4><p>Livestock farming complements crop production and offers diverse income sources.</p><h5>#15: Dairy Farming</h5><ul><li>Dairy farming is a traditional and profitable venture in India.</li><li>It can be done in various climates with proper animal care.</li><li>Success depends on good breed selection, nutrition, and health management.</li><li>The growing demand for milk and milk products ensures a steady market.</li><li>Value-added products like cheese and yogurt can increase profitability.</li></ul><h5>#16: Poultry Farming</h5><ul><li>Meat and egg production through poultry farming is one of the burgeoning sectors India has at the moment.</li><li>It can be completed in different climate conditions, providing sufficient housing and attention.</li><li>Success depends on good breed selection, nutrition, and disease management.</li><li>Poultry products are prompted by the rising trends of protein consumption by consumers.</li><li>Integration of poultry farming with crop farming can optimize resource use and profits.</li></ul>"
     },
-    "categories": {
-        "all": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
-        "marketPrices": "ਬਾਜ਼ਾਰ ਦੀਆਂ ਕੀਮਤਾਂ",
-        "weatherUpdates": "ਮੌਸਮ ਦੇ ਅਪਡੇਟਸ",
-        "govtPolicies": "ਸਰਕਾਰੀ ਨੀਤੀਆਂ",
-        "farmingTechniques": "ਖੇਤੀ ਦੀਆਂ ਤਕਨੀਕਾਂ",
-        "technology": "ਤਕਨਾਲੋਜੀ"
+    "dates": {
+        "aug04": "August 04, 2025",
+        "aug31_25": "August 31, 2025",
+        "aug31_25_2115": "August 31, 2025, 21:15",
+        "aug31_25_2112": "August 31, 2025, 21:12",
+        "aug31_25_2106": "August 31, 2025, 21:06",
+        "aug31_25_1250": "August 31, 2025, 12:50",
+        "sep01_25": "September 01, 2025",
+        "sep01_25_1400": "September 01, 2025, 14:00"
     },
     "sources": {
-        "agriTech": "ਐਗਰੀਟੈੱਕ ਟੂਡੇ",
-        "farmersJournal": "ਕਿਸਾਨ ਦਾ ਜਰਨਲ",
-        "globalFarming": "ਗਲੋਬਲ ਫਾਰਮਿੰਗ ਪਹਿਲਕਦਮੀ",
-        "agriInvest": "ਐਗਰੀ-ਨਿਵੇਸ਼ ਰੋਜ਼ਾਨਾ",
-        "sustainableFarms": "ਟਿਕਾਊ ਖੇਤ",
-        "techCrunch": "ਟੈੱਕਕਰੰਚ ਖੇਤੀਬਾੜੀ",
-        "govtIndia": "ਭਾਰਤ ਸਰਕਾਰ",
-        "imdNews": "IMD ਨਿਊਜ਼",
-        "metDept": "ਮੌਸਮ ਵਿਭਾਗ",
-        "mhaNews": "MHA ਨਿਊਜ਼",
-        "stateNews": "ਰਾਜ ਨਿਊਜ਼",
-        "agriKnowledge": "ਐਗਰੀ-ਗਿਆਨ ਅਧਾਰ"
+        "agriTech": "AgriTech Today",
+        "farmersJournal": "Farmer's Journal",
+        "globalFarming": "Global Farming Initiative",
+        "agriInvest": "Agri-Investments Daily",
+        "sustainableFarms": "Sustainable Farms",
+        "techCrunch": "TechCrunch Agriculture",
+        "govtIndia": "Govt. of India",
+        "imdNews": "IMD News",
+        "metDept": "Met Department",
+        "mhaNews": "MHA News",
+        "stateNews": "State News",
+        "agriKnowledge": "Agri-Knowledge Base",
+        "agriBusinessUpdate": "Agri-Business Update"
+    },
+    "govtSchemes": {
+        "title": "Government Schemes for Farmers",
+        "subtitle": "Explore beneficial programs and support from the government.",
+        "readMore": "Read More",
+        "dialogDescription": "Detailed information about the {schemeName} scheme."
+    },
+    "schemes": {
+        "pmkisan": {
+            "name": "Pradhan Mantri Kisan Samman Nidhi",
+            "shortName": "PM-KISAN",
+            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
+            "description": "schemes.pmkisan.description"
+        },
+        "pmfby": {
+            "name": "Pradhan Mantri Fasal Bima Yojana",
+            "shortName": "PM Fasal Yojana",
+            "shortDescription": "Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
+            "description": "schemes.pmfby.description"
+        },
+        "enam": {
+            "name": "E-NAM (National Agriculture Market)",
+            "shortName": "E-NAM",
+            "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
+            "description": "schemes.enam.description"
+        },
+        "pmkmy": {
+            "name": "Pradhan Mantri Kisan Maandhan Yojana",
+            "shortName": "PM Kisan Maandhan",
+            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
+            "description": "schemes.pmkmy.description"
+        },
+        "kcc": {
+            "name": "Kisan Credit Card",
+            "shortName": "KCC",
+            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
+            "description": "schemes.kcc.description"
+        },
+        "pmkusum": {
+            "name": "Pradhan Mantri Kisan Urja Suraksha Evam Utthan Mahabhiyan (PM-KUSUM)",
+            "shortName": "PM-KUSUM",
+            "shortDescription": "A scheme to subsidize farmers for installing solar irrigation pumps and setting up solar power plants on their land.",
+            "description": "schemes.pmkusum.description"
+        },
+        "shc": {
+            "name": "Soil Health Card Scheme",
+            "shortName": "Soil Health Card",
+            "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
+            "description": "schemes.shc.description"
+        },
+        "smam": {
+            "name": "Sub-mission On Agriculture Mechanization (SMAM)",
+            "shortName": "SMAM",
+            "shortDescription": "Promotes farm mechanization by providing subsidies on agricultural machinery to increase farm power availability.",
+            "description": "schemes.smam.description"
+        },
+        "ahidf": {
+            "name": "Animal Husbandry Infrastructure Development Fund (AHIDF)",
+            "shortName": "AHIDF",
+            "shortDescription": "Incentivizes investment in dairy processing, meat processing, and animal feed plants.",
+            "description": "schemes.ahidf.description"
+        },
+        "pmkisan_new": {
+            "name": "Pradhan Mantri KISAN Samman Nidhi (PM-KISAN)",
+            "shortName": "PM-KISAN",
+            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
+            "description": "<h4>What is it?</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country. This benefit is provided in three installments every 4 months. The objective of the PM-KISAN scheme is to promote farmers' income and make them self-reliant.</p><h4>Eligibility</h4><p>The eligibility criteria for the PM-KISAN scheme are as follows: The farmer must be a citizen of India. The farmer must be the owner of the land. The size of the farmer's land should not exceed 2 hectares. The farmer must have a bank account. To avail of the benefits of the PM-KISAN scheme, the farmer has to apply online on the official website of the scheme. Along with the application, the farmer has to upload his/her Aadhaar card, bank account details, and land ownership documents.</p><h4>Benefits</h4><p>Here are some of the benefits of the PM-KISAN scheme: It will provide financial assistance to small and marginal farmers. It will help to increase the income of farmers. It will help to make farmers self-reliant. It will help to reduce the burden on farmers. It will help to improve the farmers' standard of living. The PM-KISAN scheme is a very important initiative by the Government of India. This scheme will have a positive impact on the lives of millions of farmers in the country.</p>"
+        }
     },
     "aiFarmer": {
         "title": "ਏਆਈ ਕਿਸਾਨ ਸਹਾਇਕ",
@@ -395,74 +709,6 @@
             "errorDescription": "ਭਵਿੱਖਬਾਣੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ ਰਿਹਾ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
         }
     },
-    "govtSchemes": {
-        "title": "Government Schemes for Farmers",
-        "subtitle": "Explore beneficial programs and support from the government.",
-        "readMore": "Read More",
-        "dialogDescription": "Detailed information about the {schemeName} scheme."
-    },
-    "schemes": {
-        "pmkisan": {
-            "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
-            "shortName": "PM-KISAN",
-            "shortDescription": "The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country.",
-            "description": "schemes.pmkisan_new.description"
-        },
-        "pmfby": {
-            "name": "Pradhan Mantri Fasal Bima Yojana",
-            "shortName": "PM Fasal Yojana",
-            "shortDescription": "Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
-            "description": "schemes.pmfby.description"
-        },
-        "enam": {
-            "name": "E-NAM (National Agriculture Market)",
-            "shortName": "E-NAM",
-            "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
-            "description": "schemes.enam.description"
-        },
-        "pmkmy": {
-            "name": "Pradhan Mantri Kisan Maandhan Yojana",
-            "shortName": "PM Kisan Maandhan",
-            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
-            "description": "schemes.pmkmy.description"
-        },
-        "kcc": {
-            "name": "Kisan Credit Card",
-            "shortName": "KCC",
-            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
-            "description": "schemes.kcc.description"
-        },
-        "pmkusum": {
-            "name": "Pradhan Mantri Kisan Urja Suraksha Evam Utthan Mahabhiyan (PM-KUSUM)",
-            "shortName": "PM-KUSUM",
-            "shortDescription": "A scheme to subsidize farmers for installing solar irrigation pumps and setting up solar power plants on their land.",
-            "description": "schemes.pmkusum.description"
-        },
-        "shc": {
-            "name": "Soil Health Card Scheme",
-            "shortName": "Soil Health Card",
-            "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
-            "description": "schemes.shc.description"
-        },
-        "smam": {
-            "name": "Sub-mission On Agriculture Mechanization (SMAM)",
-            "shortName": "SMAM",
-            "shortDescription": "Promotes farm mechanization by providing subsidies on agricultural machinery to increase farm power availability.",
-            "description": "schemes.smam.description"
-        },
-        "ahidf": {
-            "name": "Animal Husbandry Infrastructure Development Fund (AHIDF)",
-            "shortName": "AHIDF",
-            "shortDescription": "Incentivizes investment in dairy processing, meat processing, and animal feed plants.",
-            "description": "schemes.ahidf.description"
-        },
-        "pmkisan_new": {
-            "name": "Pradhan Mantri KISAN Samman Nidhi (PM-KISAN)",
-            "shortName": "PM-KISAN",
-            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
-            "description": "<h4>What is it?</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country. This benefit is provided in three installments every 4 months. The objective of the PM-KISAN scheme is to promote farmers' income and make them self-reliant.</p><h4>Eligibility</h4><p>The eligibility criteria for the PM-KISAN scheme are as follows: The farmer must be a citizen of India. The farmer must be the owner of the land. The size of the farmer's land should not exceed 2 hectares. The farmer must have a bank account. To avail of the benefits of the PM-KISAN scheme, the farmer has to apply online on the official website of the scheme. Along with the application, the farmer has to upload his/her Aadhaar card, bank account details, and land ownership documents.</p><h4>Benefits</h4><p>Here are some of the benefits of the PM-KISAN scheme: It will provide financial assistance to small and marginal farmers. It will help to increase the income of farmers. It will help to make farmers self-reliant. It will help to reduce the burden on farmers. It will help to improve the farmers' standard of living. The PM-KISAN scheme is a very important initiative by the Government of India. This scheme will have a positive impact on the lives of millions of farmers in the country.</p>"
-        }
-    },
     "locationDialog": {
         "title": "ਆਪਣਾ ਸਥਾਨ ਦਰਜ ਕਰੋ",
         "description": "ਜੇਕਰ ਤੁਸੀਂ ਬਿਹਤਰ ਨਤੀਜੇ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ ਅੱਜ ਦੇ ਮੌਸਮ ਦਾ ਡਾਟਾ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣਾ ਸਥਾਨ ਦਰਜ ਕਰੋ।",
@@ -560,6 +806,9 @@
                 "very_unhealthy": "ਬਹੁਤ ਗੈਰ-ਸਿਹਤਮੰਦ",
                 "hazardous": "ਖ਼ਤਰਨਾਕ",
                 "unknown": "ਅਣਜਾਣ"
+            },
+            "alerts": {
+                "title": "Active Weather Alerts"
             }
         },
         "market": {
