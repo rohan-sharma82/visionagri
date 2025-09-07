@@ -102,11 +102,168 @@
         },
         "profitMakingTips": {
             "title": "Profit Making Tips",
-            "description": "Discover strategies to increase your farm's profitability."
+            "description": "Discover strategies to increase your farm's profitability.",
+            "pageTitle": "Top 10 Tips for Profitable Farming",
+            "pageSubtitle": "Smart strategies to boost your agricultural income and ensure sustainability.",
+            "tip1_title": "1. Choose High-Demand Crops",
+            "tip1_desc": "Focus on crops with consistent market demand like organic vegetables, turmeric, mushrooms, or medicinal herbs. These often fetch premium prices and have shorter cycles.",
+            "tip2_title": "2. Track Yield per Acre",
+            "tip2_desc": "Use data to compare crop performance across seasons. This helps you identify which crops give the best return on investment and where to optimize inputs.",
+            "tip3_title": "3. Optimize Water Usage",
+            "tip3_desc": "Drip irrigation, rainwater harvesting, and soil moisture sensors can drastically reduce water waste and improve crop health—especially in water-scarce regions.",
+            "tip4_title": "4. Test Soil Regularly",
+            "tip4_desc": "Soil testing helps you apply the right fertilizer in the right quantity. It prevents overuse, saves money, and boosts yield. You can even integrate this logic into your app’s form flow.",
+            "tip5_title": "5. Diversify with Allied Activities",
+            "tip5_desc": "Add beekeeping, dairy, or poultry to your farm. These provide steady income and complement crop cycles. Bonus: bees improve pollination and yield.",
+            "tip6_title": "6. Use AI for Crop Prediction",
+            "tip6_desc": "Leverage Genkit AI or similar models to simulate crop outcomes based on fertilizer, weather, and soil data. This helps in planning and risk reduction.",
+            "tip7_title": "7. Add Value Through Processing",
+            "tip7_desc": "Instead of selling raw produce, process it—like turning tomatoes into puree or turmeric into powder. Value-added products sell for more and last longer.",
+            "tip8_title": "8. Sell Direct to Consumers",
+            "tip8_desc": "Use WhatsApp catalogs, local farmer markets, or even a simple web app to bypass middlemen. Direct sales = better margins and customer feedback.",
+            "tip9_title": "9. Rotate Crops Smartly",
+            "tip9_desc": "Crop rotation improves soil health and reduces pest buildup. Pair legumes with cereals or oilseeds to balance nitrogen levels naturally.",
+            "tip10_title": "10. Digitze Your Farm Records",
+            "tip10_desc": "Track expenses, yields, weather, and market prices digitally. This helps with audits, subsidy applications, and smarter decision-making."
         },
         "croppingPatterns": {
             "title": "Cropping Patterns",
             "description": "Understand how cropping patterns vary across India and what factors influence them."
+        },
+        "cropsKnowledge": {
+            "title": "Crops Knowledge",
+            "description": "Detailed information about major crops grown in India, their requirements, and ideal conditions.",
+            "pageTitle": "Detailed Crop Information",
+            "pageSubtitle": "A comprehensive guide to India's major agricultural crops.",
+            "foodgrain_title": "Foodgrain Crops",
+            "cash_title": "Cash Crops",
+            "horticulture_title": "Horticulture Crops",
+            "plantation_title": "Plantation Crops",
+            "fibre_title": "Fibre Crops",
+            "changing_title": "Changing Cropping Patterns",
+            "temp": "Temperature",
+            "rainfall": "Rainfall",
+            "soil": "Soil Type",
+            "states": "Top Producing States",
+            "notes": "Notes",
+            "fruit_label": "Fruit",
+            "states_label": "States",
+            "rice": {
+                "title": "Rice",
+                "temp": "Between 22-32°C with high humidity.",
+                "rainfall": "Around 150-300 cm.",
+                "soil": "Deep clayey and loamy soil.",
+                "states": "West Bengal > Punjab > Uttar Pradesh > Andhra Pradesh > Bihar.",
+                "notes": "Staple food for the majority. India is the 2nd largest producer. Three crops (Aus, Aman, Boro) are grown in some states."
+            },
+            "wheat": {
+                "title": "Wheat",
+                "temp": "10-15°C (Sowing) and 21-26°C (Ripening) with bright sunlight.",
+                "rainfall": "Around 75-100 cm.",
+                "soil": "Well-drained fertile loamy and clayey loamy soils.",
+                "states": "Uttar Pradesh > Punjab > Madhya Pradesh > Haryana > Rajasthan.",
+                "notes": "Second most important cereal crop, main food in North India. Green Revolution greatly boosted its growth."
+            },
+            "millets": {
+                "title": "Millets (Nutri-Cereals)",
+                "temp": "Between 27-32°C",
+                "rainfall": "Around 50-100 cm.",
+                "soil": "Can be grown in inferior alluvial or loamy soil.",
+                "states": "Rajasthan > Karnataka > Maharashtra > Madhya Pradesh > Uttar Pradesh",
+                "notes": "Also known as coarse grains, high nutritional value. Ragi is rich in iron and calcium."
+            },
+            "maize": {
+                "title": "Maize",
+                "temp": "Between 21-27°C",
+                "rainfall": "High rainfall.",
+                "soil": "Old alluvial soil.",
+                "states": "Karnataka > Maharashtra > Madhya Pradesh > Tamil Nadu > Telangana",
+                "notes": "India is the 7th largest producer. Used as both food and fodder. Production increased with HYV seeds."
+            },
+            "pulses": {
+                "title": "Pulses",
+                "temp": "Between 20-27°C",
+                "rainfall": "Around 25-60 cm.",
+                "soil": "Sandy-loamy soil.",
+                "states": "Madhya Pradesh > Rajasthan > Maharashtra > Uttar Pradesh > Karnataka.",
+                "notes": "India is the largest producer and consumer. Major source of protein. Leguminous crops restore soil fertility."
+            },
+            "sugarcane": {
+                "title": "Sugarcane",
+                "temp": "Between 21-27°C with hot and humid climate.",
+                "rainfall": "Around 75-100 cm.",
+                "soil": "Deep rich loamy soil.",
+                "states": "Uttar Pradesh > Maharashtra > Karnataka > Tamil Nadu > Bihar.",
+                "notes": "India is the 2nd largest producer after Brazil. Main source of sugar, jaggery, and molasses."
+            },
+            "oilseeds": {
+                "title": "Oilseeds",
+                "temp": "Between 15-30°C",
+                "rainfall": "Around 30-75 cm.",
+                "soil": "Loam to clayey loam and well drained sandy loams.",
+                "states": "Madhya Pradesh > Rajasthan > Gujarat > Maharashtra > Uttar Pradesh.",
+                "notes": "Includes groundnut, mustard, soyabean, etc. Most are edible; some used for soaps and cosmetics."
+            },
+            "horticulture_desc": "India is the second largest producer of fruits and vegetables. It produces about 13 percent of the world’s vegetables.",
+            "mangoes": "Mangoes",
+            "mangoes_states": "Maharashtra, Andhra Pradesh, Telangana, Uttar Pradesh and West Bengal",
+            "oranges": "Oranges",
+            "oranges_states": "Nagpur and Cherrapunjee (Meghalaya)",
+            "bananas": "Bananas",
+            "bananas_states": "Kerala, Mizoram, Maharashtra and Tamil Nadu",
+            "litchi": "Litchi and Guava",
+            "litchi_states": "Uttar Pradesh and Bihar",
+            "pineapples": "Pineapples",
+            "pineapples_states": "Meghalaya",
+            "grapes": "Grapes",
+            "grapes_states": "Andhra Pradesh, Telangana and Maharashtra",
+            "apples": "Apples, Pears, Apricots and Walnuts",
+            "apples_states": "Jammu and Kashmir and Himachal Pradesh",
+            "tea": {
+                "title": "Tea",
+                "temp": "Between 20-30°C",
+                "rainfall": "Around 150-300 cm.",
+                "soil": "Deep and fertile well-drained soil, rich in humus.",
+                "states": "Assam > West Bengal > Tamil Nadu.",
+                "notes": "India is the 2nd largest producer. It is a labor-intensive industry requiring skilled labor."
+            },
+            "coffee": {
+                "title": "Coffee",
+                "temp": "Between 15-28°C",
+                "rainfall": "Around 150-250 cm.",
+                "soil": "Well drained, deep friable loamy soil.",
+                "states": "Karnataka > Kerala > Tamil Nadu.",
+                "notes": "India is the 7th largest producer. The 'Arabica' variety from India is famous worldwide."
+            },
+            "rubber": {
+                "title": "Rubber",
+                "temp": "Above 25°C with moist and humid climate.",
+                "rainfall": "More than 200 cm.",
+                "soil": "Rich well drained alluvial soil.",
+                "states": "Kerala > Tamil Nadu > Karnataka.",
+                "notes": "It is an equatorial crop but can be grown in tropical and sub-tropical areas. It's an important industrial raw material."
+            },
+            "cotton": {
+                "title": "Cotton",
+                "temp": "Between 21-30°C",
+                "rainfall": "Around 50-100cm.",
+                "soil": "Well drained black cotton soil of Deccan Plateau.",
+                "states": "Gujarat > Maharashtra > Telangana > Andhra Pradesh > Rajasthan.",
+                "notes": "Requires 210 frost-free days and bright sunshine. BT Cotton is a genetically modified variety."
+            },
+            "jute": {
+                "title": "Jute",
+                "temp": "Between 25-35°C",
+                "rainfall": "Around 150-250 cm",
+                "soil": "Well drained alluvial soil.",
+                "states": "West Bengal > Bihar > Assam > Andhra Pradesh > Odisha.",
+                "notes": "Known as the golden fibre. Used in making bags, ropes, etc. Losing market to synthetic fibres."
+            },
+            "changing_p1": "Cropping pattern is a dynamic concept, referring to the proportion of area under various crops at a point in time, and the sequence and spatial arrangement of crops.",
+            "changing_l1": "The Green Revolution led to changes, introducing rice to Punjab and Haryana.",
+            "changing_l2": "New technologies have made food crop cultivation more productive.",
+            "changing_l3": "There's a shift towards cash crops like oilseeds, fruits, and vegetables.",
+            "changing_l4": "Factors like climate change, economic expansion, and urbanization continue to influence these patterns."
         }
     },
     "quotes": {
@@ -256,7 +413,7 @@
         "n24_article": "<h3>🔬 What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>",
         "n25_title_new": "Top 16 Most Profitable Farming Types in India",
         "n25_snippet_new": "We have shared the most profitable farming crops in India in 5 categories; read about each category.",
-        "n25_article_new": "<h3>Top 16 Most Profitable Farming Types in India</h3><p>We have shared the most profitable farming crops in India in 5 categories; read about each category:</p><h4>High-Value Farming</h4><p>High-value crops are those that can generate higher income per unit area compared to traditional crops. They require specific cultivation practices but offer considerable returns due to their demand in various markets.</p><h5>#1: Saffron</h5><ul><li>Saffron is one of the most expensive spices in the world and is referred to as ‘red gold.’</li><li>It grows best in regions with low temperatures, as can be observed from its large-scale production in Kashmir.</li><li>The process of cultivation demands the picking by hand of the fragile stigmas of the plant.</li><li>The global usage of saffron is relatively steady and, especially in culinary and other medicinal demands.</li><li>If adequately cultivated and managed, saffron farming has been known to break the backbone due to its high commercial value.</li></ul><h5>#2: Cardamom</h5><ul><li>This is an essential spice in food preparation, especially those originating from the Indian sub-region, and is also extensively used in the Ayurvedic systems of medication.</li><li>Cardamom grows well in warm, humid regions of the tropical type as those found in Kerala and Tamil Nadu.</li><li>Cultivation of this crop entails shade growth of the plant and frequent watering.</li><li>The market for cardamom export is relatively stable and there is a favorable demand to most of the Middle Eastern nations.</li><li>Due to expensiveness per unit of weight, it presents an excellent opportunity for farmers to venture into its production.</li></ul><h5>#3: Turmeric</h5><ul><li>Turmeric is slowly and gradually getting accepted across the world for its bitter and inflammatory effects, as well as antioxidants.</li><li>It is one of the most profitable crops in India and suitable for cultivation in tropical and sub-tropical holdings all over the country.</li><li>It is relatively easy to promote the cultivation of this plant because it is xerophytic.</li><li>A growing knowledge of the various health benefits of turmeric has quickened domestic and export demand.</li><li>Other profit spin-offs include value-added products such as turmeric powder and supplements.</li></ul><h5>#4: Ginger</h5><ul><li>Ginger is widely used in culinary, medicinal, and cosmetic applications.</li><li>It thrives in warm, humid regions with well-draining soil.</li><li>Cultivation requires careful management of soil moisture and shade.</li><li>The versatility of ginger ensures a steady market demand year-round.</li><li>Fresh, dried, and processed ginger products all offer good profit potential.</li></ul><h5>#5: Black Pepper</h5><ul><li>Known as the “King of Spices,” black pepper is a staple in kitchens worldwide.</li><li>It grows best in tropical climates like Kerala and Karnataka.</li><li>Cultivation involves growing vines on supporting trees or poles.</li><li>The global demand for black pepper remains strong, especially for high-quality varieties.</li><li>Value-added products like pepper oil can increase profitability.</li></ul><h4>Aromatic Plants</h4><p>If you also think, “Is farming profitable in India?” Then you must read about the aromatic plants. These plants are used in food, cosmetics, and aromatherapy.</p><h5>#6: Lavender</h5><ul><li>Lavender is well recognizable, universal, and appreciated for its fragrance and also for its healing properties.</li><li>It grows best in regions of temperate climate, and it is suited to areas where the soil is well drained.</li><li>It is also reasonably simple to cultivate since it does not require so much water and it does not require successive planting.</li><li>Lavender is in high demand in aromatherapy and cosmetics products, in addition to being used for cooking.</li><li>Products such as essential oils, therefore, are important in increasing revenues.</li></ul><h5>#7: Rose</h5><ul><li>Roses are in high demand for perfumes, cosmetics, and culinary uses.</li><li>They thrive in a variety of climates across India.</li><li>Cultivation requires regular pruning and pest management.</li><li>The market for rose products, significantly rose water and essential oil, is expanding.</li><li>Organic rose farming can command premium prices in the market.</li></ul><h5>#8: Jasmine</h5><ul><li>Jasmine is valued for its fragrance in perfumes and teas.</li><li>It grows well in warm, humid climates.</li><li>Cultivation involves regular pruning and night-time harvesting of flowers.</li><li>There’s a steady demand for jasmine in the perfume industry and for religious offerings.</li><li>Jasmine concrete (a waxy aromatic compound) fetches high prices in the international market.</li></ul><h4>Cash Crops</h4><p>Cash crops are grown for commercial value rather than for use as food by the farmer.</p><h5>#9: Cotton</h5><ul><li>Cotton is a cash crop in India and is widely used in textile industries all over the world.</li><li>It does well in areas where they experience a long duration of frost-free and adequate sunshine.</li><li>Irrigation and pest control are other factors that are used in the cultivation of the marijuana plant.</li><li>The domestic and international demand for cotton remains strong.</li><li>Organic and fair-trade cotton can command premium prices.</li></ul><h5>#10: Sugarcane</h5><ul><li>Sugarcane is the new crop that makes India famous for sugar and biofuel production.</li><li>It is mainly distributed in tropical and sub-tropical areas where there is adequate rainfall.</li><li>Cultivation: much attention should be paid to watering and harvesting at the appropriate time.</li><li>The demand for sugar and its byproducts ensures a steady market.</li><li>Value-added products like jaggery can increase profitability.</li></ul><h5>#11: Tea</h5><ul><li>Tea is one of India’s most famous exports and most lucrative crops which are enjoyed worldwide.</li><li>It grows best in cool, moist climates like Assam and Darjeeling.</li><li>Cultivation involves regular pruning and careful plucking of leaves.</li><li>The global demand for various types of tea continues to grow.</li><li>Specialty and organic teas can fetch premium prices in the market.</li></ul><h5>#12: Coffee</h5><ul><li>Indian coffee, especially from the South, is gaining international recognition.</li><li>It grows well in the hills of Southern India with adequate shade.</li><li>Cultivation requires careful management of shade, soil, and water.</li><li>The specialty coffee market offers opportunities for higher profits.</li><li>Direct farmer-to-consumer sales can increase revenue for coffee growers.</li></ul><h4>Organic Farming</h4><p>Organic farming is becoming increasingly popular as consumers seek chemical-free produce.</p><h5>#13: Organic Vegetables</h5><ul><li>Organic vegetables are increasingly popular due to health and environmental concerns.</li><li>Since they are local seeds, they can be grown in different climatic conditions, naturally, and no extensive use of fertilizers is necessary.</li><li>It entails the use of organic manure and the non use of chemicals for controlling pests and diseases.</li><li>Organic produce is in high demand in urban markets and for export markets.</li><li>Direct marketing and value-added products can increase profitability.</li></ul><h5>#14: Organic Fruits</h5><ul><li>Organic fruits are relatively expensive within the country’s market and even in the global market.</li><li>They can be grown in different climate regions depending on the kind of fruit that is being grown.</li><li>Agriculture is not an instant business because trees and some crops often take their natural period to start producing fruits, and such fruits are not as numerous as one might expect.</li><li>There is increased consumer demand for fruits with an organic nature, which is due to the conscious set within the market.</li><li>Fruit processing and export can offer additional revenue streams.</li></ul><h4>Livestock Farming</h4><p>Livestock farming complements crop production and offers diverse income sources.</p><h5>#15: Dairy Farming</h5><ul><li>Dairy farming is a traditional and profitable venture in India.</li><li>It can be done in various climates with proper animal care.</li><li>Success depends on good breed selection, nutrition, and health management.</li><li>The growing demand for milk and milk products ensures a steady market.</li><li>Value-added products like cheese and yogurt can increase profitability.</li></ul><h5>#16: Poultry Farming</h5><ul><li>Meat and egg production through poultry farming is one of the burgeoning sectors India has at the moment.</li><li>It can be completed in different climate conditions, providing sufficient housing and attention.</li><li>Success depends on good breed selection, nutrition, and disease management.</li><li>Poultry products are prompted by the rising trends of protein consumption by consumers.</li><li>Integration of poultry farming with crop farming can optimize resource use and profits.</li></ul>"
+        "n25_article_new": "<h3>Top 16 Most Profitable Farming Types in India</h3><p>We have shared the most profitable farming crops in India in 5 categories; read about each category:</p><h4>High-Value Farming</h4><p>High-value crops are those that can generate higher income per unit area compared to traditional crops. They require specific cultivation practices but offer considerable returns due to their demand in various markets.</p><h5>#1: Saffron</h5><ul><li>Saffron is one of the most expensive spices in the world and is referred to as ‘red gold.’</li><li>It grows best in regions with low temperatures, as can be observed from its large-scale production in Kashmir.</li><li>The process of cultivation demands the picking by hand of the f fragile stigmas of the plant.</li><li>The global usage of saffron is relatively steady and, especially in culinary and other medicinal demands.</li><li>If adequately cultivated and managed, saffron farming has been known to break the backbone due to its high commercial value.</li></ul><h5>#2: Cardamom</h5><ul><li>This is an essential spice in food preparation, especially those originating from the Indian sub-region, and is also extensively used in the Ayurvedic systems of medication.</li><li>Cardamom grows well in warm, humid regions of the tropical type as those found in Kerala and Tamil Nadu.</li><li>Cultivation of this crop entails shade growth of the plant and frequent watering.</li><li>The market for cardamom export is relatively stable and there is a favorable demand to most of the Middle Eastern nations.</li><li>Due to expensiveness per unit of weight, it presents an excellent opportunity for farmers to venture into its production.</li></ul><h5>#3: Turmeric</h5><ul><li>Turmeric is slowly and gradually getting accepted across the world for its bitter and inflammatory effects, as well as antioxidants.</li><li>It is one of the most profitable crops in India and suitable for cultivation in tropical and sub-tropical holdings all over the country.</li><li>It is relatively easy to promote the cultivation of this plant because it is xerophytic.</li><li>A growing knowledge of the various health benefits of turmeric has quickened domestic and export demand.</li><li>Other profit spin-offs include value-added products such as turmeric powder and supplements.</li></ul><h5>#4: Ginger</h5><ul><li>Ginger is widely used in culinary, medicinal, and cosmetic applications.</li><li>It thrives in warm, humid regions with well-draining soil.</li><li>Cultivation requires careful management of soil moisture and shade.</li><li>The versatility of ginger ensures a steady market demand year-round.</li><li>Fresh, dried, and processed ginger products all offer good profit potential.</li></ul><h5>#5: Black Pepper</h5><ul><li>Known as the “King of Spices,” black pepper is a staple in kitchens worldwide.</li><li>It grows best in tropical climates like Kerala and Karnataka.</li><li>Cultivation involves growing vines on supporting trees or poles.</li><li>The global demand for black pepper remains strong, especially for high-quality varieties.</li><li>Value-added products like pepper oil can increase profitability.</li></ul><h4>Aromatic Plants</h4><p>If you also think, “Is farming profitable in India?” Then you must read about the aromatic plants. These plants are used in food, cosmetics, and aromatherapy.</p><h5>#6: Lavender</h5><ul><li>Lavender is well recognizable, universal, and appreciated for its fragrance and also for its healing properties.</li><li>It grows best in regions of temperate climate, and it is suited to areas where the soil is well drained.</li><li>It is also reasonably simple to cultivate since it does not require so much water and it does not require successive planting.</li><li>Lavender is in high demand in aromatherapy and cosmetics products, in addition to being used for cooking.</li><li>Products such as essential oils, therefore, are important in increasing revenues.</li></ul><h5>#7: Rose</h5><ul><li>Roses are in high demand for perfumes, cosmetics, and culinary uses.</li><li>They thrive in a variety of climates across India.</li><li>Cultivation requires regular pruning and pest management.</li><li>The market for rose products, significantly rose water and essential oil, is expanding.</li><li>Organic rose farming can command premium prices in the market.</li></ul><h5>#8: Jasmine</h5><ul><li>Jasmine is valued for its fragrance in perfumes and teas.</li><li>It grows well in warm, humid climates.</li><li>Cultivation involves regular pruning and night-time harvesting of flowers.</li><li>There’s a steady demand for jasmine in the perfume industry and for religious offerings.</li><li>Jasmine concrete (a waxy aromatic compound) fetches high prices in the international market.</li></ul><h4>Cash Crops</h4><p>Cash crops are grown for commercial value rather than for use as food by the farmer.</p><h5>#9: Cotton</h5><ul><li>Cotton is a cash crop in India and is widely used in textile industries all over the world.</li><li>It does well in areas where they experience a long duration of frost-free and adequate sunshine.</li><li>Irrigation and pest control are other factors that are used in the cultivation of the marijuana plant.</li><li>The domestic and international demand for cotton remains strong.</li><li>Organic and fair-trade cotton can command premium prices.</li></ul><h5>#10: Sugarcane</h5><ul><li>Sugarcane is the new crop that makes India famous for sugar and biofuel production.</li><li>It is mainly distributed in tropical and sub-tropical areas where there is adequate rainfall.</li><li>Cultivation: much attention should be paid to watering and harvesting at the appropriate time.</li><li>The demand for sugar and its byproducts ensures a steady market.</li><li>Value-added products like jaggery can increase profitability.</li></ul><h5>#11: Tea</h5><ul><li>Tea is one of India’s most famous exports and most lucrative crops which are enjoyed worldwide.</li><li>It grows best in cool, moist climates like Assam and Darjeeling.</li><li>Cultivation involves regular pruning and careful plucking of leaves.</li><li>The global demand for various types of tea continues to grow.</li><li>Specialty and organic teas can fetch premium prices in the market.</li></ul><h5>#12: Coffee</h5><ul><li>Indian coffee, especially from the South, is gaining international recognition.</li><li>It grows well in the hills of Southern India with adequate shade.</li><li>Cultivation requires careful management of shade, soil, and water.</li><li>The specialty coffee market offers opportunities for higher profits.</li><li>Direct farmer-to-consumer sales can increase revenue for coffee growers.</li></ul><h4>Organic Farming</h4><p>Organic farming is becoming increasingly popular as consumers seek chemical-free produce.</p><h5>#13: Organic Vegetables</h5><ul><li>Organic vegetables are increasingly popular due to health and environmental concerns.</li><li>Since they are local seeds, they can be grown in different climatic conditions, naturally, and no extensive use of fertilizers is necessary.</li><li>It entails the use of organic manure and the non use of chemicals for controlling pests and diseases.</li><li>Organic produce is in high demand in urban markets and for export markets.</li><li>Direct marketing and value-added products can increase profitability.</li></ul><h5>#14: Organic Fruits</h5><ul><li>Organic fruits are relatively expensive within the country’s market and even in the global market.</li><li>They can be grown in different climate regions depending on the kind of fruit that is being grown.</li><li>Agriculture is not an instant business because trees and some crops often take their natural period to start producing fruits, and such fruits are not as numerous as one might expect.</li><li>There is increased consumer demand for fruits with an organic nature, which is due to the conscious set within the market.</li><li>Fruit processing and export can offer additional revenue streams.</li></ul><h4>Livestock Farming</h4><p>Livestock farming complements crop production and offers diverse income sources.</p><h5>#15: Dairy Farming</h5><ul><li>Dairy farming is a traditional and profitable venture in India.</li><li>It can be done in various climates with proper animal care.</li><li>Success depends on good breed selection, nutrition, and health management.</li><li>The growing demand for milk and milk products ensures a steady market.</li><li>Value-added products like cheese and yogurt can increase profitability.</li></ul><h5>#16: Poultry Farming</h5><ul><li>Meat and egg production through poultry farming is one of the burgeoning sectors India has at the moment.</li><li>It can be completed in different climate conditions, providing sufficient housing and attention.</li><li>Success depends on good breed selection, nutrition, and disease management.</li><li>Poultry products are prompted by the rising trends of protein consumption by consumers.</li><li>Integration of poultry farming with crop farming can optimize resource use and profits.</li></ul>"
     },
     "dates": {
         "aug04": "August 04, 2025",
@@ -416,6 +573,148 @@
             }
         }
     },
+    "diseaseClassification": {
+        "title": "Crop Disease Classification",
+        "subtitle": "Upload an image of a crop leaf to detect diseases early.",
+        "uploadCard": {
+            "title": "Upload Crop Image",
+            "description": "For best results, use a clear, close-up image of a single leaf.",
+            "button": "Upload Image"
+        },
+        "buttons": {
+            "classify": "Classify Disease",
+            "analyzing": "Analyzing..."
+        },
+        "status": {
+            "loading": "AI is examining the leaf...",
+            "idle": "Upload an image to get a diagnosis"
+        },
+        "reportCard": {
+            "title": "Diagnosis Report",
+            "diagnosis": "Diagnosis",
+            "confidence": "Confidence Level",
+            "details": "Additional Details & Recommendations"
+        },
+        "toast": {
+            "noFile": {
+                "title": "No file selected",
+                "description": "Please upload an image of a crop leaf."
+            },
+            "failure": {
+                "title": "Classification Failed",
+                "description": "Could not analyze the image. Please try another one."
+            }
+        }
+    },
+    "animalClassification": {
+        "title": "Animal Classification",
+        "subtitle": "Identify animal species from an image, for livestock or wildlife.",
+        "buttons": {
+            "compare": "Compare Breed",
+            "findVet": "Find Veterinarian",
+            "classify": "Classify Animal",
+            "identifying": "Identifying..."
+        },
+        "uploadCard": {
+            "title": "Upload Animal Image",
+            "description": "Provide a clear image of the animal you want to identify.",
+            "button": "Upload Image"
+        },
+        "status": {
+            "loading": "AI is examining the photo...",
+            "idle": "Upload an image to identify an animal"
+        },
+        "reportCard": {
+            "title": "Identification Report",
+            "species": "Identified Species",
+            "confidence": "Confidence Level",
+            "description": "Description",
+            "breedInfo": "Breed Information",
+            "localNames": "Local Names",
+            "origin": "Origin",
+            "color": "Color",
+            "weight": "Weight",
+            "milkYield": "Milk Yield",
+            "suitability": "Suitability",
+            "suggestion": "Actionable Suggestion"
+        },
+        "toast": {
+            "noFileTitle": "No file selected",
+            "noFileDescription": "Please upload an image of an animal.",
+            "failureTitle": "Classification Failed",
+            "failureDescription": "Could not analyze the image. Please try another one."
+        }
+    },
+    "cropYield": {
+        "title": "Crop Yield Prediction",
+        "subtitle": "Leverage AI to forecast your harvest and optimize your strategy.",
+        "growing": "Growing",
+        "rotatingTexts": {
+            "knowledge": "knowledge.",
+            "crops": "crops.",
+            "prosperity": "prosperity.",
+            "india": "India."
+        },
+        "form": {
+            "title": "ENTER DETAILS",
+            "cropType": {
+                "label": "Crop Type",
+                "placeholder": "e.g., Wheat, Corn, Soybeans"
+            },
+            "soilType": {
+                "label": "Soil Type",
+                "placeholder": "e.g., Loamy, Sandy, Clay"
+            },
+            "temperature": {
+                "label": "Temperature (°C)",
+                "placeholder": "e.g., 25"
+            },
+            "rainfall": {
+                "label": "Rainfall (mm)",
+                "placeholder": "e.g., 500"
+            },
+            "farmSize": {
+                "label": "Farm Size"
+            },
+            "fertilizer": {
+                "label": "Fertilizer",
+                "typePlaceholder": "Fertilizer Type",
+                "amountPlaceholder": "Amount (e.g., 50kg)"
+            },
+            "irrigation": {
+                "label": "Irrigation Method (Optional)",
+                "placeholder": "e.g., Drip, Sprinkler, Canal"
+            },
+            "additionalNotes": {
+                "placeholder": "Additional Notes (e.g., used other spray, pest issues)"
+            }
+        },
+        "buttons": {
+            "predict": "Predict Yield",
+            "predicting": "Predicting...",
+            "areaInfo": "Quick Info",
+            "knowYourArea": "Know Your Area"
+        },
+        "status": {
+            "loading": "Your smart assistant is walking through the fields…",
+            "fetchingWeather": "Fetching live weather data",
+            "idle": "AI is ready to calculate your harvest — just hit predict."
+        },
+        "results": {
+            "title": "AI Prediction Results",
+            "predictedYield": "Total Predicted Yield",
+            "confidence": "Confidence",
+            "analysis": "AI Analysis",
+            "factors": "Influencing Factors",
+            "actions": "Suggested Actions",
+            "idealValues": "Ideal Input Suggestions",
+            "fertilizerSuitability": "Fertilizer Suitability"
+        },
+        "toast": {
+            "errorTitle": "Error",
+            "errorDescription": "Failed to get prediction. Please try again."
+        }
+    },
     "locationDialog": {
         "title": "Enter Your Location",
         "description": "If you want better results, enter your location for fetching today's weather data.",
@@ -533,148 +832,6 @@
             "market": "Loading Market Analysis...",
             "schemes": "Loading Recommended Schemes...",
             "history": "Loading Yield History..."
-        }
-    },
-    "animalClassification": {
-        "title": "Animal Classification",
-        "subtitle": "Identify animal species from an image, for livestock or wildlife.",
-        "buttons": {
-            "compare": "Compare Breed",
-            "findVet": "Find Veterinarian",
-            "classify": "Classify Animal",
-            "identifying": "Identifying..."
-        },
-        "uploadCard": {
-            "title": "Upload Animal Image",
-            "description": "Provide a clear image of the animal you want to identify.",
-            "button": "Upload Image"
-        },
-        "status": {
-            "loading": "AI is examining the photo...",
-            "idle": "Upload an image to identify an animal"
-        },
-        "reportCard": {
-            "title": "Identification Report",
-            "species": "Identified Species",
-            "confidence": "Confidence Level",
-            "description": "Description",
-            "breedInfo": "Breed Information",
-            "localNames": "Local Names",
-            "origin": "Origin",
-            "color": "Color",
-            "weight": "Weight",
-            "milkYield": "Milk Yield",
-            "suitability": "Suitability",
-            "suggestion": "Actionable Suggestion"
-        },
-        "toast": {
-            "noFileTitle": "No file selected",
-            "noFileDescription": "Please upload an image of an animal.",
-            "failureTitle": "Classification Failed",
-            "failureDescription": "Could not analyze the image. Please try another one."
-        }
-    },
-    "diseaseClassification": {
-        "title": "Crop Disease Classification",
-        "subtitle": "Upload an image of a crop leaf to detect diseases early.",
-        "uploadCard": {
-            "title": "Upload Crop Image",
-            "description": "For best results, use a clear, close-up image of a single leaf.",
-            "button": "Upload Image"
-        },
-        "buttons": {
-            "classify": "Classify Disease",
-            "analyzing": "Analyzing..."
-        },
-        "status": {
-            "loading": "AI is examining the leaf...",
-            "idle": "Upload an image to get a diagnosis"
-        },
-        "reportCard": {
-            "title": "Diagnosis Report",
-            "diagnosis": "Diagnosis",
-            "confidence": "Confidence Level",
-            "details": "Additional Details & Recommendations"
-        },
-        "toast": {
-            "noFile": {
-                "title": "No file selected",
-                "description": "Please upload an image of a crop leaf."
-            },
-            "failure": {
-                "title": "Classification Failed",
-                "description": "Could not analyze the image. Please try another one."
-            }
-        }
-    },
-    "cropYield": {
-        "title": "Crop Yield Prediction",
-        "subtitle": "Leverage AI to forecast your harvest and optimize your strategy.",
-        "growing": "Growing",
-        "rotatingTexts": {
-            "knowledge": "knowledge.",
-            "crops": "crops.",
-            "prosperity": "prosperity.",
-            "india": "India."
-        },
-        "form": {
-            "title": "ENTER DETAILS",
-            "cropType": {
-                "label": "Crop Type",
-                "placeholder": "e.g., Wheat, Corn, Soybeans"
-            },
-            "soilType": {
-                "label": "Soil Type",
-                "placeholder": "e.g., Loamy, Sandy, Clay"
-            },
-            "temperature": {
-                "label": "Temperature (°C)",
-                "placeholder": "e.g., 25"
-            },
-            "rainfall": {
-                "label": "Rainfall (mm)",
-                "placeholder": "e.g., 500"
-            },
-            "farmSize": {
-                "label": "Farm Size"
-            },
-            "fertilizer": {
-                "label": "Fertilizer",
-                "typePlaceholder": "Fertilizer Type",
-                "amountPlaceholder": "Amount (e.g., 50kg)"
-            },
-            "irrigation": {
-                "label": "Irrigation Method (Optional)",
-                "placeholder": "e.g., Drip, Sprinkler, Canal"
-            },
-            "additionalNotes": {
-                "placeholder": "Additional Notes (e.g., used other spray, pest issues)"
-            }
-        },
-        "buttons": {
-            "predict": "Predict Yield",
-            "predicting": "Predicting...",
-            "areaInfo": "Quick Info",
-            "knowYourArea": "Know Your Area"
-        },
-        "status": {
-            "loading": "Your smart assistant is walking through the fields…",
-            "fetchingWeather": "Fetching live weather data",
-            "idle": "AI is ready to calculate your harvest — just hit predict."
-        },
-        "results": {
-            "title": "AI Prediction Results",
-            "predictedYield": "Total Predicted Yield",
-            "confidence": "Confidence",
-            "analysis": "AI Analysis",
-            "factors": "Influencing Factors",
-            "actions": "Suggested Actions",
-            "idealValues": "Ideal Input Suggestions",
-            "fertilizerSuitability": "Fertilizer Suitability"
-        },
-        "toast": {
-            "errorTitle": "Error",
-            "errorDescription": "Failed to get prediction. Please try again."
         }
     },
     "areaInfo": {

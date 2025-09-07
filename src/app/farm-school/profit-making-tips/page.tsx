@@ -10,7 +10,6 @@ import {
 import { useTranslation } from '@/hooks/use-translation';
 import {
   ArrowLeft,
-  Target,
   TestTube,
   Wrench,
   Link as LinkIcon,
@@ -19,6 +18,12 @@ import {
   Coins,
   Sprout,
   Droplets,
+  BarChart,
+  BrainCircuit,
+  Package,
+  ShoppingCart,
+  Book,
+  Repeat,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -29,82 +34,53 @@ export default function ProfitMakingTipsPage() {
   const profitTips = [
     {
       title: 'farmSchool.profitMakingTips.tip1_title',
-      icon: <Target className="h-8 w-8 text-green-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip1_p1',
-        'farmSchool.profitMakingTips.tip1_p2',
-        'farmSchool.profitMakingTips.tip1_p3',
-      ],
+      icon: <Sprout className="h-8 w-8 text-green-500" />,
+      description: 'farmSchool.profitMakingTips.tip1_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip2_title',
-      icon: <Sprout className="h-8 w-8 text-yellow-600" />,
-      points: [
-        'farmSchool.profitMakingTips.tip2_p1',
-        'farmSchool.profitMakingTips.tip2_p2',
-        'farmSchool.profitMakingTips.tip2_p3',
-      ],
+      icon: <BarChart className="h-8 w-8 text-blue-500" />,
+      description: 'farmSchool.profitMakingTips.tip2_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip3_title',
-      icon: <Droplets className="h-8 w-8 text-blue-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip3_p1',
-        'farmSchool.profitMakingTips.tip3_p2',
-        'farmSchool.profitMakingTips.tip3_p3',
-      ],
+      icon: <Droplets className="h-8 w-8 text-cyan-500" />,
+      description: 'farmSchool.profitMakingTips.tip3_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip4_title',
-      icon: <Wrench className="h-8 w-8 text-gray-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip4_p1',
-        'farmSchool.profitMakingTips.tip4_p2',
-        'farmSchool.profitMakingTips.tip4_p3',
-      ],
+      icon: <TestTube className="h-8 w-8 text-purple-500" />,
+      description: 'farmSchool.profitMakingTips.tip4_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip5_title',
       icon: <PlusCircle className="h-8 w-8 text-indigo-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip5_p1',
-        'farmSchool.profitMakingTips.tip5_p2',
-        'farmSchool.profitMakingTips.tip5_p3',
-      ],
+      description: 'farmSchool.profitMakingTips.tip5_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip6_title',
-      icon: <Coins className="h-8 w-8 text-amber-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip6_p1',
-        'farmSchool.profitMakingTips.tip6_p2',
-        'farmSchool.profitMakingTips.tip6_p3',
-      ],
+      icon: <BrainCircuit className="h-8 w-8 text-pink-500" />,
+      description: 'farmSchool.profitMakingTips.tip6_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip7_title',
-      icon: <LinkIcon className="h-8 w-8 text-cyan-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip7_p1',
-        'farmSchool.profitMakingTips.tip7_p2',
-        'farmSchool.profitMakingTips.tip7_p3',
-      ],
+      icon: <Package className="h-8 w-8 text-orange-500" />,
+      description: 'farmSchool.profitMakingTips.tip7_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip8_title',
-      icon: <TestTube className="h-8 w-8 text-purple-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip8_p1',
-        'farmSchool.profitMakingTips.tip8_p2',
-      ],
+      icon: <ShoppingCart className="h-8 w-8 text-amber-600" />,
+      description: 'farmSchool.profitMakingTips.tip8_desc',
     },
     {
       title: 'farmSchool.profitMakingTips.tip9_title',
-      icon: <Shield className="h-8 w-8 text-red-500" />,
-      points: [
-        'farmSchool.profitMakingTips.tip9_p1',
-        'farmSchool.profitMakingTips.tip9_p2',
-      ],
+      icon: <Repeat className="h-8 w-8 text-teal-500" />,
+      description: 'farmSchool.profitMakingTips.tip9_desc',
+    },
+    {
+      title: 'farmSchool.profitMakingTips.tip10_title',
+      icon: <Book className="h-8 w-8 text-gray-500" />,
+      description: 'farmSchool.profitMakingTips.tip10_desc',
     },
   ];
 
@@ -126,19 +102,17 @@ export default function ProfitMakingTipsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {profitTips.map((tip, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
-              <CardHeader className="flex flex-row items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">{tip.icon}</div>
-                <CardTitle className="text-xl">{t(tip.title)}</CardTitle>
+            <Card key={index} className="hover:shadow-lg transition-shadow flex flex-col">
+              <CardHeader className="flex flex-row items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-full mt-1">{tip.icon}</div>
+                <div>
+                    <CardTitle className="text-xl">{t(tip.title)}</CardTitle>
+                </div>
               </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-base text-muted-foreground">
-                  {tip.points.map((point, i) => (
-                    <li key={i}>{t(point)}</li>
-                  ))}
-                </ul>
+              <CardContent className="flex-grow">
+                <p className="text-base text-muted-foreground">{t(tip.description)}</p>
               </CardContent>
             </Card>
           ))}
