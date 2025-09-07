@@ -33,7 +33,7 @@ const AnimalClassificationOutputSchema = z.object({
     origin: z.string().optional().describe('The region of origin for the breed.'),
     color: z.string().optional().describe('Typical colors of the breed.'),
     weight: z.string().optional().describe('Average weight for males and females (e.g., "Male - 530 kg, Female - 325 kg").'),
-    milkYield: z.string().optional().describe('Average milk yield per day or per lactation.'),
+    milkYield: z.string().optional().describe('Average milk yield. IMPORTANT: Make this very easy to understand for a farmer. For example: "Averages 8-10 liters per day, totaling around 2500 liters per lactation (approx. 10 months)."'),
     suitability: z.string().optional().describe('Primary use of the breed (e.g., Milk, Draught, Dual-purpose).')
   }).optional().describe('Detailed information about the specific breed if it is a known domestic cattle breed. Omit if not applicable.'),
   actionableSuggestion: z.string().describe("An actionable suggestion for the farmer based on the animal's species and apparent health from the image. For example, if it's a healthy Gir cow, suggest: 'This breed is known for high milk yield; ensure balanced fodder.' If it appears unhealthy, suggest seeking veterinary advice for specific symptoms."),
@@ -61,7 +61,7 @@ Photo: {{media url=photoDataUri}}
     *   Origin
     *   Color
     *   Weight
-    *   Milk Yield
+    *   Milk Yield: IMPORTANT! Make this very easy for a farmer to understand. Provide a daily average (e.g., "8-10 liters per day") and explain the total lactation yield in simple terms (e.g., "totaling around 2500 liters over a 10-month period").
     *   Suitability (e.g., Milk, Draught, Dual-purpose)
     *   If the animal is not a specific domestic breed, omit the breedInfo field.
 4.  Provide a concise, **actionableSuggestion** for a farmer. This suggestion should be based on the breed's characteristics and its apparent health from the photo. For example: "This breed is known for high milk yield; ensure balanced fodder."
