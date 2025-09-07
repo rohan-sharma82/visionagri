@@ -1039,7 +1039,7 @@
     }
 
     .send-button-style:hover span {
-      color: hsl(var(--primary));
+      color: #34D399;
       animation: scaleUp 0.3s ease-in-out;
     }
 

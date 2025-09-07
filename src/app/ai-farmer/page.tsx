@@ -490,7 +490,7 @@ export default function AiFarmerPage() {
                   {isLoading ? (
                     <div className="h-4 w-4 animate-spin rounded-full border-2 border-t-transparent border-white" />
                   ) : (
-                    <span><Send className="text-black" /></span>
+                    <span><Send /></span>
                   )}
                 </Button>
               </form>
