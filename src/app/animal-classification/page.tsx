@@ -160,57 +160,57 @@ export default function AnimalClassificationPage() {
               transition={{ duration: 0.5 }}
               className="w-full"
             >
-              <Card className="shadow-xl bg-gradient-to-br from-card to-secondary">
+              <Card className="shadow-xl bg-[#80392A] text-white">
                 <CardHeader>
                   <CardTitle className="text-2xl">{t('animalClassification.reportCard.title')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="flex items-center space-x-4 p-4 rounded-lg bg-primary/10">
-                    <PawPrint className="h-8 w-8 text-primary" />
+                  <div className="flex items-center space-x-4 p-4 rounded-lg bg-white/10">
+                    <PawPrint className="h-8 w-8 text-white" />
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.species')}</h3>
-                      <p className="text-2xl font-bold text-primary capitalize">{result.animalSpecies}</p>
+                      <h3 className="font-semibold">{t('animalClassification.reportCard.species')}</h3>
+                      <p className="text-2xl font-bold capitalize">{result.animalSpecies}</p>
                     </div>
                   </div>
                   
                   <div>
                     <div className="flex items-center space-x-3 mb-2">
-                       <BarChart className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.confidence')}</h3>
+                       <BarChart className="h-5 w-5 text-white/80" />
+                       <h3 className="font-semibold">{t('animalClassification.reportCard.confidence')}</h3>
                     </div>
-                    <Progress value={result.confidence * 100} className="w-full h-3" />
-                    <p className="text-right text-sm text-muted-foreground mt-1">
+                    <Progress value={result.confidence * 100} className="w-full h-3 bg-white/30" />
+                    <p className="text-right text-sm text-white/80 mt-1">
                       {(result.confidence * 100).toFixed(2)}%
                     </p>
                   </div>
                    <div>
                     <div className="flex items-center space-x-3 mb-2">
-                       <Info className="h-5 w-5 text-accent" />
-                       <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.description')}</h3>
+                       <Info className="h-5 w-5 text-white/80" />
+                       <h3 className="font-semibold">{t('animalClassification.reportCard.description')}</h3>
                     </div>
-                    <p className="text-muted-foreground text-sm">{result.description}</p>
+                    <p className="text-sm text-white/90">{result.description}</p>
                   </div>
 
                   {result.breedInfo && (
                      <div>
-                        <h3 className="font-semibold text-foreground mb-3 text-lg">{t('animalClassification.reportCard.breedInfo')}</h3>
+                        <h3 className="font-semibold text-lg mb-3">{t('animalClassification.reportCard.breedInfo')}</h3>
                         <div className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                            {result.breedInfo.localNames && <div className="flex items-center gap-2"><Tag className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.localNames')}:</strong> {result.breedInfo.localNames}</div>}
-                            {result.breedInfo.origin && <div className="flex items-center gap-2"><Globe className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.origin')}:</strong> {result.breedInfo.origin}</div>}
+                            {result.breedInfo.localNames && <div className="flex items-center gap-2"><Tag className="h-4 w-4 text-white" /> <strong>{t('animalClassification.reportCard.localNames')}:</strong> {result.breedInfo.localNames}</div>}
+                            {result.breedInfo.origin && <div className="flex items-center gap-2"><Globe className="h-4 w-4 text-white" /> <strong>{t('animalClassification.reportCard.origin')}:</strong> {result.breedInfo.origin}</div>}
                             {result.breedInfo.color && <div className="flex items-center gap-2"><div className="h-4 w-4 rounded-full border" style={{ backgroundColor: result.breedInfo.color.split(',')[0].toLowerCase() }} /> <strong>{t('animalClassification.reportCard.color')}:</strong> {result.breedInfo.color}</div>}
-                            {result.breedInfo.weight && <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.weight')}:</strong> {result.breedInfo.weight}</div>}
-                            {result.breedInfo.milkYield && <div className="flex items-center gap-2"><Milk className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.milkYield')}:</strong> {result.breedInfo.milkYield}</div>}
-                            {result.breedInfo.suitability && <div className="flex items-center gap-2"><Thermometer className="h-4 w-4 text-primary" /> <strong>{t('animalClassification.reportCard.suitability')}:</strong> {result.breedInfo.suitability}</div>}
+                            {result.breedInfo.weight && <div className="flex items-center gap-2"><Scale className="h-4 w-4 text-white" /> <strong>{t('animalClassification.reportCard.weight')}:</strong> {result.breedInfo.weight}</div>}
+                            {result.breedInfo.milkYield && <div className="flex items-center gap-2"><Milk className="h-4 w-4 text-white" /> <strong>{t('animalClassification.reportCard.milkYield')}:</strong> {result.breedInfo.milkYield}</div>}
+                            {result.breedInfo.suitability && <div className="flex items-center gap-2"><Thermometer className="h-4 w-4 text-white" /> <strong>{t('animalClassification.reportCard.suitability')}:</strong> {result.breedInfo.suitability}</div>}
                         </div>
                     </div>
                   )}
 
                   <div>
                      <div className="flex items-center space-x-3 mb-2">
-                       <Lightbulb className="h-5 w-5 text-yellow-500" />
-                       <h3 className="font-semibold text-foreground">{t('animalClassification.reportCard.suggestion')}</h3>
+                       <Lightbulb className="h-5 w-5 text-yellow-300" />
+                       <h3 className="font-semibold">{t('animalClassification.reportCard.suggestion')}</h3>
                     </div>
-                    <p className="text-muted-foreground bg-primary/5 p-3 rounded-md border border-primary/20 text-sm">{result.actionableSuggestion}</p>
+                    <p className="bg-white/5 p-3 rounded-md border border-white/20 text-sm">{result.actionableSuggestion}</p>
                   </div>
                 </CardContent>
               </Card>
