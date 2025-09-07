@@ -2,8 +2,8 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, Menu } from 'lucide-react';
-import { useState } from 'react';
+import { Leaf, LogIn, LogOut, Menu } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 import { cn } from '@/lib/utils';
 import { mainNavLinks } from '@/lib/constants';
@@ -16,11 +16,31 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { useTranslation } from '@/hooks/use-translation';
-
+import { logout } from '@/app/auth/actions';
+import { createClient } from '@/lib/supabase/client';
 
 export default function Header() {
   const pathname = usePathname();
   const { t } = useTranslation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const supabase = createClient();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setIsLoggedIn(!!session);
+    };
+
+    checkSession();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsLoggedIn(!!session);
+    });
+
+    return () => {
+      authListener?.subscription.unsubscribe();
+    };
+  }, [supabase.auth]);
 
   const allNavLinks = [
     ...mainNavLinks,
@@ -32,6 +52,28 @@ export default function Header() {
     ...link,
     label: t(link.label)
   }));
+
+  const AuthButton = () => {
+    if (isLoggedIn) {
+      return (
+        <form action={logout}>
+          <Button variant="outline" size="sm" className="flex items-center gap-2">
+            <LogOut className="h-4 w-4" />
+            {t('dashboard.logout')}
+          </Button>
+        </form>
+      );
+    }
+    return (
+      <Link href="/login">
+        <Button variant="default" size="sm" className="flex items-center gap-2">
+          <LogIn className="h-4 w-4" />
+          {t('login.buttons.signin')}
+        </Button>
+      </Link>
+    );
+  };
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -60,6 +102,11 @@ export default function Header() {
             ))}
           </nav>
         </div>
+        
+        <div className="flex flex-1 items-center justify-end space-x-4 hidden md:flex">
+          <AuthButton />
+        </div>
+
         <div className="flex flex-1 items-center justify-between space-x-2 md:hidden">
             <Link href="/" className="flex items-center space-x-2">
                 <Leaf className="h-6 w-6 text-primary" />
@@ -90,6 +137,9 @@ export default function Header() {
                                 {link.label}
                             </Link>
                         ))}
+                         <div className="pt-4 border-t">
+                           <AuthButton />
+                         </div>
                     </div>
                 </SheetContent>
             </Sheet>
