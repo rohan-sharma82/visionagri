@@ -90,8 +90,8 @@ export default function AnimalClassificationPage() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mt-12">
-        <div className='flex flex-col items-center gap-4'>
+      <div className="flex flex-col items-center gap-8 lg:gap-12 mt-12">
+        <div className='flex flex-col items-center gap-4 w-full max-w-lg'>
             <Card className="shadow-lg w-full">
             <CardHeader>
                 <CardTitle>{t('animalClassification.uploadCard.title')}</CardTitle>
@@ -146,7 +146,7 @@ export default function AnimalClassificationPage() {
         </div>
 
 
-        <div className="flex flex-col items-center justify-center min-h-[400px] gap-4">
+        <div className="flex flex-col items-center justify-center w-full max-w-lg min-h-[400px] gap-4">
           {isLoading && (
             <div className="text-center text-muted-foreground">
               <Loader2 className="mx-auto h-12 w-12 animate-spin text-primary" />
