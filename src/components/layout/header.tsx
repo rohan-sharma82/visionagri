@@ -2,7 +2,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, LogIn, LogOut, Menu } from 'lucide-react';
+import { Leaf, LogIn, LogOut, Menu, UserCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -15,30 +15,38 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useTranslation } from '@/hooks/use-translation';
 import { logout } from '@/app/auth/actions';
 import { createClient } from '@/lib/supabase/client';
+import type { User } from '@supabase/supabase-js';
 
 export default function Header() {
   const pathname = usePathname();
   const { t } = useTranslation();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const supabase = createClient();
 
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setIsLoggedIn(!!session);
-    };
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setCurrentUser(session?.user ?? null);
+    });
 
-    checkSession();
-
-    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      setIsLoggedIn(!!session);
+    // Initial check
+    supabase.auth.getUser().then(({ data: { user } }) => {
+        setCurrentUser(user);
     });
 
     return () => {
-      authListener?.subscription.unsubscribe();
+      subscription.unsubscribe();
     };
   }, [supabase.auth]);
 
@@ -52,16 +60,47 @@ export default function Header() {
     ...link,
     label: t(link.label)
   }));
+  
+  const getInitials = (name?: string) => {
+    if (!name) return 'U';
+    const names = name.split(' ');
+    if (names.length > 1) {
+        return names[0][0] + names[names.length - 1][0];
+    }
+    return names[0].substring(0, 2);
+  }
 
   const AuthButton = () => {
-    if (isLoggedIn) {
+    if (currentUser) {
       return (
-        <form action={logout}>
-          <Button variant="outline" size="sm" className="flex items-center gap-2">
-            <LogOut className="h-4 w-4" />
-            {t('dashboard.logout')}
-          </Button>
-        </form>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+              <Avatar className="h-8 w-8">
+                <AvatarFallback>{getInitials(currentUser.user_metadata?.full_name)}</AvatarFallback>
+              </Avatar>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56" align="end" forceMount>
+            <DropdownMenuLabel className="font-normal">
+              <div className="flex flex-col space-y-1">
+                <p className="text-sm font-medium leading-none">{currentUser.user_metadata?.full_name}</p>
+                <p className="text-xs leading-none text-muted-foreground">
+                  {currentUser.email}
+                </p>
+              </div>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <form action={logout}>
+                <DropdownMenuItem asChild>
+                    <button className="w-full">
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>{t('dashboard.logout')}</span>
+                    </button>
+                </DropdownMenuItem>
+            </form>
+          </DropdownMenuContent>
+        </DropdownMenu>
       );
     }
     return (

@@ -34,6 +34,9 @@ import { soilTypeExplanations } from '@/lib/area-data';
 import { Combobox } from '@/components/ui/combobox';
 import { categorizedCropOptions } from '@/lib/constants';
 import { Textarea } from '@/components/ui/textarea';
+import { saveYieldPrediction } from './actions';
+import { createClient } from '@/lib/supabase/client';
+import { User } from '@supabase/supabase-js';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -59,6 +62,16 @@ export default function CropYieldPage() {
   const [prediction, setPrediction] = useState<PredictCropYieldOutput | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const supabase = createClient();
+
+  React.useEffect(() => {
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setCurrentUser(user);
+    };
+    getUser();
+  }, [supabase.auth]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -86,6 +99,12 @@ export default function CropYieldPage() {
         farmSize: combinedFarmSize,
       });
       setPrediction(result);
+      if (currentUser && result.predictedYield !== "N/A") {
+          await saveYieldPrediction({
+            ...result,
+            cropType: values.cropType
+          });
+      }
     } catch (error) {
       console.error('Error predicting crop yield:', error);
       toast({

@@ -20,7 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { PlusCircle, ShieldCheck, Sun, Moon, AlertTriangle, TrendingUp, Loader2 } from 'lucide-react';
+import { PlusCircle, ShieldCheck, Sun, Moon, AlertTriangle, TrendingUp, Loader2, Bot, User, MessageSquare } from 'lucide-react';
 import { getDashboardWeather, DashboardWeatherOutput } from '@/ai/flows/dashboard-weather';
 import { getMarketPriceAnalysis } from '@/ai/flows/market-price-analysis';
 import { MarketPriceAnalysisOutput } from '@/ai/tools/market-price';
@@ -33,6 +33,11 @@ import WeatherAlerts from '@/components/weather-alerts';
 import { useApp } from '@/hooks/use-app-provider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { categorizedCropOptions } from '@/lib/constants';
+import { getYieldPredictionHistory, getRecentChatHistory, updateActualYield, YieldPredictionHistory } from '../actions';
+import type { Message } from '@/app/ai-farmer/page';
+import { format } from 'date-fns';
+import { Input } from '@/components/ui/input';
+import Link from 'next/link';
 
 
 const aqiToLabel = (index: number | undefined, t: (key: string) => string) => {
@@ -147,60 +152,60 @@ const WeatherCard = ({ weatherData, isLoading, onRetry }: { weatherData: Dashboa
   )
 }
 
-const DataSkeleton = () => {
-    const { t } = useTranslation();
-    return (
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="lg:col-span-3"><CardHeader><CardTitle>{t('dashboard.loading.weather')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
-            <Card className="md:col-span-2"><CardHeader><CardTitle>{t('dashboard.loading.market')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
-            <Card><CardHeader><CardTitle>{t('dashboard.loading.schemes')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[250px] w-full" /></CardContent></Card>
-            <Card className="md:col-span-3"><CardHeader><CardTitle>{t('dashboard.loading.history')}</CardTitle></CardHeader><CardContent><Skeleton className="h-[200px] w-full" /></CardContent></Card>
-        </div>
-    )
-};
-
 export default function DashboardPage() {
   const { t } = useTranslation();
-  const { location: globalLocation } = useLocation();
+  const { location: globalLocation, setLocation } = useLocation();
   const { setLocationDialogOpen } = useApp();
   const { toast } = useToast();
+  
   const [weatherData, setWeatherData] = useState<DashboardWeatherOutput | null>(null);
   const [marketData, setMarketData] = useState<MarketPriceAnalysisOutput | null>(null);
+  const [yieldHistory, setYieldHistory] = useState<YieldPredictionHistory[]>([]);
+  const [chatHistory, setChatHistory] = useState<Message[]>([]);
+  
   const [isWeatherLoading, setIsWeatherLoading] = useState(true);
   const [isMarketLoading, setIsMarketLoading] = useState(true);
-  const [isDataLoading, setIsDataLoading] = useState(true);
-  const [selectedCrop, setSelectedCrop] = useState('Wheat');
+  const [isHistoryLoading, setIsHistoryLoading] = useState(true);
 
-  const userData = {
-    yieldHistory: [
-        { date: '4 August 2025', crop: 'Wheat', predicted: '4.5', actual: '4.2' },
-        { date: '2024-03-20', crop: 'Corn', predicted: '8.1', actual: null },
-    ],
-    recommendedSchemes: [
-        { name: 'schemes.pmkisan.shortName', reason: 'dashboard.schemes.reasons.smallLandholding' },
-        { name: 'schemes.pmfby.shortName', reason: 'dashboard.schemes.reasons.weatherUnpredictability' },
-    ],
-  };
+  const [selectedCrop, setSelectedCrop] = useState('Wheat');
+  const [editingYieldId, setEditingYieldId] = useState<string | null>(null);
+  const [actualYieldValue, setActualYieldValue] = useState('');
 
   useEffect(() => {
-    const fetchWeather = async () => {
-      if (!globalLocation) {
-        setIsWeatherLoading(true);
-        return;
-      }
-      setIsWeatherLoading(true);
-      try {
-        const weatherResult = await getDashboardWeather({ location: globalLocation });
-        setWeatherData(weatherResult);
-      } catch (error) {
-        console.error("Weather data fetching failed:", error);
-        setWeatherData(null);
-      } finally {
-        setIsWeatherLoading(false);
-      }
-    };
-    fetchWeather();
-  }, [globalLocation]);
+    async function fetchData() {
+        setIsHistoryLoading(true);
+        const [yieldRes, chatRes] = await Promise.all([
+            getYieldPredictionHistory(),
+            getRecentChatHistory()
+        ]);
+        setYieldHistory(yieldRes);
+        setChatHistory(chatRes);
+        setIsHistoryLoading(false);
+    }
+    fetchData();
+  }, []);
+
+  const fetchWeather = useCallback(async (location: string) => {
+    setIsWeatherLoading(true);
+    try {
+      const weatherResult = await getDashboardWeather({ location });
+      setWeatherData(weatherResult);
+    } catch (error) {
+      console.error("Weather data fetching failed:", error);
+      setWeatherData(null);
+    } finally {
+      setIsWeatherLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (globalLocation) {
+        fetchWeather(globalLocation);
+    } else {
+        setIsWeatherLoading(false); // If no location, stop loading
+    }
+  }, [globalLocation, fetchWeather]);
+
 
   useEffect(() => {
     const fetchMarketData = async () => {
@@ -219,13 +224,29 @@ export default function DashboardPage() {
     fetchMarketData();
   }, [selectedCrop, toast]);
   
-  useEffect(() => {
-    setIsDataLoading(isWeatherLoading || isMarketLoading);
-  }, [isWeatherLoading, isMarketLoading]);
+  const handleUpdateYield = async (id: string) => {
+    if (!actualYieldValue) return;
+    try {
+      await updateActualYield(id, actualYieldValue);
+      setYieldHistory(prev => prev.map(item => item.id === id ? { ...item, actualYield: actualYieldValue } : item));
+      setEditingYieldId(null);
+      setActualYieldValue('');
+      toast({ title: "Success", description: "Actual yield updated successfully." });
+    } catch (error) {
+      toast({ variant: 'destructive', title: "Error", description: "Failed to update yield." });
+    }
+  };
+
+  const recommendedSchemes = [
+    { name: 'schemes.pmkisan.shortName', reason: 'dashboard.schemes.reasons.smallLandholding' },
+    { name: 'schemes.pmfby.shortName', reason: 'dashboard.schemes.reasons.weatherUnpredictability' },
+  ];
 
   const allCrops = categorizedCropOptions.flatMap(category => category.options);
-  if (isDataLoading) {
-    return <div className="container mx-auto px-4 py-8"><DataSkeleton /></div>;
+  const isLoading = isWeatherLoading || isMarketLoading || isHistoryLoading;
+
+  if (isLoading) {
+    return <div className="container mx-auto px-4 py-8"><Skeleton className="h-96 w-full" /></div>;
   }
 
   return (
@@ -302,7 +323,7 @@ export default function DashboardPage() {
                     <CardDescription>{t('dashboard.schemes.description')}</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                    {userData.recommendedSchemes.map((scheme: any, index: number) => (
+                    {recommendedSchemes.map((scheme, index) => (
                         <div key={index} className="flex items-start gap-4">
                         <ShieldCheck className="h-6 w-6 text-green-500 mt-1" />
                         <div>
@@ -314,52 +335,93 @@ export default function DashboardPage() {
                     </CardContent>
                 </Card>
 
-                <Card className="md:col-span-3 bg-card/30 backdrop-blur-sm border-primary/20">
+                <Card className="md:col-span-2 bg-card/30 backdrop-blur-sm border-primary/20">
                     <CardHeader>
-                    <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
-                    <CardDescription>
-                        {t('dashboard.yieldHistory.description')}
-                    </CardDescription>
+                        <CardTitle>{t('dashboard.yieldHistory.title')}</CardTitle>
+                        <CardDescription>
+                            {t('dashboard.yieldHistory.description')}
+                        </CardDescription>
                     </CardHeader>
                     <CardContent>
-                    <Table>
-                        <TableHeader>
-                        <TableRow>
-                            <TableHead>{t('dashboard.yieldHistory.table.date')}</TableHead>
-                            <TableHead>{t('dashboard.yieldHistory.table.crop')}</TableHead>
-                            <TableHead className="text-right">
-                            {t('dashboard.yieldHistory.table.predicted')}
-                            </TableHead>
-                            <TableHead className="text-right">
-                            {t('dashboard.yieldHistory.table.actual')}
-                            </TableHead>
-                        </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                        {userData.yieldHistory.map((entry: any, index: number) => (
-                            <TableRow key={index}>
-                            <TableCell>{entry.date}</TableCell>
-                            <TableCell>{entry.crop}</TableCell>
-                            <TableCell className="text-right">{entry.predicted}</TableCell>
-                            <TableCell className="text-right">
-                                {entry.actual ? (
-                                entry.actual
-                                ) : (
-                                <Button variant="outline" size="sm">
-                                    {t('dashboard.yieldHistory.table.action')}
-                                </Button>
-                                )}
-                            </TableCell>
-                            </TableRow>
-                        ))}
-                        </TableBody>
-                    </Table>
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>{t('dashboard.yieldHistory.table.date')}</TableHead>
+                                    <TableHead>{t('dashboard.yieldHistory.table.crop')}</TableHead>
+                                    <TableHead className="text-right">
+                                        {t('dashboard.yieldHistory.table.predicted')}
+                                    </TableHead>
+                                    <TableHead className="text-right">
+                                        {t('dashboard.yieldHistory.table.actual')}
+                                    </TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {yieldHistory.map((entry) => (
+                                    <TableRow key={entry.id}>
+                                        <TableCell>{format(new Date(entry.createdAt), 'MMM d, yyyy')}</TableCell>
+                                        <TableCell>{entry.cropType}</TableCell>
+                                        <TableCell className="text-right">{entry.predictedYield}</TableCell>
+                                        <TableCell className="text-right">
+                                            {editingYieldId === entry.id ? (
+                                                <div className="flex gap-2 justify-end">
+                                                    <Input
+                                                        type="text"
+                                                        value={actualYieldValue}
+                                                        onChange={(e) => setActualYieldValue(e.target.value)}
+                                                        className="h-8 w-24"
+                                                        placeholder="e.g. 45"
+                                                    />
+                                                    <Button size="sm" onClick={() => handleUpdateYield(entry.id)}>Save</Button>
+                                                </div>
+                                            ) : entry.actualYield ? (
+                                                entry.actualYield
+                                            ) : (
+                                                <Button variant="outline" size="sm" onClick={() => setEditingYieldId(entry.id)}>
+                                                    {t('dashboard.yieldHistory.table.action')}
+                                                </Button>
+                                            )}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                         {yieldHistory.length === 0 && <p className="text-center text-muted-foreground pt-4">No prediction history found.</p>}
                     </CardContent>
                     <CardFooter>
-                        <Button>
-                            <PlusCircle className="mr-2 h-4 w-4" />
-                            {t('dashboard.yieldHistory.button')}
-                        </Button>
+                       <Link href="/crop-yield">
+                            <Button>
+                                <PlusCircle className="mr-2 h-4 w-4" />
+                                {t('dashboard.yieldHistory.button')}
+                            </Button>
+                       </Link>
+                    </CardFooter>
+                </Card>
+
+                <Card className="md:col-span-1 bg-card/30 backdrop-blur-sm border-primary/20">
+                    <CardHeader>
+                        <CardTitle>{t('dashboard.chatHistory.title')}</CardTitle>
+                        <CardDescription>{t('dashboard.chatHistory.description')}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        {chatHistory.length > 0 ? (
+                            chatHistory.map((msg, i) => (
+                                <div key={i} className="flex items-start gap-3">
+                                    {msg.role === 'user' ? <User className="h-5 w-5 mt-1 text-primary" /> : <Bot className="h-5 w-5 mt-1 text-accent" />}
+                                    <p className="text-sm text-muted-foreground italic line-clamp-3">"{msg.content}"</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p className="text-center text-muted-foreground pt-4">No recent chat history.</p>
+                        )}
+                    </CardContent>
+                    <CardFooter>
+                        <Link href="/ai-farmer">
+                            <Button>
+                                <MessageSquare className="mr-2 h-4 w-4" />
+                                {t('dashboard.chatHistory.button')}
+                            </Button>
+                        </Link>
                     </CardFooter>
                 </Card>
             </div>
