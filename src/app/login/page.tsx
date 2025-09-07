@@ -16,7 +16,7 @@ function SubmitButton({ isSignUp }: { isSignUp: boolean }) {
   const { t } = useTranslation();
 
   return (
-    <Button type="submit" disabled={pending} className="mt-4 w-full">
+    <Button type="submit" disabled={pending} className="mt-4">
       {pending ? '...' : isSignUp ? t('login.buttons.signup') : t('login.buttons.signin')}
     </Button>
   );

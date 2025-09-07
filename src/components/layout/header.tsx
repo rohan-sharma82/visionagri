@@ -2,7 +2,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, LogIn, LogOut, Menu, UserCircle } from 'lucide-react';
+import { Leaf, LogIn, LogOut, Menu } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -33,9 +33,12 @@ export default function Header() {
   const pathname = usePathname();
   const { t } = useTranslation();
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const supabase = createClient();
 
   useEffect(() => {
+    setIsMounted(true);
+    
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
         setCurrentUser(session?.user ?? null);
     });
@@ -71,6 +74,10 @@ export default function Header() {
   }
 
   const AuthButton = () => {
+    if (!isMounted) {
+      return null;
+    }
+
     if (currentUser) {
       return (
         <DropdownMenu>
@@ -93,8 +100,8 @@ export default function Header() {
             <DropdownMenuSeparator />
             <form action={logout}>
                 <DropdownMenuItem asChild>
-                    <button className="w-full">
-                        <LogOut className="mr-2 h-4 w-4" />
+                    <button className="w-full text-left">
+                        <LogOut className="mr-2 h-4 w-4 inline-block" />
                         <span>{t('dashboard.logout')}</span>
                     </button>
                 </DropdownMenuItem>
