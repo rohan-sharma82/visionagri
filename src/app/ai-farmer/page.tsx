@@ -133,6 +133,7 @@ export default function AiFarmerPage() {
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
+  const hasSavedRef = useRef(false);
 
   const loadingMessages = [
     t('aiFarmer.loadingMessages.m1'),
@@ -164,8 +165,10 @@ export default function AiFarmerPage() {
   }, []);
 
   const handleSaveHistory = useCallback(async (currentMessages: Message[]) => {
+      // Don't save if there's no new interaction
+      if (currentMessages.length === 0) return;
       try {
-        await saveChatHistory(currentMessages)
+        await saveChatHistory(currentMessages);
       } catch(err) {
         toast({
           variant: 'destructive',
@@ -175,11 +178,16 @@ export default function AiFarmerPage() {
       }
   }, [toast, t]);
   
+  // Save chat history when the user leaves the page
   useEffect(() => {
-    if (!isHistoryLoading && messages.length > 0) {
-        handleSaveHistory(messages);
-    }
-  }, [messages, isHistoryLoading, handleSaveHistory]);
+    return () => {
+        // We use a ref to ensure it only saves once, even with React strict mode.
+        if (!hasSavedRef.current) {
+            handleSaveHistory(messages);
+            hasSavedRef.current = true;
+        }
+    };
+  }, [messages, handleSaveHistory]);
 
 
   useEffect(() => {
