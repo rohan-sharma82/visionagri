@@ -1,9 +1,17 @@
 
-import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, uuid, jsonb } from 'drizzle-orm/pg-core';
 
 export const profiles = pgTable('profiles', {
   id: uuid('id').primaryKey(),
   email: text('email').unique(),
   full_name: text('full_name'),
   created_at: timestamp('created_at', { withTimezone: true }).defaultNow(),
+});
+
+
+export const chats = pgTable('chats', {
+    id: uuid('id').primaryKey().defaultRandom(),
+    userId: uuid('user_id').notNull().references(() => profiles.id, { onDelete: 'cascade' }),
+    history: jsonb('history').notNull(),
+    createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 });

@@ -2,33 +2,42 @@
 'use server';
 
 import { db } from '@/lib/db';
-import { sql } from 'drizzle-orm';
+import { chats } from '@/lib/schema';
+import { eq } from 'drizzle-orm';
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
+import type { Message } from './page';
 
-interface Chat {
-  id: number;
-  user_id: string;
-  history: any; // Assuming history is a JSON object
+async function getUserId() {
+    const cookieStore = cookies();
+    const supabase = createServerClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+          cookies: {
+            get(name: string) {
+              return cookieStore.get(name)?.value
+            },
+          },
+        }
+    );
+    const { data: { user } } = await supabase.auth.getUser();
+    return user?.id;
 }
 
-async function ensureTablesExist() {
-    await db.execute(sql`
-        CREATE TABLE IF NOT EXISTS chats (
-            id SERIAL PRIMARY KEY,
-            user_id VARCHAR(255) NOT NULL UNIQUE,
-            history JSONB NOT NULL
-        );
-    `);
-}
 
+export async function getChatHistory(): Promise<Message[]> {
+    const userId = await getUserId();
+    if (!userId) return [];
 
-export async function getChatHistory(userId: string): Promise<any[]> {
-    await ensureTablesExist();
     try {
-        const result = await db.execute(sql`
-            SELECT history FROM chats WHERE user_id = ${userId}
-        `);
-        if (result.rows.length > 0) {
-            const history = result.rows[0].history;
+        const userChats = await db.select()
+            .from(chats)
+            .where(eq(chats.userId, userId))
+            .limit(1);
+
+        if (userChats.length > 0) {
+            const history = userChats[0].history as any;
             return Array.isArray(history) ? history : [];
         }
         return [];
@@ -38,8 +47,10 @@ export async function getChatHistory(userId: string): Promise<any[]> {
     }
 }
 
-export async function saveChatHistory(userId: string, history: any[]): Promise<void> {
-    await ensureTablesExist();
+export async function saveChatHistory(history: Message[]): Promise<void> {
+    const userId = await getUserId();
+    if (!userId) return;
+
     try {
         const historyJson = JSON.stringify(history);
 
@@ -49,25 +60,24 @@ export async function saveChatHistory(userId: string, history: any[]): Promise<v
             throw new Error('Chat history is too large to save.');
         }
 
-        await db.execute(sql`
-            INSERT INTO chats (user_id, history)
-            VALUES (${userId}, ${historyJson})
-            ON CONFLICT (user_id) DO UPDATE
-            SET history = EXCLUDED.history;
-        `);
+        await db.insert(chats)
+            .values({ userId, history })
+            .onConflictDoUpdate({
+                target: chats.userId,
+                set: { history: history }
+            });
+
     } catch (error) {
         console.error('Error saving chat history:', error);
-        // Rethrow to be caught by the calling function
         throw error;
     }
 }
 
-export async function clearChatHistory(userId: string): Promise<void> {
-    await ensureTablesExist();
+export async function clearChatHistory(): Promise<void> {
+     const userId = await getUserId();
+    if (!userId) return;
     try {
-        await db.execute(sql`
-            DELETE FROM chats WHERE user_id = ${userId}
-        `);
+        await db.delete(chats).where(eq(chats.userId, userId));
     } catch (error) {
         console.error('Error clearing chat history:', error);
         throw error;

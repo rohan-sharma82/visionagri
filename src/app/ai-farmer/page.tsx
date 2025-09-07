@@ -31,7 +31,6 @@ import {
 } from "@/components/ui/alert-dialog"
 import { useTranslation, useLocation } from '@/hooks/use-translation';
 import { getChatHistory, saveChatHistory, clearChatHistory } from './actions';
-import { createClient } from '@supabase/supabase-js';
 import JumpingDotsLoader from '@/components/ui/jumping-dots-loader';
 
 
@@ -46,15 +45,6 @@ export interface Message {
   audioUrl?: string;
   createdAt?: any;
 }
-
-const supabase_url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabase_anon_key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-if (!supabase_url || !supabase_anon_key) {
-    throw new Error("Supabase URL or anon key is not defined");
-}
-const supabase = createClient(supabase_url, supabase_anon_key);
-
 
 const useTypingEffect = (text: string, speed = 50) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -143,7 +133,6 @@ export default function AiFarmerPage() {
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
   const [isHistoryLoading, setIsHistoryLoading] = useState(true);
-  const [userId, setUserId] = useState<string | null>(null);
 
   const loadingMessages = [
     t('aiFarmer.loadingMessages.m1'),
@@ -165,37 +154,30 @@ export default function AiFarmerPage() {
   });
 
   useEffect(() => {
-    const fetchUserAndHistory = async () => {
+    const fetchHistory = async () => {
         setIsHistoryLoading(true);
-        const { data: { user } } = await supabase.auth.getUser();
-        if (user) {
-            setUserId(user.id);
-            const history = await getChatHistory(user.id);
-            setMessages(history);
-        } else {
-            console.warn("No user logged in. Chat history will not be saved.");
-        }
+        const history = await getChatHistory();
+        setMessages(history);
         setIsHistoryLoading(false);
     };
-    fetchUserAndHistory();
+    fetchHistory();
   }, []);
 
-  const handleSaveHistory = useCallback(() => {
-    if (userId) {
-      saveChatHistory(userId, messages).catch(err => {
+  const handleSaveHistory = useCallback(async (currentMessages: Message[]) => {
+      try {
+        await saveChatHistory(currentMessages)
+      } catch(err) {
         toast({
           variant: 'destructive',
           title: t('aiFarmer.toast.saveError.title'),
           description: t('aiFarmer.toast.saveError.description'),
         });
-      });
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId, messages]);
+      }
+  }, [toast, t]);
   
   useEffect(() => {
-    if (!isHistoryLoading) {
-        handleSaveHistory();
+    if (!isHistoryLoading && messages.length > 0) {
+        handleSaveHistory(messages);
     }
   }, [messages, isHistoryLoading, handleSaveHistory]);
 
@@ -219,7 +201,8 @@ export default function AiFarmerPage() {
     if (isLoading) return;
 
     const userMessage: Message = { role: 'user', content: values.query };
-    setMessages(prev => [...prev, userMessage]);
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
     
     setIsLoading(true);
     setLoadingMessage(loadingMessages[Math.floor(Math.random() * loadingMessages.length)]);
@@ -279,19 +262,12 @@ export default function AiFarmerPage() {
   }
 
   const handleClearChat = async () => {
-    // Clear the chat from the local state immediately for all users.
     setMessages([]);
-    
-    // If the user is logged in, also clear it from the database.
-    if (userId) {
-      try {
-        await clearChatHistory(userId);
-      } catch (error) {
-        console.error("Failed to clear chat history from DB:", error);
-        // Optionally, inform the user that clearing from DB failed but local chat is cleared.
-      }
+    try {
+      await clearChatHistory();
+    } catch (error) {
+      console.error("Failed to clear chat history from DB:", error);
     }
-
     toast({
       title: t('aiFarmer.toast.chatCleared.title'),
       description: t('aiFarmer.toast.chatCleared.description'),
