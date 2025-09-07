@@ -4,19 +4,6 @@ import postgres from 'postgres';
 import { createClient } from '@supabase/supabase-js'
 import * as schema from './schema';
 
-const requiredEnvVars = [
-  'SUPABASE_DATABASE_URL',
-  'NEXT_PUBLIC_SUPABASE_URL',
-  'NEXT_PUBLIC_SUPABASE_ANON_KEY',
-  'SUPABASE_SERVICE_ROLE_KEY',
-];
-
-for (const envVar of requiredEnvVars) {
-  if (!process.env[envVar]) {
-    throw new Error(`${envVar} is not set in the environment variables.`);
-  }
-}
-
 const connectionString = process.env.SUPABASE_DATABASE_URL!;
 const client = postgres(connectionString, { prepare: false });
 export const db = drizzle(client, { schema });
