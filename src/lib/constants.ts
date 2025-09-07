@@ -136,11 +136,11 @@ export const newsData = [
   },
   {
     id: 25,
-    title: 'news.n25_title',
+    title: 'news.n25_title_new',
     source: 'sources.agriBusinessUpdate',
     date: 'dates.sep01_25_1400',
-    snippet: 'news.n25_snippet',
-    article: 'news.n25_article',
+    snippet: 'news.n25_snippet_new',
+    article: 'news.n25_article_new',
     category: 'categories.farmingTechniques'
   },
   {
