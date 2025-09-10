@@ -112,3 +112,18 @@ Our stack is built for scale. **Vercel** (for the frontend) and **Supabase** (fo
 **4. How do you manage state and data synchronization?**
 For global state like user language and location, we use **React Context**. For data fetching and mutations (like saving chat history), we use **Next.js Server Actions**, which provide a direct and secure way for the frontend to communicate with our server-side logic and database, ensuring data is always in sync.
 
+---
+### 🔹 Feature Logic Explained
+
+This section clarifies the "how" behind some of the app's simpler, yet effective, features.
+
+**1. How does the Animal Breed Comparison work?**
+For the hackathon, this feature is built entirely on the **frontend**. We have a pre-compiled dataset of cattle and buffalo breed information stored directly in our code.
+*   **No Backend/AI Needed:** When you select two breeds, the app doesn't need to call a backend server or an AI.
+*   **Instant Results:** It simply reads the data for the two selected breeds from its internal dataset and displays their characteristics side-by-side in the comparison table. This makes it instant, reliable, and requires no internet connection to operate once the page is loaded.
+
+**2. How does the "Find a Veterinarian" call system work?**
+This is another smart, frontend-driven feature designed for immediate real-world use.
+*   **Static Data:** The contact information for veterinarians is stored in a data file within our app.
+*   **Leveraging Standard Web Features:** The "Call" button is a simple HTML link. It uses the standard `tel:` URI scheme (e.g., `href="tel:09911116896"`).
+*   **How it Works:** When a user taps this link on a mobile phone, the phone's operating system automatically opens the native dialer app with the number pre-filled, ready to call. There is no complex backend "call system"; it uses a universal feature available on every smartphone to connect farmers directly with veterinarians.
