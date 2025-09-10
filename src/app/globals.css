@@ -899,7 +899,7 @@
     .jumping-dots-loader .dot:nth-child(6) {
       --uib-bottom: 30%;
       --uib-right: 10%;
-      animation-delay: calc(var(--uib-speed) * var_(--uib-d3));
+      animation-delay: calc(var_(--uib-d3));
     }
     .jumping-dots-loader .dot:nth-child(7) {
       --uib-bottom: 22%;
