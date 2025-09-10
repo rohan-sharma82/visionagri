@@ -18,7 +18,7 @@ import { useTranslation } from '@/hooks/use-translation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-const breedsData = {
+const cattleBreedsData = {
   'Holstein Friesian': {
     origin: 'Netherlands',
     size: 'Large (600-700 kg)',
@@ -186,6 +186,161 @@ const breedsData = {
   },
 };
 
+const buffaloBreedsData = {
+  'Murrah': {
+    origin: 'Haryana/Punjab, India',
+    size: 'Very Large (650-750 kg)',
+    size_rating: 5,
+    milk: '1500-2000 kg/lactation',
+    milk_rating: 5,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'High',
+    feed_rating: 2,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Surti': {
+    origin: 'Gujarat, India',
+    size: 'Medium (400-500 kg)',
+    size_rating: 3,
+    milk: '900-1300 kg/lactation',
+    milk_rating: 3,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Mehsana': {
+    origin: 'Gujarat, India',
+    size: 'Large (650-750 kg)',
+    size_rating: 5,
+    milk: '1200-1500 kg/lactation',
+    milk_rating: 4,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Bhadawari': {
+    origin: 'UP/MP, India',
+    size: 'Medium (425-475 kg)',
+    size_rating: 3,
+    milk: '800-1000 kg/lactation (High Fat)',
+    milk_rating: 2,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Excellent',
+    climate_rating: 5,
+    feed: 'Low',
+    feed_rating: 5,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Jaffarabadi': {
+    origin: 'Gujarat, India',
+    size: 'Very Large (450-600 kg)',
+    size_rating: 5,
+    milk: '1100 kg/lactation',
+    milk_rating: 3,
+    temperament: 'Active',
+    temperament_rating: 3,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'High',
+    feed_rating: 2,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Nagpuri': {
+    origin: 'Maharashtra, India',
+    size: 'Medium (425-525 kg)',
+    size_rating: 3,
+    milk: '700-1200 kg/lactation',
+    milk_rating: 3,
+    temperament: 'Hardy',
+    temperament_rating: 3,
+    climate: 'Excellent (Semi-arid)',
+    climate_rating: 5,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Godavari': {
+    origin: 'Andhra Pradesh, India',
+    size: 'Medium-Large (400-600 kg)',
+    size_rating: 4,
+    milk: '1200-1500 kg/lactation',
+    milk_rating: 4,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Toda': {
+    origin: 'Tamil Nadu, India',
+    size: 'Medium (380 kg)',
+    size_rating: 3,
+    milk: '500 kg/lactation (High Fat)',
+    milk_rating: 1,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good (Hilly)',
+    climate_rating: 4,
+    feed: 'Low',
+    feed_rating: 5,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Pandharpuri': {
+    origin: 'Maharashtra, India',
+    size: 'Medium (420-450 kg)',
+    size_rating: 3,
+    milk: '1000-1500 kg/lactation',
+    milk_rating: 4,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'Medium',
+    feed_rating: 3,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+  'Nili-Ravi': {
+    origin: 'Punjab, India/Pakistan',
+    size: 'Large (600-700 kg)',
+    size_rating: 5,
+    milk: '1500-2000 kg/lactation',
+    milk_rating: 5,
+    temperament: 'Docile',
+    temperament_rating: 4,
+    climate: 'Good',
+    climate_rating: 4,
+    feed: 'High',
+    feed_rating: 2,
+    disease: 'Good',
+    disease_rating: 4,
+  },
+};
+
+const allBreedsData = { ...cattleBreedsData, ...buffaloBreedsData };
+
 const characteristics = [
   { key: 'size', label: 'Size', icon: <Scaling className="h-5 w-5" /> },
   { key: 'milk', label: 'Milk Production', icon: <Droplets className="h-5 w-5" /> },
@@ -210,9 +365,41 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
+const BreedGrid = ({ title, breeds, selected, onSelect }: { title: string, breeds: object, selected: string[], onSelect: (breed: string) => void }) => (
+    <div className="mb-12">
+        <h2 className="text-2xl font-bold text-center mb-6 text-primary">{title}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {Object.keys(breeds).map((breed) => (
+                <div
+                    key={breed}
+                    onClick={() => onSelect(breed)}
+                    className={cn(
+                        'border rounded-lg p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-between',
+                        selected.includes(breed)
+                        ? 'border-green-500 bg-green-500/10 ring-2 ring-green-500'
+                        : 'border-border hover:border-primary'
+                    )}
+                >
+                    <h3 className="font-semibold">{breed}</h3>
+                    <p className="text-sm text-muted-foreground flex items-center gap-1">
+                        <MapPin className="h-3 w-3" />
+                        {allBreedsData[breed as keyof typeof allBreedsData].origin}
+                    </p>
+                    <div className="h-5 mt-2 flex justify-center items-center">
+                        {selected.includes(breed) && (
+                        <Check className="h-5 w-5 text-green-500" />
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+);
+
+
 export default function AnimalComparisonPage() {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState<string[]>(['Sahiwal', 'Gir']);
+  const [selected, setSelected] = useState<string[]>(['Sahiwal', 'Murrah']);
 
   const handleSelect = (breed: string) => {
     setSelected((prev) => {
@@ -237,39 +424,16 @@ export default function AnimalComparisonPage() {
         </Link>
         <div className="text-center mb-12 pt-8">
           <h1 className="text-4xl font-bold font-headline text-foreground">
-            Cattle Breed Comparison
+            Cattle & Buffalo Breed Comparison
           </h1>
           <p className="mt-2 text-lg text-muted-foreground">
             Select up to two breeds to compare their characteristics side-by-side.
           </p>
         </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-8">
-          {Object.keys(breedsData).map((breed) => (
-            <div
-              key={breed}
-              onClick={() => handleSelect(breed)}
-              className={cn(
-                'border rounded-lg p-4 text-center cursor-pointer transition-all flex flex-col items-center justify-between',
-                selected.includes(breed)
-                  ? 'border-green-500 bg-green-500/10 ring-2 ring-green-500'
-                  : 'border-border hover:border-primary'
-              )}
-            >
-              <h3 className="font-semibold">{breed}</h3>
-              <p className="text-sm text-muted-foreground flex items-center gap-1">
-                <MapPin className="h-3 w-3" />
-                {breedsData[breed as keyof typeof breedsData].origin}
-              </p>
-              <div className="h-5 mt-2 flex justify-center items-center">
-                {selected.includes(breed) && (
-                  <Check className="h-5 w-5 text-green-500" />
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
         
+        <BreedGrid title="Cattle Breeds" breeds={cattleBreedsData} selected={selected} onSelect={handleSelect} />
+        <BreedGrid title="Buffalo Breeds" breeds={buffaloBreedsData} selected={selected} onSelect={handleSelect} />
+
         <div className="border rounded-lg overflow-hidden">
           <div className="grid grid-cols-3 bg-muted/50 font-semibold">
             <div className="p-4">Characteristics</div>
@@ -277,12 +441,13 @@ export default function AnimalComparisonPage() {
               <div key={breedName} className="p-4 text-center border-l">
                 {breedName}
                 <p className="text-sm text-muted-foreground font-normal">
-                  {breedsData[breedName as keyof typeof breedsData].origin}
+                  {allBreedsData[breedName as keyof typeof allBreedsData].origin}
                 </p>
               </div>
             ))}
-            {selected.length < 2 && <div className="p-4 border-l"></div>}
-            {selected.length < 1 && <div className="p-4 border-l"></div>}
+            {Array.from({ length: 2 - selected.length }).map((_, i) => (
+              <div key={`placeholder-${i}`} className="p-4 border-l"></div>
+            ))}
           </div>
           
           <div>
@@ -293,7 +458,7 @@ export default function AnimalComparisonPage() {
                   <span>{label}</span>
                 </div>
                  {selected.map((breedName) => {
-                    const breed = breedsData[breedName as keyof typeof breedsData];
+                    const breed = allBreedsData[breedName as keyof typeof allBreedsData];
                     const characteristicKey = key as keyof typeof breed;
                     const ratingKey = `${key}_rating` as keyof typeof breed;
                     return (
@@ -303,8 +468,9 @@ export default function AnimalComparisonPage() {
                         </div>
                     )
                  })}
-                 {selected.length < 2 && <div className="p-4 border-l"></div>}
-                 {selected.length < 1 && <div className="p-4 border-l"></div>}
+                 {Array.from({ length: 2 - selected.length }).map((_, i) => (
+                    <div key={`placeholder-cell-${i}`} className="p-4 border-l"></div>
+                ))}
               </div>
             ))}
           </div>
@@ -314,3 +480,5 @@ export default function AnimalComparisonPage() {
     </>
   );
 }
+
+    
