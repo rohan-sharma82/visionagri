@@ -1,14 +1,16 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { veterinarianData } from '@/lib/veterinarian-data';
+import { veterinarianData, Veterinarian } from '@/lib/veterinarian-data';
 import { useTranslation } from '@/hooks/use-translation';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Clock, MapPin, Phone, Star, MessageSquare } from 'lucide-react';
+import { ArrowLeft, Clock, MapPin, Phone, Star, MessageSquare, Search } from 'lucide-react';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 
 function formatStateName(slug: string | string[] | undefined): string {
     if (!slug) return '';
@@ -25,7 +27,22 @@ export default function VeterinarianStatePage() {
     const stateSlug = params.state as string;
     const stateName = formatStateName(stateSlug);
 
-    const stateData = veterinarianData[stateSlug];
+    const stateData = veterinarianData[stateSlug] || [];
+    
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredVets, setFilteredVets] = useState<Veterinarian[]>(stateData);
+
+    useEffect(() => {
+        const lowercasedFilter = searchTerm.toLowerCase();
+        const filteredData = stateData.filter(item => {
+            return (
+                item.name.toLowerCase().includes(lowercasedFilter) ||
+                item.location.toLowerCase().includes(lowercasedFilter) ||
+                item.type.toLowerCase().includes(lowercasedFilter)
+            );
+        });
+        setFilteredVets(filteredData);
+    }, [searchTerm, stateData]);
 
     return (
         <>
@@ -36,20 +53,32 @@ export default function VeterinarianStatePage() {
                         Back to States
                     </Button>
                 </Link>
-                <div className="text-center pt-16 mb-12">
+                <div className="text-center pt-16 mb-8">
                     <h1 className="text-4xl font-bold font-headline text-foreground">
                         Veterinary Clinics in {stateName}
                     </h1>
-                    <p className="mt-4 text-lg text-muted-foreground">
-                        {stateData && stateData.length > 0
+                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+                        {stateData.length > 0
                             ? `Find contact information for veterinary clinics and hospitals in ${stateName}.`
                             : `Data for ${stateName} is not yet available. Please check back later.`}
                     </p>
                 </div>
+                 <div className="mb-8 max-w-lg mx-auto">
+                    <div className="relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                        <Input
+                            type="text"
+                            placeholder="Search by name, city, or type..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="pl-10"
+                        />
+                    </div>
+                </div>
 
-                {stateData && stateData.length > 0 ? (
+                {filteredVets.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {stateData.map((vet, index) => (
+                        {filteredVets.map((vet, index) => (
                             <Card key={index} className="vet-card">
                                 <CardContent className="p-6 space-y-4">
                                     <h2 className="text-xl font-bold text-primary">{vet.name}</h2>
@@ -93,7 +122,9 @@ export default function VeterinarianStatePage() {
                     </div>
                 ) : (
                     <div className="text-center mt-16">
-                        <p className="text-xl text-muted-foreground">No clinics listed for this state yet.</p>
+                        <p className="text-xl text-muted-foreground">
+                           {stateData.length > 0 ? 'No clinics found matching your search.' : 'No clinics listed for this state yet.'}
+                        </p>
                     </div>
                 )}
             </div>
