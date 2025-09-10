@@ -1,0 +1,114 @@
+# Practical Knowledge Base for AgriVision AI Presentation
+
+This document provides clear, concise answers to potential questions about the project. Use this as a guide to confidently explain the project's technical and functional aspects.
+
+---
+
+### 🔹 Authentication & Security
+
+**1. How does authentication work in your app? Do you use OTP, password, or third-party providers?**
+Our app uses a secure and standard **email and password** authentication system. This is managed entirely by our backend service, **Supabase**, which handles all the complexities of user sign-up, login, and session management.
+
+**2. How do you ensure secure login for farmers who may not be very tech-savvy?**
+We focused on simplicity. The login and sign-up forms are clean, with minimal fields (email, password). We provide clear error messages if the login fails, and the process doesn't require any complex steps like OTPs or two-factor authentication, making it accessible for everyone.
+
+**3. Where and how do you store user credentials securely?**
+We **never** store passwords in our database. **Supabase Auth** handles this for us. It securely hashes and stores user credentials in its own protected system, following industry best practices. Our database only stores a unique user ID, which is linked to their profile and activity.
+
+**4. What happens if a farmer loses their phone — can they recover their account easily?**
+Yes. Because their account is tied to their email address, not their device, they can simply log in from any other computer or phone using their email and password. If they forget their password, they can use a standard "Forgot Password" link to securely reset it via email.
+
+---
+
+### 🔹 Language & Accessibility
+
+**5. How does your language translation system work in the app?**
+Our app uses a self-contained translation system. We have separate JSON files for each language we support (like `en.json` for English, `pa.json` for Punjabi, etc.). When a user selects a language, our custom `useTranslation` hook reads from the appropriate file to display all text in that language.
+
+**6. Do you use an external API like Google Translate, or did you build your own dataset?**
+We built our own dataset. We use pre-translated JSON files stored directly within our application. This approach is much faster and more reliable than calling an external API for every piece of text, and it ensures our app works well even on slow internet connections.
+
+**7. How do you ensure that local dialects and voice commands are accurately recognized?**
+For voice commands, we use the web browser's built-in **SpeechRecognition API**. This is a standard technology supported by most modern browsers like Chrome. While it works well for standard accents, accuracy with heavy local dialects can be a challenge. In the future, we could integrate more advanced, region-specific speech-to-text models to improve this.
+
+**8. What if the translation is inaccurate or confusing — how do you handle fallback?**
+Our system is designed to be resilient. If a specific phrase is missing in a selected language (e.g., in the Punjabi file), our code automatically **falls back to the English version** of that phrase. This ensures the user always sees a meaningful label instead of a broken key or an error message.
+
+---
+
+### 🔹 AI & Backend Logic
+
+**9. How does your AI pipeline work in the backend — from farmer input to final result?**
+It's a simple, powerful flow:
+1.  **Farmer Input:** The user fills out a form or uploads an image on our Next.js frontend.
+2.  **Server Action:** The frontend calls a secure Server Action, which runs on the server.
+3.  **Genkit Flow:** This action invokes a specific **Genkit Flow** (e.g., `predictCropYieldFlow`).
+4.  **Prompt Engineering:** Genkit takes the farmer's data, inserts it into a carefully crafted prompt, and adds instructions for the AI on what kind of answer to provide.
+5.  **Gemini API Call:** Genkit sends this final prompt to Google's **Gemini AI model**.
+6.  **Structured Output:** Gemini processes the request and sends back a structured JSON object, exactly as we instructed.
+7.  **Display Result:** Our frontend receives this JSON and displays it in a user-friendly report card.
+
+**10. What role does Genkit play in integrating Gemini into your backend?**
+**Genkit** is our AI orchestrator. It acts as the "manager" for all our AI tasks. It allows us to:
+*   Define and organize our prompts cleanly.
+*   Specify the exact input and output structure (using Zod schemas) we want from the AI.
+*   Easily integrate "tools" like a live weather API, making our AI smarter.
+*   It makes our AI code observable and much easier to debug.
+
+**11. How do you handle AI model outputs and convert them into structured JSON for your app?**
+This is one of the most powerful features of Genkit. We define an **output schema** using a library called **Zod**. We pass this schema along with our prompt to Gemini. This tells the AI, "Don't just give me a block of text, give me an answer that fits this exact JSON structure." The model then formats its response accordingly, which our app can directly use without any complex parsing.
+
+**12. How do you validate that the AI’s prediction is reliable before showing it to the farmer?**
+While we can't "validate" a prediction in real-time, we build in reliability. The AI model provides a **confidence level** with its prediction, which we display to the farmer. This manages expectations and indicates how certain the model is. We also use strong "prompt engineering" to guide the AI to give cautious and well-reasoned answers.
+
+**13. What happens if the farmer uploads a blurry or wrong photo for disease detection?**
+Our prompt includes instructions for this scenario. If the AI cannot confidently identify a disease or even a plant from the image, it is instructed to respond with a message asking the user to upload a clearer, closer image. It fails gracefully instead of giving a wrong answer.
+
+---
+
+### 🔹 Performance & Scaling
+
+**14. How do you make sure your AI queries don’t overload the server when many farmers use it at the same time?**
+We use a serverless architecture. Our Genkit flows are deployed as **serverless functions** on Vercel or Firebase App Hosting. This means the cloud provider automatically scales the resources up or down based on demand. If 100 farmers make a request at once, the platform spins up more instances to handle the load, ensuring the app remains responsive.
+
+**15. Do you use any caching mechanism for repeated queries (e.g., same weather data for multiple farmers in one district)?**
+Currently, we do not have an advanced caching layer implemented, as our focus for the hackathon was on core functionality. However, our architecture makes this easy to add. In the future, we could cache API responses (like weather data for a specific location) for a short period (e.g., 15-30 minutes) to reduce redundant API calls and speed up responses.
+
+**16. How do you ensure the system works smoothly on low-end devices?**
+Our primary strategy is using a **server-first approach with Next.js**. This means most of the heavy computation and data fetching happens on the server, not on the user's phone. We send minimal JavaScript to the device, which makes the app lightweight, faster to load, and smoother to run, even on less powerful phones.
+
+**17. How does your server-first approach in Next.js reduce load on farmers’ phones?**
+By rendering pages and components on the server, the user's phone receives mostly plain HTML. It doesn’t have to download and run large bundles of JavaScript to figure out what to display. This drastically reduces the processing power and memory needed on the device, making the app feel fast and responsive.
+
+---
+
+### 🔹 Data & Integration
+
+**18. How do you integrate real-time APIs like WeatherAPI with your AI predictions?**
+We do this using **Genkit Tools**. We've created a "tool" called `getWeatherForLocation` that our AI Farmer Assistant flow can use. When a farmer asks a question that requires weather context, the AI flow first calls this tool to fetch live weather data for the farmer's location. It then includes this data in the final prompt sent to Gemini, making the advice hyper-local and relevant.
+
+**19. How do you make sure your market price data is accurate — since prices change so often?**
+For this hackathon prototype, our market price data is **simulated** to demonstrate the feature's potential. In a real-world application, we would integrate with a reliable, official government or private API (like Agmarknet) that provides real-time mandi prices. The logic would remain the same; only the data source would change.
+
+**20. How will you integrate with government portals in the future (secure APIs, scraping, or manual inputs)?**
+The ideal and most secure method is to use official **APIs** provided by government portals like Data.gov.in. If official APIs are not available, we would explore web scraping as a secondary option, but this is less reliable. Manual input would be a last resort for static information only.
+
+**21. How do you handle data validation when inputs from farmers are incomplete or wrong?**
+We use **Zod schemas** for form validation on both the frontend and backend. If a user enters invalid data (e.g., text in a number field), the form shows an immediate error message. For the AI flows, we also use Zod to ensure the data structure is correct before processing, which prevents errors and provides clear feedback.
+
+---
+
+### 🔹 Architecture & Tech Stack (Summary)
+
+**1. Why Next.js instead of Flutter/React Native?**
+We chose **Next.js (a web framework)** because our goal was maximum accessibility. A website can be accessed by anyone with a browser on any device (phone, computer, tablet) without needing to install an app from an app store. This removes a major barrier for farmers.
+
+**2. How does your server-first approach help in low connectivity areas?**
+It sends a very small amount of code to the user's phone. The server does all the heavy work, so the page loads quickly and feels responsive even on a slow 2G or 3G connection, which is common in rural areas.
+
+**3. How do you handle scalability if millions of farmers start using your app?**
+Our stack is built for scale. **Vercel** (for the frontend) and **Supabase** (for the database) are serverless platforms that automatically handle traffic spikes. If our user base grows, these services will automatically allocate more resources to keep the app running smoothly without any manual intervention from us.
+
+**4. How do you manage state and data synchronization?**
+For global state like user language and location, we use **React Context**. For data fetching and mutations (like saving chat history), we use **Next.js Server Actions**, which provide a direct and secure way for the frontend to communicate with our server-side logic and database, ensuring data is always in sync.
+
