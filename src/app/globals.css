@@ -82,6 +82,81 @@
       @apply flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors;
       @apply bg-primary/90 text-primary-foreground hover:bg-primary;
     }
+
+    /* State Vet Card Styles */
+    .state-card {
+      --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+      width: 190px;
+      height: 190px; /* Made square */
+      padding: 5px;
+      border-radius: 1rem;
+      overflow: visible;
+      background: var(--background);
+      position: relative;
+      z-index: 1;
+    }
+
+    .state-card::before,
+    .state-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      z-index: -1;
+      transition: opacity 0.5s ease;
+    }
+
+    .state-card::before {
+      background: linear-gradient(to bottom right, #f6d365 0%, #fda085 100%);
+      transform: rotate(2deg);
+    }
+
+    .state-card::after {
+      background: linear-gradient(to top right, #84fab0 0%, #8fd3f4 100%);
+      transform: rotate(-2deg);
+    }
+
+    .state-card-info {
+      --color: #292b2c;
+      background: var(--color);
+      color: hsl(var(--foreground));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      border-radius: 0.7rem;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .state-card .title {
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      color: #fff;
+    }
+
+    .state-card:hover::before,
+    .state-card:hover::after {
+      opacity: 0;
+    }
+
+    .state-card:hover .state-card-info {
+      color: #74ebd5;
+      transition: color 1s;
+    }
+    .state-card:hover .title {
+      color: #74ebd5;
+      transition: color 1s;
+    }
+
+
     .action-button-3d {
         position: relative;
         display: inline-block;
@@ -1039,7 +1114,7 @@
     }
 
     .send-button-style:hover span {
-      color: #34D399;
+      color: #2E7D32;
       animation: scaleUp 0.3s ease-in-out;
     }
 
