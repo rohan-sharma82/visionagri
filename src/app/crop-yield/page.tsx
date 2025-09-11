@@ -162,6 +162,7 @@ export default function CropYieldPage() {
                   <i>e</i>
                   <i>l</i>
                 </button>
+                <p className="text-sm text-muted-foreground -mt-2 text-center">Click &amp; use ML Model If This Form is Not Working</p>
                 <AreaInfoDialog />
             </div>
                 <div className="flip-card__inner mx-auto" style={{ minHeight: '350px' }}>
