@@ -135,6 +135,8 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
+        protocol: 'https',"hostname":"jaagrukbharat.com","port":"","pathname":"/**"},
+{
         protocol: 'https',
         hostname: 'www.godigit.com',
         port: '',
@@ -143,6 +145,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'www.krishakjagat.org',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.energyportal.in',
         port: '',
         pathname: '/**',
       },
