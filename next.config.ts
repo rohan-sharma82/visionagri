@@ -140,6 +140,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.krishakjagat.org',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
