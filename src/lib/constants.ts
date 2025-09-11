@@ -1,5 +1,4 @@
 
-
 export const mainNavLinks = [
   { href: '/', label: 'nav.home' },
   { href: '/dashboard', label: 'nav.dashboard' },
@@ -390,13 +389,40 @@ export const schemesData = [
   },
   {
     id: 9,
-    name: 'schemes.ahidf.name',
-    shortName: 'schemes.ahidf.shortName',
-    shortDescription: 'schemes.ahidf.shortDescription',
-    description: 'schemes.ahidf.description',
-    imageUrl: 'https://img.manoramayearbook.in/content/dam/yearbook/learn/world/images/2022/July/ahidf.jpg',
-    dataAiHint: 'animal husbandry',
+    name: 'schemes.welfareOfFishermen.name',
+    shortName: 'schemes.welfareOfFishermen.shortName',
+    shortDescription: 'schemes.welfareOfFishermen.shortDescription',
+    description: 'schemes.welfareOfFishermen.description',
+    imageUrl: 'https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/national-scheme-for-welfare-of-fishermen.jpg',
+    dataAiHint: 'fishermen welfare',
   },
+  {
+    id: 10,
+    name: 'schemes.pmgsy.name',
+    shortName: 'schemes.pmgsy.shortName',
+    shortDescription: 'schemes.pmgsy.shortDescription',
+    description: 'schemes.pmgsy.description',
+    imageUrl: 'https://www.krishakjagat.org/wp-content/uploads/2024/12/Untitled-1-251.jpg',
+    dataAiHint: 'rural road construction',
+  },
+  {
+    id: 11,
+    name: 'schemes.organicManure.name',
+    shortName: 'schemes.organicManure.shortName',
+    shortDescription: 'schemes.organicManure.shortDescription',
+    description: 'schemes.organicManure.description',
+    imageUrl: 'https://www.energyportal.in/images/bio/bioenergy01.jpg',
+    dataAiHint: 'organic compost',
+  },
+  {
+    id: 12,
+    name: 'schemes.coffeeDev.name',
+    shortName: 'schemes.coffeeDev.shortName',
+    shortDescription: 'schemes.coffeeDev.shortDescription',
+    description: 'schemes.coffeeDev.description',
+    imageUrl: 'https://jaagrukbharat.com/_next/image?url=https%3A%2F%2Fjaagruk-public.s3.ap-south-1.amazonaws.com%2Farticle%2Fimages%2Fefd6b226-fff2-45f3-85c1-04caf3e96ca0_1XOkvQDhgyGml3c0wlMpI1bV8qO3ArmEP.webp&w=3840&q=10',
+    dataAiHint: 'coffee drying yard',
+  }
 ];
 
 export const farmingQuotes = [
@@ -653,4 +679,3 @@ export const toolsData = [
       },
     },
   ];
-
