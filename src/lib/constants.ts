@@ -90,7 +90,6 @@ export const featuresData = baseFeaturesData;
 
 export const newsCategories = [
   'categories.all',
-  'categories.marketPrices',
   'categories.weatherUpdates',
   'categories.govtPolicies',
   'categories.farmingTechniques',
