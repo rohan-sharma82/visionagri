@@ -205,7 +205,7 @@ export default function CropYieldPage() {
                                 render={({ field }) => (
                                 <FormItem className="w-full">
                                     <FormControl>
-                                    <Input className='flip-card__input' placeholder={t('cropYield.form.temperature.label')} {...field} />
+                                    <Input className='flip-card__input' placeholder="Temperature (°C)" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -217,7 +217,7 @@ export default function CropYieldPage() {
                                 render={({ field }) => (
                                 <FormItem className="w-full">
                                     <FormControl>
-                                    <Input className='flip-card__input' placeholder={t('cropYield.form.rainfall.label')} {...field} />
+                                    <Input className='flip-card__input' placeholder="Rainfall (mm)" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
