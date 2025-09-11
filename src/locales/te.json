@@ -1,5 +1,8 @@
 
 {
+    "app": {
+        "description": "AI-ఆధారిత సాధనాలతో ఆధునిక వ్యవసాయం."
+    },
     "nav": {
         "home": "Home",
         "dashboard": "డాష్‌బోర్డ్",
@@ -50,11 +53,7 @@
         },
         "farmSchool": {
             "title": "ఫార్మ్ స్కూల్",
-            "description": "వ్యవసాయం గురించి ప్రతిదీ తెలుసుకోండి.",
-            "tools": {
-                "title": "Tools",
-                "description": "Learn about essential farming tools and machinery."
-            }
+            "description": "వ్యవసాయం గురించి ప్రతిదీ తెలుసుకోండి."
         },
         "dashboard": {
             "title": "వ్యక్తిగతీకరించిన డాష్‌బోర్డ్",
@@ -76,7 +75,7 @@
         "fertilizers": {
             "title": "ఎరువులు",
             "description": "వివిధ రకాల ఎరువులు మరియు వాటి ఉపయోగాలను అర్థం చేసుకోండి.",
-            "pageSubtitle": "A comprehensive guide to fertilizers, their types, and their impact on modern farming."
+            "pageSubtitle": "ఎరువులు, వాటి రకాలు మరియు ఆధునిక వ్యవసాయంపై వాటి ప్రభావంపై ఒక సమగ్ర మార్గదర్శి."
         },
         "areaCalculator": {
             "title": "ప్రాంతం కాల்குలేటర్",
@@ -104,28 +103,28 @@
         "profitMakingTips": {
             "title": "లాభం సంపాదించే చిట్కాలు",
             "description": "మీ పొలం యొక్క లాభదాయకతను పెంచడానికి వ్యూహాలను కనుగొనండి.",
-            "pageTitle": "Top 10 Tips for Profitable Farming",
-            "pageSubtitle": "Smart strategies to boost your agricultural income and ensure sustainability.",
-            "tip1_title": "1. Choose High-Demand Crops",
-            "tip1_desc": "Focus on crops with consistent market demand like organic vegetables, turmeric, mushrooms, or medicinal herbs. These often fetch premium prices and have shorter cycles.",
-            "tip2_title": "2. Track Yield per Acre",
-            "tip2_desc": "Use data to compare crop performance across seasons. This helps you identify which crops give the best return on investment and where to optimize inputs.",
-            "tip3_title": "3. Optimize Water Usage",
-            "tip3_desc": "Drip irrigation, rainwater harvesting, and soil moisture sensors can drastically reduce water waste and improve crop health—especially in water-scarce regions.",
-            "tip4_title": "4. Test Soil Regularly",
-            "tip4_desc": "Soil testing helps you apply the right fertilizer in the right quantity. It prevents overuse, saves money, and boosts yield. You can even integrate this logic into your app’s form flow.",
-            "tip5_title": "5. Diversify with Allied Activities",
-            "tip5_desc": "Add beekeeping, dairy, or poultry to your farm. These provide steady income and complement crop cycles. Bonus: bees improve pollination and yield.",
-            "tip6_title": "6. Use AI for Crop Prediction",
-            "tip6_desc": "Leverage Genkit AI or similar models to simulate crop outcomes based on fertilizer, weather, and soil data. This helps in planning and risk reduction.",
-            "tip7_title": "7. Add Value Through Processing",
-            "tip7_desc": "Instead of selling raw produce, process it—like turning tomatoes into puree or turmeric into powder. Value-added products sell for more and last longer.",
-            "tip8_title": "8. Sell Direct to Consumers",
-            "tip8_desc": "Use WhatsApp catalogs, local farmer markets, or even a simple web app to bypass middlemen. Direct sales = better margins and customer feedback.",
-            "tip9_title": "9. Rotate Crops Smartly",
-            "tip9_desc": "Crop rotation improves soil health and reduces pest buildup. Pair legumes with cereals or oilseeds to balance nitrogen levels naturally.",
-            "tip10_title": "10. Digitize Your Farm Records",
-            "tip10_desc": "Track expenses, yields, weather, and market prices digitally. This helps with audits, subsidy applications, and smarter decision-making."
+            "pageTitle": "లాభదాయక వ్యవసాయానికి టాప్ 10 చిట్కాలు",
+            "pageSubtitle": "మీ వ్యవసాయ ఆదాయాన్ని పెంచడానికి మరియు స్థిరత్వాన్ని నిర్ధారించడానికి స్మార్ట్ వ్యూహాలు.",
+            "tip1_title": "1. అధిక-డిమాండ్ పంటలను ఎంచుకోండి",
+            "tip1_desc": "సేంద్రీయ కూరగాయలు, పసుపు, పుట్టగొడుగులు లేదా ఔషధ మూలికలు వంటి స్థిరమైన మార్కెట్ డిమాండ్ ఉన్న పంటలపై దృష్టి పెట్టండి. ఇవి తరచుగా ప్రీమియం ధరలను పొందుతాయి మరియు చిన్న చక్రాలను కలిగి ఉంటాయి.",
+            "tip2_title": "2. ఎకరానికి దిగుబడిని ట్రాక్ చేయండి",
+            "tip2_desc": "వివిధ సీజన్లలో పంట పనితీరును పోల్చడానికి డేటాను ఉపయోగించండి. ఇది ఏ పంటలు ఉత్తమ రాబడిని ఇస్తాయో మరియు ఇన్‌పుట్‌లను ఎక్కడ ఆప్టిమైజ్ చేయాలో గుర్తించడంలో మీకు సహాయపడుతుంది.",
+            "tip3_title": "3. నీటి వినియోగాన్ని ఆప్టిమైజ్ చేయండి",
+            "tip3_desc": "డ్రిప్ ఇరిగేషన్, వర్షపు నీటి సేకరణ మరియు నేల తేమ సెన్సార్లు నీటి వ్యర్థాలను గణనీయంగా తగ్గించగలవు మరియు పంట ఆరోగ్యాన్ని మెరుగుపరచగలవు-ముఖ్యంగా నీటి కొరత ఉన్న ప్రాంతాలలో.",
+            "tip4_title": "4. నేలను క్రమం తప్పకుండా పరీక్షించండి",
+            "tip4_desc": "నేల పరీక్ష సరైన పరిమాణంలో సరైన ఎరువును వేయడానికి మీకు సహాయపడుతుంది. ఇది అధిక వినియోగాన్ని నివారిస్తుంది, డబ్బు ఆదా చేస్తుంది మరియు దిగుబడిని పెంచుతుంది. మీరు ఈ తర్కాన్ని మీ యాప్ ఫారమ్ ప్రవాహంలో కూడా విలీనం చేయవచ్చు.",
+            "tip5_title": "5. అనుబంధ కార్యకలాపాలతో విభిన్నంగా ఉండండి",
+            "tip5_desc": "మీ పొలంలో తేనెటీగల పెంపకం, పాడి లేదా పౌల్ట్రీని జోడించండి. ఇవి స్థిరమైన ఆదాయాన్ని అందిస్తాయి మరియు పంట చక్రాలను పూర్తి చేస్తాయి. బోనస్: తేనెటీగలు పరాగసంపర్కం మరియు దిగుబడిని మెరుగుపరుస్తాయి.",
+            "tip6_title": "6. పంట అంచనా కోసం AIని ఉపయోగించండి",
+            "tip6_desc": "ఎరువు, వాతావరణం మరియు నేల డేటా ఆధారంగా పంట ఫలితాలను అనుకరించడానికి Genkit AI లేదా ఇలాంటి మోడళ్లను ఉపయోగించుకోండి. ఇది ప్రణాళిక మరియు ప్రమాద తగ్గింపులో సహాయపడుతుంది.",
+            "tip7_title": "7. ప్రాసెసింగ్ ద్వారా విలువను జోడించండి",
+            "tip7_desc": "పచ్చి ఉత్పత్తులను విక్రయించడానికి బదులుగా, దానిని ప్రాసెస్ చేయండి-టమోటాలను ప్యూరీగా లేదా పసుపును పొడిగా మార్చడం వంటివి. విలువ ఆధారిత ఉత్పత్తులు ఎక్కువ ధరకు అమ్ముడవుతాయి మరియు ఎక్కువ కాలం ఉంటాయి.",
+            "tip8_title": "8. నేరుగా వినియోగదారులకు అమ్మండి",
+            "tip8_desc": "మధ్యవర్తులను దాటవేయడానికి WhatsApp కేటలాగ్‌లు, స్థానిక రైతు బజార్లు లేదా ఒక సాధారణ వెబ్ యాప్‌ను కూడా ఉపయోగించండి. ప్రత్యక్ష అమ్మకాలు = మెరుగైన మార్జిన్లు మరియు కస్టమర్ ఫీడ్‌బ్యాక్.",
+            "tip9_title": "9. పంటలను తెలివిగా మార్చండి",
+            "tip9_desc": "పంట మార్పిడి నేల ఆరోగ్యాన్ని మెరుగుపరుస్తుంది మరియు తెగుళ్ల నిర్మాణాన్ని తగ్గిస్తుంది. నత్రజని స్థాయిలను సహజంగా సమతుల్యం చేయడానికి పప్పుధాన్యాలను తృణధాన్యాలు లేదా నూనె గింజలతో జత చేయండి.",
+            "tip10_title": "10. మీ పొలం రికార్డులను డిజిటలైజ్ చేయండి",
+            "tip10_desc": "ఖర్చులు, దిగుబడులు, వాతావరణం మరియు మార్కెట్ ధరలను డిజిటల్‌గా ట్రాక్ చేయండి. ఇది ఆడిట్‌లు, సబ్సిడీ దరఖాస్తులు మరియు తెలివైన నిర్ణయాలు తీసుకోవడంలో సహాయపడుతుంది."
         },
         "croppingPatterns": {
             "title": "Cropping Patterns",
@@ -692,7 +691,8 @@
             "predict": "దిగుబడిని అంచనా వేయండి",
             "predicting": "అంచనా వేస్తోంది...",
             "areaInfo": "త్వరిత సమాచారం",
-            "knowYourArea": "మీ ప్రాంతాన్ని తెలుసుకోండి"
+            "knowYourArea": "మీ ప్రాంతాన్ని తెలుసుకోండి",
+            "mlModel": "ML మోడల్"
         },
         "status": {
             "loading": "మీ స్మార్ట్ అసిస్టెంట్ పొలాల గుండా నడుస్తున్నాడు...",
@@ -712,7 +712,8 @@
         "toast": {
             "errorTitle": "లోపం",
             "errorDescription": "అంచనాను పొందడంలో విఫలమైంది. దయచేసి మళ్లీ ప్రయత్నించండి."
-        }
+        },
+        "mlModelInfo": "ఈ ఫారమ్ పని చేయకపోతే ML మోడల్‌ని క్లిక్ చేసి ఉపయోగించండి"
     },
     "locationDialog": {
         "title": "మీ స్థానాన్ని నమోదు చేయండి",
@@ -778,6 +779,11 @@
             },
             "button": "ఎంట్రీని జోడించండి"
         },
+        "chatHistory": {
+            "title": "ఇటీవలి AI చాట్‌లు",
+            "description": "AI ఫార్మర్ అసిస్టెంట్‌తో మీ తాజా సంభాషణలను త్వరగా సమీక్షించండి.",
+            "button": "సహాయకుడికి వెళ్ళండి"
+        },
         "schemes": {
             "title": "మీ కోసం సిఫార్సు చేయబడిన పథకాలు",
             "description": "మీ ప్రొఫైల్ ఆధారంగా, ఈ ప్రభుత్వ పథకాలు ప్రయోజనకరంగా ఉండవచ్చు.",
@@ -833,6 +839,30 @@
             "history": "దిగుబడి చరిత్ర లోడ్ అవుతోంది..."
         }
     },
+    "animalComparison": {
+        "title": "పశువులు మరియు గేదె జాతి పోలిక",
+        "subtitle": "వాటి లక్షణాలను పోల్చడానికి రెండు జాతుల వరకు ఎంచుకోండి.",
+        "cattleTitle": "పశువుల జాతులు",
+        "buffaloTitle": "గేదె జాతులు",
+        "characteristics": "లక్షణాలు",
+        "size": "పరిమాణం",
+        "milk": "పాల ఉత్పత్తి",
+        "temperament": "స్వభావం",
+        "climate": "వాతావరణ అనుకూలత",
+        "feed": "ఫీడ్ అవసరం",
+        "disease": "వ్యాధి నిరోధకత"
+    },
+    "findVeterinarian": {
+        "back": "రాష్ట్రాలకు తిరిగి వెళ్ళు",
+        "title": "పశువైద్యుడిని కనుగొనండి",
+        "subtitle": "భారతదేశంలోని జిల్లా పశుసంవర్ధక అధికారుల సంప్రదింపు సమాచారం. మీ రాష్ట్రాన్ని ఎంచుకోండి.",
+        "stateTitle": "{stateName} లోని పశువైద్య క్లినిక్‌లు",
+        "stateSubtitle": "{stateName} లోని పశువైద్య క్లినిక్‌లు మరియు ఆసుపత్రుల కోసం సంప్రదింపు సమాచారాన్ని కనుగొనండి.",
+        "stateDataMissing": "{stateName} కోసం డేటా ఇంకా అందుబాటులో లేదు. దయచేసి తర్వాత మళ్లీ తనిఖీ చేయండి.",
+        "searchPlaceholder": "పేరు, నగరం లేదా రకం ద్వారా శోధించండి...",
+        "noClinicsFound": "మీ శోధనకు సరిపోయే క్లినిక్‌లు ఏవీ కనుగొనబడలేదు.",
+        "noClinicsListed": "ఈ రాష్ట్రం కోసం ఇంకా క్లినిక్‌లు ఏవీ జాబితా చేయబడలేదు."
+    },
     "areaInfo": {
         "title": "త్వరిత సమాచార కేంద్రం",
         "description": "అవసరమైన వ్యవసాయ డేటా మీ చేతివేళ్ల వద్ద.",
@@ -849,10 +879,25 @@
             "note": "గమనిక"
         },
         "soil": {
-            "title": "భారతదేశంలో సాధారణ నేల రకాలు"
+            "title": "భారతదేశంలో సాధారణ నేల రకాలు",
+            "Alluvial Soil": "వండ్రు నేల",
+            "Black Soil (Regur)": "నల్ల నేల (రేగడి)",
+            "Red and Yellow Soil": "ఎరుపు మరియు పసుపు నేల",
+            "Laterite Soil": "లేటరైట్ నేల",
+            "Arid (Desert) Soil": "శుష్క (ఎడారి) నేల",
+            "Forest and Mountain Soil": "అటవీ మరియు పర్వత నేల",
+            "Loamy Soil": "లోమీ నేల",
+            "Sandy Soil": "ఇసుక నేల",
+            "Clay Soil": "బంకమన్ను నేల"
         },
         "fertilizers": {
-            "title": "సాధారణ ఎరువులు"
+            "title": "సాధారణ ఎరువులు",
+            "Urea": "యూరియా",
+            "Diammonium Phosphate (DAP)": "డైఅమ్మోనియం ఫాస్ఫేట్ (DAP)",
+            "Muriate of Potash (MOP)": "మ్యూరేట్ ఆఫ్ పొటాష్ (MOP)",
+            "Single Super Phosphate (SSP)": "సింగిల్ సూపర్ ఫాస్ఫేట్ (SSP)",
+            "NPK Complex Fertilizers": "NPK కాంప్లెక్స్ ఎరువులు",
+            "Ammonium Sulphate": "అమ్మోనియం సల్ఫేట్"
         }
     }
 }

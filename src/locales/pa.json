@@ -1,5 +1,8 @@
 
 {
+    "app": {
+        "description": "AI-ਸੰਚਾਲਿਤ ਸੰਦਾਂ ਨਾਲ ਆਧੁਨਿਕ ਖੇਤੀ।"
+    },
     "nav": {
         "home": "Home",
         "dashboard": "ਡੈਸ਼ਬੋਰਡ",
@@ -50,11 +53,7 @@
         },
         "farmSchool": {
             "title": "ਫਾਰਮ ਸਕੂਲ",
-            "description": "ਖੇਤੀ ਬਾਰੇ ਸਭ ਕੁਝ ਸਿੱਖੋ।",
-            "tools": {
-                "title": "Tools",
-                "description": "Learn about essential farming tools and machinery."
-            }
+            "description": "ਖੇਤੀ ਬਾਰੇ ਸਭ ਕੁਝ ਸਿੱਖੋ।"
         },
         "dashboard": {
             "title": "ਵਿਅਕਤੀਗਤ ਡੈਸ਼ਬੋਰਡ",
@@ -75,8 +74,8 @@
         },
         "fertilizers": {
             "title": "ਖਾਦਾਂ",
-            "description": "ਵੱਖ-ਵੱਖ ਕਿਸਮਾਂ ਦੀਆਂ ਖਾਦਾਂ ਅਤੇ ਉਹਨਾਂ ਦੀ ਵਰਤੋਂ ਨੂੰ ਸਮਝੋ.",
-            "pageSubtitle": "A comprehensive guide to fertilizers, their types, and their impact on modern farming."
+            "description": "ਵੱਖ-ਵੱਖ ਕਿਸਮਾਂ ਦੀਆਂ ਖਾਦਾਂ ਅਤੇ ਉਹਨਾਂ ਦੀ ਵਰਤੋਂ ਨੂੰ ਸਮਝੋ।",
+            "pageSubtitle": "ਖਾਦਾਂ, ਉਹਨਾਂ ਦੀਆਂ ਕਿਸਮਾਂ, ਅਤੇ ਆਧੁਨਿਕ ਖੇਤੀ 'ਤੇ ਉਹਨਾਂ ਦੇ ਪ੍ਰਭਾਵ ਲਈ ਇੱਕ ਵਿਆਪਕ ਗਾਈਡ।"
         },
         "areaCalculator": {
             "title": "ਖੇਤਰ ਕੈਲਕੁਲੇਟਰ",
@@ -104,167 +103,167 @@
         "profitMakingTips": {
             "title": "ਮੁਨਾਫਾ ਕਮਾਉਣ ਦੇ ਸੁਝਾਅ",
             "description": "ਆਪਣੇ ਖੇਤ ਦੀ ਮੁਨਾਫੇਯੋਗਤਾ ਨੂੰ ਵਧਾਉਣ ਲਈ ਰਣਨੀਤੀਆਂ ਖੋਜੋ।",
-            "pageTitle": "Top 10 Tips for Profitable Farming",
-            "pageSubtitle": "Smart strategies to boost your agricultural income and ensure sustainability.",
-            "tip1_title": "1. Choose High-Demand Crops",
-            "tip1_desc": "Focus on crops with consistent market demand like organic vegetables, turmeric, mushrooms, or medicinal herbs. These often fetch premium prices and have shorter cycles.",
-            "tip2_title": "2. Track Yield per Acre",
-            "tip2_desc": "Use data to compare crop performance across seasons. This helps you identify which crops give the best return on investment and where to optimize inputs.",
-            "tip3_title": "3. Optimize Water Usage",
-            "tip3_desc": "Drip irrigation, rainwater harvesting, and soil moisture sensors can drastically reduce water waste and improve crop health—especially in water-scarce regions.",
-            "tip4_title": "4. Test Soil Regularly",
-            "tip4_desc": "Soil testing helps you apply the right fertilizer in the right quantity. It prevents overuse, saves money, and boosts yield. You can even integrate this logic into your app’s form flow.",
-            "tip5_title": "5. Diversify with Allied Activities",
-            "tip5_desc": "Add beekeeping, dairy, or poultry to your farm. These provide steady income and complement crop cycles. Bonus: bees improve pollination and yield.",
-            "tip6_title": "6. Use AI for Crop Prediction",
-            "tip6_desc": "Leverage Genkit AI or similar models to simulate crop outcomes based on fertilizer, weather, and soil data. This helps in planning and risk reduction.",
-            "tip7_title": "7. Add Value Through Processing",
-            "tip7_desc": "Instead of selling raw produce, process it—like turning tomatoes into puree or turmeric into powder. Value-added products sell for more and last longer.",
-            "tip8_title": "8. Sell Direct to Consumers",
-            "tip8_desc": "Use WhatsApp catalogs, local farmer markets, or even a simple web app to bypass middlemen. Direct sales = better margins and customer feedback.",
-            "tip9_title": "9. Rotate Crops Smartly",
-            "tip9_desc": "Crop rotation improves soil health and reduces pest buildup. Pair legumes with cereals or oilseeds to balance nitrogen levels naturally.",
-            "tip10_title": "10. Digitize Your Farm Records",
-            "tip10_desc": "Track expenses, yields, weather, and market prices digitally. This helps with audits, subsidy applications, and smarter decision-making."
+            "pageTitle": "ਲਾਭਦਾਇਕ ਖੇਤੀ ਲਈ ਚੋਟੀ ਦੇ 10 ਸੁਝਾਅ",
+            "pageSubtitle": "ਤੁਹਾਡੀ ਖੇਤੀ ਆਮਦਨ ਵਧਾਉਣ ਅਤੇ ਸਥਿਰਤਾ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਸਮਾਰਟ ਰਣਨੀਤੀਆਂ।",
+            "tip1_title": "1. ਉੱਚ-ਮੰਗ ਵਾਲੀਆਂ ਫਸਲਾਂ ਦੀ ਚੋਣ ਕਰੋ",
+            "tip1_desc": "ਜੈਵਿਕ ਸਬਜ਼ੀਆਂ, ਹਲਦੀ, ਮਸ਼ਰੂਮਜ਼, ਜਾਂ ਔਸ਼ਧੀ ਬੂਟੀਆਂ ਵਰਗੀਆਂ ਲਗਾਤਾਰ ਮਾਰਕੀਟ ਮੰਗ ਵਾਲੀਆਂ ਫਸਲਾਂ 'ਤੇ ਧਿਆਨ ਕੇਂਦਰਤ ਕਰੋ। ਇਹ ਅਕਸਰ ਪ੍ਰੀਮੀਅਮ ਕੀਮਤਾਂ ਪ੍ਰਾਪਤ ਕਰਦੀਆਂ ਹਨ ਅਤੇ ਛੋਟੇ ਚੱਕਰ ਹੁੰਦੇ ਹਨ।",
+            "tip2_title": "2. ਪ੍ਰਤੀ ਏਕੜ ਉਪਜ ਦਾ ਪਤਾ ਲਗਾਓ",
+            "tip2_desc": "ਮੌਸਮਾਂ ਦੌਰਾਨ ਫਸਲ ਦੀ ਕਾਰਗੁਜ਼ਾਰੀ ਦੀ ਤੁਲਨਾ ਕਰਨ ਲਈ ਡੇਟਾ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਇਹ ਤੁਹਾਨੂੰ ਪਛਾਣਨ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ ਕਿ ਕਿਹੜੀਆਂ ਫਸਲਾਂ ਸਭ ਤੋਂ ਵਧੀਆ ਨਿਵੇਸ਼ 'ਤੇ ਵਾਪਸੀ ਦਿੰਦੀਆਂ ਹਨ ਅਤੇ ਕਿੱਥੇ ਇਨਪੁਟਸ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਉਣਾ ਹੈ।",
+            "tip3_title": "3. ਪਾਣੀ ਦੀ ਵਰਤੋਂ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਓ",
+            "tip3_desc": "ਟਪਕਾ ਸਿੰਚਾਈ, ਮੀਂਹ ਦੇ ਪਾਣੀ ਦੀ ਸੰਭਾਲ, ਅਤੇ ਮਿੱਟੀ ਦੀ ਨਮੀ ਦੇ ਸੈਂਸਰ ਪਾਣੀ ਦੀ ਬਰਬਾਦੀ ਨੂੰ ਕਾਫ਼ੀ ਘੱਟ ਕਰ ਸਕਦੇ ਹਨ ਅਤੇ ਫਸਲ ਦੀ ਸਿਹਤ ਨੂੰ ਸੁਧਾਰ ਸਕਦੇ ਹਨ — ਖਾਸ ਕਰਕੇ ਪਾਣੀ ਦੀ ਕਮੀ ਵਾਲੇ ਖੇਤਰਾਂ ਵਿੱਚ।",
+            "tip4_title": "4. ਨਿਯਮਿਤ ਤੌਰ 'ਤੇ ਮਿੱਟੀ ਦੀ ਜਾਂਚ ਕਰੋ",
+            "tip4_desc": "ਮਿੱਟੀ ਦੀ ਜਾਂਚ ਤੁਹਾਨੂੰ ਸਹੀ ਮਾਤਰਾ ਵਿੱਚ ਸਹੀ ਖਾਦ ਪਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ। ਇਹ ਜ਼ਿਆਦਾ ਵਰਤੋਂ ਨੂੰ ਰੋਕਦੀ ਹੈ, ਪੈਸੇ ਬਚਾਉਂਦੀ ਹੈ, ਅਤੇ ਉਪਜ ਵਧਾਉਂਦੀ ਹੈ। ਤੁਸੀਂ ਇਸ ਤਰਕ ਨੂੰ ਆਪਣੇ ਐਪ ਦੇ ਫਾਰਮ ਪ੍ਰਵਾਹ ਵਿੱਚ ਵੀ ਜੋੜ ਸਕਦੇ ਹੋ।",
+            "tip5_title": "5. ਸਹਾਇਕ ਗਤੀਵਿਧੀਆਂ ਨਾਲ ਵਿਭਿੰਨਤਾ ਲਿਆਓ",
+            "tip5_desc": "ਆਪਣੇ ਫਾਰਮ ਵਿੱਚ ਮਧੂ ਮੱਖੀ ਪਾਲਣ, ਡੇਅਰੀ, ਜਾਂ ਪੋਲਟਰੀ ਸ਼ਾਮਲ ਕਰੋ। ਇਹ ਸਥਿਰ ਆਮਦਨ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਨ ਅਤੇ ਫਸਲ ਚੱਕਰਾਂ ਦੇ ਪੂਰਕ ਹਨ। ਬੋਨਸ: ਮਧੂ ਮੱਖੀਆਂ ਪਰਾਗਣ ਅਤੇ ਉਪਜ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦੀਆਂ ਹਨ।",
+            "tip6_title": "6. ਫਸਲ ਦੀ ਭਵਿੱਖਬਾਣੀ ਲਈ AI ਦੀ ਵਰਤੋਂ ਕਰੋ",
+            "tip6_desc": "ਖਾਦ, ਮੌਸਮ ਅਤੇ ਮਿੱਟੀ ਦੇ ਡੇਟਾ ਦੇ ਅਧਾਰ ਤੇ ਫਸਲ ਦੇ ਨਤੀਜਿਆਂ ਦੀ ਨਕਲ ਕਰਨ ਲਈ Genkit AI ਜਾਂ ਸਮਾਨ ਮਾਡਲਾਂ ਦਾ ਲਾਭ ਉਠਾਓ। ਇਹ ਯੋਜਨਾਬੰਦੀ ਅਤੇ ਜੋਖਮ ਘਟਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ।",
+            "tip7_title": "7. ਪ੍ਰੋਸੈਸਿੰਗ ਦੁਆਰਾ ਮੁੱਲ ਵਧਾਓ",
+            "tip7_desc": "ਕੱਚੇ ਉਤਪਾਦ ਵੇਚਣ ਦੀ ਬਜਾਏ, ਇਸ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰੋ — ਜਿਵੇਂ ਟਮਾਟਰਾਂ ਨੂੰ ਪਿਊਰੀ ਵਿੱਚ ਜਾਂ ਹਲਦੀ ਨੂੰ ਪਾਊਡਰ ਵਿੱਚ ਬਦਲਣਾ। ਮੁੱਲ-ਵਰਧਿਤ ਉਤਪਾਦ ਵਧੇਰੇ ਵਿਕਦੇ ਹਨ ਅਤੇ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਚੱਲਦੇ ਹਨ।",
+            "tip8_title": "8. ਸਿੱਧੇ ਖਪਤਕਾਰਾਂ ਨੂੰ ਵੇਚੋ",
+            "tip8_desc": "ਵਿਚੋਲਿਆਂ ਨੂੰ ਬਾਈਪਾਸ ਕਰਨ ਲਈ ਵਟਸਐਪ ਕੈਟਾਲਾਗ, ਸਥਾਨਕ ਕਿਸਾਨ ਬਾਜ਼ਾਰ, ਜਾਂ ਇੱਥੋਂ ਤੱਕ ਕਿ ਇੱਕ ਸਧਾਰਨ ਵੈੱਬ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਸਿੱਧੀ ਵਿਕਰੀ = ਬਿਹਤਰ ਮਾਰਜਿਨ ਅਤੇ ਗਾਹਕ ਫੀਡਬੈਕ।",
+            "tip9_title": "9. ਫਸਲਾਂ ਨੂੰ ਸਮਝਦਾਰੀ ਨਾਲ ਘੁੰਮਾਓ",
+            "tip9_desc": "ਫਸਲ ਰੋਟੇਸ਼ਨ ਮਿੱਟੀ ਦੀ ਸਿਹਤ ਨੂੰ ਸੁਧਾਰਦੀ ਹੈ ਅਤੇ ਕੀੜਿਆਂ ਦੇ ਨਿਰਮਾਣ ਨੂੰ ਘਟਾਉਂਦੀ ਹੈ। ਨਾਈਟ੍ਰੋਜਨ ਦੇ ਪੱਧਰਾਂ ਨੂੰ ਕੁਦਰਤੀ ਤੌਰ 'ਤੇ ਸੰਤੁਲਿਤ ਕਰਨ ਲਈ ਫਲ਼ੀਦਾਰਾਂ ਨੂੰ ਅਨਾਜ ਜਾਂ ਤੇਲ ਬੀਜਾਂ ਨਾਲ ਜੋੜੋ।",
+            "tip10_title": "10. ਆਪਣੇ ਫਾਰਮ ਰਿਕਾਰਡਾਂ ਨੂੰ ਡਿਜੀਟਾਈਜ਼ ਕਰੋ",
+            "tip10_desc": "ਖਰਚੇ, ਉਪਜ, ਮੌਸਮ, ਅਤੇ ਮਾਰਕੀਟ ਕੀਮਤਾਂ ਨੂੰ ਡਿਜੀਟਲ ਰੂਪ ਵਿੱਚ ਟਰੈਕ ਕਰੋ। ਇਹ ਆਡਿਟ, ਸਬਸਿडी ਐਪਲੀਕੇਸ਼ਨਾਂ, ਅਤੇ ਸਮਾਰਟ ਫੈਸਲੇ ਲੈਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ।"
         },
         "croppingPatterns": {
-            "title": "Cropping Patterns",
-            "description": "Understand how cropping patterns vary across India and what factors influence them."
+            "title": "ਫਸਲੀ ਪੈਟਰਨ",
+            "description": "ਸਮਝੋ ਕਿ ਭਾਰਤ ਭਰ ਵਿੱਚ ਫਸਲੀ ਪੈਟਰਨ ਕਿਵੇਂ ਵੱਖਰੇ ਹੁੰਦੇ ਹਨ ਅਤੇ ਕਿਹੜੇ ਕਾਰਕ ਉਹਨਾਂ ਨੂੰ ਪ੍ਰਭਾਵਤ ਕਰਦੇ ਹਨ।"
         },
         "cropsKnowledge": {
-            "title": "Crops Knowledge",
-            "description": "Detailed information about major crops grown in India, their requirements, and ideal conditions.",
-            "pageTitle": "Detailed Crop Information",
-            "pageSubtitle": "A comprehensive guide to India's major agricultural crops.",
-            "foodgrain_title": "Foodgrain Crops",
-            "cash_title": "Cash Crops",
-            "horticulture_title": "Horticulture Crops",
-            "plantation_title": "Plantation Crops",
-            "fibre_title": "Fibre Crops",
-            "changing_title": "Changing Cropping Patterns",
-            "temp": "Temperature",
-            "rainfall": "Rainfall",
-            "soil": "Soil Type",
-            "states": "Top Producing States",
-            "notes": "Notes",
-            "fruit_label": "Fruit",
-            "states_label": "States",
+            "title": "ਫਸਲਾਂ ਦਾ ਗਿਆਨ",
+            "description": "ਭਾਰਤ ਵਿੱਚ ਉਗਾਈਆਂ ਜਾਣ ਵਾਲੀਆਂ ਮੁੱਖ ਫਸਲਾਂ, ਉਹਨਾਂ ਦੀਆਂ ਲੋੜਾਂ, ਅਤੇ ਆਦਰਸ਼ ਸਥਿਤੀਆਂ ਬਾਰੇ ਵਿਸਤ੍ਰਿਤ ਜਾਣਕਾਰੀ।",
+            "pageTitle": "ਵਿਸਤ੍ਰਿਤ ਫਸਲ ਜਾਣਕਾਰੀ",
+            "pageSubtitle": "ਭਾਰਤ ਦੀਆਂ ਮੁੱਖ ਖੇਤੀਬਾੜੀ ਫਸਲਾਂ ਲਈ ਇੱਕ ਵਿਆਪਕ ਗਾਈਡ।",
+            "foodgrain_title": "ਅਨਾਜ ਫਸਲਾਂ",
+            "cash_title": "ਨਕਦੀ ਫਸਲਾਂ",
+            "horticulture_title": "ਬਾਗਬਾਨੀ ਫਸਲਾਂ",
+            "plantation_title": "ਬਾਗਾਨੀ ਫਸਲਾਂ",
+            "fibre_title": "ਰੇਸ਼ੇ ਵਾਲੀਆਂ ਫਸਲਾਂ",
+            "changing_title": "ਬਦਲਦੇ ਫਸਲੀ ਪੈਟਰਨ",
+            "temp": "ਤਾਪਮਾਨ",
+            "rainfall": "ਬਾਰਸ਼",
+            "soil": "ਮਿੱਟੀ ਦੀ ਕਿਸਮ",
+            "states": "ਪ੍ਰਮੁੱਖ ਉਤਪਾਦਕ ਰਾਜ",
+            "notes": "ਨੋਟਸ",
+            "fruit_label": "ਫਲ",
+            "states_label": "ਰਾਜ",
             "rice": {
-                "title": "Rice",
-                "temp": "Between 22-32°C with high humidity.",
-                "rainfall": "Around 150-300 cm.",
-                "soil": "Deep clayey and loamy soil.",
-                "states": "West Bengal > Punjab > Uttar Pradesh > Andhra Pradesh > Bihar.",
-                "notes": "Staple food for the majority. India is the 2nd largest producer. Three crops (Aus, Aman, Boro) are grown in some states."
+                "title": "ਚਾਵਲ",
+                "temp": "22-32°C ਦੇ ਵਿਚਕਾਰ ਉੱਚ ਨਮੀ ਦੇ ਨਾਲ।",
+                "rainfall": "ਲਗਭਗ 150-300 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਡੂੰਘੀ ਚੀਕਣੀ ਅਤੇ ਦੋਮਟ ਮਿੱਟੀ।",
+                "states": "ਪੱਛਮੀ ਬੰਗਾਲ > ਪੰਜਾਬ > ਉੱਤਰ ਪ੍ਰਦੇਸ਼ > ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼ > ਬਿਹਾਰ।",
+                "notes": "ਬਹੁਗਿਣਤੀ ਲਈ ਮੁੱਖ ਭੋਜਨ। ਭਾਰਤ ਦੂਜਾ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਹੈ। ਕੁਝ ਰਾਜਾਂ ਵਿੱਚ ਤਿੰਨ ਫਸਲਾਂ (ਔਸ, ਅਮਨ, ਬੋਰੋ) ਉਗਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।"
             },
             "wheat": {
-                "title": "Wheat",
-                "temp": "10-15°C (Sowing) and 21-26°C (Ripening) with bright sunlight.",
-                "rainfall": "Around 75-100 cm.",
-                "soil": "Well-drained fertile loamy and clayey loamy soils.",
-                "states": "Uttar Pradesh > Punjab > Madhya Pradesh > Haryana > Rajasthan.",
-                "notes": "Second most important cereal crop, main food in North India. Green Revolution greatly boosted its growth."
+                "title": "ਕਣਕ",
+                "temp": "10-15°C (ਬਿਜਾਈ) ਅਤੇ 21-26°C (ਪੱਕਣ) ਚਮਕਦਾਰ ਧੁੱਪ ਨਾਲ।",
+                "rainfall": "ਲਗਭਗ 75-100 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਉਪਜਾਊ ਦੋਮਟ ਅਤੇ ਚੀਕਣੀ ਦੋਮਟ ਮਿੱਟੀ।",
+                "states": "ਉੱਤਰ ਪ੍ਰਦੇਸ਼ > ਪੰਜਾਬ > ਮੱਧ ਪ੍ਰਦੇਸ਼ > ਹਰਿਆਣਾ > ਰਾਜਸਥਾਨ।",
+                "notes": "ਦੂਜੀ ਸਭ ਤੋਂ ਮਹੱਤਵਪੂਰਨ ਅਨਾਜ ਫਸਲ, ਉੱਤਰੀ ਭਾਰਤ ਵਿੱਚ ਮੁੱਖ ਭੋਜਨ। ਹਰੀ ਕ੍ਰਾਂਤੀ ਨੇ ਇਸਦੇ ਵਿਕਾਸ ਨੂੰ ਬਹੁਤ ਹੁਲਾਰਾ ਦਿੱਤਾ।"
             },
             "millets": {
-                "title": "Millets (Nutri-Cereals)",
-                "temp": "Between 27-32°C",
-                "rainfall": "Around 50-100 cm.",
-                "soil": "Can be grown in inferior alluvial or loamy soil.",
-                "states": "Rajasthan > Karnataka > Maharashtra > Madhya Pradesh > Uttar Pradesh",
-                "notes": "Also known as coarse grains, high nutritional value. Ragi is rich in iron and calcium."
+                "title": "ਬਾਜਰਾ (ਪੋਸ਼ਕ-ਅਨਾਜ)",
+                "temp": "27-32°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 50-100 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਘਟੀਆ ਜਲੋਢੀ ਜਾਂ ਦੋਮਟ ਮਿੱਟੀ ਵਿੱਚ ਉਗਾਇਆ ਜਾ ਸਕਦਾ ਹੈ।",
+                "states": "ਰਾਜਸਥਾਨ > ਕਰਨਾਟਕ > ਮਹਾਰਾਸ਼ਟਰ > ਮੱਧ ਪ੍ਰਦੇਸ਼ > ਉੱਤਰ ਪ੍ਰਦੇਸ਼",
+                "notes": "ਮੋਟੇ ਅਨਾਜ ਵਜੋਂ ਵੀ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ, ਉੱਚ ਪੋਸ਼ਣ ਮੁੱਲ। ਰਾਗੀ ਆਇਰਨ ਅਤੇ ਕੈਲਸ਼ੀਅਮ ਨਾਲ ਭਰਪੂਰ ਹੁੰਦੀ ਹੈ।"
             },
             "maize": {
-                "title": "Maize",
-                "temp": "Between 21-27°C",
-                "rainfall": "High rainfall.",
-                "soil": "Old alluvial soil.",
-                "states": "Karnataka > Maharashtra > Madhya Pradesh > Tamil Nadu > Telangana",
-                "notes": "India is the 7th largest producer. Used as both food and fodder. Production increased with HYV seeds."
+                "title": "ਮੱਕੀ",
+                "temp": "21-27°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਉੱਚ ਬਾਰਸ਼।",
+                "soil": "ਪੁਰਾਣੀ ਜਲੋਢੀ ਮਿੱਟੀ।",
+                "states": "ਕਰਨਾਟਕ > ਮਹਾਰਾਸ਼ਟਰ > ਮੱਧ ਪ੍ਰਦੇਸ਼ > ਤਾਮਿਲਨਾਡੂ > ਤੇਲੰਗਾਨਾ",
+                "notes": "ਭਾਰਤ 7ਵਾਂ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਹੈ। ਭੋਜਨ ਅਤੇ ਚਾਰੇ ਦੋਵਾਂ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। HYV ਬੀਜਾਂ ਨਾਲ ਉਤਪਾਦਨ ਵਧਿਆ ਹੈ।"
             },
             "pulses": {
-                "title": "Pulses",
-                "temp": "Between 20-27°C",
-                "rainfall": "Around 25-60 cm.",
-                "soil": "Sandy-loamy soil.",
-                "states": "Madhya Pradesh > Rajasthan > Maharashtra > Uttar Pradesh > Karnataka.",
-                "notes": "India is the largest producer and consumer. Major source of protein. Leguminous crops restore soil fertility."
+                "title": "ਦਾਲਾਂ",
+                "temp": "20-27°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 25-60 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਰੇਤਲੀ-ਦੋਮਟ ਮਿੱਟੀ।",
+                "states": "ਮੱਧ ਪ੍ਰਦੇਸ਼ > ਰਾਜਸਥਾਨ > ਮਹਾਰਾਸ਼ਟਰ > ਉੱਤਰ ਪ੍ਰਦੇਸ਼ > ਕਰਨਾਟਕ।",
+                "notes": "ਭਾਰਤ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਅਤੇ ਖਪਤਕਾਰ ਹੈ। ਪ੍ਰੋਟੀਨ ਦਾ ਮੁੱਖ ਸਰੋਤ। ਫਲ਼ੀਦਾਰ ਫਸਲਾਂ ਮਿੱਟੀ ਦੀ ਉਪਜਾਊ ਸ਼ਕਤੀ ਨੂੰ ਬਹਾਲ ਕਰਦੀਆਂ ਹਨ।"
             },
             "sugarcane": {
-                "title": "Sugarcane",
-                "temp": "Between 21-27°C with hot and humid climate.",
-                "rainfall": "Around 75-100 cm.",
-                "soil": "Deep rich loamy soil.",
-                "states": "Uttar Pradesh > Maharashtra > Karnataka > Tamil Nadu > Bihar.",
-                "notes": "India is the 2nd largest producer after Brazil. Main source of sugar, jaggery, and molasses."
+                "title": "ਗੰਨਾ",
+                "temp": "21-27°C ਦੇ ਵਿਚਕਾਰ ਗਰਮ ਅਤੇ ਨਮੀ ਵਾਲੇ ਮੌਸਮ ਨਾਲ।",
+                "rainfall": "ਲਗਭਗ 75-100 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਡੂੰਘੀ ਅਮੀਰ ਦੋਮਟ ਮਿੱਟੀ।",
+                "states": "ਉੱਤਰ ਪ੍ਰਦੇਸ਼ > ਮਹਾਰਾਸ਼ਟਰ > ਕਰਨਾਟਕ > ਤਾਮਿਲਨਾਡੂ > ਬਿਹਾਰ।",
+                "notes": "ਬ੍ਰਾਜ਼ੀਲ ਤੋਂ ਬਾਅਦ ਭਾਰਤ ਦੂਜਾ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਹੈ। ਸ਼ੂਗਰ, ਗੁੜ ਅਤੇ ਗੁੜ ਦਾ ਮੁੱਖ ਸਰੋਤ।"
             },
             "oilseeds": {
-                "title": "Oilseeds",
-                "temp": "Between 15-30°C",
-                "rainfall": "Around 30-75 cm.",
-                "soil": "Loam to clayey loam and well drained sandy loams.",
-                "states": "Madhya Pradesh > Rajasthan > Gujarat > Maharashtra > Uttar Pradesh.",
-                "notes": "Includes groundnut, mustard, soyabean, etc. Most are edible; some used for soaps and cosmetics."
+                "title": "ਤੇਲ ਬੀਜ",
+                "temp": "15-30°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 30-75 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਦੋਮਟ ਤੋਂ ਚੀਕਣੀ ਦੋਮਟ ਅਤੇ ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਰੇਤਲੀ ਦੋਮਟ।",
+                "states": "ਮੱਧ ਪ੍ਰਦੇਸ਼ > ਰਾਜਸਥਾਨ > ਗੁਜਰਾਤ > ਮਹਾਰਾਸ਼ਟਰ > ਉੱਤਰ ਪ੍ਰਦੇਸ਼।",
+                "notes": "ਮੂੰਗਫਲੀ, ਸਰ੍ਹੋਂ, ਸੋਇਆਬੀਨ, ਆਦਿ ਸ਼ਾਮਲ ਹਨ। ਜ਼ਿਆਦਾਤਰ ਖਾਣਯੋਗ; ਕੁਝ ਸਾਬਣ ਅਤੇ ਸ਼ਿੰਗਾਰ ਸਮੱਗਰੀ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਹਨ।"
             },
-            "horticulture_desc": "India is the second largest producer of fruits and vegetables. It produces about 13 percent of the world’s vegetables.",
-            "mangoes": "Mangoes",
-            "mangoes_states": "Maharashtra, Andhra Pradesh, Telangana, Uttar Pradesh and West Bengal",
-            "oranges": "Oranges",
-            "oranges_states": "Nagpur and Cherrapunjee (Meghalaya)",
-            "bananas": "Bananas",
-            "bananas_states": "Kerala, Mizoram, Maharashtra and Tamil Nadu",
-            "litchi": "Litchi and Guava",
-            "litchi_states": "Uttar Pradesh and Bihar",
-            "pineapples": "Pineapples",
-            "pineapples_states": "Meghalaya",
-            "grapes": "Grapes",
-            "grapes_states": "Andhra Pradesh, Telangana and Maharashtra",
-            "apples": "Apples, Pears, Apricots and Walnuts",
-            "apples_states": "Jammu and Kashmir and Himachal Pradesh",
+            "horticulture_desc": "ਭਾਰਤ ਫਲਾਂ ਅਤੇ ਸਬਜ਼ੀਆਂ ਦਾ ਦੂਜਾ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਹੈ। ਇਹ ਦੁਨੀਆ ਦੀਆਂ ਲਗਭਗ 13 ਪ੍ਰਤੀਸ਼ਤ ਸਬਜ਼ੀਆਂ ਦਾ ਉਤਪਾਦਨ ਕਰਦਾ ਹੈ।",
+            "mangoes": "ਅੰਬ",
+            "mangoes_states": "ਮਹਾਰਾਸ਼ਟਰ, ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼, ਤੇਲੰਗਾਨਾ, ਉੱਤਰ ਪ੍ਰਦੇਸ਼ ਅਤੇ ਪੱਛਮੀ ਬੰਗਾਲ",
+            "oranges": "ਸੰਤਰੇ",
+            "oranges_states": "ਨਾਗਪੁਰ ਅਤੇ ਚਿਰਾਪੂੰਜੀ (ਮੇਘਾਲਿਆ)",
+            "bananas": "ਕੇਲੇ",
+            "bananas_states": "ਕੇਰਲ, ਮਿਜ਼ੋਰਮ, ਮਹਾਰਾਸ਼ਟਰ ਅਤੇ ਤਾਮਿਲਨਾਡੂ",
+            "litchi": "ਲੀਚੀ ਅਤੇ ਅਮਰੂਦ",
+            "litchi_states": "ਉੱਤਰ ਪ੍ਰਦੇਸ਼ ਅਤੇ ਬਿਹਾਰ",
+            "pineapples": "ਅਨਾਨਾਸ",
+            "pineapples_states": "ਮੇਘਾਲਿਆ",
+            "grapes": "ਅੰਗੂਰ",
+            "grapes_states": "ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼, ਤੇਲੰਗਾਨਾ ਅਤੇ ਮਹਾਰਾਸ਼ਟਰ",
+            "apples": "ਸੇਬ, ਨਾਸ਼ਪਾਤੀ, ਖੁਰਮਾਨੀ ਅਤੇ ਅਖਰੋਟ",
+            "apples_states": "ਜੰਮੂ ਅਤੇ ਕਸ਼ਮੀਰ ਅਤੇ ਹਿਮਾਚਲ ਪ੍ਰਦੇਸ਼",
             "tea": {
-                "title": "Tea",
-                "temp": "Between 20-30°C",
-                "rainfall": "Around 150-300 cm.",
-                "soil": "Deep and fertile well-drained soil, rich in humus.",
-                "states": "Assam > West Bengal > Tamil Nadu.",
-                "notes": "India is the 2nd largest producer. It is a labor-intensive industry requiring skilled labor."
+                "title": "ਚਾਹ",
+                "temp": "20-30°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 150-300 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਡੂੰਘੀ ਅਤੇ ਉਪਜਾਊ ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਮਿੱਟੀ, ਹੁੰਮਸ ਨਾਲ ਭਰਪੂਰ।",
+                "states": "ਅਸਾਮ > ਪੱਛਮੀ ਬੰਗਾਲ > ਤਾਮਿਲਨਾਡੂ।",
+                "notes": "ਭਾਰਤ ਦੂਜਾ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਹੈ। ਇਹ ਇੱਕ ਕਿਰਤ-ਸੰਘਣੀ ਉਦਯੋਗ ਹੈ ਜਿਸ ਲਈ ਹੁਨਰਮੰਦ ਮਜ਼ਦੂਰਾਂ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।"
             },
             "coffee": {
-                "title": "Coffee",
-                "temp": "Between 15-28°C",
-                "rainfall": "Around 150-250 cm.",
-                "soil": "Well drained, deep friable loamy soil.",
-                "states": "Karnataka > Kerala > Tamil Nadu.",
-                "notes": "India is the 7th largest producer. The 'Arabica' variety from India is famous worldwide."
+                "title": "ਕੌਫੀ",
+                "temp": "15-28°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 150-250 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ, ਡੂੰਘੀ ਭੁਰਭੁਰੀ ਦੋਮਟ ਮਿੱਟੀ।",
+                "states": "ਕਰਨਾਟਕ > ਕੇਰਲ > ਤਾਮਿਲਨਾਡੂ।",
+                "notes": "ਭਾਰਤ 7ਵਾਂ ਸਭ ਤੋਂ ਵੱਡਾ ਉਤਪਾਦਕ ਹੈ। ਭਾਰਤ ਦੀ 'ਅਰੇਬਿਕਾ' ਕਿਸਮ ਦੁਨੀਆ ਭਰ ਵਿੱਚ ਮਸ਼ਹੂਰ ਹੈ।"
             },
             "rubber": {
-                "title": "Rubber",
-                "temp": "Above 25°C with moist and humid climate.",
-                "rainfall": "More than 200 cm.",
-                "soil": "Rich well drained alluvial soil.",
-                "states": "Kerala > Tamil Nadu > Karnataka.",
-                "notes": "It is an equatorial crop but can be grown in tropical and sub-tropical areas. It's an important industrial raw material."
+                "title": "ਰਬੜ",
+                "temp": "25°C ਤੋਂ ਉੱਪਰ ਨਮੀ ਵਾਲੇ ਅਤੇ ਨਮੀ ਵਾਲੇ ਮੌਸਮ ਨਾਲ।",
+                "rainfall": "200 ਸੈਂਟੀਮੀਟਰ ਤੋਂ ਵੱਧ।",
+                "soil": "ਅਮੀਰ ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਜਲੋਢੀ ਮਿੱਟੀ।",
+                "states": "ਕੇਰਲ > ਤਾਮਿਲਨਾਡੂ > ਕਰਨਾਟਕ।",
+                "notes": "ਇਹ ਇੱਕ ਭੂ-ਮੱਧ ਰੇਖੀ ਫਸਲ ਹੈ ਪਰ ਗਰਮ ਅਤੇ ਉਪ-ਗਰਮ ਖੇਤਰਾਂ ਵਿੱਚ ਉਗਾਈ ਜਾ ਸਕਦੀ ਹੈ। ਇਹ ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਉਦਯੋਗਿਕ ਕੱਚਾ ਮਾਲ ਹੈ।"
             },
             "cotton": {
-                "title": "Cotton",
-                "temp": "Between 21-30°C",
-                "rainfall": "Around 50-100cm.",
-                "soil": "Well drained black cotton soil of Deccan Plateau.",
-                "states": "Gujarat > Maharashtra > Telangana > Andhra Pradesh > Rajasthan.",
-                "notes": "Requires 210 frost-free days and bright sunshine. BT Cotton is a genetically modified variety."
+                "title": "ਕਪਾਹ",
+                "temp": "21-30°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 50-100 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਡੈਕਨ ਪਠਾਰ ਦੀ ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਕਾਲੀ ਕਪਾਹ ਮਿੱਟੀ।",
+                "states": "ਗੁਜਰਾਤ > ਮਹਾਰਾਸ਼ਟਰ > ਤੇਲੰਗਾਨਾ > ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼ > ਰਾਜਸਥਾਨ।",
+                "notes": "210 ਠੰਡ-ਮੁਕਤ ਦਿਨ ਅਤੇ ਚਮਕਦਾਰ ਧੁੱਪ ਦੀ ਲੋੜ ਹੈ। ਬੀਟੀ ਕਪਾਹ ਇੱਕ ਜੈਨੇਟਿਕ ਤੌਰ 'ਤੇ ਸੋਧੀ ਹੋਈ ਕਿਸਮ ਹੈ।"
             },
             "jute": {
-                "title": "Jute",
-                "temp": "Between 25-35°C",
-                "rainfall": "Around 150-250 cm",
-                "soil": "Well drained alluvial soil.",
-                "states": "West Bengal > Bihar > Assam > Andhra Pradesh > Odisha.",
-                "notes": "Known as the golden fibre. Used in making bags, ropes, etc. Losing market to synthetic fibres."
+                "title": "ਜੂਟ",
+                "temp": "25-35°C ਦੇ ਵਿਚਕਾਰ",
+                "rainfall": "ਲਗਭਗ 150-250 ਸੈਂਟੀਮੀਟਰ।",
+                "soil": "ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਜਲੋਢੀ ਮਿੱਟੀ।",
+                "states": "ਪੱਛਮੀ ਬੰਗਾਲ > ਬਿਹਾਰ > ਅਸਾਮ > ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼ > ਉੜੀਸਾ।",
+                "notes": "ਸੁਨਹਿਰੀ ਰੇਸ਼ੇ ਵਜੋਂ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ। ਬੈਗ, ਰੱਸੀਆਂ, ਆਦਿ ਬਣਾਉਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਸਿੰਥੈਟਿਕ ਰੇਸ਼ਿਆਂ ਤੋਂ ਬਾਜ਼ਾਰ ਗੁਆ ਰਿਹਾ ਹੈ।"
             },
-            "changing_p1": "Cropping pattern is a dynamic concept, referring to the proportion of area under various crops at a point in time, and the sequence and spatial arrangement of crops.",
-            "changing_l1": "The Green Revolution led to changes, introducing rice to Punjab and Haryana.",
-            "changing_l2": "New technologies have made food crop cultivation more productive.",
-            "changing_l3": "There's a shift towards cash crops like oilseeds, fruits, and vegetables.",
-            "changing_l4": "Factors like climate change, economic expansion, and urbanization continue to influence these patterns."
+            "changing_p1": "ਫਸਲੀ ਪੈਟਰਨ ਇੱਕ ਗਤੀਸ਼ੀਲ ਸੰਕਲਪ ਹੈ, ਜੋ ਇੱਕ ਸਮੇਂ 'ਤੇ ਵੱਖ-ਵੱਖ ਫਸਲਾਂ ਦੇ ਅਧੀਨ ਖੇਤਰ ਦੇ ਅਨੁਪਾਤ, ਅਤੇ ਫਸਲਾਂ ਦੇ ਕ੍ਰਮ ਅਤੇ ਸਥਾਨਿਕ ਪ੍ਰਬੰਧ ਨੂੰ ਦਰਸਾਉਂਦਾ ਹੈ।",
+            "changing_l1": "ਹਰੀ ਕ੍ਰਾਂਤੀ ਨੇ ਤਬਦੀਲੀਆਂ ਲਿਆਂਦੀਆਂ, ਪੰਜਾਬ ਅਤੇ ਹਰਿਆਣਾ ਵਿੱਚ ਚਾਵਲ ਦੀ ਸ਼ੁਰੂਆਤ ਕੀਤੀ।",
+            "changing_l2": "ਨਵੀਆਂ ਤਕਨੀਕਾਂ ਨੇ ਭੋਜਨ ਫਸਲਾਂ ਦੀ ਕਾਸ਼ਤ ਨੂੰ ਵਧੇਰੇ ਉਤਪਾਦਕ ਬਣਾ ਦਿੱਤਾ ਹੈ।",
+            "changing_l3": "ਤੇਲ ਬੀਜ, ਫਲ ਅਤੇ ਸਬਜ਼ੀਆਂ ਵਰਗੀਆਂ ਨਕਦੀ ਫਸਲਾਂ ਵੱਲ ਇੱਕ ਤਬਦੀਲੀ ਹੋ ਰਹੀ ਹੈ।",
+            "changing_l4": "ਜਲਵਾਯੂ ਤਬਦੀਲੀ, ਆਰਥਿਕ ਵਿਸਤਾਰ, ਅਤੇ ਸ਼ਹਿਰੀਕਰਨ ਵਰਗੇ ਕਾਰਕ ਇਹਨਾਂ ਪੈਟਰਨਾਂ ਨੂੰ ਪ੍ਰਭਾਵਤ ਕਰਦੇ ਰਹਿੰਦੇ ਹਨ।"
         }
     },
     "quotes": {
@@ -360,7 +359,7 @@
         "n6_article": "A startup has launched a mobile app that uses artificial intelligence to identify crop pests from a single photo, offering instant treatment recommendations. The app, which has a database of thousands of pests, aims to democratize access to expert agronomic advice and help farmers make timely decisions to protect their crops.",
         "n7_title": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
         "n7_snippet": "The Pradhan Mantri Kisan Maandhan Yojana (PM-KMY) is a voluntary and contributory pension scheme launched by the Government of India on 12 September 2019. The scheme is specially designed for small and marginal farmers to ensure financial security in their old age.",
-        "n7_article": "<div><p>The <strong>Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)</strong> is a <strong>voluntary and contributory pension scheme</strong> launched by the Government of India on <strong>12 September 2019</strong>. The scheme is specially designed for <strong>small and marginal farmers</strong> to ensure financial security in their old age.</p><p>It was introduced by Prime Minister <strong>Narendra Modi</strong> with the vision of providing farmers a dignified life after retirement.</p><hr class=\"my-4\"/><h4>Objective of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>To provide <strong>financial assistance</strong> to small and marginal farmers after 60 years of age.</li><li>To ensure that farmers do not remain dependent on others for their daily needs in old age.</li><li>To give a <strong>guaranteed monthly pension of ₹3,000</strong> for a secure future.</li></ul><hr class=\"my-4\"/><h4>Eligibility</h4><ul class=\"list-disc pl-5 space-y-1\"><li>Small and marginal farmers with <strong>cultivable land up to 2 hectares</strong>.</li><li>Age between <strong>18 and 40 years</strong> at the time of joining.</li></ul><p class=\"mt-2\"><strong>Not Eligible:</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Farmers covered under NPS, EPF, or ESIC.</li><li>Institutional landholders and big landlords.</li><li>Present or former constitutional post holders, ministers, MLAs/MPs.</li><li>Government employees (except Class IV/Group D staff).</li><li>Income tax payers in the last financial year.</li><li>Professionals such as doctors, engineers, lawyers, CAs, architects, etc.</li></ul><hr class=\"my-4\"/><h4>Contribution Details</h4><p>Farmers need to contribute a small fixed amount <strong>(₹55 to ₹200 per month)</strong> depending on their entry age.</p><ul class=\"list-disc pl-5 space-y-1\"><li>The <strong>government matches the farmer’s contribution</strong> on a 1:1 basis.</li><li>Contributions continue until the farmer reaches <strong>60 years of age</strong>.</li><li>After 60 years, the farmer receives <strong>₹3,000 monthly pension for life</strong>.</li></ul><hr class=\"my-4\"/><h4>How to Apply</h4><ol class=\"list-decimal pl-5 space-y-1\"><li>Visit the nearest <strong>Common Service Centre (CSC)</strong>.</li><li>Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.</li><li>Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.</li><li>Provide <strong>auto-debit mandate</strong> so the contribution is deducted automatically.</li><li>After verification, the farmer is issued a <strong>Unique Pension Account Number</strong>.</li></ol><hr class=\"my-4\"/><h4>Contribution Chart</h4><div class=\"overflow-x-auto\"><table class=\"w-full text-left border-collapse\"><thead><tr><th class=\"border p-2\">Entry Age (Years)</th><th class=\"border p-2\">Retirement Age</th><th class=\"border p-2\">Farmer’s Contribution (₹/month)</th><th class=\"border p-2\">Government’s Contribution (₹/month)</th><th class=\"border p-2\">Total Contribution (₹/month)</th></tr></thead><tbody><tr><td class=\"border p-2\">18</td><td class=\"border p-2\">60</td><td class=\"border p-2\">55</td><td class=\"border p-2\">55</td><td class=\"border p-2\">110</td></tr><tr><td class=\"border p-2\">19</td><td class=\"border p-2\">60</td><td class=\"border p-2\">58</td><td class=\"border p-2\">58</td><td class=\"border p-2\">116</td></tr><tr><td class=\"border p-2\">20</td><td class=\"border p-2\">60</td><td class=\"border p-2\">61</td><td class=\"border p-2\">61</td><td class=\"border p-2\">122</td></tr><tr><td class=\"border p-2\">21</td><td class=\"border p-2\">60</td><td class=\"border p-2\">64</td><td class=\"border p-2\">64</td><td class=\"border p-2\">128</td></tr><tr><td class=\"border p-2\">22</td><td class=\"border p-2\">60</td><td class=\"border p-2\">68</td><td class=\"border p-2\">68</td><td class=\"border p-2\">136</td></tr><tr><td class=\"border p-2\">23</td><td class=\"border p-2\">60</td><td class=\"border p-2\">72</td><td class=\"border p-2\">72</td><td class=\"border p-2\">144</td></tr><tr><td class=\"border p-2\">24</td><td class=\"border p-2\">60</td><td class=\"border p-2\">76</td><td class=\"border p-2\">76</td><td class=\"border p-2\">152</td></tr><tr><td class=\"border p-2\">25</td><td class=\"border p-2\">60</td><td class=\"border p-2\">80</td><td class=\"border p-2\">80</td><td class=\"border p-2\">160</td></tr><tr><td class=\"border p-2\">26</td><td class=\"border p-2\">60</td><td class=\"border p-2\">85</td><td class=\"border p-2\">85</td><td class=\"border p-2\">170</td></tr><tr><td class=\"border p-2\">27</td><td class=\"border p-2\">60</td><td class=\"border p-2\">90</td><td class=\"border p-2\">90</td><td class=\"border p-2\">180</td></tr><tr><td class=\"border p-2\">28</td><td class=\"border p-2\">60</td><td class=\"border p-2\">95</td><td class=\"border p-2\">95</td><td class=\"border p-2\">190</td></tr><tr><td class=\"border p-2\">29</td><td class=\"border p-2\">60</td><td class=\"border p-2\">100</td><td class=\"border p-2\">100</td><td class=\"border p-2\">200</td></tr><tr><td class=\"border p-2\">30</td><td class=\"border p-2\">60</td><td class=\"border p-2\">105</td><td class=\"border p-2\">105</td><td class=\"border p-2\">210</td></tr><tr><td class=\"border p-2\">31</td><td class=\"border p-2\">60</td><td class=\"border p-2\">110</td><td class=\"border p-2\">110</td><td class=\"border p-2\">220</td></tr><tr><td class=\"border p-2\">32</td><td class=\"border p-2\">60</td><td class=\"border p-2\">120</td><td class=\"border p-2\">120</td><td class=\"border p-2\">240</td></tr><tr><td class=\"border p-2\">33</td><td class=\"border p-2\">60</td><td class=\"border p-2\">130</td><td class=\"border p-2\">130</td><td class=\"border p-2\">260</td></tr><tr><td class=\"border p-2\">34</td><td class=\"border p-2\">60</td><td class=\"border p-2\">140</td><td class=\"border p-2\">140</td><td class=\"border p-2\">280</td></tr><tr><td class=\"border p-2\">35</td><td class=\"border p-2\">60</td><td class=\"border p-2\">150</td><td class=\"border p-2\">150</td><td class=\"border p-2\">300</td></tr><tr><td class=\"border p-2\">36</td><td class=\"border p-2\">60</td><td class=\"border p-2\">160</td><td class=\"border p-2\">160</td><td class=\"border p-2\">320</td></tr><tr><td class=\"border p-2\">37</td><td class=\"border p-2\">60</td><td class=\"border p-2\">170</td><td class=\"border p-2\">170</td><td class=\"border p-2\">340</td></tr><tr><td class=\"border p-2\">38</td><td class=\"border p-2\">60</td><td class=\"border p-2\">180</td><td class=\"border p-2\">180</td><td class=\"border p-2\">360</td></tr><tr><td class=\"border p-2\">39</td><td class=\"border p-2\">60</td><td class=\"border p-2\">190</td><td class=\"border p-2\">190</td><td class=\"border p-2\">380</td></tr><tr><td class=\"border p-2\">40</td><td class=\"border p-2\">60</td><td class=\"border p-2\">200</td><td class=\"border p-2\">200</td><td class=\"border p-2\">400</td></tr></tbody></table></div><hr class=\"my-4\"/><h4>Special Rule for PM-Kisan Beneficiaries</h4><p>Farmers who are already receiving <strong>₹6,000 per year under PM-Kisan Samman Nidhi</strong> can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.</p><hr class=\"my-4\"/><h4>FAQs</h4><p><strong>1. Is there any enrollment fee?</strong></p><p>A nominal fee of ₹30 is charged at CSCs, which is paid by the government.</p><p><strong>2. What if the farmer dies before 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse can continue the scheme by contributing further.</li><li>If not, the total contribution made by the farmer (with interest) will be returned to the nominee.</li></ul><p><strong>3. What if the farmer dies after 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse will receive <strong>50% of the pension</strong> as family pension (if not already a PM-KMY member).</li></ul><p><strong>4. What if contributions are not paid on time?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Auto-debit happens on <strong>1st, 11th, or 21st</strong> of the month.</li><li>If missed, contributions can be paid later with interest.</li><li>Accounts inactive for more than 3 years may be closed.</li></ul><hr class=\"my-4\"/><h4>Key Benefits of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>✅ Guaranteed <strong>₹3,000 monthly pension</strong> after 60 years</li><li>✅ Equal contribution by Government</li><li>✅ Financial security in old age</li><li>✅ Family pension to spouse in case of death</li><li>✅ Simple enrollment through CSCs</li></ul><hr class=\"my-4\"/><p>✨ <strong>The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.</strong></p></div>",
+        "n7_article": "<div><p>The <strong>Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)</strong> is a <strong>voluntary and contributory pension scheme</strong> launched by the Government of India on <strong>12 September 2019</strong>. The scheme is specially designed for <strong>small and marginal farmers</strong> to ensure financial security in their old age.</p><p>It was introduced by Prime Minister <strong>Narendra Modi</strong> with the vision of providing farmers a dignified life after retirement.</p><hr class=\"my-4\"/><h4>Objective of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>To provide <strong>financial assistance</strong> to small and marginal farmers after 60 years of age.</li><li>To ensure that farmers do not remain dependent on others for their daily needs in old age.</li><li>To give a <strong>guaranteed monthly pension of ₹3,000</strong> for a secure future.</li></ul><hr class=\"my-4\"/><h4>Eligibility</h4><ul class=\"list-disc pl-5 space-y-1\"><li>Small and marginal farmers with <strong>cultivable land up to 2 hectares</strong>.</li><li>Age between <strong>18 and 40 years</strong> at the time of joining.</li></ul><p class=\"mt-2\"><strong>Not Eligible:</strong></p<ul class=\"list-disc pl-5 space-y-1\"><li>Farmers covered under NPS, EPF, or ESIC.</li><li>Institutional landholders and big landlords.</li><li>Present or former constitutional post holders, ministers, MLAs/MPs.</li><li>Government employees (except Class IV/Group D staff).</li><li>Income tax payers in the last financial year.</li><li>Professionals such as doctors, engineers, lawyers, CAs, architects, etc.</li></ul><hr class=\"my-4\"/><h4>Contribution Details</h4><p>Farmers need to contribute a small fixed amount <strong>(₹55 to ₹200 per month)</strong> depending on their entry age.</p><ul class=\"list-disc pl-5 space-y-1\"><li>The <strong>government matches the farmer’s contribution</strong> on a 1:1 basis.</li><li>Contributions continue until the farmer reaches <strong>60 years of age</strong>.</li><li>After 60 years, the farmer receives <strong>₹3,000 monthly pension for life</strong>.</li></ul><hr class=\"my-4\"/><h4>How to Apply</h4><ol class=\"list-decimal pl-5 space-y-1\"><li>Visit the nearest <strong>Common Service Centre (CSC)</strong>.</li><li>Carry documents: Aadhaar Card, Bank Passbook, Land documents, and Passport size photo.</li><li>Fill the enrollment form with details like name, spouse/nominee, Aadhaar, bank details, and mobile number.</li><li>Provide <strong>auto-debit mandate</strong> so the contribution is deducted automatically.</li><li>After verification, the farmer is issued a <strong>Unique Pension Account Number</strong>.</li></ol><hr class=\"my-4\"/><h4>Contribution Chart</h4><div class=\"overflow-x-auto\"><table class=\"w-full text-left border-collapse\"><thead><tr><th class=\"border p-2\">Entry Age (Years)</th><th class=\"border p-2\">Retirement Age</th><th class=\"border p-2\">Farmer’s Contribution (₹/month)</th><th class=\"border p-2\">Government’s Contribution (₹/month)</th><th class=\"border p-2\">Total Contribution (₹/month)</th></tr></thead><tbody><tr><td class=\"border p-2\">18</td><td class=\"border p-2\">60</td><td class=\"border p-2\">55</td><td class=\"border p-2\">55</td><td class=\"border p-2\">110</td></tr><tr><td class=\"border p-2\">19</td><td class=\"border p-2\">60</td><td class=\"border p-2\">58</td><td class=\"border p-2\">58</td><td class=\"border p-2\">116</td></tr><tr><td class=\"border p-2\">20</td><td class=\"border p-2\">60</td><td class=\"border p-2\">61</td><td class=\"border p-2\">61</td><td class=\"border p-2\">122</td></tr><tr><td class=\"border p-2\">21</td><td class=\"border p-2\">60</td><td class=\"border p-2\">64</td><td class=\"border p-2\">64</td><td class=\"border p-2\">128</td></tr><tr><td class=\"border p-2\">22</td><td class=\"border p-2\">60</td><td class=\"border p-2\">68</td><td class=\"border p-2\">68</td><td class=\"border p-2\">136</td></tr><tr><td class=\"border p-2\">23</td><td class=\"border p-2\">60</td><td class=\"border p-2\">72</td><td class=\"border p-2\">72</td><td class=\"border p-2\">144</td></tr><tr><td class=\"border p-2\">24</td><td class=\"border p-2\">60</td><td class=\"border p-2\">76</td><td class=\"border p-2\">76</td><td class=\"border p-2\">152</td></tr><tr><td class=\"border p-2\">25</td><td class=\"border p-2\">60</td><td class=\"border p-2\">80</td><td class=\"border p-2\">80</td><td class=\"border p-2\">160</td></tr><tr><td class=\"border p-2\">26</td><td class=\"border p-2\">60</td><td class=\"border p-2\">85</td><td class=\"border p-2\">85</td><td class=\"border p-2\">170</td></tr><tr><td class=\"border p-2\">27</td><td class=\"border p-2\">60</td><td class=\"border p-2\">90</td><td class=\"border p-2\">90</td><td class=\"border p-2\">180</td></tr><tr><td class=\"border p-2\">28</td><td class=\"border p-2\">60</td><td class=\"border p-2\">95</td><td class=\"border p-2\">95</td><td class=\"border p-2\">190</td></tr><tr><td class=\"border p-2\">29</td><td class=\"border p-2\">60</td><td class=\"border p-2\">100</td><td class=\"border p-2\">100</td><td class=\"border p-2\">200</td></tr><tr><td class=\"border p-2\">30</td><td class=\"border p-2\">60</td><td class=\"border p-2\">105</td><td class=\"border p-2\">105</td><td class=\"border p-2\">210</td></tr><tr><td class=\"border p-2\">31</td><td class=\"border p-2\">60</td><td class=\"border p-2\">110</td><td class=\"border p-2\">110</td><td class=\"border p-2\">220</td></tr><tr><td class=\"border p-2\">32</td><td class=\"border p-2\">60</td><td class=\"border p-2\">120</td><td class=\"border p-2\">120</td><td class=\"border p-2\">240</td></tr><tr><td class=\"border p-2\">33</td><td class=\"border p-2\">60</td><td class=\"border p-2\">130</td><td class=\"border p-2\">130</td><td class=\"border p-2\">260</td></tr><tr><td class=\"border p-2\">34</td><td class=\"border p-2\">60</td><td class=\"border p-2\">140</td><td class=\"border p-2\">140</td><td class=\"border p-2\">280</td></tr><tr><td class=\"border p-2\">35</td><td class=\"border p-2\">60</td><td class=\"border p-2\">150</td><td class=\"border p-2\">150</td><td class=\"border p-2\">300</td></tr><tr><td class=\"border p-2\">36</td><td class=\"border p-2\">60</td><td class=\"border p-2\">160</td><td class=\"border p-2\">160</td><td class=\"border p-2\">320</td></tr><tr><td class=\"border p-2\">37</td><td class=\"border p-2\">60</td><td class=\"border p-2\">170</td><td class=\"border p-2\">170</td><td class=\"border p-2\">340</td></tr><tr><td class=\"border p-2\">38</td><td class=\"border p-2\">60</td><td class=\"border p-2\">180</td><td class=\"border p-2\">180</td><td class=\"border p-2\">360</td></tr><tr><td class=\"border p-2\">39</td><td class=\"border p-2\">60</td><td class=\"border p-2\">190</td><td class=\"border p-2\">190</td><td class=\"border p-2\">380</td></tr><tr><td class=\"border p-2\">40</td><td class=\"border p-2\">60</td><td class=\"border p-2\">200</td><td class=\"border p-2\">200</td><td class=\"border p-2\">400</td></tr></tbody></table></div><hr class=\"my-4\"/><h4>Special Rule for PM-Kisan Beneficiaries</h4><p>Farmers who are already receiving <strong>₹6,000 per year under PM-Kisan Samman Nidhi</strong> can authorize the government to directly deduct the pension contribution from that amount. This makes it easier for them to join PM-KMY without extra burden.</p><hr class=\"my-4\"/><h4>FAQs</h4><p><strong>1. Is there any enrollment fee?</strong></p><p>A nominal fee of ₹30 is charged at CSCs, which is paid by the government.</p><p><strong>2. What if the farmer dies before 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse can continue the scheme by contributing further.</li><li>If not, the total contribution made by the farmer (with interest) will be returned to the nominee.</li></ul><p><strong>3. What if the farmer dies after 60 years?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>The spouse will receive <strong>50% of the pension</strong> as family pension (if not already a PM-KMY member).</li></ul><p><strong>4. What if contributions are not paid on time?</strong></p><ul class=\"list-disc pl-5 space-y-1\"><li>Auto-debit happens on <strong>1st, 11th, or 21st</strong> of the month.</li><li>If missed, contributions can be paid later with interest.</li><li>Accounts inactive for more than 3 years may be closed.</li></ul><hr class=\"my-4\"/><h4>Key Benefits of PM-KMY</h4><ul class=\"list-disc pl-5 space-y-1\"><li>✅ Guaranteed <strong>₹3,000 monthly pension</strong> after 60 years</li><li>✅ Equal contribution by Government</li><li>✅ Financial security in old age</li><li>✅ Family pension to spouse in case of death</li><li>✅ Simple enrollment through CSCs</li></ul><hr class=\"my-4\"/><p>✨ <strong>The Pradhan Mantri Kisan Maandhan Yojana is a strong step towards securing the future of India’s small and marginal farmers, ensuring dignity, stability, and financial independence in their later years.</strong></p></div>",
         "n8_title": "ਪੰਜਾਬ ਵਿੱਚ ਰੈੱਡ ਅਲਰਟ, ਭਾਰੀ ਬਾਰਸ਼ ਦੀ ਸੰਭਾਵਨਾ",
         "n8_snippet": "IMD ਨੇ ਪੰਜਾਬ ਲਈ ਰੈੱਡ ਅਲਰਟ ਜਾਰੀ ਕੀਤਾ ਹੈ, ਅਗਲੇ 48 ਘੰਟਿਆਂ ਵਿੱਚ ਬਹੁਤ ਭਾਰੀ ਬਾਰਸ਼ ਦੀ ਚੇਤਾਵਨੀ। ਸਕੂਲ 3 ਸਤੰਬਰ ਤੱਕ ਬੰਦ।",
         "n8_article": "ਭਾਰਤ ਮੌਸਮ ਵਿਭਾਗ (IMD) ਨੇ ਐਤਵਾਰ ਨੂੰ ਪੰਜਾਬ ਲਈ ਰੈੱਡ ਅਲਰਟ ਜਾਰੀ ਕੀਤਾ, ਅਗਲੇ 48 ਘੰਟਿਆਂ ਵਿੱਚ ਬਹੁਤ ਭਾਰੀ ਤੋਂ ਬੇਹੱਦ ਭਾਰੀ ਬਾਰਸ਼ ਦੀ ਚੇਤਾਵਨੀ ਦਿੱਤੀ। ਇਹ ਖੇਤਰ ਪਹਿਲਾਂ ਹੀ ਲਗਾਤਾਰ ਬਾਰਸ਼ ਅਤੇ ਹੜ੍ਹ ਵਰਗੀ ਸਥਿਤੀ ਨਾਲ ਜੂਝ ਰਿਹਾ ਹੈ। ਮੌਸਮ ਅਧਿਕਾਰੀਆਂ ਦੇ ਅਨੁਸਾਰ, ਤੇਜ਼ ਬਾਰਸ਼ ਨਾਲ ਪਹਾੜੀ ਖੇਤਰਾਂ ਵਿੱਚ ਹੜ੍ਹ ਅਤੇ ਜ਼ਮੀਨ ਖਿਸਕਣ ਦੀ ਸੰਭਾਵਨਾ ਹੈ, ਜਿਸ ਨਾਲ ਨੀਵੇਂ ਸ਼ਹਿਰੀ ਖੇਤਰਾਂ ਵਿੱਚ ਗੰਭੀਰ ਜਲ-ਜਮਾਵ ਹੋ ਸਕਦਾ ਹੈ। ਵਿਭਾਗ ਨੇ ਲੋਕਾਂ ਨੂੰ ਇਹ ਵੀ ਚੇਤਾਵਨੀ ਦਿੱਤੀ ਕਿ ਕਮਜ਼ੋਰ ਢਾਂਚੇ ਬਾਰਸ਼ ਦੀ ਮਾਤਰਾ ਅਤੇ ਜ਼ੋਰ ਨਾਲ ਨੁਕਸਾਨੇ ਜਾ ਸਕਦੇ ਹਨ।",
@@ -411,7 +410,20 @@
         "n23_article": "<h3>Why is Seed Technology Important for Indian Agriculture?</h3><h4>Higher Productivity:</h4><ul><li>Seed technology can increase the yield potential of crops by developing improved varieties that have desirable traits, such as high grain or fruit quality, resistance to pests and diseases, tolerance to drought or salinity, etc.</li><li>Seed technology can also improve the germination rate, seedling vigour, and plant establishment of seeds by using priming or physiological advancement protocols.</li></ul><h4>Higher Input Use Efficiency:</h4><ul><li>Seed technology can reduce the amount and cost of inputs such as fertilizers, pesticides, and water by using film coating, pelleting, or seed treatments that can deliver these inputs directly to the seeds or plants in optimal doses.</li><li>Seed technology can also enhance the nutrient uptake and utilization of plants by using bio-stimulants and nutrients that can stimulate plant growth and metabolism.</li></ul><h4>Higher Resilience:</h4><ul><li>Seed technology can improve the adaptability and stability of crops under changing and unpredictable climatic conditions by using genetic manipulation, speed breeding, gene-editing-tools, or AI-responsive sensors or substances that can modulate plant responses to external stimuli.</li><li>Seed technology can also improve the diversity and health of crops by using biologicals or microbial inoculum that can enhance plant immunity and soil fertility.</li></ul>",
         "n24_title": "Examples of Seed Technologies in India",
         "n24_snippet": "Exploring advancements in millet, cotton, and vegetable seeds that are transforming Indian agriculture.",
-        "n24_article": "<h3>What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>"
+        "n24_article": "<h3>What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>",
+        "n25_title_new": "ਭਾਰਤ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਲਾਭਦਾਇਕ ਖੇਤੀ ਕਿਸਮਾਂ",
+        "n25_snippet_new": "ਅਸੀਂ ਭਾਰਤ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਲਾਭਦਾਇਕ ਖੇਤੀ ਫਸਲਾਂ ਨੂੰ 5 ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਸਾਂਝਾ ਕੀਤਾ ਹੈ; ਹਰੇਕ ਸ਼੍ਰੇਣੀ ਬਾਰੇ ਪੜ੍ਹੋ।",
+        "n25_article_new": "<h3>ਭਾਰਤ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਲਾਭਦਾਇਕ ਖੇਤੀ ਕਿਸਮਾਂ</h3><p>ਅਸੀਂ ਭਾਰਤ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਲਾਭਦਾਇਕ ਖੇਤੀ ਫਸਲਾਂ ਨੂੰ 5 ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਸਾਂਝਾ ਕੀਤਾ ਹੈ; ਹਰੇਕ ਸ਼੍ਰੇਣੀ ਬਾਰੇ ਪੜ੍ਹੋ:</p><h4>ਉੱਚ-ਮੁੱਲ ਵਾਲੀ ਖੇਤੀ</h4><p>ਉੱਚ-ਮੁੱਲ ਵਾਲੀਆਂ ਫਸਲਾਂ ਉਹ ਹਨ ਜੋ ਰਵਾਇਤੀ ਫਸਲਾਂ ਦੇ ਮੁਕਾਬਲੇ ਪ੍ਰਤੀ ਯੂਨਿਟ ਖੇਤਰ ਵਿੱਚ ਵੱਧ ਆਮਦਨ ਪੈਦਾ ਕਰ ਸਕਦੀਆਂ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਵਿਸ਼ੇਸ਼ ਕਾਸ਼ਤ ਅਭਿਆਸਾਂ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ ਪਰ ਵੱਖ-ਵੱਖ ਬਾਜ਼ਾਰਾਂ ਵਿੱਚ ਉਹਨਾਂ ਦੀ ਮੰਗ ਕਾਰਨ ਕਾਫ਼ੀ ਰਿਟਰਨ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦੀਆਂ ਹਨ।</p><h5>#1: ਕੇਸਰ</h5><ul><li>ਕੇਸਰ ਦੁਨੀਆ ਦੇ ਸਭ ਤੋਂ ਮਹਿੰਗੇ ਮਸਾਲਿਆਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ ਅਤੇ ਇਸਨੂੰ 'ਲਾਲ ਸੋਨਾ' ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</li><li>ਇਹ ਘੱਟ ਤਾਪਮਾਨ ਵਾਲੇ ਖੇਤਰਾਂ ਵਿੱਚ ਸਭ ਤੋਂ ਵਧੀਆ ਉੱਗਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਕਸ਼ਮੀਰ ਵਿੱਚ ਇਸਦੇ ਵੱਡੇ ਪੱਧਰ 'ਤੇ ਉਤਪਾਦਨ ਤੋਂ ਦੇਖਿਆ ਜਾ ਸਕਦਾ ਹੈ।</li><li>ਕਾਸ਼ਤ ਦੀ ਪ੍ਰਕਿਰਿਆ ਵਿੱਚ ਪੌਦੇ ਦੇ ਨਾਜ਼ੁਕ ਸਟਿਗਮਾ ਨੂੰ ਹੱਥ ਨਾਲ ਤੋੜਨ ਦੀ ਮੰਗ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।</li><li>ਕੇਸਰ ਦੀ ਵਿਸ਼ਵਵਿਆਪੀ ਵਰਤੋਂ ਮੁਕਾਬਲਤਨ ਸਥਿਰ ਹੈ ਅਤੇ, ਖਾਸ ਕਰਕੇ ਰਸੋਈ ਅਤੇ ਹੋਰ ਚਿਕਿਤਸਕ ਮੰਗਾਂ ਵਿੱਚ।</li><li>ਜੇਕਰ ਸਹੀ ਢੰਗ ਨਾਲ ਕਾਸ਼ਤ ਅਤੇ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਜਾਵੇ, ਤਾਂ ਕੇਸਰ ਦੀ ਖੇਤੀ ਇਸਦੇ ਉੱਚ ਵਪਾਰਕ ਮੁੱਲ ਕਾਰਨ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਤੋੜਨ ਲਈ ਜਾਣੀ ਜਾਂਦੀ ਹੈ।</li></ul><h5>#2: ਇਲਾਇਚੀ</h5><ul><li>ਇਹ ਭੋਜਨ ਦੀ ਤਿਆਰੀ ਵਿੱਚ ਇੱਕ ਜ਼ਰੂਰੀ ਮਸਾਲਾ ਹੈ, ਖਾਸ ਕਰਕੇ ਭਾਰਤੀ ਉਪ-ਮਹਾਂਦੀਪ ਤੋਂ ਪੈਦਾ ਹੋਣ ਵਾਲੇ, ਅਤੇ ਆਯੁਰਵੈਦਿਕ ਦਵਾਈ ਪ੍ਰਣਾਲੀਆਂ ਵਿੱਚ ਵੀ ਵਿਆਪਕ ਤੌਰ 'ਤੇ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।</li><li>ਇਲਾਇਚੀ ਗਰਮ, ਨਮੀ ਵਾਲੇ ਖੇਤਰਾਂ ਵਿੱਚ ਚੰਗੀ ਤਰ੍ਹਾਂ ਉੱਗਦੀ ਹੈ ਜਿਵੇਂ ਕਿ ਕੇਰਲ ਅਤੇ ਤਾਮਿਲਨਾਡੂ ਵਿੱਚ ਪਾਏ ਜਾਂਦੇ ਹਨ।</li><li>ਇਸ ਫਸਲ ਦੀ ਕਾਸ਼ਤ ਵਿੱਚ ਪੌਦੇ ਦਾ ਛਾਂ ਵਿੱਚ ਵਾਧਾ ਅਤੇ ਵਾਰ-ਵਾਰ ਪਾਣੀ ਦੇਣਾ ਸ਼ਾਮਲ ਹੈ।</li><li>ਇਲਾਇਚੀ ਨਿਰਯਾਤ ਲਈ ਬਾਜ਼ਾਰ ਮੁਕਾਬਲਤਨ ਸਥਿਰ ਹੈ ਅਤੇ ਜ਼ਿਆਦਾਤਰ ਮੱਧ ਪੂਰਬੀ ਦੇਸ਼ਾਂ ਲਈ ਇੱਕ ਅਨੁਕੂਲ ਮੰਗ ਹੈ।</li><li>ਪ੍ਰਤੀ ਯੂਨਿਟ ਭਾਰ ਮਹਿੰਗਾ ਹੋਣ ਕਾਰਨ, ਇਹ ਕਿਸਾਨਾਂ ਲਈ ਇਸਦੇ ਉਤਪਾਦਨ ਵਿੱਚ ਉੱਦਮ ਕਰਨ ਦਾ ਇੱਕ ਸ਼ਾਨਦਾਰ ਮੌਕਾ ਪੇਸ਼ ਕਰਦਾ ਹੈ।</li></ul><h5>#3: ਹਲਦੀ</h5><ul><li>ਹਲਦੀ ਨੂੰ ਇਸਦੇ ਕੌੜੇ ਅਤੇ ਸੋਜਸ਼ ਵਿਰੋਧੀ ਪ੍ਰਭਾਵਾਂ ਦੇ ਨਾਲ-ਨਾਲ ਐਂਟੀਆਕਸੀਡੈਂਟਸ ਲਈ ਦੁਨੀਆ ਭਰ ਵਿੱਚ ਹੌਲੀ-ਹੌਲੀ ਸਵੀਕਾਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।</li><li>ਇਹ ਭਾਰਤ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਲਾਭਦਾਇਕ ਫਸਲਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ ਅਤੇ ਪੂਰੇ ਦੇਸ਼ ਵਿੱਚ ਗਰਮ ਅਤੇ ਉਪ-ਗਰਮ ਖੇਤਰਾਂ ਵਿੱਚ ਕਾਸ਼ਤ ਲਈ ਢੁਕਵੀਂ ਹੈ।</li><li>ਇਸ ਪੌਦੇ ਦੀ ਕਾਸ਼ਤ ਨੂੰ ਉਤਸ਼ਾਹਿਤ ਕਰਨਾ ਮੁਕਾਬਲਤਨ ਆਸਾਨ ਹੈ ਕਿਉਂਕਿ ਇਹ ਜ਼ੀਰੋਫਾਈਟਿਕ ਹੈ।</li><li>ਹਲਦੀ ਦੇ ਵੱਖ-ਵੱਖ ਸਿਹਤ ਲਾਭਾਂ ਬਾਰੇ ਵਧ ਰਹੀ ਜਾਣਕਾਰੀ ਨੇ ਘਰੇਲੂ ਅਤੇ ਨਿਰਯਾਤ ਮੰਗ ਨੂੰ ਤੇਜ਼ ਕੀਤਾ ਹੈ।</li><li>ਹੋਰ ਲਾਭ ਸਪਿਨ-ਆਫ ਵਿੱਚ ਹਲਦੀ ਪਾਊਡਰ ਅਤੇ ਪੂਰਕ ਵਰਗੇ ਮੁੱਲ-ਵਰਧਿਤ ਉਤਪਾਦ ਸ਼ਾਮਲ ਹਨ।</li></ul><h5>#4: ਅਦਰਕ</h5><ul><li>ਅਦਰਕ ਦੀ ਵਰਤੋਂ ਰਸੋਈ, ਚਿਕਿਤਸਕ ਅਤੇ ਸ਼ਿੰਗਾਰ ਸਮੱਗਰੀ ਵਿੱਚ ਵਿਆਪਕ ਤੌਰ 'ਤੇ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।</li><li>ਇਹ ਚੰਗੀ ਨਿਕਾਸੀ ਵਾਲੀ ਮਿੱਟੀ ਵਾਲੇ ਗਰਮ, ਨਮੀ ਵਾਲੇ ਖੇਤਰਾਂ ਵਿੱਚ ਵਧਦਾ-ਫੁੱਲਦਾ ਹੈ।</li><li>ਕਾਸ਼ਤ ਲਈ ਮਿੱਟੀ ਦੀ ਨਮੀ ਅਤੇ ਛਾਂ ਦਾ ਧਿਆਨ ਨਾਲ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।</li><li>ਅਦਰਕ ਦੀ ਬਹੁਪੱਖਤਾ ਸਾਲ ਭਰ ਇੱਕ ਸਥਿਰ ਬਾਜ਼ਾਰ ਮੰਗ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਂਦੀ ਹੈ।</li><li>ਤਾਜ਼ੇ, ਸੁੱਕੇ ਅਤੇ ਪ੍ਰੋਸੈਸਡ ਅਦਰਕ ਉਤਪਾਦ ਸਾਰੇ ਚੰਗੀ ਲਾਭ ਸੰਭਾਵਨਾ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦੇ ਹਨ।</li></ul><h5>#5: ਕਾਲੀ ਮਿਰਚ</h5><ul><li>'ਮਸਾਲਿਆਂ ਦਾ ਰਾਜਾ' ਵਜੋਂ ਜਾਣੀ ਜਾਂਦੀ, ਕਾਲੀ ਮਿਰਚ ਦੁਨੀਆ ਭਰ ਦੇ ਰਸੋਈਆਂ ਵਿੱਚ ਇੱਕ ਮੁੱਖ ਹੈ।</li><li>ਇਹ ਕੇਰਲ ਅਤੇ ਕਰਨਾਟਕ ਵਰਗੇ ਗਰਮ ਖੰਡੀ ਮੌਸਮ ਵਿੱਚ ਸਭ ਤੋਂ ਵਧੀਆ ਉੱਗਦਾ ਹੈ।</li><li>ਕਾਸ਼ਤ ਵਿੱਚ ਸਹਾਇਕ ਰੁੱਖਾਂ ਜਾਂ ਖੰਭਿਆਂ 'ਤੇ ਵੇਲਾਂ ਉਗਾਉਣਾ ਸ਼ਾਮਲ ਹੈ।</li><li>ਕਾਲੀ ਮਿਰਚ ਦੀ ਵਿਸ਼ਵਵਿਆਪੀ ਮੰਗ ਮਜ਼ਬੂਤ ਬਣੀ ਹੋਈ ਹੈ, ਖਾਸ ਕਰਕੇ ਉੱਚ-ਗੁਣਵੱਤਾ ਵਾਲੀਆਂ ਕਿਸਮਾਂ ਲਈ।</li><li>ਮਿਰਚ ਦੇ ਤੇਲ ਵਰਗੇ ਮੁੱਲ-ਵਰਧਿਤ ਉਤਪਾਦ ਮੁਨਾਫੇ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।</li></ul><h4>ਸੁਗੰਧਿਤ ਪੌਦੇ</h4><p>ਜੇਕਰ ਤੁਸੀਂ ਵੀ ਸੋਚਦੇ ਹੋ, “ਕੀ ਭਾਰਤ ਵਿੱਚ ਖੇਤੀ ਲਾਭਦਾਇਕ ਹੈ?” ਫਿਰ ਤੁਹਾਨੂੰ ਸੁਗੰਧਿਤ ਪੌਦਿਆਂ ਬਾਰੇ ਪੜ੍ਹਨਾ ਚਾਹੀਦਾ ਹੈ। ਇਹ ਪੌਦੇ ਭੋਜਨ, ਸ਼ਿੰਗਾਰ ਸਮੱਗਰੀ ਅਤੇ ਅਰੋਮਾਥੈਰੇਪੀ ਵਿੱਚ ਵਰਤੇ ਜਾਂਦੇ ਹਨ।</p><h5>#6: ਲਵੈਂਡਰ</h5><ul><li>ਲਵੈਂਡਰ ਚੰਗੀ ਤਰ੍ਹਾਂ ਪਛਾਣਿਆ ਜਾਂਦਾ ਹੈ, ਸਰਵ ਵਿਆਪਕ ਹੈ, ਅਤੇ ਇਸਦੀ ਖੁਸ਼ਬੂ ਅਤੇ ਇਸਦੇ ਇਲਾਜ ਗੁਣਾਂ ਲਈ ਵੀ ਸ਼ਲਾਘਾ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।</li><li>ਇਹ ਸਮਸ਼ੀतोष्ण ਜਲਵਾਯੂ ਵਾਲੇ ਖੇਤਰਾਂ ਵਿੱਚ ਸਭ ਤੋਂ ਵਧੀਆ ਉੱਗਦਾ ਹੈ, ਅਤੇ ਇਹ ਉਹਨਾਂ ਖੇਤਰਾਂ ਲਈ ਢੁਕਵਾਂ ਹੈ ਜਿੱਥੇ ਮਿੱਟੀ ਚੰਗੀ ਤਰ੍ਹਾਂ ਨਿਕਾਸ ਵਾਲੀ ਹੁੰਦੀ ਹੈ।</li><li>ਇਸਦੀ ਕਾਸ਼ਤ ਕਰਨਾ ਵੀ ਵਾਜਬ ਤੌਰ 'ਤੇ ਸੌਖਾ ਹੈ ਕਿਉਂਕਿ ਇਸਨੂੰ ਇੰਨੇ ਪਾਣੀ ਦੀ ਲੋੜ ਨਹੀਂ ਹੁੰਦੀ ਹੈ ਅਤੇ ਇਸਨੂੰ ਲਗਾਤਾਰ ਬੀਜਣ ਦੀ ਲੋੜ ਨਹੀਂ ਹੁੰਦੀ ਹੈ।</li><li>ਲਵੈਂਡਰ ਦੀ ਖਾਣਾ ਪਕਾਉਣ ਲਈ ਵਰਤੋਂ ਤੋਂ ਇਲਾਵਾ ਅਰੋਮਾਥੈਰੇਪੀ ਅਤੇ ਸ਼ਿੰਗਾਰ ਸਮੱਗਰੀ ਉਤਪਾਦਾਂ ਵਿੱਚ ਉੱਚ ਮੰਗ ਹੈ।</li><li>ਜ਼ਰੂਰੀ ਤੇਲ ਵਰਗੇ ਉਤਪਾਦ, ਇਸ ਲਈ, ਮਾਲੀਆ ਵਧਾਉਣ ਵਿੱਚ ਮਹੱਤਵਪੂਰਨ ਹਨ।</li></ul><h5>#7: ਗੁਲਾਬ</h5><ul><li>ਗੁਲਾਬ ਦੀ ਇਤਰ, ਸ਼ਿੰਗਾਰ ਸਮੱਗਰੀ ਅਤੇ ਰਸੋਈ ਵਰਤੋਂ ਲਈ ਉੱਚ ਮੰਗ ਹੈ।</li><li>ਉਹ ਭਾਰਤ ਭਰ ਵਿੱਚ ਕਈ ਤਰ੍ਹਾਂ ਦੇ ਮੌਸਮ ਵਿੱਚ ਵਧਦੇ-ਫੁੱਲਦੇ ਹਨ।</li><li>ਕਾਸ਼ਤ ਲਈ ਨਿਯਮਤ ਛਾਂਗਣ ਅਤੇ ਕੀੜੇ ਪ੍ਰਬੰਧਨ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।</li><li>ਗੁਲਾਬ ਉਤਪਾਦਾਂ, ਖਾਸ ਤੌਰ 'ਤੇ ਗੁਲਾਬ ਜਲ ਅਤੇ ਜ਼ਰੂਰੀ ਤੇਲ, ਦਾ ਬਾਜ਼ਾਰ ਵਧ ਰਿਹਾ ਹੈ।</li><li>ਜੈਵਿਕ ਗੁਲਾਬ ਦੀ ਖੇਤੀ ਬਾਜ਼ਾਰ ਵਿੱਚ ਪ੍ਰੀਮੀਅਮ ਕੀਮਤਾਂ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦੀ ਹੈ।</li></ul><h5>#8: ਚਮੇਲੀ</h5><ul><li>ਚਮੇਲੀ ਨੂੰ ਇਤਰ ਅਤੇ ਚਾਹ ਵਿੱਚ ਇਸਦੀ ਖੁਸ਼ਬੂ ਲਈ ਮਹੱਤਵ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ।</li><li>ਇਹ ਗਰਮ, ਨਮੀ ਵਾਲੇ ਮੌਸਮ ਵਿੱਚ ਚੰਗੀ ਤਰ੍ਹਾਂ ਉੱਗਦਾ ਹੈ।</li><li>ਕਾਸ਼ਤ ਵਿੱਚ ਨਿਯਮਤ ਛਾਂਗਣ ਅਤੇ ਰਾਤ ਨੂੰ ਫੁੱਲਾਂ ਦੀ ਤੁੜਾਈ ਸ਼ਾਮਲ ਹੈ।</li><li>ਇਤਰ ਉਦਯੋਗ ਅਤੇ ਧਾਰਮਿਕ ਭੇਟਾਵਾਂ ਲਈ ਚਮੇਲੀ ਦੀ ਇੱਕ ਸਥਿਰ ਮੰਗ ਹੈ।</li><li>ਚਮੇਲੀ ਕੰਕਰੀਟ (ਇੱਕ ਮੋਮੀ ਸੁਗੰਧਿਤ ਮਿਸ਼ਰਣ) ਅੰਤਰਰਾਸ਼ਟਰੀ ਬਾਜ਼ਾਰ ਵਿੱਚ ਉੱਚੀਆਂ ਕੀਮਤਾਂ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ।</li></ul><h4>ਨਕਦੀ ਫਸਲਾਂ</h4><p>ਨਕਦੀ ਫਸਲਾਂ ਕਿਸਾਨ ਦੁਆਰਾ ਭੋਜਨ ਵਜੋਂ ਵਰਤਣ ਦੀ ਬਜਾਏ ਵਪਾਰਕ ਮੁੱਲ ਲਈ ਉਗਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।</p><h5>#9: ਕਪਾਹ</h5><ul><li>ਕਪਾਹ ਭਾਰਤ ਵਿੱਚ ਇੱਕ ਨਕਦੀ ਫਸਲ ਹੈ ਅਤੇ ਦੁਨੀਆ ਭਰ ਦੇ ਟੈਕਸਟਾਈਲ ਉਦਯੋਗਾਂ ਵਿੱਚ ਵਿਆਪਕ ਤੌਰ 'ਤੇ ਵਰਤੀ ਜਾਂਦੀ ਹੈ।</li><li>ਇਹ ਉਹਨਾਂ ਖੇਤਰਾਂ ਵਿੱਚ ਚੰਗੀ ਤਰ੍ਹਾਂ ਕੰਮ ਕਰਦਾ ਹੈ ਜਿੱਥੇ ਉਹ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਠੰਡ-ਮੁਕਤ ਅਤੇ ਢੁਕਵੀਂ ਧੁੱਪ ਦਾ ਅਨੁਭਵ ਕਰਦੇ ਹਨ।</li><li>ਸਿੰਚਾਈ ਅਤੇ ਕੀਟ ਨਿਯੰਤਰਣ ਹੋਰ ਕਾਰਕ ਹਨ ਜੋ ਮਾਰਿਜੁਆਨਾ ਪੌਦੇ ਦੀ ਕਾਸ਼ਤ ਵਿੱਚ ਵਰਤੇ ਜਾਂਦੇ ਹਨ।</li><li>ਕਪਾਹ ਦੀ ਘਰੇਲੂ ਅਤੇ ਅੰਤਰਰਾਸ਼ਟਰੀ ਮੰਗ ਮਜ਼ਬੂਤ ਬਣੀ ਹੋਈ ਹੈ।</li><li>ਜੈਵਿਕ ਅਤੇ ਨਿਰਪੱਖ-ਵਪਾਰ ਕਪਾਹ ਪ੍ਰੀਮੀਅਮ ਕੀਮਤਾਂ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦੇ ਹਨ।</li></ul><h5>#10: ਗੰਨਾ</h5><ul><li>ਗੰਨਾ ਨਵੀਂ ਫਸਲ ਹੈ ਜੋ ਭਾਰਤ ਨੂੰ ਖੰਡ ਅਤੇ ਬਾਇਓਫਿਊਲ ਉਤਪਾਦਨ ਲਈ ਮਸ਼ਹੂਰ ਬਣਾਉਂਦੀ ਹੈ।</li><li>ਇਹ ਮੁੱਖ ਤੌਰ 'ਤੇ ਗਰਮ ਅਤੇ ਉਪ-ਗਰਮ ਖੇਤਰਾਂ ਵਿੱਚ ਵੰਡਿਆ ਜਾਂਦਾ ਹੈ ਜਿੱਥੇ ਢੁਕਵੀਂ ਬਾਰਸ਼ ਹੁੰਦੀ ਹੈ।</li><li>ਕਾਸ਼ਤ: ਪਾਣੀ ਦੇਣ ਅਤੇ ਸਹੀ ਸਮੇਂ 'ਤੇ ਕਟਾਈ 'ਤੇ ਬਹੁਤ ਧਿਆਨ ਦੇਣਾ ਚਾਹੀਦਾ ਹੈ।</li><li>ਖੰਡ ਅਤੇ ਇਸਦੇ ਉਪ-ਉਤਪਾਦਾਂ ਦੀ ਮੰਗ ਇੱਕ ਸਥਿਰ ਬਾਜ਼ਾਰ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਂਦੀ ਹੈ।</li><li>ਗੁੜ ਵਰਗੇ ਮੁੱਲ-ਵਰਧਿਤ ਉਤਪਾਦ ਮੁਨਾਫੇ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।</li></ul><h5>#11: ਚਾਹ</h5><ul><li>ਚਾਹ ਭਾਰਤ ਦੇ ਸਭ ਤੋਂ ਮਸ਼ਹੂਰ ਨਿਰਯਾਤਾਂ ਅਤੇ ਸਭ ਤੋਂ ਵੱਧ ਲਾਭਕਾਰੀ ਫਸਲਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ ਜਿਸਦਾ ਦੁਨੀਆ ਭਰ ਵਿੱਚ ਆਨੰਦ ਲਿਆ ਜਾਂਦਾ ਹੈ।</li><li>ਇਹ ਅਸਾਮ ਅਤੇ ਦਾਰਜੀਲਿੰਗ ਵਰਗੇ ਠੰਡੇ, ਨਮੀ ਵਾਲੇ ਮੌਸਮ ਵਿੱਚ ਸਭ ਤੋਂ ਵਧੀਆ ਉੱਗਦਾ ਹੈ।</li><li>ਕਾਸ਼ਤ ਵਿੱਚ ਨਿਯਮਤ ਛਾਂਗਣ ਅਤੇ ਪੱਤਿਆਂ ਦੀ ਧਿਆਨ ਨਾਲ ਤੁੜਾਈ ਸ਼ਾਮਲ ਹੈ।</li><li>ਵੱਖ-ਵੱਖ ਕਿਸਮਾਂ ਦੀ ਚਾਹ ਦੀ ਵਿਸ਼ਵਵਿਆਪੀ ਮੰਗ ਵਧਦੀ ਰਹਿੰਦੀ ਹੈ।</li><li>ਵਿਸ਼ੇਸ਼ ਅਤੇ ਜੈਵਿਕ ਚਾਹ ਬਾਜ਼ਾਰ ਵਿੱਚ ਪ੍ਰੀਮੀਅਮ ਕੀਮਤਾਂ ਪ੍ਰਾਪਤ ਕਰ ਸਕਦੀਆਂ ਹਨ।</li></ul><h5>#12: ਕੌਫੀ</h5><ul><li>ਭਾਰਤੀ ਕੌਫੀ, ਖਾਸ ਕਰਕੇ ਦੱਖਣ ਤੋਂ, ਅੰਤਰਰਾਸ਼ਟਰੀ ਮਾਨਤਾ ਪ੍ਰਾਪਤ ਕਰ ਰਹੀ ਹੈ।</li><li>ਇਹ ਦੱਖਣੀ ਭਾਰਤ ਦੀਆਂ ਪਹਾੜੀਆਂ ਵਿੱਚ ਢੁਕਵੀਂ ਛਾਂ ਨਾਲ ਚੰਗੀ ਤਰ੍ਹਾਂ ਉੱਗਦਾ ਹੈ।</li><li>ਕਾਸ਼ਤ ਲਈ ਛਾਂ, ਮਿੱਟੀ ਅਤੇ ਪਾਣੀ ਦਾ ਧਿਆਨ ਨਾਲ ਪ੍ਰਬੰਧਨ ਕਰਨ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।</li><li>ਵਿਸ਼ੇਸ਼ ਕੌਫੀ ਬਾਜ਼ਾਰ ਉੱਚ ਮੁਨਾਫੇ ਲਈ ਮੌਕੇ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।</li><li>ਸਿੱਧੇ ਕਿਸਾਨ-ਤੋਂ-ਖਪਤਕਾਰ ਵਿਕਰੀ ਕੌਫੀ ਉਤਪਾਦਕਾਂ ਲਈ ਮਾਲੀਆ ਵਧਾ ਸਕਦੀ ਹੈ।</li></ul><h4>ਜੈਵਿਕ ਖੇਤੀ</h4><p>ਜੈਵਿਕ ਖੇਤੀ ਤੇਜ਼ੀ ਨਾਲ ਪ੍ਰਸਿੱਧ ਹੋ ਰਹੀ ਹੈ ਕਿਉਂਕਿ ਖਪਤਕਾਰ ਰਸਾਇਣ-ਮੁਕਤ ਉਪਜ ਦੀ ਮੰਗ ਕਰਦੇ ਹਨ।</p><h5>#13: ਜੈਵਿਕ ਸਬਜ਼ੀਆਂ</h5><ul><li>ਜੈਵਿਕ ਸਬਜ਼ੀਆਂ ਸਿਹਤ ਅਤੇ ਵਾਤਾਵਰਣ ਸੰਬੰਧੀ ਚਿੰਤਾਵਾਂ ਕਾਰਨ ਤੇਜ਼ੀ ਨਾਲ ਪ੍ਰਸਿੱਧ ਹੋ ਰਹੀਆਂ ਹਨ।</li><li>ਕਿਉਂਕਿ ਇਹ ਸਥਾਨਕ ਬੀਜ ਹਨ, ਉਹਨਾਂ ਨੂੰ ਵੱਖ-ਵੱਖ ਮੌਸਮੀ ਸਥਿਤੀਆਂ ਵਿੱਚ, ਕੁਦਰਤੀ ਤੌਰ 'ਤੇ ਉਗਾਇਆ ਜਾ ਸਕਦਾ ਹੈ, ਅਤੇ ਖਾਦਾਂ ਦੀ ਵਿਆਪਕ ਵਰਤੋਂ ਜ਼ਰੂਰੀ ਨਹੀਂ ਹੈ।</li><li>ਇਸ ਵਿੱਚ ਜੈਵਿਕ ਖਾਦ ਦੀ ਵਰਤੋਂ ਅਤੇ ਕੀੜਿਆਂ ਅਤੇ ਬਿਮਾਰੀਆਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰਨ ਲਈ ਰਸਾਇਣਾਂ ਦੀ عدم ਵਰਤੋਂ ਸ਼ਾਮਲ ਹੈ।</li><li>ਜੈਵਿਕ ਉਪਜ ਦੀ ਸ਼ਹਿਰੀ ਬਾਜ਼ਾਰਾਂ ਅਤੇ ਨਿਰਯਾਤ ਬਾਜ਼ਾਰਾਂ ਵਿੱਚ ਉੱਚ ਮੰਗ ਹੈ।</li><li>ਸਿੱਧੀ ਮਾਰਕੀਟਿੰਗ ਅਤੇ ਮੁੱਲ-ਵਰਧਿਤ ਉਤਪਾਦ ਮੁਨਾਫੇ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।</li></ul><h5>#14: ਜੈਵਿਕ ਫਲ</h5><ul><li>ਜੈਵਿਕ ਫਲ ਦੇਸ਼ ਦੇ ਬਾਜ਼ਾਰ ਅਤੇ ਵਿਸ਼ਵਵਿਆਪੀ ਬਾਜ਼ਾਰ ਵਿੱਚ ਵੀ ਮੁਕਾਬਲਤਨ ਮਹਿੰਗੇ ਹਨ।</li><li>ਉਹਨਾਂ ਨੂੰ ਵੱਖ-ਵੱਖ ਮੌਸਮੀ ਖੇਤਰਾਂ ਵਿੱਚ ਉਗਾਇਆ ਜਾ ਸਕਦਾ ਹੈ, ਇਹ ਇਸ ਗੱਲ 'ਤੇ ਨਿਰਭਰ ਕਰਦਾ ਹੈ ਕਿ ਕਿਸ ਕਿਸਮ ਦਾ ਫਲ ਉਗਾਇਆ ਜਾ ਰਿਹਾ ਹੈ।</li><li>ਖੇਤੀ ਇੱਕ ਤੁਰੰਤ ਕਾਰੋਬਾਰ ਨਹੀਂ ਹੈ ਕਿਉਂਕਿ ਰੁੱਖ ਅਤੇ ਕੁਝ ਫਸਲਾਂ ਅਕਸਰ ਫਲ ਪੈदा ਕਰਨ ਲਈ ਆਪਣਾ ਕੁਦਰਤੀ ਸਮਾਂ ਲੈਂਦੀਆਂ ਹਨ, ਅਤੇ ਅਜਿਹੇ ਫਲ ਓਨੇ ਜ਼ਿਆਦਾ ਨਹੀਂ ਹੁੰਦੇ ਜਿੰਨਾ ਕੋਈ ਉਮੀਦ ਕਰ ਸਕਦਾ ਹੈ।</li><li>ਜੈਵਿਕ ਸੁਭਾਅ ਵਾਲੇ ਫਲਾਂ ਦੀ ਖਪਤਕਾਰ ਮੰਗ ਵਧ ਰਹੀ ਹੈ, ਜੋ ਬਾਜ਼ਾਰ ਦੇ ਅੰਦਰ ਚੇਤੰਨ ਸੈੱਟ ਕਾਰਨ ਹੈ।</li><li>ਫਲ ਪ੍ਰੋਸੈਸਿੰਗ ਅਤੇ ਨਿਰਯਾਤ ਵਾਧੂ ਮਾਲੀਆ ਧਾਰਾਵਾਂ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰ ਸਕਦੇ ਹਨ।</li></ul><h4>ਪਸ਼ੂ ਪਾਲਣ</h4><p>ਪਸ਼ੂ ਪਾਲਣ ਫਸਲ ਉਤਪਾਦਨ ਦਾ ਪੂਰਕ ਹੈ ਅਤੇ ਵਿਭਿੰਨ ਆਮਦਨ ਸਰੋਤਾਂ ਦੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ।</p><h5>#15: ਡੇਅਰੀ ਫਾਰਮਿੰਗ</h5><ul><li>ਡੇਅਰੀ ਫਾਰਮਿੰਗ ਭਾਰਤ ਵਿੱਚ ਇੱਕ ਰਵਾਇਤੀ ਅਤੇ ਲਾਭਦਾਇਕ ਉੱਦਮ ਹੈ।</li><li>ਇਸਨੂੰ ਸਹੀ ਪਸ਼ੂ ਦੇਖਭਾਲ ਨਾਲ ਵੱਖ-ਵੱਖ ਮੌਸਮਾਂ ਵਿੱਚ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</li><li>ਸਫਲਤਾ ਚੰਗੀ ਨਸਲ ਦੀ ਚੋਣ, ਪੋਸ਼ਣ ਅਤੇ ਸਿਹਤ ਪ੍ਰਬੰਧਨ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀ ਹੈ।</li><li>ਦੁੱਧ ਅਤੇ ਦੁੱਧ ਉਤਪਾਦਾਂ ਦੀ ਵਧ ਰਹੀ ਮੰਗ ਇੱਕ ਸਥਿਰ ਬਾਜ਼ਾਰ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਂਦੀ ਹੈ।</li><li>ਪਨੀਰ ਅਤੇ ਦਹੀਂ ਵਰਗੇ ਮੁੱਲ-ਵਰਧਿਤ ਉਤਪਾਦ ਮੁਨਾਫੇ ਨੂੰ ਵਧਾ ਸਕਦੇ ਹਨ।</li></ul><h5>#16: ਪੋਲਟਰੀ ਫਾਰਮਿੰਗ</h5><ul><li>ਪੋਲਟਰੀ ਫਾਰਮਿੰਗ ਦੁਆਰਾ ਮੀਟ ਅਤੇ ਆਂਡੇ ਦਾ ਉਤਪਾਦਨ ਭਾਰਤ ਦੇ ਇਸ ਸਮੇਂ ਦੇ ਵਧ ਰਹੇ ਖੇਤਰਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ।</li><li>ਇਸਨੂੰ ਢੁਕਵੇਂ ਰਿਹਾਇਸ਼ ਅਤੇ ਧਿਆਨ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹੋਏ, ਵੱਖ-ਵੱਖ ਮੌਸਮੀ ਸਥਿਤੀਆਂ ਵਿੱਚ ਪੂਰਾ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</li><li>ਸਫਲਤਾ ਚੰਗੀ ਨਸਲ ਦੀ ਚੋਣ, ਪੋਸ਼ਣ ਅਤੇ ਰੋਗ ਪ੍ਰਬੰਧਨ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀ ਹੈ।</li><li>ਪੋਲਟਰੀ ਉਤਪਾਦਾਂ ਨੂੰ ਖਪਤਕਾਰਾਂ ਦੁਆਰਾ ਪ੍ਰੋਟੀਨ ਦੀ ਖਪਤ ਦੇ ਵਧ ਰਹੇ ਰੁਝਾਨਾਂ ਦੁਆਰਾ ਪ੍ਰੇਰਿਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।</li><li>ਫਸਲ ਖੇਤੀ ਨਾਲ ਪੋਲਟਰੀ ਫਾਰਮਿੰਗ ਨੂੰ ਏਕੀਕ੍ਰਿਤ ਕਰਨਾ ਸਰੋਤਾਂ ਦੀ ਵਰਤੋਂ ਅਤੇ ਮੁਨਾਫੇ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾ ਸਕਦਾ ਹੈ।</li></ul>"
+    },
+    "dates": {
+        "aug04": "ਅਗਸਤ 04, 2025",
+        "aug31_25": "ਅਗਸਤ 31, 2025",
+        "aug31_25_2115": "ਅਗਸਤ 31, 2025, 21:15",
+        "aug31_25_2112": "ਅਗਸਤ 31, 2025, 21:12",
+        "aug31_25_2106": "ਅਗਸਤ 31, 2025, 21:06",
+        "aug31_25_1250": "ਅਗਸਤ 31, 2025, 12:50",
+        "sep01_25": "ਸਤੰਬਰ 01, 2025",
+        "sep01_25_1400": "ਸਤੰਬਰ 01, 2025, 14:00"
     },
     "categories": {
         "all": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
@@ -432,7 +444,8 @@
         "metDept": "Met Department",
         "mhaNews": "MHA News",
         "stateNews": "State News",
-        "agriKnowledge": "Agri-Knowledge Base"
+        "agriKnowledge": "Agri-Knowledge Base",
+        "agriBusinessUpdate": "Agri-Business Update"
     },
     "govtSchemes": {
         "title": "Government Schemes for Farmers",
@@ -692,11 +705,12 @@
             "predict": "ਝਾੜ ਦੀ ਭਵਿੱਖਬਾਣੀ ਕਰੋ",
             "predicting": "ਭਵਿੱਖਬਾਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...",
             "areaInfo": "ਤੁਰੰਤ ਜਾਣਕਾਰੀ",
-            "knowYourArea": "ਆਪਣੇ ਖੇਤਰ ਨੂੰ ਜਾਣੋ"
+            "knowYourArea": "ਆਪਣੇ ਖੇਤਰ ਨੂੰ ਜਾਣੋ",
+            "mlModel": "ML ਮਾਡਲ"
         },
         "status": {
             "loading": "ਤੁਹਾਡਾ ਸਮਾਰਟ ਸਹਾਇਕ ਖੇਤਾਂ ਵਿੱਚੋਂ ਲੰਘ ਰਿਹਾ ਹੈ...",
-            "fetchingWeather": "ਲਾਈਵ ਮੌਸਮ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕੀਤਾ जा ਰਿਹਾ ਹੈ",
+            "fetchingWeather": "ਲਾਈਵ ਮੌਸਮ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ",
             "idle": "AI ਤੁਹਾਡੀ ਫਸਲ ਦੀ ਗਣਨਾ ਕਰਨ ਲਈ ਤਿਆਰ ਹੈ — ਬਸ ਭਵਿੱਖਬਾਣੀ ਕਰੋ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।"
         },
         "results": {
@@ -712,7 +726,8 @@
         "toast": {
             "errorTitle": "ਗਲਤੀ",
             "errorDescription": "ਭਵਿੱਖਬਾਣੀ ਪ੍ਰਾਪਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
-        }
+        },
+        "mlModelInfo": "ਜੇਕਰ ਇਹ ਫਾਰਮ ਕੰਮ ਨਹੀਂ ਕਰ ਰਿਹਾ ਹੈ ਤਾਂ ML ਮਾਡਲ 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਅਤੇ ਵਰਤੋਂ ਕਰੋ"
     },
     "locationDialog": {
         "title": "ਆਪਣਾ ਸਥਾਨ ਦਰਜ ਕਰੋ",
@@ -838,6 +853,30 @@
             "history": "ਝਾੜ ਇਤਿਹਾਸ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ..."
         }
     },
+    "animalComparison": {
+        "title": "ਪਸ਼ੂ ਅਤੇ ਮੱਝ ਦੀ ਨਸਲ ਦੀ ਤੁਲਨਾ",
+        "subtitle": "ਉਹਨਾਂ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਤੁਲਨਾ ਕਰਨ ਲਈ ਦੋ ਨਸਲਾਂ ਤੱਕ ਦੀ ਚੋਣ ਕਰੋ।",
+        "cattleTitle": "ਪਸ਼ੂ ਨਸਲਾਂ",
+        "buffaloTitle": "ਮੱਝ ਨਸਲਾਂ",
+        "characteristics": "ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ",
+        "size": "ਆਕਾਰ",
+        "milk": "ਦੁੱਧ ਉਤਪਾਦਨ",
+        "temperament": "ਸੁਭਾਅ",
+        "climate": "ਜਲਵਾਯੂ ਅਨੁਕੂਲਨ",
+        "feed": "ਖੁਰਾਕ ਦੀ ਲੋੜ",
+        "disease": "ਰੋਗ ਪ੍ਰਤੀਰੋਧ"
+    },
+    "findVeterinarian": {
+        "back": "ਰਾਜਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
+        "title": "ਪਸ਼ੂਆਂ ਦੇ ਡਾਕਟਰ ਨੂੰ ਲੱਭੋ",
+        "subtitle": "ਭਾਰਤ ਵਿੱਚ ਜ਼ਿਲ੍ਹਾ ਪਸ਼ੂ ਪਾਲਣ ਅਧਿਕਾਰੀਆਂ ਲਈ ਸੰਪਰਕ ਜਾਣਕਾਰੀ। ਆਪਣਾ ਰਾਜ ਚੁਣੋ।",
+        "stateTitle": "{stateName} ਵਿੱਚ ਪਸ਼ੂ ਚਿਕਿਤਸਾ ਕਲੀਨਿਕ",
+        "stateSubtitle": "{stateName} ਵਿੱਚ ਪਸ਼ੂ ਚਿਕਿਤਸਾ ਕਲੀਨਿਕਾਂ ਅਤੇ ਹਸਪਤਾਲਾਂ ਲਈ ਸੰਪਰਕ ਜਾਣਕਾਰੀ ਲੱਭੋ।",
+        "stateDataMissing": "{stateName} ਲਈ ਡੇਟਾ ਅਜੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਜਾਂਚ ਕਰੋ।",
+        "searchPlaceholder": "ਨਾਮ, ਸ਼ਹਿਰ, ਜਾਂ ਕਿਸਮ ਦੁਆਰਾ ਖੋਜ ਕਰੋ...",
+        "noClinicsFound": "ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਕੋਈ ਕਲੀਨਿਕ ਨਹੀਂ ਮਿਲਿਆ।",
+        "noClinicsListed": "ਇਸ ਰਾਜ ਲਈ ਅਜੇ ਤੱਕ ਕੋਈ ਕਲੀਨਿਕ ਸੂਚੀਬੱਧ ਨਹੀਂ ਹੈ।"
+    },
     "areaInfo": {
         "title": "ਤੁਰੰਤ ਜਾਣਕਾਰੀ ਕੇਂਦਰ",
         "description": "ਤੁਹਾਡੀਆਂ ਉਂਗਲਾਂ 'ਤੇ ਜ਼ਰੂਰੀ ਖੇਤੀਬਾੜੀ ਡਾਟਾ।",
@@ -854,10 +893,25 @@
             "note": "ਨੋਟ"
         },
         "soil": {
-            "title": "ਭਾਰਤ ਵਿੱਚ ਆਮ ਮਿੱਟੀ ਦੀਆਂ ਕਿਸਮਾਂ"
+            "title": "ਭਾਰਤ ਵਿੱਚ ਆਮ ਮਿੱਟੀ ਦੀਆਂ ਕਿਸਮਾਂ",
+            "Alluvial Soil": "Alluvial Soil",
+            "Black Soil (Regur)": "Black Soil (Regur)",
+            "Red and Yellow Soil": "Red and Yellow Soil",
+            "Laterite Soil": "Laterite Soil",
+            "Arid (Desert) Soil": "Arid (Desert) Soil",
+            "Forest and Mountain Soil": "Forest and Mountain Soil",
+            "Loamy Soil": "Loamy Soil",
+            "Sandy Soil": "Sandy Soil",
+            "Clay Soil": "Clay Soil"
         },
         "fertilizers": {
-            "title": "ਆਮ ਖਾਦਾਂ"
+            "title": "ਆਮ ਖਾਦਾਂ",
+            "Urea": "Urea",
+            "Diammonium Phosphate (DAP)": "Diammonium Phosphate (DAP)",
+            "Muriate of Potash (MOP)": "Muriate of Potash (MOP)",
+            "Single Super Phosphate (SSP)": "Single Super Phosphate (SSP)",
+            "NPK Complex Fertilizers": "NPK Complex Fertilizers",
+            "Ammonium Sulphate": "Ammonium Sulphate"
         }
     }
 }

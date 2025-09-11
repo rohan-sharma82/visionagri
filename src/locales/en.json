@@ -1,5 +1,8 @@
 
 {
+    "app": {
+        "description": "AI-powered tools for modern farming."
+    },
     "nav": {
         "home": "Home",
         "dashboard": "Dashboard",
@@ -50,11 +53,7 @@
         },
         "farmSchool": {
             "title": "Farm School",
-            "description": "Learn about essential farming tools and machinery.",
-            "tools": {
-                "title": "Tools",
-                "description": "Learn about essential farming tools and machinery."
-            }
+            "description": "Learn about essential farming tools and machinery."
         },
         "dashboard": {
             "title": "Personalized Dashboard",
@@ -706,7 +705,8 @@
             "predict": "Predict Yield",
             "predicting": "Predicting...",
             "areaInfo": "Quick Info",
-            "knowYourArea": "Know Your Area"
+            "knowYourArea": "Know Your Area",
+            "mlModel": "ML Model"
         },
         "status": {
             "loading": "Your smart assistant is walking through the fields...",
@@ -726,7 +726,8 @@
         "toast": {
             "errorTitle": "Error",
             "errorDescription": "Failed to get prediction. Please try again."
-        }
+        },
+        "mlModelInfo": "Click & use ML Model If This Form is Not Working"
     },
     "locationDialog": {
         "title": "Enter Your Location",
@@ -851,6 +852,30 @@
             "schemes": "Loading Recommended Schemes...",
             "history": "Loading Yield History..."
         }
+    },
+    "animalComparison": {
+        "title": "Cattle & Buffalo Breed Comparison",
+        "subtitle": "Select up to two breeds to compare their characteristics side-by-side.",
+        "cattleTitle": "Cattle Breeds",
+        "buffaloTitle": "Buffalo Breeds",
+        "characteristics": "Characteristics",
+        "size": "Size",
+        "milk": "Milk Production",
+        "temperament": "Temperament",
+        "climate": "Climate Adaptation",
+        "feed": "Feed Requirement",
+        "disease": "Disease Resistance"
+    },
+    "findVeterinarian": {
+        "back": "Back to States",
+        "title": "Find a Veterinarian",
+        "subtitle": "Contact information for District Animal Husbandry Officers in India. Select your state.",
+        "stateTitle": "Veterinary Clinics in {stateName}",
+        "stateSubtitle": "Find contact information for veterinary clinics and hospitals in {stateName}.",
+        "stateDataMissing": "Data for {stateName} is not yet available. Please check back later.",
+        "searchPlaceholder": "Search by name, city, or type...",
+        "noClinicsFound": "No clinics found matching your search.",
+        "noClinicsListed": "No clinics listed for this state yet."
     },
     "areaInfo": {
         "title": "Quick Info Hub",
