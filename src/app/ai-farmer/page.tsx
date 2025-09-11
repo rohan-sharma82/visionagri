@@ -132,8 +132,7 @@ export default function AiFarmerPage() {
   const [isRecording, setIsRecording] = useState(false);
   const recognitionRef = useRef<any>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
-  const [isHistoryLoading, setIsHistoryLoading] = useState(true);
-  const hasSavedRef = useRef(false);
+  const [isHistoryLoading, setIsHistoryLoading] = useState(false); // Auth removed, so history is never loading from DB
 
   const loadingMessages = [
     t('aiFarmer.loadingMessages.m1'),
@@ -155,6 +154,8 @@ export default function AiFarmerPage() {
   });
 
   useEffect(() => {
+    // With auth removed, chat history is only kept in local component state.
+    // The `actions.ts` file now returns an empty array for getChatHistory.
     const fetchHistory = async () => {
         setIsHistoryLoading(true);
         const history = await getChatHistory();
@@ -163,32 +164,6 @@ export default function AiFarmerPage() {
     };
     fetchHistory();
   }, []);
-
-  const handleSaveHistory = useCallback(async (currentMessages: Message[]) => {
-      // Don't save if there's no new interaction
-      if (currentMessages.length === 0) return;
-      try {
-        await saveChatHistory(currentMessages);
-      } catch(err) {
-        toast({
-          variant: 'destructive',
-          title: t('aiFarmer.toast.saveError.title'),
-          description: t('aiFarmer.toast.saveError.description'),
-        });
-      }
-  }, [toast, t]);
-  
-  // Save chat history when the user leaves the page
-  useEffect(() => {
-    return () => {
-        // We use a ref to ensure it only saves once, even with React strict mode.
-        if (!hasSavedRef.current) {
-            handleSaveHistory(messages);
-            hasSavedRef.current = true;
-        }
-    };
-  }, [messages, handleSaveHistory]);
-
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -271,11 +246,7 @@ export default function AiFarmerPage() {
 
   const handleClearChat = async () => {
     setMessages([]);
-    try {
-      await clearChatHistory();
-    } catch (error) {
-      console.error("Failed to clear chat history from DB:", error);
-    }
+    // No need to call clearChatHistory() from DB as auth is removed.
     toast({
       title: t('aiFarmer.toast.chatCleared.title'),
       description: t('aiFarmer.toast.chatCleared.description'),

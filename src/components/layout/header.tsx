@@ -2,7 +2,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, LogIn, LogOut, Menu } from 'lucide-react';
+import { Leaf, Menu } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -15,43 +15,24 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useTranslation } from '@/hooks/use-translation';
-import { logout } from '@/app/auth/actions';
-import { createClient } from '@/lib/supabase/client';
-import type { User } from '@supabase/supabase-js';
 
 export default function Header() {
   const pathname = usePathname();
   const { t } = useTranslation();
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [isMounted, setIsMounted] = useState(false);
-  const supabase = createClient();
 
   useEffect(() => {
     setIsMounted(true);
-    
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-        setCurrentUser(session?.user ?? null);
-    });
-
-    // Initial check
-    supabase.auth.getUser().then(({ data: { user } }) => {
-        setCurrentUser(user);
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [supabase.auth]);
+  }, []);
+  
+  if (!isMounted) {
+      return (
+        <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container flex h-16 items-center"></div>
+        </header>
+      );
+  }
 
   const allNavLinks = [
     ...mainNavLinks,
@@ -63,63 +44,6 @@ export default function Header() {
     ...link,
     label: t(link.label)
   }));
-  
-  const getInitials = (name?: string) => {
-    if (!name) return 'U';
-    const names = name.split(' ');
-    if (names.length > 1) {
-        return names[0][0] + names[names.length - 1][0];
-    }
-    return names[0].substring(0, 2);
-  }
-
-  const AuthButton = () => {
-    if (!isMounted) {
-      return null;
-    }
-
-    if (currentUser) {
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-              <Avatar className="h-8 w-8">
-                <AvatarFallback>{getInitials(currentUser.user_metadata?.full_name)}</AvatarFallback>
-              </Avatar>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" align="end" forceMount>
-            <DropdownMenuLabel className="font-normal">
-              <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">{currentUser.user_metadata?.full_name}</p>
-                <p className="text-xs leading-none text-muted-foreground">
-                  {currentUser.email}
-                </p>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <form action={logout}>
-                <DropdownMenuItem asChild>
-                    <button className="w-full text-left">
-                        <LogOut className="mr-2 h-4 w-4 inline-block" />
-                        <span>{t('dashboard.logout')}</span>
-                    </button>
-                </DropdownMenuItem>
-            </form>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      );
-    }
-    return (
-      <Link href="/login">
-        <Button variant="default" size="sm" className="flex items-center gap-2">
-          <LogIn className="h-4 w-4" />
-          {t('login.buttons.signin')}
-        </Button>
-      </Link>
-    );
-  };
-
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -149,10 +73,6 @@ export default function Header() {
           </nav>
         </div>
         
-        <div className="flex flex-1 items-center justify-end space-x-4 hidden md:flex">
-          <AuthButton />
-        </div>
-
         <div className="flex flex-1 items-center justify-between space-x-2 md:hidden">
             <Link href="/" className="flex items-center space-x-2">
                 <Leaf className="h-6 w-6 text-primary" />
@@ -183,9 +103,6 @@ export default function Header() {
                                 {link.label}
                             </Link>
                         ))}
-                         <div className="pt-4 border-t">
-                           <AuthButton />
-                         </div>
                     </div>
                 </SheetContent>
             </Sheet>
