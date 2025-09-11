@@ -1,6 +1,6 @@
 
 'use client';
-import { useState, useRef, forwardRef, useCallback } from 'react';
+import { useState, useRef, forwardRef } from 'react';
 import { newsData, newsCategories } from '@/lib/constants';
 import Link from 'next/link';
 import Image from 'next/image';
