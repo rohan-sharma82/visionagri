@@ -151,7 +151,16 @@ export default function CropYieldPage() {
       <div className="flex flex-col items-center gap-8 lg:gap-12">
         <div className="flex flex-col items-center gap-8 w-full max-w-lg">
            <div className="wrapper w-full">
-            <div className="flex justify-center mb-4"><AreaInfoDialog /></div>
+            <div className="flex justify-center mb-4 flex-col items-center gap-4">
+                <a href="#" className="ml-model-button type--C">
+                    <div className="button__line"></div>
+                    <div className="button__line"></div>
+                    <span className="button__text">ML Model</span>
+                    <div className="button__drow1"></div>
+                    <div className="button__drow2"></div>
+                </a>
+                <AreaInfoDialog />
+            </div>
                 <div className="flip-card__inner mx-auto" style={{ minHeight: '350px' }}>
                   <div className="flip-card__front w-full p-4 md:p-6">
                     <div className="title">{t('cropYield.form.title')}</div>
