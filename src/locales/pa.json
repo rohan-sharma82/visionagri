@@ -414,12 +414,11 @@
         "n24_article": "<h3>What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>"
     },
     "categories": {
-        "all": "All Categories",
-        "marketPrices": "Market Prices",
-        "weatherUpdates": "Weather Updates",
-        "govtPolicies": "Government Policies",
-        "farmingTechniques": "Farming Techniques",
-        "technology": "Technology"
+        "all": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
+        "weatherUpdates": "ਮੌਸਮ ਅੱਪਡੇਟ",
+        "govtPolicies": "ਸਰਕਾਰੀ ਨੀਤੀਆਂ",
+        "farmingTechniques": "ਖੇਤੀ ਤਕਨੀਕਾਂ",
+        "technology": "ਤਕਨਾਲੋਜੀ"
     },
     "sources": {
         "agriTech": "AgriTech Today",
@@ -608,7 +607,7 @@
     },
     "animalClassification": {
         "title": "ਜਾਨਵਰ ਵਰਗੀਕਰਨ",
-        "subtitle": "ਪਸ਼ੂਆਂ ਜਾਂ ਜੰਗਲੀ ਜੀਵਾਂ ਲਈ, ਇੱਕ ਚਿੱਤਰ ਤੋਂ ਜਾਨਵਰਾਂ ਦੀਆਂ ਕਿਸਮਾਂ ਦੀ ਪਛਾณ ਕਰੋ।",
+        "subtitle": "ਪਸ਼ੂਆਂ ਜਾਂ ਜੰਗਲੀ ਜੀਵਾਂ ਲਈ, ਇੱਕ ਚਿੱਤਰ ਤੋਂ ਜਾਨਵਰਾਂ ਦੀਆਂ ਕਿਸਮਾਂ ਦੀ ਪਛਾਣ ਕਰੋ।",
         "buttons": {
             "compare": "ਨਸਲ ਦੀ ਤੁਲਨਾ ਕਰੋ",
             "findVet": "ਪਸ਼ੂਆਂ ਦੇ ਡਾਕਟਰ ਨੂੰ ਲੱਭੋ",
@@ -697,7 +696,7 @@
         },
         "status": {
             "loading": "ਤੁਹਾਡਾ ਸਮਾਰਟ ਸਹਾਇਕ ਖੇਤਾਂ ਵਿੱਚੋਂ ਲੰਘ ਰਿਹਾ ਹੈ...",
-            "fetchingWeather": "ਲਾਈਵ ਮੌਸਮ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ",
+            "fetchingWeather": "ਲਾਈਵ ਮੌਸਮ ਡੇਟਾ ਪ੍ਰਾਪਤ ਕੀਤਾ जा ਰਿਹਾ ਹੈ",
             "idle": "AI ਤੁਹਾਡੀ ਫਸਲ ਦੀ ਗਣਨਾ ਕਰਨ ਲਈ ਤਿਆਰ ਹੈ — ਬਸ ਭਵਿੱਖਬਾਣੀ ਕਰੋ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।"
         },
         "results": {
@@ -779,6 +778,11 @@
             },
             "button": "ਨਵਾਂ ਇੰਦਰਾਜ ਸ਼ਾਮਲ ਕਰੋ"
         },
+        "chatHistory": {
+            "title": "ਤਾਜ਼ਾ AI ਗੱਲਬਾਤਾਂ",
+            "description": "AI ਕਿਸਾਨ ਸਹਾਇਕ ਨਾਲ ਆਪਣੀਆਂ ਨਵੀਨਤਮ ਗੱਲਬਾਤਾਂ ਦੀ ਜਲਦੀ ਸਮੀਖਿਆ ਕਰੋ।",
+            "button": "ਸਹਾਇਕ 'ਤੇ ਜਾਓ"
+        },
         "schemes": {
             "title": "ਤੁਹਾਡੇ ਲਈ ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀਆਂ ਸਕੀਮਾਂ",
             "description": "ਤੁਹਾਡੇ ਪ੍ਰੋਫਾਈਲ ਦੇ ਆਧਾਰ 'ਤੇ, ਇਹ ਸਰਕਾਰੀ ਸਕੀਮਾਂ ਲਾਭਦਾਇਕ ਹੋ ਸਕਦੀਆਂ ਹਨ।",
@@ -857,5 +861,3 @@
         }
     }
 }
-
-    

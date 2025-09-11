@@ -49,7 +49,7 @@
             "description": "সরকারের কাছ থেকে উপকারী প্রোগ্রাম এবং সহায়তা অন্বেষণ করুন।"
         },
         "farmSchool": {
-            "title": "फार्म স্কুল",
+            "title": "ফার্ম স্কুল",
             "description": "खेती के बारे में सब कुछ जानें।",
             "tools": {
                 "title": "Tools",
@@ -65,8 +65,8 @@
         "button": "Choose Language"
     },
     "farmSchool": {
-        "button": "फार्म স্কুল",
-        "title": "फार्म স্কুলে স্বাগতম!",
+        "button": "ফার্ম স্কুল",
+        "title": "ফার্ম স্কুলে স্বাগতম!",
         "description": "खेती की अनिवार्यताओं के बारे में ज्ञान प्राप्त करें। আরও জানতে একটি বিষয়ে ক্লিক করুন (कार्यक्षमता விரைவில் আসছে)।",
         "backToHome": "হোমে ফিরে যান",
         "tools": {
@@ -75,7 +75,7 @@
         },
         "fertilizers": {
             "title": "সার",
-            "description": "বিভিন্ন ধরণের সার এবং তাদের ব্যবহার বুঝুন。",
+            "description": "বিভিন্ন ধরণের সার এবং তাদের ব্যবহার বুঝুন।",
             "pageSubtitle": "A comprehensive guide to fertilizers, their types, and their impact on modern farming."
         },
         "areaCalculator": {
@@ -269,7 +269,7 @@
     },
     "quotes": {
         "q1": "खेती केवल एक नौकरी नहीं है, यह जीवन का एक तरीका है।",
-        "q2": "किसानों के बिना, कोई भोजन नहीं है। भोजन के बिना, कोई जीवन नहीं है।",
+        "q2": "किसानों के बिना, कोई भोजन नहीं है। भोजन के बिना, कोई জীবন नहीं है।",
         "q3": "किसानों के बिना, कोई भोजन नहीं है। भोजन के बिना, कोई জীবন नहीं है।",
         "q4": "To forget how to dig the earth and tend the soil is to forget ourselves.",
         "q5": "Farming is the art of patience, the science of soil, and the soul of survival.",
@@ -414,12 +414,11 @@
         "n24_article": "<h3>What are Some Examples of Seed Technologies in Use or Development in India?</h3><h4>Millet Seeds:</h4><ul><li>Millets are nutrient-rich, hardy and short-cycle crops that are well-suited for sustainable agriculture.</li><li>India is the global leader in millet production and has the potential to capture the global seed market by producing quality-assured seeds of improved varieties of millets, especially minor millets.</li><li>India has developed several high-yielding and climate-resilient varieties of millets using conventional breeding and molecular techniques.</li><li>India has also introduced priming and film coating technologies for millet seeds to improve their germination, emergence, uniformity, and protection.</li></ul><h4>Cotton Seeds:</h4><ul><li>Cotton is one of the most important cash crops in India and a major source of income for millions of farmers.</li><li>India has achieved remarkable success in cotton production by introducing Bt cotton hybrids in 2002.</li><li>Bt cotton is a transgenic crop that expresses a gene from a soil bacterium called Bacillus thuringiensis (Bt) that produces a protein that kills certain insect pests.</li><li>Bt cotton has increased cotton yield by reducing pest damage and pesticide use.</li><li>India has also developed several new varieties of cotton using molecular breeding and gene-editing-tools that have improved traits such as fibre quality, drought tolerance, herbicide resistance, etc.</li></ul><h4>Vegetable Seeds:</h4><ul><li>India has a diverse range of vegetable crops that require different types of seeds.</li><li>India has developed many improved varieties and hybrids of vegetables using conventional breeding and biotechnology methods.</li><li>India has also introduced various seed enhancement technologies for vegetable seeds such as film coating, pelleting, priming, bio-stimulants, nutrients, biologicals, etc., to improve their quality and performance.</li></ul>"
     },
     "categories": {
-        "all": "All Categories",
-        "marketPrices": "Market Prices",
-        "weatherUpdates": "Weather Updates",
-        "govtPolicies": "Government Policies",
-        "farmingTechniques": "Farming Techniques",
-        "technology": "Technology"
+        "all": "அனைத்து வகைகள்",
+        "weatherUpdates": "வானிலை அறிவிப்புகள்",
+        "govtPolicies": "அரசு கொள்கைகள்",
+        "farmingTechniques": "விவசாய நுட்பங்கள்",
+        "technology": "தொழில்நுட்பம்"
     },
     "sources": {
         "agriTech": "AgriTech Today",
@@ -472,16 +471,16 @@
             "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
             "description": "schemes.kcc.description"
         },
-        "pmkusum": {
-            "name": "Pradhan Mantri Kisan Urja Suraksha Evam Utthan Mahabhiyan (PM-KUSUM)",
-            "shortName": "PM-KUSUM",
-            "shortDescription": "A scheme to subsidize farmers for installing solar irrigation pumps and setting up solar power plants on their land.",
-            "description": "schemes.pmkusum.description"
+        "cmkky": {
+            "name": "Chief Minister Kisan Kalyan Yojana",
+            "shortName": "CM Kisan Kalyan",
+            "shortDescription": "An initiative by the Government of Madhya Pradesh to provide financial assistance to farmers.",
+            "description": "schemes.cmkky.description"
         },
         "shc": {
-            "name": "Soil Health Card Scheme",
+            "name": "RKVY Soil Health and Fertility - Soil Health Card",
             "shortName": "Soil Health Card",
-            "shortDescription": "A scheme to provide farmers with a report on their soil's health and recommendations for optimal yields.",
+            "shortDescription": "Provides farmers with a report on their soil's health and customized nutrient recommendations.",
             "description": "schemes.shc.description"
         },
         "smam": {
@@ -494,31 +493,25 @@
             "name": "National Scheme Of Welfare Of Fishermen",
             "shortName": "Welfare of Fishermen",
             "shortDescription": "Provides financial assistance to fishermen for house construction, community halls, and other basic amenities.",
-            "description": "<h4>Details</h4><p>The National Scheme of Welfare of Fishermen is a centrally sponsored scheme that provides financial assistance to fishermen. They can use these for constructing houses and community halls for both recreation and work purposes. Further, through the amount availed under this scheme, fishermen can install tube wells.</p><h4>Objectives</h4><ul><li>Provide fishermen with basic amenities such as housing, community halls, tube well for drinking water.</li><li>Ensure Financial And Social Securities Of Fishermen And Their Families.</li><li>Upgrade The Standard Of Living Of Fishermen.</li><li>Educate And Train Fishermen In Advanced Technical Technologies So That They Can Learn Scientific Ways Of Fishing.</li></ul><h4>Benefits</h4><p>Here are the features and benefits that this government scheme for fishermen offers -</p><ul><li><strong>Housing Facility:</strong> The National Scheme of Welfare of Fishermen offers fishermen facilities for constructing houses. There is no upper limit for building homes in a particular village as it entirely depends on the number of fishermen residing. States through this scheme ensure equal distribution of houses among all fishermen. Also, this government-backed scheme dictates the house construction with a base area within 35 sq. mt. Also, the cost must not exceed ₹75,000.</li><li><strong>Construction of Common Facility:</strong> This government-backed scheme ensures building a community hall in some instances if there are more than 75 houses in a village. This scheme will build a community hall (with two toilets and a tube well) with a base area measuring 200 sq. mt. and within ₹2 lakh.  Fishermen can use this community hall as a mending shed and a drying yard.</li><li><strong>Assurance of Clean Drinking Water:</strong> This scheme offers a tube well for every 20 houses. Also, depending on the requirement, the number of tube wells is increased. In addition, this scheme provides an alternative option where tubewell installation is not possible.</li><li><strong>Insurance Facility:</strong> (For Group Accident Insurance for Active Fishermen)- This scheme provides fisherfolk or licensed or identified or registered with the States or Union Territory ₹50,000 in case of death or permanent total disability. Also, this scheme provides ₹25,000 for partial permanent disability. Here, the insurance cover will continue for 12 months, and FISHCOPFED would take out a policy. Also, under this scheme, the affected fishermen will have to pay an annual premium worth ₹15 (per head). Here, the Central Government will pay 50%, and the State Government will pay the remaining 50% subsidy as grants-in-aid. In the case of Union Territories, the Central Government will bear a 100% premium. On the other hand, those States/UT’s, which subscribed to this Group Accident Insurance for Active Fishermen through FISHCOPFED, will get a Central share of assistance (100% premium for Union Territories) directly through FISHCOPFED and not through States/UT’s.</li><li><strong>Saving cum relief:</strong> The National Scheme of Welfare of Fishermen further offers a savings cum relief scheme. This scheme component collects ₹75 from marine fishermen for 8 months in a year. Total ₹600 needs to be collected to match an equal amount worth ₹600 provided by the State and Central Government to segregate on a 50:50 basis. If any fishermen fail to make payment, the authorities will refund the paid amount with interest at the end of the 4th month. Also, the ‘lean months’ provisions vary from a coastal area or marine area, which FISHCOPFED decides entirely.</li></ul><p>Now that individuals know about this government scheme for fishermen, i.e. the National Scheme of Welfare of Fishermen, they avail funds and construct houses of their own.</p><h4>Eligibility</h4><h5>Eligibility Criteria for Inland Fishermen</h5><ul><li>Fishermen living in coastal areas and with whom the respective States and Union Territories have officially licensed are eligible for this scheme.</li><li>The age of fishermen must be below 60 years old.</li><li>Applicant fishermen must belong to the BPL (Below Poverty Line) category.</li><li>They must be engaged in full-time activities inland.</li></ul><h5>Eligibility Criteria for Marine Fishermen</h5><p>All marine fishermen who operate under State, Union Territories, and FISHCOPFED are eligible for this government scheme for fishermen. However, there are other eligibility parameters marine fishermen must fulfill. These include -</p>"
+            "description": "schemes.welfareOfFishermen.description"
         },
         "pmgsy": {
-          "name": "Pradhan Mantri Gram Sadak Yojana",
-          "shortName": "PMGSY",
-          "shortDescription": "Aims to provide all-weather road connectivity to eligible unconnected habitations in rural areas.",
-          "description": "<h4>Details</h4><p>With the objective of providing rural connectivity, the Government of India launched the Pradhan Mantri Gram Sadak Yojana (referred to as PMGSY-I hereinafter) on 25th December 2000 to provide all-weather access to eligible unconnected habitations with a population of up to 500 (Census 2001) in plain area and 250 and above in Special category States (States of North East, Jammu, and Kashmir, Himachal Pradesh, Uttarakhand), Desert Area as identified by Desert Development Program and 88 selected Backward Districts as identified by the Ministry of Home Affairs/Planning Commission as a strategy for poverty alleviation.</p><p>As of 8th December 2021, a total of 6,80,040 km of road length has been constructed under various interventions of Pradhan Mantri Gram Sadak Yojana (PMGSY). The primary objective of PMGSY concerns building robust, all-weather roads in rural habitations and other core areas. Panchayati Rajs and elected local representatives decide which habitations to be selected. This scheme was centrally funded only up to 2015-16. Since then, the funds have been divided between the Centre and the State. For North Eastern and Himalayan States (Jammu & Kashmir, Uttarakhand, and Himachal Pradesh) 90% of a project is the Union Government funds, and 10% of this cost, is the State Government funds. For the Other States, the Union Government funds around 60% of a project while the remaining 40% is by State Government funds.</p><p>Some prominent features of PMGSY are -</p><ul><li>Proper decentralized planning for the building of roads.</li><li>Build roads according to the Indian Road Congress and Rural Roads Manual.</li><li>3-tier quality management system.</li><li>An unbroken flow of funds.</li></ul><h4>Benefits</h4><p>The benefits of the Pradhan Mantri Gram Sadak Yojana (PMGSY) are -</p><ol><li>All-weather connection to the hamlets that are least or not connected.</li><li>Overall Development of the country allows for easy movement of goods and vehicles.</li><li>There are better employment opportunities for those from villages thanks to road connections.</li></ol><h4>Eligibility</h4><ol><li>A region must be a habitation. It cannot be a hamlet or revenue village to be eligible for the Pradhan Mantri Gram Sadak Yojana (PMGSY).</li><li>The Central Government describes habitation as a population cluster residing within an area that remains constant over time. Some of the local words used to describe a habitation are: Majras, Desam, Hamlets, Tolas, Dhanis</li><li>The hamlet must have a higher population as per the 2001 Census to be eligible for road connection. The eligible habitations have a population of above 500 persons in plain areas and around 250 persons and above in hilly areas.</li></ol><h4>Application Process</h4><h5>Offline</h5><p>The list of road works to be taken up under the Programme will be finalized each year by the District Panchayat in accordance with the allocation of funds communicated to the district. The District Panchayat has to ensure along with the consultative process, that the lists of proposed road works are part of the Core Network and that new connectivity is given priority.</p><h4>Documents Required</h4><p>The release of the second installment in a year shall be subject to the submission of the following documents:</p><ol><li>Utilisation Certificate for the funds released earlier, year-wise in the form prescribed.</li><li>Certificate by the Bank Manager indicating the balance amount on the date of issue of the Certificate and the interest credited.</li><li>A Certificate regarding the requisite physical completion of works</li><li>For all releases after October of a year, production of an Audited Statement of Accounts and a Balance Sheet and related Statements, duly certified by the Chartered Accountant for the accounts of the previous financial year.</li><li>Outputs of the relevant modules of the OMMAS, duly certified by the SRRDA as being correct and verified by the NRIDA</li><li>A certificate from the CEO of SRRDA that Maintenance funds required as per maintenance contracts in force had been spent during the previous financial year. For releases after May of a year, the certificate should also include that 50% of such maintenance fund requirements for the current Financial Year have been released by the State, whereas for releases after November, the certificate should be for 100% of such funds.</li></ol>"
+            "name": "Pradhan Mantri Gram Sadak Yojana",
+            "shortName": "PMGSY",
+            "shortDescription": "Aims to provide all-weather road connectivity to eligible unconnected habitations in rural areas.",
+            "description": "schemes.pmgsy.description"
         },
         "organicManure": {
-          "name": "Organic Manure Scheme",
-          "shortName": "Organic Manure",
-          "shortDescription": "Provides hands-on training on the production of organic compost for sustainable agriculture.",
-          "description": "<h4>Details</h4><p>The “Organic Manure Scheme” is a State Plan Scheme, which is implemented by the Department of Agriculture & Farmers’ Welfare, Government of Meghalaya. The objective of the scheme is to provide hands-on training at the village level on the production of organic compost inputs such as compost for plant health management for sustainable agriculture.</p><h4>Benefits</h4><p>Type of assistance: Training and awareness campaign in the production of organic composts.</p><h4>Eligibility</h4><ul><li>The applicant should be a resident of Meghalaya.</li><li>The applicant should be a bonafide farmer engaged in agriculture.</li></ul><h4>Application Process</h4><h5>Offline</h5><p>Application Process:</p><ol><li>The eligible bonafide farmer can apply/write an application on plain paper.</li><li>Along with the application, attach copies of all the mandatory documents (self-attest, if required).</li><li>Submit the duly filled and signed application along with the relevant documents at the nearest office of the Agriculture Development Officer of a CD Block/ Horticulture.</li></ol><p>Mode of Selection of Beneficiary(s): The bonafide farmers having sufficient available cultivable land on a first come first served basis.</p><p>Whom to Contact:</p><ul><li>District Agriculture Officers of the concerned districts.</li><li>Sub-Divisional Agricultural Officers of the concerned sub-divisions.</li><li>District Training Officers, Tura/Shillong.</li><li>Agricultural Development Officers of the concerned Community and Rural Development Blocks.</li></ul><h4>Documents Required</h4><ul><li>Passport-size photograph</li><li>Identity Proof</li><li>Documents proof of having sufficient available cultivable land</li><li>Any other document as required</li></ul>"
+            "name": "Organic Manure Scheme",
+            "shortName": "Organic Manure",
+            "shortDescription": "Provides hands-on training on the production of organic compost for sustainable agriculture.",
+            "description": "schemes.organicManure.description"
         },
         "coffeeDev": {
-          "name": "Coffee Development Programme in North Eastern Region",
-          "shortName": "Coffee Development",
-          "shortDescription": "Aims to improve coffee quality by establishing infrastructure and obtaining certification.",
-          "description": "<h4>Details</h4><p>The scheme \"Coffee Development Programme in North Eastern Region: Quality Upgradation / Certification: Drying Yards\" is a Sub-Component of the Scheme \"Integrated Coffee Development Project During the Medium Term Framework (MTF) Period: Development Support to Stakeholders\" by the Coffee Board, Department of Commerce, Ministry of Commerce and Industry. This scheme aims to facilitate the improvement of the quality of coffee produced by growers by encouraging them to establish infrastructure for quality enhancement and obtain certification for their coffees, enabling them to earn better returns. This involves three main activities: supply of pulpers, construction of cement drying yards, and eco-certification of coffee holdings.</p><h4>Benefits</h4><h5>Unit Cost and Scale of Subsidy</h5><p><strong>Size of the Holding:</strong> Up to 2 hectares.<br><strong>Dimension of the Unit:</strong> 10 feet x 10 feet or (100 square feet).<br><strong>Unit Cost:</strong> ₹15,000/-<br><strong>Rate of Subsidy:</strong> 75% of unit cost.</p><p><strong>Size of the Holding:</strong> 2 hectares and above.<br><strong>Dimension of the Unit:</strong> 20 feet x 20 feet or (400 square feet).<br><strong>Unit Cost:</strong> ₹45,000/-<br><strong>Rate of Subsidy:</strong> 75% of unit cost.</p><h4>Eligibility</h4><ul><li>The applicant should be a tribal grower.</li><li>The applicant should not have availed of the benefits during the XII plan.</li></ul><h4>Application Process</h4><h5>Offline</h5><ol><li><strong>Submission of Required Documents:</strong> The beneficiary/applicant must submit the application in the prescribed format along with the necessary documents for availing of the subsidy.</li><li><strong>Document Scrutiny and Field Inspection:</strong> The Extension Officer will scrutinize the submitted documents. A field inspection will be conducted to verify the information.</li><li><strong>Application Forwarding:</strong> The Extension Officer will forward the application along with the verification report to the concerned Joint Director (Extension)/Deputy Director (Extension).</li><li><strong>Scrutiny by Joint Director/Deputy Director:</strong> The Joint Director (Extension)/Deputy Director (Extension) will scrutinize the application and verification report.</li><li><strong>Subsidy Release:</strong> After scrutiny and satisfaction about the admissibility of the claim, the Joint Director (Extension)/Deputy Director (Extension) will release the applicable subsidy to the beneficiary through electronic fund transfer (EFT).</li></ol><h4>Documents Required</h4><ul><li>Application in the prescribed format (in duplicate).</li><li>Copy of photo identity cards like Aadhaar (Unique Identification), Ration card, Passport, Election Photo Identity Card (EPIC), or Driving license, etc.</li><li>Work completion report and expenditure statement by the applicant.</li><li>Copy of the Bank Pass Book with account details.</li></ul><p><strong>NOTE 1:</strong> The land records should be in the name of the beneficiary.</p><p><strong>NOTE 2:</strong> The applicant should furnish the land records/possession certificate duly certified by the Village Authority/State Government Authority/Competent Authority.</p>"
-        },
-        "pmkisan_new": {
-            "name": "Pradhan Mantri KISAN Samman Nidhi (PM-KISAN)",
-            "shortName": "PM-KISAN",
-            "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
-            "description": "<h4>What is it?</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) Yojana is a farmer welfare scheme launched by the Government of India. Under this scheme, the government provides a direct benefit of Rs 6,000 per year to all small and marginal farmers in the country. This benefit is provided in three installments every 4 months. The objective of the PM-KISAN scheme is to promote farmers' income and make them self-reliant.</p><h4>Eligibility</h4><p>The eligibility criteria for the PM-KISAN scheme are as follows: The farmer must be a citizen of India. The farmer must be the owner of the land. The size of the farmer's land should not exceed 2 hectares. The farmer must have a bank account. To avail of the benefits of the PM-KISAN scheme, the farmer has to apply online on the official website of the scheme. Along with the application, the farmer has to upload his/her Aadhaar card, bank account details, and land ownership documents.</p><h4>Benefits</h4><p>Here are some of the benefits of the PM-KISAN scheme: It will provide financial assistance to small and marginal farmers. It will help to increase the income of farmers. It will help to make farmers self-reliant. It will help to reduce the burden on farmers. It will help to improve the farmers' standard of living. The PM-KISAN scheme is a very important initiative by the Government of India. This scheme will have a positive impact on the lives of millions of farmers in the country.</p>"
+            "name": "Coffee Development Programme in North Eastern Region",
+            "shortName": "Coffee Development",
+            "shortDescription": "Aims to improve coffee quality by establishing infrastructure and obtaining certification.",
+            "description": "schemes.coffeeDev.description"
         }
     },
     "aiFarmer": {
