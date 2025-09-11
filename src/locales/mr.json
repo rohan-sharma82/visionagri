@@ -364,7 +364,7 @@
         "n8_snippet": "IMD ने पंजाबसाठी रेड अलर्ट जारी केला असून, पुढील ४८ तासांत अतिवृष्टीचा इशारा दिला आहे. ३ सप्टेंबरपर्यंत शाळा बंद.",
         "n8_article": "भारतीय हवामानशास्त्र विभागाने (IMD) रविवारी पंजाबसाठी रेड अलर्ट जारी केला आहे, ज्यात पुढील ४८ तासांत खूप जास्त ते अत्यंत जास्त पावसाची शक्यता वर्तवली आहे. हा प्रदेश आधीच सततच्या पावसाने आणि पूरसदृश परिस्थितीने त्रस्त आहे. हवामान अधिकाऱ्यांच्या म्हणण्यानुसार, या तीव्र पावसामुळे डोंगराळ पाणलोट क्षेत्रात पूर आणि भूस्खलन होण्याची शक्यता आहे, ज्यामुळे सखल शहरी भागात गंभीर पाणी साचू शकते. पावसाच्या प्रमाणामुळे आणि शक्तीमुळे कमकुवत किंवा असुरक्षित संरचनांचे नुकसान होऊ शकते, असा इशाराही विभागाने दिला आहे।",
         "n9_title": "पंजाबमध्ये ऑगस्टमध्ये ७४% अतिरिक्त पाऊस, २५ वर्षांतील सर्वाधिक",
-        "n9_snippet": "पूरग्रस्त पंजाबमध्ये ऑगस्टमध्ये २५৩.৭ मिमी पाऊस झाला, जो केवळ सामान्यपेक्षा ७४% जास्त नव्हता, तर गेल्या ২৫ वर्षांत राज्याने पाहिलेला सर्वाधिक पाऊस होता.",
+        "n9_snippet": "पूरग्रस्त पंजाबमध्ये ऑगस्टमध्ये ২৫৩.৭ मिमी पाऊस झाला, जो केवळ सामान्यपेक्षा ७४% जास्त नव्हता, तर गेल्या ২৫ वर्षांत राज्याने पाहिलेला सर्वाधिक पाऊस होता.",
         "n9_article": "पूरग्रस्त पंजाबमध्ये ऑगस्टमध्ये २५৩.৭ मिमी पाऊस झाला, जो केवळ सामान्यपेक्षा ७४% जास्त नव्हता, तर गेल्या ২৫ वर्षांत राज्याने पाहिलेला सर्वाधिक पाऊस होता, असे अधिकाऱ्यांनी रविवारी (३१ ऑगस्ट, २०२५) सांगितले. शेजारील हरियाणामध्ये ऑगस्टमध्ये १९৪.৫ मिमी पाऊस झाला, जो महिन्याच्या सरासरी १४৭.৭ मिमीच्या तुलनेत ३२% वाढ दर्शवतो.",
         "n10_title": "हिमाचलच्या ४-६ जिल्ह्यांमध्ये अतिवृष्टीसाठी रेड अलर्ट",
         "n10_snippet": "रविवार ते मंगळवार या काळात हिमाचल प्रदेशातील चार ते सहा जिल्ह्यांमध्ये खूप जास्त ते अत्यंत जास्त पावसासाठी रेड अलर्ट जारी करण्यात आला आहे, भूस्खलन आणि अचानक पुराचा इशारा.",
@@ -437,467 +437,465 @@
         "title": "Government Schemes for Farmers",
         "subtitle": "Explore beneficial programs and support from the government.",
         "readMore": "Read More",
-        "dialogDescription": "Detailed information about the {schemeName} scheme."
-    },
-    "schemes": {
+        "dialogDescription": "Detailed information about the {schemeName} scheme.",
         "pmkisan": {
             "name": "Pradhan Mantri Kisan Samman Nidhi",
             "shortName": "PM-KISAN",
             "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
-            "description": "schemes.pmkisan.description"
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a central sector scheme with 100% funding from the Government of India. It has become operational from 1.12.2018. The scheme aims to supplement the financial needs of the farmers in procuring various inputs to ensure proper crop health and appropriate yields, commensurate with the anticipated farm income. Under the Scheme an income support of Rs.6000/- per year in three equal installments will be provided to all land holding farmer families.</p><h4>Benefits:</h4><p>Under the PM-KISAN scheme, all landholding farmers' families shall be provided with the financial benefit of Rs. 6000 per annum per family payable in three equal installments of Rs. 2000 each, every four months.</p><h4>Eligibility:</h4><p>All landholding farmers' families, which have cultivable landholding in their names are eligible to get benefit under the scheme.</p>"
         },
         "pmfby": {
             "name": "Pradhan Mantri Fasal Bima Yojana",
-            "shortName": "PM Fasal Yojana",
+            "shortName": "PM Fasal Bima Yojana",
             "shortDescription": "Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
-            "description": "schemes.pmfby.description"
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Fasal Bima Yojana (PMFBY) is the government sponsored crop insurance scheme that integrates multiple stakeholders on a single platform. It aims to provide a comprehensive insurance cover against failure of the crop thus helping in stabilising the income of the farmers.</p><h4>Key Features:</h4><ul><li>Provides comprehensive insurance coverage against crop failure to stabilize farmers' income.</li><li>Covers all Food & Oilseeds crops and Annual Commercial/Horticultural Crops for which past yield data is available.</li><li>Premium is 2% for all Kharif crops, 1.5% for all Rabi crops, and 5% for Annual Commercial and Horticultural crops.</li></ul>"
         },
         "enam": {
             "name": "E-NAM (National Agriculture Market)",
             "shortName": "E-NAM",
             "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
-            "description": "schemes.enam.description"
-        },
-        "pmkmy": {
-            "name": "Pradhan Mantri Kisan Maandhan Yojana",
-            "shortName": "PM Kisan Maandhan",
-            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
-            "description": "schemes.pmkmy.description"
-        },
-        "kcc": {
-            "name": "Kisan Credit Card",
-            "shortName": "KCC",
-            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
-            "description": "schemes.kcc.description"
+            "description": "<h4>Details:</h4><p>Launched on 14th April 2016 by the Prime Minister of India, the e-National Agriculture Market (e-NAM) is a pan-India electronic trading portal designed to integrate existing APMC (Agricultural Produce Market Committee) mandis across the country into a unified online platform, enabling “One Nation One Market” for agricultural commodities.</p><h4>Key Objectives:</h4><ul><li>Facilitate nationwide integration of markets through a common e-platform for agricultural trade.</li><li>Standardize marketing and transaction procedures across all APMC mandis.</li><li>Expand farmers’ access to buyers and markets for better price discovery.</li></ul><h4>Benefits for Farmers:</h4><ul><li>Access to Pan-India Markets.</li><li>Real-time Price Discovery.</li><li>Transparency in auction and payment processes.</li></ul>"
         },
         "cmkky": {
             "name": "Chief Minister Kisan Kalyan Yojana",
             "shortName": "CM Kisan Kalyan",
             "shortDescription": "An initiative by the Government of Madhya Pradesh to provide financial assistance to farmers.",
-            "description": "schemes.cmkky.description"
+            "description": "<h4>Details:</h4><p>Mukhyamantri Kisan Kalyan Yojana has been started by the Government of Madhya Pradesh for all the poor farmers of MP. The objective of this important scheme is to improve the economic condition of the farmers and provide them sufficient amount for farming.</p><h4>Benefits:</h4><p>Farmers will be given Rs 4,000/- annually in two installments of Rs 2,000 each.</p><h4>Eligibility:</h4><p>Applicants must be a permanent resident of Madhya Pradesh and registered under PM Kisan Samman Nidhi Yojana.</p>"
+        },
+        "kcc": {
+            "name": "Kisan Credit Card",
+            "shortName": "KCC",
+            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
+            "description": "<h4>Details:</h4><p>The Kisan Credit Card (KCC) scheme aims at providing adequate and timely credit support from the banking system under a single window with flexible and simplified procedure to the farmers for their cultivation and other needs.</p><h4>Features:</h4><ul><li>Meets the short term credit requirements for cultivation of crops.</li><li>Post-harvest expenses.</li><li>Produce marketing loan.</li><li>Consumption requirements of farmer household.</li></ul>"
+        },
+        "pmkmy": {
+            "name": "Pradhan Mantri Kisan Maandhan Yojana",
+            "shortName": "PM Kisan Maandhan",
+            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Kisan Maandhan Yojana is a government scheme meant for old age protection and social security of Small and Marginal Farmers (SMF). All Small and Marginal Farmers having cultivable land upto 2 hectares who are in the age group of 18 to 40 years are eligible to get the benefit of the Scheme.</p><h4>Benefits:</h4><p>Under this scheme, the farmers would receive a minimum assured pension of Rs 3000/- per month after attaining the age of 60 years and if the farmer dies, the spouse of the farmer shall be entitled to receive 50% of the pension as family pension.</p>"
         },
         "shc": {
             "name": "RKVY Soil Health and Fertility - Soil Health Card",
             "shortName": "Soil Health Card",
             "shortDescription": "Provides farmers with a report on their soil's health and customized nutrient recommendations.",
-            "description": "schemes.shc.description"
+            "description": "<h4>Details:</h4><p>SHC can be downloaded by the farmers from the SHC portal or through SMS link received on mobile. It will contain the status of his soil with respect to 12 parameters, namely N,P,K, S (Macro-nutrients); Zn, Fe, Cu, Mn, Bo (Micro - nutrients) ; and pH, EC, OC. Based on this, the SHC will also indicate fertilizer recommendations and soil amendment required for the farm.</p><h4>Component Rate:</h4><p>Soil sampling, testing, and generation of SHC Rs 300 per SHC (Rs 40 for soil collection + Rs 150 for testing + Rs. 110 for awareness).</p><h4>Key Objectives:</h4><ul><li>To promote soil test based nutrient management.</li><li>To issue soil health cards to all farmers.</li><li>Strengthen the functioning of soil testing laboratories.</li></ul>"
         },
         "smam": {
             "name": "Sub-mission On Agriculture Mechanization (SMAM)",
             "shortName": "SMAM",
             "shortDescription": "Promotes farm mechanization by providing subsidies on agricultural machinery to increase farm power availability.",
-            "description": "schemes.smam.description"
+            "description": "<h4>Details:</h4><p>The Sub-Mission on Agricultural Mechanization (SMAM) was launched in 2014-15 by the Ministry of Agriculture and Farmers Welfare. It aims to increase the reach of farm mechanization to small and marginal farmers and to the regions where farm power availability is low.</p><h4>Objectives:</h4><ul><li>Increasing the reach of farm mechanization to small and marginal farmers.</li><li>Promoting ‘Custom Hiring Centres’ to offset the adverse economies of scale arising due to small landholding.</li><li>Creating hubs for hi-tech & high value farm equipment.</li></ul>"
         },
         "welfareOfFishermen": {
             "name": "National Scheme Of Welfare Of Fishermen",
             "shortName": "Welfare of Fishermen",
             "shortDescription": "Provides financial assistance to fishermen for house construction, community halls, and other basic amenities.",
-            "description": "schemes.welfareOfFishermen.description"
+            "description": "<h4>Details:</h4><p>This scheme was launched to provide financial assistance to fishers for construction of house, community hall for recreation and common working place. It also aims to provide drinking water and assistance during lean period through saving cum relief.</p><h4>Components:</h4><ul><li>Development of Model Fishermen Villages.</li><li>Group Accident Insurance for Active Fishermen.</li><li>Saving-cum-Relief.</li></ul>"
         },
         "pmgsy": {
             "name": "Pradhan Mantri Gram Sadak Yojana",
             "shortName": "PMGSY",
             "shortDescription": "Aims to provide all-weather road connectivity to eligible unconnected habitations in rural areas.",
-            "description": "schemes.pmgsy.description"
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Gram Sadak Yojana (PMGSY) is a nationwide plan in India to provide good all-weather road connectivity to unconnected villages. This is a Centrally Sponsored Scheme and was introduced in 2000 by the then-prime minister of India Late Shri Atal Bihari Vajpayee.</p><h4>Objective:</h4><p>The primary objective of the PMGSY is to provide Connectivity, by way of an All-weather Road, to the eligible unconnected Habitations in the rural areas.</p>"
         },
         "organicManure": {
             "name": "Organic Manure Scheme",
             "shortName": "Organic Manure",
             "shortDescription": "Provides hands-on training on the production of organic compost for sustainable agriculture.",
-            "description": "schemes.organicManure.description"
+            "description": "<h4>Details:</h4><p>This scheme aims to promote the production and use of organic manure from various organic wastes in the country. Under this scheme, financial assistance is provided for setting up of organic manure production units.</p><h4>Assistance:</h4><p>Assistance is provided for setting up of mechanized Fruit/Vegetable market waste/Agro-waste compost units, and for Bio-fertilizer/Bio-pesticide production units.</p>"
         },
         "coffeeDev": {
             "name": "Coffee Development Programme in North Eastern Region",
             "shortName": "Coffee Development",
             "shortDescription": "Aims to improve coffee quality by establishing infrastructure and obtaining certification.",
-            "description": "schemes.coffeeDev.description"
+            "description": "<h4>Details:</h4><p>This programme is implemented by the Coffee Board of India to promote coffee cultivation in the North Eastern Region. It includes several components like survey for identification of suitable areas, establishment of coffee nurseries, and support for post-harvest infrastructure.</p><h4>Key focus:</h4><p>The main focus of the scheme is on promoting coffee cultivation on a sustainable basis to improve the socio-economic status of the tribal growers.</p>"
         }
     },
     "aiFarmer": {
-        "title": "AI किसान सहायक",
-        "subtitle": "तुमचा वैयक्तिक कृषी तज्ञ, 24/7 उपलब्ध.",
-        "locationPrompt": "हवामान-जागरूक सल्ला देण्यासाठी, कृपया तुमचे स्थान प्रविष्ट करा (उदा., 'दिल्ली, भारत'):",
+        "title": "AI Farmer Assistant",
+        "subtitle": "Your personal agricultural expert, available 24/7.",
+        "locationPrompt": "To provide weather-aware advice, please enter your location (e.g., 'Delhi, India'):",
         "buttons": {
-            "clearChat": "चॅट साफ करा",
-            "stop": "तयार करणे थांबवा"
+            "clearChat": "Clear Chat",
+            "stop": "Stop Generating"
         },
         "clearChatDialog": {
-            "title": "तुम्ही पूर्णपणे खात्री आहात का?",
-            "description": "ही क्रिया पूर्ववत केली जाऊ शकत नाही. हे तुमच्या सध्याच्या चॅट इतिहासाला कायमचे हटवेल.",
-            "cancel": "रद्द करा",
-            "continue": "सुरू ठेवा"
+            "title": "Are you absolutely sure?",
+            "description": "This action cannot be undone. This will permanently delete your current chat history.",
+            "cancel": "Cancel",
+            "continue": "Continue"
         },
         "idle": {
-            "prompt": "मला शेतीबद्दल काहीही विचारा!",
-            "example": "उदा., \"वालुकामय जमिनीसाठी सर्वोत्तम सिंचन पद्धती कोणत्या आहेत?\""
+            "prompt": "Ask me anything about farming!",
+            "example": "e.g., \"What are the best irrigation methods for sandy soil?\""
         },
         "form": {
-            "placeholder": "तुमचा शेतीविषयक प्रश्न येथे विचारा..."
+            "placeholder": "Ask your farming question here..."
         },
         "loadingMessages": {
-            "m1": "🌱 AI खताने तुमचे उत्तर वाढवत आहे... कृपया प्रतीक्षा करा.",
-            "m2": "🔍 डेटाच्या मातीचे स्कॅनिंग करत आहे... थोडा वेळ थांबा.",
-            "m3": "💡 ढगातून ज्ञानाची कापणी करत आहे... फक्त एक सेकंद.",
-            "m4": "📡 कृषी उपग्रहांशी कनेक्ट होत आहे... कृपया प्रतीक्षा करा.",
-            "m5": "🌱 ज्ञानाची बीजे पेरत आहे... तुमचे उत्तर उगवत आहे, थोडा वेळ थांबा.",
-            "m6": "🐄 ताज्या उत्तरांसाठी दूध काढत आहे... जवळजवळ झाले, थांबा.",
-            "m7": "📊 धान्य वाढण्यापूर्वी मोजत आहे... कृपया प्रतीक्षा करा.",
-            "m8": "🐓 कोंबड्यांकडून सल्ला विचारत आहे... त्या लवकरच प्रतिसाद देतील, एक क्षण थांबा.",
-            "m9": "🐄 कीबोर्डवरून गाईंना हाकलत आहे... फक्त एक सेकंद, तुमचे उत्तर येत आहे.",
-            "m10": "🌾 योग्य शब्दांची कापणी करत आहे... कृपया प्रतीक्षा करा."
+            "m1": "🌱 Growing your answer with AI fertilizer... Please wait.",
+            "m2": "🔍 Scanning the soil of data... Hold on a moment.",
+            "m3": "💡 Harvesting wisdom from the cloud... Just a second.",
+            "m4": "📡 Connecting to agricultural satellites... Please wait.",
+            "m5": "🌱 Sowing seeds of knowledge... Your answer is sprouting, hang tight.",
+            "m6": "🐄 Milking for fresh answers... Almost there, hold on.",
+            "m7": "📊 Counting grains before they grow... Please wait.",
+            "m8": "🐓 Asking the chickens for advice... They'll respond soon, one moment.",
+            "m9": "🐄 Shooing cows off the keyboard... Just a sec, your answer is coming.",
+            "m10": "🌾 Harvesting the right words... Please wait."
         },
         "toast": {
             "saveError": {
-                "title": "चॅट इतिहास जतन करू शकलो नाही",
-                "description": "चॅट इतिहास खूप मोठा आहे आणि तो जतन केला जाऊ शकत नाही."
+                "title": "Could not save chat history",
+                "description": "The chat history is too large and could not be saved."
             },
             "adviceError": {
-                "title": "त्रुटी",
-                "description": "सल्ला मिळविण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा."
+                "title": "Error",
+                "description": "Failed to get advice. Please try again."
             },
             "chatCleared": {
-                "title": "चॅट साफ केले",
-                "description": "तुमचा चॅट इतिहास साफ केला गेला आहे."
+                "title": "Chat Cleared",
+                "description": "Your chat history has been cleared."
             },
-            "listening": "ऐकत आहे...",
+            "listening": "Listening...",
             "voiceError": {
-                "title": "व्हॉइस त्रुटी",
-                "description": "बोलणे ओळखू शकलो नाही: {error}"
+                "title": "Voice Error",
+                "description": "Couldn't recognize speech: {error}"
             },
             "voiceNotSupported": {
-                "title": "व्हॉइस समर्थित नाही",
-                "description": "तुमचा ब्राउझर व्हॉइस ओळखण्यास समर्थन देत नाही."
+                "title": "Voice Not Supported",
+                "description": "Your browser does not support voice recognition."
             }
         }
     },
     "diseaseClassification": {
-        "title": "पीक रोग वर्गीकरण",
-        "subtitle": "रोगांचे लवकर निदान करण्यासाठी पीकाच्या पाल्याचे चित्र अपलोड करा.",
+        "title": "Crop Disease Classification",
+        "subtitle": "Upload an image of a crop leaf to detect diseases early.",
         "uploadCard": {
-            "title": "पीकाचे चित्र अपलोड करा",
-            "description": "उत्तम परिणामांसाठी, एकाच पाल्याचे स्पष्ट, जवळून घेतलेले चित्र वापरा.",
-            "button": "चित्र अपलोड करा"
+            "title": "Upload Crop Image",
+            "description": "For best results, use a clear, close-up image of a single leaf.",
+            "button": "Upload Image"
         },
         "buttons": {
-            "classify": "रोगाचे वर्गीकरण करा",
-            "analyzing": "विश्लेषण करत आहे..."
+            "classify": "Classify Disease",
+            "analyzing": "Analyzing..."
         },
         "status": {
-            "loading": "AI पाल्याचे परीक्षण करत आहे...",
-            "idle": "निदान मिळवण्यासाठी एक चित्र अपलोड करा"
+            "loading": "AI is examining the leaf...",
+            "idle": "Upload an image to get a diagnosis"
         },
         "reportCard": {
-            "title": "निदान अहवाल",
-            "diagnosis": "निदान",
-            "confidence": "आत्मविश्वास पातळी",
-            "description": "वर्णन",
-            "recommendations": "शिफारसी"
+            "title": "Diagnosis Report",
+            "diagnosis": "Diagnosis",
+            "confidence": "Confidence Level",
+            "description": "Description",
+            "recommendations": "Recommendations"
         },
         "toast": {
             "noFile": {
-                "title": "कोणतीही फाइल निवडलेली नाही",
-                "description": "कृपया पीकाच्या पाल्याचे चित्र अपलोड करा."
+                "title": "No file selected",
+                "description": "Please upload an image of a crop leaf."
             },
             "failure": {
-                "title": "वर्गीकरण अयशस्वी",
-                "description": "चित्र विश्लेषण करू शकलो नाही. कृपया दुसरे चित्र वापरून प्रयत्न करा."
+                "title": "Classification Failed",
+                "description": "Could not analyze the image. Please try another one."
             }
         }
     },
     "animalClassification": {
-        "title": "प्राणी वर्गीकरण",
-        "subtitle": "पाळीव प्राणी किंवा वन्यजीवांसाठी, एका चित्रातून प्राण्यांच्या प्रजाती ओळखा.",
+        "title": "Animal Classification",
+        "subtitle": "Identify animal species from an image, for livestock or wildlife.",
         "buttons": {
-            "compare": "जातींची तुलना करा",
-            "findVet": "पशुवैद्य शोधा",
-            "classify": "प्राण्याचे वर्गीकरण करा",
-            "identifying": "ओळखत आहे..."
+            "compare": "Compare Breeds",
+            "findVet": "Find a Veterinarian",
+            "classify": "Classify Animal",
+            "identifying": "Identifying..."
         },
         "uploadCard": {
-            "title": "प्राण्याचे चित्र अपलोड करा",
-            "description": "तुम्ही ओळखू इच्छित असलेल्या प्राण्याचे स्पष्ट चित्र द्या.",
-            "button": "चित्र अपलोड करा"
+            "title": "Upload Animal Image",
+            "description": "Provide a clear image of the animal you want to identify.",
+            "button": "Upload Image"
         },
         "status": {
-            "loading": "AI फोटोचे परीक्षण करत आहे...",
-            "idle": "प्राणी ओळखण्यासाठी एक चित्र अपलोड करा"
+            "loading": "AI is examining the photo...",
+            "idle": "Upload an image to identify an animal"
         },
         "reportCard": {
-            "title": "ओळख अहवाल",
-            "species": "ओळखलेली प्रजाती",
-            "confidence": "आत्मविश्वास पातळी",
-            "description": "वर्णन",
-            "breedInfo": "जातीची माहिती",
-            "localNames": "स्थानिक नावे",
-            "origin": "मूळ",
-            "color": "रंग",
-            "weight": "वजन",
-            "milkYield": "दूध उत्पादन",
-            "suitability": "उपयुक्तता",
-            "suggestion": "कार्यवाही करण्यायोग्य सूचना"
+            "title": "Identification Report",
+            "species": "Identified Species",
+            "confidence": "Confidence Level",
+            "description": "Description",
+            "breedInfo": "Breed Information",
+            "localNames": "Local Names",
+            "origin": "Origin",
+            "color": "Color",
+            "weight": "Weight",
+            "milkYield": "Milk Yield",
+            "suitability": "Suitability",
+            "suggestion": "Actionable Suggestion"
         },
         "toast": {
-            "noFileTitle": "कोणतीही फाइल निवडलेली नाही",
-            "noFileDescription": "कृपया एका प्राण्याचे चित्र अपलोड करा.",
-            "failureTitle": "वर्गीकरण अयशस्वी",
-            "failureDescription": "चित्र विश्लेषण करू शकलो नाही. कृपया दुसरे चित्र वापरून प्रयत्न करा."
+            "noFileTitle": "No file selected",
+            "noFileDescription": "Please upload an image of an animal.",
+            "failureTitle": "Classification Failed",
+            "failureDescription": "Could not analyze the image. Please try another one."
         }
     },
     "cropYield": {
-        "title": "पीक उत्पन्न अंदाज",
-        "subtitle": "तुमच्या पिकाचा अंदाज घेण्यासाठी आणि तुमची रणनीती ऑप्टिमाइझ करण्यासाठी AI चा लाभ घ्या.",
-        "growing": "वाढत आहे",
+        "title": "Crop Yield Prediction",
+        "subtitle": "Leverage AI to forecast your crop yield and optimize your strategy.",
+        "growing": "Growing",
         "rotatingTexts": {
-            "knowledge": "ज्ञान.",
-            "crops": "पिके.",
-            "prosperity": "समृद्धी.",
-            "india": "भारत."
+            "knowledge": "Knowledge.",
+            "crops": "Crops.",
+            "prosperity": "Prosperity.",
+            "india": "India."
         },
         "form": {
-            "title": "तपशील प्रविष्ट करा",
+            "title": "Enter Details",
             "cropType": {
-                "label": "पीक प्रकार",
-                "placeholder": "उदा., गहू, मका, सोयाबीन"
+                "label": "Crop Type",
+                "placeholder": "e.g., Wheat, Maize, Soyabeans"
             },
             "soilType": {
-                "label": "मातीचा प्रकार",
-                "placeholder": "उदा., चिकणमाती, वालुकामय, चिकणमाती"
+                "label": "Soil Type",
+                "placeholder": "e.g., Loamy, Sandy, Clay"
             },
             "temperature": {
-                "label": "तापमान (°C)",
-                "placeholder": "उदा., 25"
+                "label": "Temperature (°C)",
+                "placeholder": "e.g., 25"
             },
             "rainfall": {
-                "label": "पाऊस (mm)",
-                "placeholder": "उदा., 500"
+                "label": "Rainfall (mm)",
+                "placeholder": "e.g., 500"
             },
             "farmSize": {
-                "label": "शेताचा आकार"
+                "label": "Farm Size"
             },
             "fertilizer": {
-                "label": "खत",
-                "typePlaceholder": "खताचा प्रकार",
-                "amountPlaceholder": "प्रमाण (उदा. 50kg)"
+                "label": "Fertilizer",
+                "typePlaceholder": "Fertilizer Type",
+                "amountPlaceholder": "Amount (e.g. 50kg)"
             },
             "irrigation": {
-                "label": "सिंचन पद्धत (ऐच्छिक)",
-                "placeholder": "उदा., ठिबक, फवारा, कालवा"
+                "label": "Irrigation Method (Optional)",
+                "placeholder": "e.g., Drip, Sprinkler, Canal"
             },
             "additionalNotes": {
-                "placeholder": "अतिरिक्त नोंदी (उदा., इतर फवारण्या वापरल्या, कीटकांच्या समस्या)"
+                "placeholder": "Additional notes (e.g., used other sprays, pest issues)"
             }
         },
         "buttons": {
-            "predict": "उत्पन्नाचा अंदाज लावा",
-            "predicting": "अंदाज लावत आहे...",
-            "areaInfo": "त्वरित माहिती",
-            "knowYourArea": "तुमचा परिसर जाणून घ्या",
-            "mlModel": "ML मॉडेल"
+            "predict": "Predict Yield",
+            "predicting": "Predicting...",
+            "areaInfo": "Quick Info",
+            "knowYourArea": "Know Your Area",
+            "mlModel": "ML Model"
         },
         "status": {
-            "loading": "तुमचा स्मार्ट सहाय्यक शेतातून फिरत आहे...",
-            "fetchingWeather": "थेट हवामान डेटा मिळवत आहे",
-            "idle": "AI तुमचे पीक मोजण्यासाठी तयार आहे — फक्त अंदाज लावा वर क्लिक करा."
+            "loading": "Your smart assistant is walking through the fields...",
+            "fetchingWeather": "Fetching live weather data",
+            "idle": "AI is ready to calculate your crop — just hit predict."
         },
         "results": {
-            "title": "AI अंदाज परिणाम",
-            "predictedYield": "एकूण अंदाजित उत्पन्न",
-            "confidence": "आत्मविश्वास",
-            "analysis": "AI विश्लेषण",
-            "factors": "प्रभावित करणारे घटक",
-            "actions": "सुचवलेल्या कृती",
-            "idealValues": "आदर्श इनपुट सूचना",
-            "fertilizerSuitability": "खताची उपयुक्तता"
+            "title": "AI Prediction Results",
+            "predictedYield": "Total Predicted Yield",
+            "confidence": "Confidence",
+            "analysis": "AI Analysis",
+            "factors": "Factors Influencing",
+            "actions": "Suggested Actions",
+            "idealValues": "Ideal Input Suggestions",
+            "fertilizerSuitability": "Fertilizer Suitability"
         },
         "toast": {
-            "errorTitle": "त्रुटी",
-            "errorDescription": "अंदाज मिळविण्यात अयशस्वी. कृपया पुन्हा प्रयत्न करा."
+            "errorTitle": "Error",
+            "errorDescription": "Failed to get prediction. Please try again."
         },
-        "mlModelInfo": "हा फॉर्म काम करत नसल्यास ML मॉडेलवर क्लिक करा आणि वापरा"
+        "mlModelInfo": "Click & use ML Model If This Form is Not Working"
     },
     "locationDialog": {
-        "title": "तुमचे स्थान प्रविष्ट करा",
-        "description": "तुम्हाला चांगले परिणाम हवे असल्यास, आजच्या हवामान डेटा मिळवण्यासाठी तुमचे स्थान प्रविष्ट करा.",
-        "label": "स्थान",
-        "placeholder": "उदा., दिल्ली, भारत",
-        "ok": "ठीक आहे",
-        "later": "नंतर"
+        "title": "Enter Your Location",
+        "description": "If you'd like better results, enter your location to get today's weather data.",
+        "label": "Location",
+        "placeholder": "e.g., Delhi, India",
+        "ok": "OK",
+        "later": "Later"
     },
     "login": {
-        "back": "मागे",
-        "createAccount": "खाते तयार करा",
-        "signIn": "साइन इन",
-        "fullName": "पूर्ण नाव",
-        "email": "ईमेल",
-        "password": "पासवर्ड",
-        "forgotPassword": "तुमचा पासवर्ड विसरलात?",
+        "back": "Back",
+        "createAccount": "Create Account",
+        "signIn": "Sign In",
+        "fullName": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "forgotPassword": "Forgot your password?",
         "buttons": {
-            "signin": "साइन इन",
-            "signup": "साइन अप"
+            "signin": "Sign In",
+            "signup": "Sign Up"
         },
-        "welcomeBack": "पुन्हा स्वागत आहे!",
-        "leftPanelDescription": "आमच्याशी कनेक्ट राहण्यासाठी कृपया तुमच्या वैयक्तिक माहितीसह लॉगिन करा",
-        "helloFriend": "नमस्कार, मित्रा!",
-        "rightPanelDescription": "तुमचे वैयक्तिक तपशील प्रविष्ट करा आणि आमच्यासोबत प्रवास सुरू करा",
+        "welcomeBack": "Welcome Back!",
+        "leftPanelDescription": "To keep connected with us please login with your personal info",
+        "helloFriend": "Hello, Friend!",
+        "rightPanelDescription": "Enter your personal details and start journey with us",
         "error": {
-            "title": "प्रमाणीकरण त्रुटी",
-            "invalidCredentials": "तुम्ही प्रविष्ट केलेला ईमेल किंवा पासवर्ड चुकीचा आहे. कृपया पुन्हा प्रयत्न करा.",
-            "signupFailed": "वापरकर्त्याला साइन अप करू शकलो नाही. हा ईमेल आधीच वापरात असू शकतो.",
-            "profileCreation": "वापरकर्ता प्रोफाइल तयार करण्यात अयशस्वी. कृपया समर्थनाशी संपर्क साधा."
+            "title": "Authentication Error",
+            "invalidCredentials": "The email or password you entered is incorrect. Please try again.",
+            "signupFailed": "Could not sign up user. This email may already be in use.",
+            "profileCreation": "Failed to create user profile. Please contact support."
         },
         "judgeInfo": {
-            "title": "SIH न्यायाधीश आणि परीक्षकांसाठी",
-            "description": "वैयक्तिकृत डॅशबोर्ड दृश्ये एक्सप्लोर करण्यासाठी ही डमी क्रेडेन्शियल वापरा.",
+            "title": "For SIH Judges & Testers",
+            "description": "Use these dummy credentials to explore personalized dashboard views.",
             "user1": {
-                "label": "वापरकर्ता 1",
-                "value": "user1@agrivision.ai | पास: bitbusters"
+                "label": "User 1",
+                "value": "user1@agrivision.ai | pass: bitbusters"
             },
             "user2": {
-                "label": "वापरकर्ता 2",
-                "value": "user2@agrivision.ai | पास: sihwinners"
+                "label": "User 2",
+                "value": "user2@agrivision.ai | pass: sihwinners"
             },
             "user3": {
-                "label": "वापरकर्ता 3",
-                "value": "user3@agrivision.ai | पास: bitbust"
+                "label": "User 3",
+                "value": "user3@agrivision.ai | pass: bitbust"
             }
         }
     },
     "dashboard": {
-        "defaultName": "शेतकरी",
-        "welcome": "पुन्हा स्वागत आहे, {name}!",
-        "subtitle": "तुमच्या शेतासाठी हवामान अंदाज, बाजार विश्लेषण आणि शिफारस केलेल्या योजनांसह एक वैयक्तिकृत हब.",
-        "logout": "लॉगआउट",
+        "defaultName": "Farmer",
+        "welcome": "Welcome back, {name}!",
+        "subtitle": "A personalized hub with weather forecasts, market analysis, and recommended schemes for your farm.",
+        "logout": "Logout",
         "yieldHistory": {
-            "title": "उत्पन्न अंदाज इतिहास",
-            "description": "आम्हाला सुधारण्यास मदत करण्यासाठी तुमच्या वास्तविक कापणीच्या तुलनेत AI अंदाजांचा मागोवा घ्या.",
+            "title": "Yield Prediction History",
+            "description": "Track AI predictions against your actual harvest to help us improve.",
             "table": {
-                "date": "तारीख",
-                "crop": "पीक",
-                "predicted": "अपेक्षित उत्पन्न (टन)",
-                "actual": "वास्तविक उत्पन्न (टन)",
-                "action": "वास्तविक उत्पन्न प्रविष्ट करा"
+                "date": "Date",
+                "crop": "Crop",
+                "predicted": "Predicted Yield (tons)",
+                "actual": "Actual Yield (tons)",
+                "action": "Enter Actual"
             },
-            "button": "नोंद जोडा"
+            "button": "Add Entry"
         },
         "chatHistory": {
-            "title": "अलीकडील AI चॅट्स",
-            "description": "AI शेतकरी सहाय्यकासोबतच्या तुमच्या ताज्या संभाषणांचे पटकन पुनरावलोकन करा.",
-            "button": "सहाय्यकाकडे जा"
+            "title": "Recent AI Chats",
+            "description": "Quickly review your latest conversations with the AI Farmer Assistant.",
+            "button": "Go to Assistant"
         },
         "schemes": {
-            "title": "तुमच्यासाठी शिफारस केलेल्या योजना",
-            "description": "तुमच्या प्रोफाइलवर आधारित, या सरकारी योजना फायदेशीर असू शकतात.",
+            "title": "Recommended Schemes for You",
+            "description": "Based on your profile, these government schemes might be beneficial.",
             "reasons": {
-                "smallLandholding": "लहान जमीनधारक शेतकऱ्यांसाठी संबंधित.",
-                "weatherUnpredictability": "तुमच्या प्रदेशातील हवामानाच्या अनिश्चिततेमुळे.",
-                "betterPrices": "तुमच्या उत्पादनासाठी चांगला बाजारभाव मिळवण्यासाठी.",
-                "easyCredit": "कृषी कर्जासाठी सोप्या प्रवेशासाठी."
+                "smallLandholding": "Relevant for small landholding farmers.",
+                "weatherUnpredictability": "Due to weather unpredictability in your region.",
+                "betterPrices": "To get better market prices for your produce.",
+                "easyCredit": "For easier access to agricultural credit."
             }
         },
         "weather": {
-            "title": "हवामान दृष्टिकोन आणि सूचना",
-            "description": "तुमच्या स्थानासाठी सध्याची परिस्थिती आणि कार्यवाही करण्यायोग्य सल्ला: {location}.",
-            "current": "सध्याचे",
-            "humidity": "आर्द्रता",
-            "wind": "वारा",
+            "title": "Weather Outlook & Alerts",
+            "description": "Current conditions and actionable advice for your location: {location}.",
+            "current": "Current",
+            "humidity": "Humidity",
+            "wind": "Wind",
             "aqi": "AQI",
-            "astronomy": "खगोलशास्त्र",
-            "sunrise": "सूर्योदय",
-            "sunset": "सूर्यास्त",
-            "moon": "चंद्राची कला",
-            "forecast": "3-दिवसांचा अंदाज",
-            "today": "आज",
-            "error": "हवामान डेटा लोड करू शकलो नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
-            "retryButton": "पुन्हा प्रयत्न करण्यासाठी स्थान प्रविष्ट करा",
+            "astronomy": "Astronomy",
+            "sunrise": "Sunrise",
+            "sunset": "Sunset",
+            "moon": "Moon Phase",
+            "forecast": "3-Day Forecast",
+            "today": "Today",
+            "error": "Could not load weather data. Please try again later.",
+            "retryButton": "Enter Location to Retry",
             "aqiLabels": {
-                "good": "चांगले",
-                "moderate": "मध्यम",
-                "unhealthy_sensitive": "संवेदनशील गटांसाठी अस्वास्थ्यकर",
-                "unhealthy": "अस्वास्थ्यकर",
-                "very_unhealthy": "खूप अस्वास्थ्यकर",
-                "hazardous": "धोकादायक",
-                "unknown": "अज्ञात"
+                "good": "Good",
+                "moderate": "Moderate",
+                "unhealthy_sensitive": "Unhealthy for sensitive groups",
+                "unhealthy": "Unhealthy",
+                "very_unhealthy": "Very Unhealthy",
+                "hazardous": "Hazardous",
+                "unknown": "Unknown"
             },
             "alerts": {
                 "title": "Active Weather Alerts"
             }
         },
         "market": {
-            "title": "{crop} साठी बाजारभाव विश्लेषण",
-            "description": "ऐतिहासिक किमतींचा मागोवा घ्या आणि AI-चालित अंदाज मिळवा.",
-            "errorTitle": "बाजार डेटा त्रुटी",
-            "errorDescription": "बाजार डेटा लोड करू शकलो नाही. कृपया नंतर पुन्हा प्रयत्न करा.",
-            "analysis": "AI ट्रेंड विश्लेषण",
-            "forecast": "AI अंदाज",
+            "title": "Market Price Analysis for {crop}",
+            "description": "Track historical prices and get an AI-powered forecast.",
+            "errorTitle": "Market Data Error",
+            "errorDescription": "Could not load market data. Please try again later.",
+            "analysis": "AI Trend Analysis",
+            "forecast": "AI Forecast",
             "initial_prompt": "Get a real-time AI analysis of the market for your primary crop.",
             "button": "Analyze Market"
         },
         "loading": {
-            "weather": "हवामान दृष्टिकोन लोड होत आहे...",
-            "market": "बाजार विश्लेषण लोड होत आहे...",
-            "schemes": "शिफारस केलेल्या योजना लोड होत आहेत...",
-            "history": "उत्पन्न इतिहास लोड होत आहे..."
+            "weather": "Loading Weather Outlook...",
+            "market": "Loading Market Analysis...",
+            "schemes": "Loading Recommended Schemes...",
+            "history": "Loading Yield History..."
         }
     },
     "animalComparison": {
-        "title": "पशु आणि म्हैस जातीची तुलना",
-        "subtitle": "त्यांच्या वैशिष्ट्यांची तुलना करण्यासाठी दोन जातींपर्यंत निवडा.",
-        "cattleTitle": "पशु जाती",
-        "buffaloTitle": "म्हैस जाती",
-        "characteristics": "वैशिष्ट्ये",
-        "size": "आकार",
-        "milk": "दूध उत्पादन",
-        "temperament": "स्वभाव",
-        "climate": "हवामान अनुकूलन",
-        "feed": "खाद्याची गरज",
-        "disease": "रोग प्रतिकारशक्ती"
+        "title": "Cattle & Buffalo Breed Comparison",
+        "subtitle": "Select up to two breeds to compare their characteristics side-by-side.",
+        "cattleTitle": "Cattle Breeds",
+        "buffaloTitle": "Buffalo Breeds",
+        "characteristics": "Characteristics",
+        "size": "Size",
+        "milk": "Milk Production",
+        "temperament": "Temperament",
+        "climate": "Climate Adaptation",
+        "feed": "Feed Requirement",
+        "disease": "Disease Resistance"
     },
     "findVeterinarian": {
-        "back": "राज्यांवर परत जा",
-        "title": "पशुवैद्य शोधा",
-        "subtitle": "भारतातील जिल्हा पशुसंवर्धन अधिकाऱ्यांसाठी संपर्क माहिती. तुमचे राज्य निवडा.",
-        "stateTitle": "{stateName} मधील पशुवैद्यकीय दवाखाने",
-        "stateSubtitle": "{stateName} मधील पशुवैद्यकीय दवाखाने आणि रुग्णालयांसाठी संपर्क माहिती शोधा.",
-        "stateDataMissing": "{stateName} साठी डेटा अद्याप उपलब्ध नाही. कृपया नंतर पुन्हा तपासा.",
-        "searchPlaceholder": "नाव, शहर किंवा प्रकारानुसार शोधा...",
-        "noClinicsFound": "तुमच्या शोधाशी जुळणारे कोणतेही दवाखाने सापडले नाहीत.",
-        "noClinicsListed": "या राज्यासाठी अद्याप कोणतेही दवाखाने सूचीबद्ध नाहीत."
+        "back": "Back to States",
+        "title": "Find a Veterinarian",
+        "subtitle": "Contact information for District Animal Husbandry Officers in India. Select your state.",
+        "stateTitle": "Veterinary Clinics in {stateName}",
+        "stateSubtitle": "Find contact information for veterinary clinics and hospitals in {stateName}.",
+        "stateDataMissing": "Data for {stateName} is not yet available. Please check back later.",
+        "searchPlaceholder": "Search by name, city, or type...",
+        "noClinicsFound": "No clinics found matching your search.",
+        "noClinicsListed": "No clinics listed for this state yet."
     },
     "areaInfo": {
-        "title": "त्वरित माहिती केंद्र",
-        "description": "तुमच्या बोटांच्या टोकावर आवश्यक कृषी डेटा.",
+        "title": "Quick Info Hub",
+        "description": "Essential agricultural data at your fingertips.",
         "tabs": {
-            "states": "राज्ये",
-            "soil": "मातीचे प्रकार",
-            "fertilizers": "खते"
+            "states": "States",
+            "soil": "Soil Types",
+            "fertilizers": "Fertilizers"
         },
         "states": {
-            "title": "भारतीय राज्यांचा कृषी डेटा",
-            "avgRainfall": "सरासरी पाऊस",
-            "avgTemp": "सरासरी तापमान",
-            "soilTypes": "सामान्य मातीचे प्रकार",
-            "note": "टीप"
+            "title": "Agricultural Data of Indian States",
+            "avgRainfall": "Avg. Rainfall",
+            "avgTemp": "Avg. Temperature",
+            "soilTypes": "Common Soil Types",
+            "note": "Note"
         },
         "soil": {
-            "title": "भारतातील सामान्य मातीचे प्रकार",
-            "Alluvial Soil": "गाळाची माती",
-            "Black Soil (Regur)": "काळी माती (रेगुर)",
-            "Red and Yellow Soil": "लाल आणि पिवळी माती",
-            "Laterite Soil": "जांभी माती",
-            "Arid (Desert) Soil": "शुष्क (वाळवंटी) माती",
-            "Forest and Mountain Soil": "वन आणि पर्वतीय माती",
-            "Loamy Soil": "लोमी माती",
-            "Sandy Soil": "वालुकामय माती",
-            "Clay Soil": "चिकणमाती"
+            "title": "Common Soil Types in India",
+            "Alluvial Soil": "Alluvial Soil",
+            "Black Soil (Regur)": "Black Soil (Regur)",
+            "Red and Yellow Soil": "Red and Yellow Soil",
+            "Laterite Soil": "Laterite Soil",
+            "Arid (Desert) Soil": "Arid (Desert) Soil",
+            "Forest and Mountain Soil": "Forest and Mountain Soil",
+            "Loamy Soil": "Loamy Soil",
+            "Sandy Soil": "Sandy Soil",
+            "Clay Soil": "Clay Soil"
         },
         "fertilizers": {
-            "title": "सामान्य खते",
-            "Urea": "युरिया",
-            "Diammonium Phosphate (DAP)": "डायअमोनियम फॉस्फेट (डीएपी)",
-            "Muriate of Potash (MOP)": "म्युरिएट ऑफ पोटॅश (एमओपी)",
-            "Single Super Phosphate (SSP)": "सिंगल सुपर फॉस्फेट (एसएसपी)",
-            "NPK Complex Fertilizers": "एनपीके कॉम्प्लेक्स खते",
-            "Ammonium Sulphate": "अमोनियम सल्फेट"
+            "title": "Common Fertilizers",
+            "Urea": "Urea",
+            "Diammonium Phosphate (DAP)": "Diammonium Phosphate (DAP)",
+            "Muriate of Potash (MOP)": "Muriate of Potash (MOP)",
+            "Single Super Phosphate (SSP)": "Single Super Phosphate (SSP)",
+            "NPK Complex Fertilizers": "NPK Complex Fertilizers",
+            "Ammonium Sulphate": "Ammonium Sulphate"
         }
     }
 }

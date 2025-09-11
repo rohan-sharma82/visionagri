@@ -451,80 +451,78 @@
         "title": "Government Schemes for Farmers",
         "subtitle": "Explore beneficial programs and support from the government.",
         "readMore": "Read More",
-        "dialogDescription": "Detailed information about the {schemeName} scheme."
-    },
-    "schemes": {
+        "dialogDescription": "Detailed information about the {schemeName} scheme.",
         "pmkisan": {
             "name": "Pradhan Mantri Kisan Samman Nidhi",
             "shortName": "PM-KISAN",
             "shortDescription": "Provides income support to all landholding farmers' families to supplement their financial needs for agriculture and domestic needs.",
-            "description": "schemes.pmkisan.description"
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a central sector scheme with 100% funding from the Government of India. It has become operational from 1.12.2018. The scheme aims to supplement the financial needs of the farmers in procuring various inputs to ensure proper crop health and appropriate yields, commensurate with the anticipated farm income. Under the Scheme an income support of Rs.6000/- per year in three equal installments will be provided to all land holding farmer families.</p><h4>Benefits:</h4><p>Under the PM-KISAN scheme, all landholding farmers' families shall be provided with the financial benefit of Rs. 6000 per annum per family payable in three equal installments of Rs. 2000 each, every four months.</p><h4>Eligibility:</h4><p>All landholding farmers' families, which have cultivable landholding in their names are eligible to get benefit under the scheme.</p>"
         },
         "pmfby": {
             "name": "Pradhan Mantri Fasal Bima Yojana",
-            "shortName": "PM Fasal Yojana",
+            "shortName": "PM Fasal Bima Yojana",
             "shortDescription": "Provides insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
-            "description": "schemes.pmfby.description"
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Fasal Bima Yojana (PMFBY) is the government sponsored crop insurance scheme that integrates multiple stakeholders on a single platform. It aims to provide a comprehensive insurance cover against failure of the crop thus helping in stabilising the income of the farmers.</p><h4>Key Features:</h4><ul><li>Provides comprehensive insurance coverage against crop failure to stabilize farmers' income.</li><li>Covers all Food & Oilseeds crops and Annual Commercial/Horticultural Crops for which past yield data is available.</li><li>Premium is 2% for all Kharif crops, 1.5% for all Rabi crops, and 5% for Annual Commercial and Horticultural crops.</li></ul>"
         },
         "enam": {
             "name": "E-NAM (National Agriculture Market)",
             "shortName": "E-NAM",
             "shortDescription": "eNAM (National Agriculture Market) is a pan-India electronic trading portal that networks the existing APMC (Agriculture Produce Marketing Committee) mandis to create a unified national market for agricultural commodities.",
-            "description": "schemes.enam.description"
-        },
-        "pmkmy": {
-            "name": "Pradhan Mantri Kisan Maandhan Yojana",
-            "shortName": "PM Kisan Maandhan",
-            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
-            "description": "schemes.pmkmy.description"
-        },
-        "kcc": {
-            "name": "Kisan Credit Card",
-            "shortName": "KCC",
-            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
-            "description": "schemes.kcc.description"
+            "description": "<h4>Details:</h4><p>Launched on 14th April 2016 by the Prime Minister of India, the e-National Agriculture Market (e-NAM) is a pan-India electronic trading portal designed to integrate existing APMC (Agricultural Produce Market Committee) mandis across the country into a unified online platform, enabling “One Nation One Market” for agricultural commodities.</p><h4>Key Objectives:</h4><ul><li>Facilitate nationwide integration of markets through a common e-platform for agricultural trade.</li><li>Standardize marketing and transaction procedures across all APMC mandis.</li><li>Expand farmers’ access to buyers and markets for better price discovery.</li></ul><h4>Benefits for Farmers:</h4><ul><li>Access to Pan-India Markets.</li><li>Real-time Price Discovery.</li><li>Transparency in auction and payment processes.</li></ul>"
         },
         "cmkky": {
             "name": "Chief Minister Kisan Kalyan Yojana",
             "shortName": "CM Kisan Kalyan",
             "shortDescription": "An initiative by the Government of Madhya Pradesh to provide financial assistance to farmers.",
-            "description": "schemes.cmkky.description"
+            "description": "<h4>Details:</h4><p>Mukhyamantri Kisan Kalyan Yojana has been started by the Government of Madhya Pradesh for all the poor farmers of MP. The objective of this important scheme is to improve the economic condition of the farmers and provide them sufficient amount for farming.</p><h4>Benefits:</h4><p>Farmers will be given Rs 4,000/- annually in two installments of Rs 2,000 each.</p><h4>Eligibility:</h4><p>Applicants must be a permanent resident of Madhya Pradesh and registered under PM Kisan Samman Nidhi Yojana.</p>"
+        },
+        "kcc": {
+            "name": "Kisan Credit Card",
+            "shortName": "KCC",
+            "shortDescription": "Provides adequate and timely credit to farmers for their agricultural operations at a subsidized interest rate.",
+            "description": "<h4>Details:</h4><p>The Kisan Credit Card (KCC) scheme aims at providing adequate and timely credit support from the banking system under a single window with flexible and simplified procedure to the farmers for their cultivation and other needs.</p><h4>Features:</h4><ul><li>Meets the short term credit requirements for cultivation of crops.</li><li>Post-harvest expenses.</li><li>Produce marketing loan.</li><li>Consumption requirements of farmer household.</li></ul>"
+        },
+        "pmkmy": {
+            "name": "Pradhan Mantri Kisan Maandhan Yojana",
+            "shortName": "PM Kisan Maandhan",
+            "shortDescription": "A voluntary and contributory pension scheme for small and marginal farmers in India to ensure financial security in their old age.",
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Kisan Maandhan Yojana is a government scheme meant for old age protection and social security of Small and Marginal Farmers (SMF). All Small and Marginal Farmers having cultivable land upto 2 hectares who are in the age group of 18 to 40 years are eligible to get the benefit of the Scheme.</p><h4>Benefits:</h4><p>Under this scheme, the farmers would receive a minimum assured pension of Rs 3000/- per month after attaining the age of 60 years and if the farmer dies, the spouse of the farmer shall be entitled to receive 50% of the pension as family pension.</p>"
         },
         "shc": {
             "name": "RKVY Soil Health and Fertility - Soil Health Card",
             "shortName": "Soil Health Card",
             "shortDescription": "Provides farmers with a report on their soil's health and customized nutrient recommendations.",
-            "description": "schemes.shc.description"
+            "description": "<h4>Details:</h4><p>SHC can be downloaded by the farmers from the SHC portal or through SMS link received on mobile. It will contain the status of his soil with respect to 12 parameters, namely N,P,K, S (Macro-nutrients); Zn, Fe, Cu, Mn, Bo (Micro - nutrients) ; and pH, EC, OC. Based on this, the SHC will also indicate fertilizer recommendations and soil amendment required for the farm.</p><h4>Component Rate:</h4><p>Soil sampling, testing, and generation of SHC Rs 300 per SHC (Rs 40 for soil collection + Rs 150 for testing + Rs. 110 for awareness).</p><h4>Key Objectives:</h4><ul><li>To promote soil test based nutrient management.</li><li>To issue soil health cards to all farmers.</li><li>Strengthen the functioning of soil testing laboratories.</li></ul>"
         },
         "smam": {
             "name": "Sub-mission On Agriculture Mechanization (SMAM)",
             "shortName": "SMAM",
             "shortDescription": "Promotes farm mechanization by providing subsidies on agricultural machinery to increase farm power availability.",
-            "description": "schemes.smam.description"
+            "description": "<h4>Details:</h4><p>The Sub-Mission on Agricultural Mechanization (SMAM) was launched in 2014-15 by the Ministry of Agriculture and Farmers Welfare. It aims to increase the reach of farm mechanization to small and marginal farmers and to the regions where farm power availability is low.</p><h4>Objectives:</h4><ul><li>Increasing the reach of farm mechanization to small and marginal farmers.</li><li>Promoting ‘Custom Hiring Centres’ to offset the adverse economies of scale arising due to small landholding.</li><li>Creating hubs for hi-tech & high value farm equipment.</li></ul>"
         },
         "welfareOfFishermen": {
             "name": "National Scheme Of Welfare Of Fishermen",
             "shortName": "Welfare of Fishermen",
             "shortDescription": "Provides financial assistance to fishermen for house construction, community halls, and other basic amenities.",
-            "description": "schemes.welfareOfFishermen.description"
+            "description": "<h4>Details:</h4><p>This scheme was launched to provide financial assistance to fishers for construction of house, community hall for recreation and common working place. It also aims to provide drinking water and assistance during lean period through saving cum relief.</p><h4>Components:</h4><ul><li>Development of Model Fishermen Villages.</li><li>Group Accident Insurance for Active Fishermen.</li><li>Saving-cum-Relief.</li></ul>"
         },
         "pmgsy": {
             "name": "Pradhan Mantri Gram Sadak Yojana",
             "shortName": "PMGSY",
             "shortDescription": "Aims to provide all-weather road connectivity to eligible unconnected habitations in rural areas.",
-            "description": "schemes.pmgsy.description"
+            "description": "<h4>Details:</h4><p>The Pradhan Mantri Gram Sadak Yojana (PMGSY) is a nationwide plan in India to provide good all-weather road connectivity to unconnected villages. This is a Centrally Sponsored Scheme and was introduced in 2000 by the then-prime minister of India Late Shri Atal Bihari Vajpayee.</p><h4>Objective:</h4><p>The primary objective of the PMGSY is to provide Connectivity, by way of an All-weather Road, to the eligible unconnected Habitations in the rural areas.</p>"
         },
         "organicManure": {
             "name": "Organic Manure Scheme",
             "shortName": "Organic Manure",
             "shortDescription": "Provides hands-on training on the production of organic compost for sustainable agriculture.",
-            "description": "schemes.organicManure.description"
+            "description": "<h4>Details:</h4><p>This scheme aims to promote the production and use of organic manure from various organic wastes in the country. Under this scheme, financial assistance is provided for setting up of organic manure production units.</p><h4>Assistance:</h4><p>Assistance is provided for setting up of mechanized Fruit/Vegetable market waste/Agro-waste compost units, and for Bio-fertilizer/Bio-pesticide production units.</p>"
         },
         "coffeeDev": {
             "name": "Coffee Development Programme in North Eastern Region",
             "shortName": "Coffee Development",
             "shortDescription": "Aims to improve coffee quality by establishing infrastructure and obtaining certification.",
-            "description": "schemes.coffeeDev.description"
+            "description": "<h4>Details:</h4><p>This programme is implemented by the Coffee Board of India to promote coffee cultivation in the North Eastern Region. It includes several components like survey for identification of suitable areas, establishment of coffee nurseries, and support for post-harvest infrastructure.</p><h4>Key focus:</h4><p>The main focus of the scheme is on promoting coffee cultivation on a sustainable basis to improve the socio-economic status of the tribal growers.</p>"
         }
     },
     "aiFarmer": {
