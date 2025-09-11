@@ -61,7 +61,9 @@ const getMarketPriceAnalysisFlow = ai.defineFlow(
         };
     } catch(error) {
         console.error("Error in getMarketPriceAnalysisFlow:", error);
-        return null; // Return null on error
+        // This will catch the 503 error and others, returning null
+        // which the frontend is designed to handle gracefully.
+        return null;
     }
   }
 );
