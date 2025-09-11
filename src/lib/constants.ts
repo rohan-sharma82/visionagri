@@ -326,15 +326,6 @@ export const newsData = [
 
 export const schemesData = [
   {
-    id: 1,
-    name: 'schemes.pmkisan.name',
-    shortName: 'schemes.pmkisan.shortName',
-    shortDescription: 'schemes.pmkisan.shortDescription',
-    description: 'schemes.pmkisan.description',
-    imageUrl: 'https://picsum.photos/300/200?random=1',
-    dataAiHint: 'government building',
-  },
-  {
     id: 2,
     name: 'schemes.pmfby.name',
     shortName: 'schemes.pmfby.shortName',
@@ -406,15 +397,6 @@ export const schemesData = [
     imageUrl: 'https://img.manoramayearbook.in/content/dam/yearbook/learn/world/images/2022/July/ahidf.jpg',
     dataAiHint: 'animal husbandry',
   },
-  {
-    id: 12,
-    name: 'schemes.pmkisan_new.name',
-    shortName: 'schemes.pmkisan_new.shortName',
-    shortDescription: 'schemes.pmkisan_new.shortDescription',
-    description: 'schemes.pmkisan_new.description',
-    imageUrl: 'https://vajiramandravi.com/current-affairs/wp-content/uploads/2025/07/PM-1.webp',
-    dataAiHint: 'placeholder image',
-  }
 ];
 
 export const farmingQuotes = [
@@ -671,3 +653,4 @@ export const toolsData = [
       },
     },
   ];
+
