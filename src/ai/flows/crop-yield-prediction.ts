@@ -68,7 +68,7 @@ const prompt = ai.definePrompt({
 
   Based on the data provided, predict the crop yield. IMPORTANT: The 'predictedYield' output MUST be in a "per unit" format that matches the input unit. For example, if the input is "5 acres", the output should be in the format "X quintals/acre". If the input is "2 hectares", the output should be "Y tonnes/hectare".
 
-  Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the current rainfall is higher than average, explain why this is good.
+  Then, provide a detailed 'yieldAnalysis' in a conversational tone. Explain what the numbers mean for the farmer. For example, if the recent rainfall is higher than average, explain why this is good.
   
   {{#if fertilizerType}}
   Analyze the suitability of the selected fertilizer ({{fertilizerType}}) for the specified crop ({{cropType}}). Provide this analysis in the 'fertilizerSuitability' field. Be specific, for example: "Urea is a good source of nitrogen, which is excellent for the vegetative growth phase of wheat." or "While DAP is useful, this crop would benefit more from a potassium-rich fertilizer at this stage."
@@ -100,8 +100,8 @@ const prompt = ai.definePrompt({
   - Crop Type: {{{cropType}}}
   - Soil Type: {{{soilType}}}
   - Farm Size: {{{farmSize}}}
-  - Current Rainfall: {{{rainfall}}}
-  - Current Temperature: {{{temperature}}}
+  - Recent Rainfall (mm): {{{rainfall}}}
+  - Average Temperature (°C): {{{temperature}}}
   - Fertilizer Type: {{{fertilizerType}}}
   - Fertilizer Amount: {{{fertilizerAmount}}}
   - Irrigation Method: {{{irrigationMethod}}}

@@ -205,7 +205,7 @@ export default function CropYieldPage() {
                                 render={({ field }) => (
                                 <FormItem className="w-full">
                                     <FormControl>
-                                    <Input className='flip-card__input' placeholder="Temperature (°C)" {...field} />
+                                    <Input className='flip-card__input' placeholder="Average Temperature (°C)" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -217,7 +217,7 @@ export default function CropYieldPage() {
                                 render={({ field }) => (
                                 <FormItem className="w-full">
                                     <FormControl>
-                                    <Input className='flip-card__input' placeholder="Rainfall (mm)" {...field} />
+                                    <Input className='flip-card__input' placeholder="Recent Rainfall (mm)" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -286,7 +286,7 @@ export default function CropYieldPage() {
                                     render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                        <Input className='flip-card__input' placeholder={t('cropYield.form.fertilizer.amountPlaceholder')} {...field} />
+                                        <Input className='flip-card__input' placeholder="Amount (e.g., 50 kg/acre)" {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
