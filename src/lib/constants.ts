@@ -362,12 +362,12 @@ export const schemesData = [
   },
   {
     id: 6,
-    name: 'schemes.pmkusum.name',
-    shortName: 'schemes.pmkusum.shortName',
-    shortDescription: 'schemes.pmkusum.shortDescription',
-    description: 'schemes.pmkusum.description',
-    imageUrl: 'https://bluebirdsolar.com/cdn/shop/articles/pm-kusum_655d3efc-4b18-4e4c-bedb-0850d1b671b7.jpg?v=1754551706',
-    dataAiHint: 'solar panel farm',
+    name: 'schemes.cmkky.name',
+    shortName: 'schemes.cmkky.shortName',
+    shortDescription: 'schemes.cmkky.shortDescription',
+    description: 'schemes.cmkky.description',
+    imageUrl: 'https://akm-img-a-in.tosshub.com/lingo/ktak/images/story/202502/67a7105dea535-mukhya-mantri-kisan-kalyan-yojana-08054929-16x9.jpg',
+    dataAiHint: 'kisan kalyan yojana',
   },
   {
     id: 7,
