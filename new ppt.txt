@@ -1,0 +1,37 @@
+Technical Approach for AgriVision AI
+
+**Technologies Used:**
+
+- **Frontend:**
+  - **Next.js & React:** Chosen for its high-performance, server-first approach. We leverage the Next.js App Router and Server Components to minimize client-side JavaScript, ensuring the app is fast and responsive even on low-bandwidth connections.
+  - **Tailwind CSS & ShadCN UI:** This combination allows for rapid development of a modern, accessible, and aesthetically pleasing user interface.
+  - **Recharts:** Used for creating the interactive market price analysis charts on the dashboard.
+
+- **AI & Backend:**
+  - **Google Genkit:** The core of our AI backend. Genkit enables us to create robust, observable, and tool-enabled AI flows. It orchestrates calls to various models and external APIs (like the WeatherAPI), making our AI agents more powerful.
+  - **Google AI Platform (Gemini Models):** We use the powerful Gemini family of models for their state-of-the-art multi-modal capabilities, handling everything from complex reasoning for the AI Assistant to market data analysis and image classification.
+
+- **Database:**
+  - **Supabase (Postgres with Connection Pooling):** A serverless PostgreSQL database used to store and manage user data, including profiles and chat history for the AI Farmer Assistant. We use a **transaction pooler** to efficiently manage database connections, making the application scalable and resilient to handle a high volume of concurrent users.
+
+- **Hosting:**
+  - **Vercel:** The ideal platform for deploying Next.js applications, providing a seamless CI/CD pipeline, global CDN, and serverless functions for scalability and performance.
+
+- **APIs & Tools:**
+  - **WeatherAPI Tool:** A Genkit Tool that provides real-time, location-specific weather data, making our AI's advice more accurate and context-aware.
+  - **Market Price Tool:** A Genkit Tool (currently using mock data) to simulate fetching historical crop price data, which is then analyzed by an AI flow.
+
+**Methodology & Flowchart:**
+
+**User Interaction Flow:**
+*A farmer opens AgriVision AI and selects a feature (e.g., AI Assistant, Dashboard, Crop Prediction).*
+*The user provides input via text, forms, or image uploads. For the dashboard, a simulated login retrieves the user's profile from the database.*
+*The Next.js frontend securely sends the data to the appropriate server-side Genkit flow.*
+
+**Genkit AI Flow (Backend):**
+*The specific Genkit flow is invoked (e.g., `getFarmingAdviceFlow`, `getMarketPriceAnalysisFlow`).*
+*The flow can use **Tools** to call external services, like fetching real-time weather or historical market prices.*
+*It then calls the appropriate Google Gemini model with a structured prompt.*
+*The AI model processes the input and returns a structured JSON output (e.g., advice, prediction, diagnosis, analysis).*
+*This result is sent back to the user's screen and rendered as text, charts, or audio.*
+*For the AI Assistant, conversations are saved to and retrieved from the Supabase Postgres database.*
