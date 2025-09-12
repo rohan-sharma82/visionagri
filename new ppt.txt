@@ -35,3 +35,15 @@ Technical Approach for AgriVision AI
 *The AI model processes the input and returns a structured JSON output (e.g., advice, prediction, diagnosis, analysis).*
 *This result is sent back to the user's screen and rendered as text, charts, or audio.*
 *For the AI Assistant, conversations are saved to and retrieved from the Supabase Postgres database.*
+
+**Impact & Benefits**
+
+**Potential Impact on Target Audience (Farmers):**
+- **Increased Profitability:** Optimized resource use, higher yields, and better market timing for sales lead directly to increased income.
+- **Reduced Crop Loss:** Early disease detection and timely advice help prevent catastrophic crop failures.
+- **Empowerment:** Access to information, personalized insights, and advanced tools empowers farmers to make independent, data-driven decisions.
+
+**Social, Economic & Environmental Benefits:**
+- **Social:** Improves the livelihood and knowledge base of farming communities. Reduces the digital divide.
+- **Economic:** Boosts the agricultural sector's contribution to the GDP. Creates a more resilient and efficient food supply chain.
+- **Environmental:** Promotes sustainable farming by optimizing the use of water, fertilizers, and pesticides, reducing environmental impact.
