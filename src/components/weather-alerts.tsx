@@ -1,4 +1,3 @@
-
 'use client';
 import { AlertTriangle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -26,14 +25,20 @@ export default function WeatherAlerts({ alerts }: WeatherAlertsProps) {
     if (!alerts || alerts.length === 0) {
         return null;
     }
+    
+    // Filter out duplicate alerts based on the 'event' property
+    const uniqueAlerts = alerts.filter((alert, index, self) =>
+        index === self.findIndex((a) => a.event === alert.event)
+    );
+
 
     return (
         <Alert variant="destructive" className="bg-destructive/10 backdrop-blur-sm border-destructive/50">
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>{t('dashboard.weather.alerts.title')}</AlertTitle>
             <AlertDescription>
-                 <Accordion type="multiple" collapsible className="w-full">
-                    {alerts.map((alert, index) => (
+                 <Accordion type="multiple" className="w-full">
+                    {uniqueAlerts.map((alert, index) => (
                          <AccordionItem value={`item-${index}`} key={index} className="border-b-destructive/50">
                             <AccordionTrigger className="hover:no-underline text-destructive text-base">
                                {alert.event}
