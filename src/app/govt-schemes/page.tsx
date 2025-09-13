@@ -15,14 +15,23 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useTranslation } from '@/hooks/use-translation';
 import en from '@/locales/en.json';
 
-const getEnglishTranslation = (key: string) => {
-    return key.split('.').reduce((obj, k) => (obj as any)?.[k], en) || key;
+// Helper function to safely access nested properties from the translation object
+const getEnglishTranslation = (path: string): string => {
+  const keys = path.split('.');
+  let result: any = en;
+  for (const key of keys) {
+    result = result[key];
+    if (result === undefined) {
+      return path; // Return the key if path is not found
+    }
+  }
+  return result;
 };
 
-
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
-  const { t } = useTranslation(); // Keep for "Read More" button and dialog title
-  
+  const { t } = useTranslation(); // For "Read More" button and dialog title
+
+  // Use the corrected helper function to get English text
   const englishName = getEnglishTranslation(scheme.name);
   const englishShortName = getEnglishTranslation(scheme.shortName);
   const englishShortDescription = getEnglishTranslation(scheme.shortDescription);
