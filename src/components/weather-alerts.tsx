@@ -32,7 +32,7 @@ export default function WeatherAlerts({ alerts }: WeatherAlertsProps) {
             <AlertTriangle className="h-4 w-4" />
             <AlertTitle>{t('dashboard.weather.alerts.title')}</AlertTitle>
             <AlertDescription>
-                 <Accordion type="single" collapsible className="w-full">
+                 <Accordion type="multiple" collapsible className="w-full">
                     {alerts.map((alert, index) => (
                          <AccordionItem value={`item-${index}`} key={index} className="border-b-destructive/50">
                             <AccordionTrigger className="hover:no-underline text-destructive text-base">
