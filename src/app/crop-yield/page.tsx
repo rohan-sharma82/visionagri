@@ -36,6 +36,7 @@ import { Combobox } from '@/components/ui/combobox';
 import { categorizedCropOptions } from '@/lib/constants';
 import { Textarea } from '@/components/ui/textarea';
 import { saveYieldPrediction } from './actions';
+import Link from 'next/link';
 
 const formSchema = z.object({
   cropType: z.string().min(2, 'Crop type is required.'),
@@ -152,16 +153,18 @@ export default function CropYieldPage() {
         <div className="flex flex-col items-center gap-8 w-full max-w-lg">
            <div className="wrapper w-full">
             <div className="flex justify-center mb-4 flex-col items-center gap-4">
-                <button className="tony-stark-button" alt="ML Model">
-                  <i>M</i>
-                  <i>L</i>
-                  <i>&nbsp;</i>
-                  <i>M</i>
-                  <i>o</i>
-                  <i>d</i>
-                  <i>e</i>
-                  <i>l</i>
-                </button>
+                <a href="https://crop-yield-prediction-farmer-smart-assistant.streamlit.app/" target="_blank" rel="noopener noreferrer">
+                  <button className="tony-stark-button" alt="ML Model">
+                    <i>M</i>
+                    <i>L</i>
+                    <i>&nbsp;</i>
+                    <i>M</i>
+                    <i>o</i>
+                    <i>d</i>
+                    <i>e</i>
+                    <i>l</i>
+                  </button>
+                </a>
                 <p className="text-sm text-muted-foreground -mt-2 text-center">Click &amp; use ML Model If This Form is Not Working</p>
                 <AreaInfoDialog />
             </div>
