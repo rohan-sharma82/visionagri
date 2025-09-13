@@ -11,6 +11,9 @@ import Galaxy from '@/components/galaxy';
 export const metadata: Metadata = {
   title: 'AgriVision AI',
   description: 'AI-powered tools for modern farming.',
+  icons: {
+    icon: '/ai photo.png',
+  },
 };
 
 export default function RootLayout({
