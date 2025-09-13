@@ -22,6 +22,7 @@ import { cn } from '@/lib/utils';
 import { useTranslation } from '@/hooks/use-translation';
 import LanguageSwitcher from '@/components/language-switcher';
 import FarmSchoolDialog from '@/components/farm-school-dialog';
+import { Button } from '@/components/ui/button';
 
 interface NewsArticle {
   id: number;
@@ -81,6 +82,7 @@ export default function Home() {
   const { t, setLanguage } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedNews, setSelectedNews] = useState<NewsArticle | null>(null);
+  const [visibleNewsCount, setVisibleNewsCount] = useState(9);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const userIconRef = useRef<HTMLDivElement>(null);
@@ -94,6 +96,9 @@ export default function Home() {
       ? translatedNewsData
       : translatedNewsData.filter((news) => t(news.category) === selectedCategory);
 
+  const handleLoadMore = () => {
+    setVisibleNewsCount(filteredNews.length);
+  };
 
   return (
     <>
@@ -174,7 +179,7 @@ export default function Home() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {translatedNewsCategories.map((category) => (
-             <button key={category} onClick={() => setSelectedCategory(category)} className="c-button c-button--gooey"> {category}
+             <button key={category} onClick={() => { setSelectedCategory(category); setVisibleNewsCount(9); }} className="c-button c-button--gooey"> {category}
               <div className="c-button__blobs">
               <div></div>
               <div></div>
@@ -185,7 +190,7 @@ export default function Home() {
         </div>
         <Dialog>
         <div className="grid gap-8 md:grid-cols-3 justify-items-center">
-            {filteredNews.map((news) => (
+            {filteredNews.slice(0, visibleNewsCount).map((news) => (
               <motion.div
                 key={news.id}
                 layout
@@ -229,6 +234,15 @@ export default function Home() {
             </DialogContent>
           )}
         </Dialog>
+        
+        {visibleNewsCount < filteredNews.length && (
+          <div className="text-center mt-12">
+            <Button onClick={handleLoadMore}>
+              Load More News
+            </Button>
+          </div>
+        )}
+
         {filteredNews.length === 0 && (
           <p className="text-center text-muted-foreground mt-8">
             {t('home.newsFeed.noArticles')}
