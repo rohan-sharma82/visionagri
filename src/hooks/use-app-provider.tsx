@@ -7,6 +7,7 @@ import ta from '@/locales/ta.json';
 import te from '@/locales/te.json';
 import bn from '@/locales/bn.json';
 import mr from '@/locales/mr.json';
+import hi from '@/locales/hi.json';
 
 const translations: Record<string, any> = {
   en,
@@ -15,6 +16,7 @@ const translations: Record<string, any> = {
   te,
   bn,
   mr,
+  hi,
 };
 
 type AppContextType = {
