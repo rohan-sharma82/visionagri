@@ -1,4 +1,3 @@
-
 'use client';
 import { schemesData } from '@/lib/constants';
 import { motion } from 'framer-motion';
@@ -15,28 +14,17 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useTranslation } from '@/hooks/use-translation';
 import en from '@/locales/en.json';
 
-// Helper function to safely access nested properties from the translation object
-const getEnglishTranslation = (path: string): string => {
-  const keys = path.split('.');
-  let result: any = en;
-  for (const key of keys) {
-    if (result && typeof result === 'object' && key in result) {
-      result = result[key];
-    } else {
-      return path; // Return the key if path is not found
-    }
-  }
-  return typeof result === 'string' ? result : path;
-};
-
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
-  const { t } = useTranslation(); // For "Read More" button
+  const { t } = useTranslation(); // For "Read More" button and dialog description
 
-  // Directly access the English translations from the imported en.json
-  const englishName = getEnglishTranslation(scheme.name);
-  const englishShortName = getEnglishTranslation(scheme.shortName);
-  const englishShortDescription = getEnglishTranslation(scheme.shortDescription);
-  const englishDescription = getEnglishTranslation(scheme.description);
+  // Correctly access the nested English data from the imported en.json
+  const schemeKey = scheme.id;
+  const schemeDetails = (en.govtSchemes as any)[schemeKey];
+
+  const englishName = schemeDetails?.name || scheme.name;
+  const englishShortName = schemeDetails?.shortName || scheme.shortName;
+  const englishShortDescription = schemeDetails?.shortDescription || scheme.shortDescription;
+  const englishDescription = schemeDetails?.description || scheme.description;
 
   return (
     <Dialog>
