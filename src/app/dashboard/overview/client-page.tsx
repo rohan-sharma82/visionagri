@@ -159,6 +159,47 @@ interface DashboardClientPageProps {
     initialChatHistory: Message[];
 }
 
+export function DashboardSkeleton() {
+  const { t } = useTranslation();
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center mb-8 flex flex-col items-center gap-4">
+        <Skeleton className="h-10 w-64" />
+        <Skeleton className="h-6 w-96" />
+        <Skeleton className="h-5 w-48" />
+      </div>
+      <div className="space-y-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Card className="lg:col-span-3">
+            <CardHeader><Skeleton className="h-6 w-48" /></CardHeader>
+            <CardContent><Skeleton className="h-[250px] w-full" /></CardContent>
+          </Card>
+          <Card className="md:col-span-2">
+            <CardHeader><Skeleton className="h-6 w-48" /></CardHeader>
+            <CardContent><Skeleton className="h-[300px] w-full" /></CardContent>
+          </Card>
+          <Card>
+            <CardHeader><Skeleton className="h-6 w-40" /></CardHeader>
+            <CardContent className="space-y-4">
+              <Skeleton className="h-10 w-full" />
+              <Skeleton className="h-10 w-full" />
+            </CardContent>
+          </Card>
+          <Card className="md:col-span-2">
+            <CardHeader><Skeleton className="h-6 w-48" /></CardHeader>
+            <CardContent><Skeleton className="h-[150px] w-full" /></CardContent>
+          </Card>
+          <Card>
+            <CardHeader><Skeleton className="h-6 w-40" /></CardHeader>
+            <CardContent><Skeleton className="h-[150px] w-full" /></CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 export default function DashboardClientPage({
     initialWeatherData,
     initialMarketData,
