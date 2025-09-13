@@ -20,18 +20,19 @@ const getEnglishTranslation = (path: string): string => {
   const keys = path.split('.');
   let result: any = en;
   for (const key of keys) {
-    result = result[key];
-    if (result === undefined) {
+    if (result && typeof result === 'object' && key in result) {
+      result = result[key];
+    } else {
       return path; // Return the key if path is not found
     }
   }
-  return result;
+  return typeof result === 'string' ? result : path;
 };
 
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
-  const { t } = useTranslation(); // For "Read More" button and dialog title
+  const { t } = useTranslation(); // For "Read More" button
 
-  // Use the corrected helper function to get English text
+  // Directly access the English translations from the imported en.json
   const englishName = getEnglishTranslation(scheme.name);
   const englishShortName = getEnglishTranslation(scheme.shortName);
   const englishShortDescription = getEnglishTranslation(scheme.shortDescription);
