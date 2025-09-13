@@ -69,8 +69,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
-        hostname: 'cdn.tractorkarvan.com',
+        protocol: 'https"://cdn.tractorkarvan.com',
         port: '',
         pathname: '/**',
       },
@@ -158,6 +157,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'akm-img-a-in.tosshub.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.jagranimages.com',
         port: '',
         pathname: '/**',
       },
