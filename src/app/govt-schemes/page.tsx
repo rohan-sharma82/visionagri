@@ -13,9 +13,21 @@ import {
 } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useTranslation } from '@/hooks/use-translation';
+import en from '@/locales/en.json';
+
+const getEnglishTranslation = (key: string) => {
+    return key.split('.').reduce((obj, k) => (obj as any)?.[k], en) || key;
+};
+
 
 const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // Keep for "Read More" button and dialog title
+  
+  const englishName = getEnglishTranslation(scheme.name);
+  const englishShortName = getEnglishTranslation(scheme.shortName);
+  const englishShortDescription = getEnglishTranslation(scheme.shortDescription);
+  const englishDescription = getEnglishTranslation(scheme.description);
+
   return (
     <Dialog>
       <div className="govt-scheme-card">
@@ -23,7 +35,7 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
            <div className="relative w-[300px] h-[200px]">
             <Image
                 src={scheme.imageUrl}
-                alt={t(scheme.name)}
+                alt={englishName}
                 fill
                 className="rounded-lg object-cover"
                 data-ai-hint={scheme.dataAiHint}
@@ -31,8 +43,8 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
            </div>
         </div>
         <div className="govt-scheme-card__content">
-          <p className="govt-scheme-card__title">{t(scheme.shortName)}</p>
-          <p className="govt-scheme-card__description">{t(scheme.shortDescription)}</p>
+          <p className="govt-scheme-card__title">{englishShortName}</p>
+          <p className="govt-scheme-card__description">{englishShortDescription}</p>
           <DialogTrigger asChild>
             <button className="govt-scheme-card__button">{t('govtSchemes.readMore')}</button>
           </DialogTrigger>
@@ -40,15 +52,15 @@ const GovtSchemeCard = ({ scheme }: { scheme: (typeof schemesData)[0] }) => {
       </div>
       <DialogContent className="max-w-2xl h-[70vh]">
         <DialogHeader>
-          <DialogTitle>{t(scheme.name)}</DialogTitle>
+          <DialogTitle>{englishName}</DialogTitle>
           <DialogDescription>
-            {t('govtSchemes.dialogDescription', { schemeName: t(scheme.shortName) })}
+            {t('govtSchemes.dialogDescription', { schemeName: englishShortName })}
           </DialogDescription>
         </DialogHeader>
         <ScrollArea className="h-full pr-4">
           <div
             className="prose prose-sm dark:prose-invert"
-            dangerouslySetInnerHTML={{ __html: t(scheme.description) }}
+            dangerouslySetInnerHTML={{ __html: englishDescription }}
           />
         </ScrollArea>
       </DialogContent>
