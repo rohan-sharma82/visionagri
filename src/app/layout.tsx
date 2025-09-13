@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
@@ -7,6 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { AppProvider } from '@/hooks/use-app-provider';
 import LocationDialog from '@/components/location-dialog';
 import Header from '@/components/layout/header';
+import Galaxy from '@/components/galaxy';
 
 export const metadata: Metadata = {
   title: 'AgriVision AI',
@@ -63,6 +63,9 @@ export default function RootLayout({
                 </filter>
               </defs>
             </svg>
+            <div className="fixed inset-0 z-[-1]">
+                <Galaxy />
+            </div>
             <div className="relative flex min-h-screen flex-col">
               <Header />
               <main className="flex-1">{children}</main>

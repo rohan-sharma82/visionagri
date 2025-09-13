@@ -55,10 +55,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/farm-bg.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
   }
   .prose h4 {
     @apply text-2xl font-kirang;
