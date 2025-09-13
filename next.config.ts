@@ -135,7 +135,10 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',"hostname":"jaagrukbharat.com","port":"","pathname":"/**"
+        protocol: 'https',
+        hostname: 'jaagrukbharat.com',
+        port: '',
+        pathname: '/**',
       },
       {
         protocol: 'https',

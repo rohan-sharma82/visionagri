@@ -4,7 +4,6 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import Galaxy from '@/components/galaxy';
 import { AppProvider } from '@/hooks/use-app-provider';
 import LocationDialog from '@/components/location-dialog';
 import Header from '@/components/layout/header';
@@ -42,7 +41,6 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <LocationDialog />
-            <Galaxy transparent={false} className="fixed inset-0 -z-10" />
             {/* SVG filters for gooey and glow effects */}
             <svg style={{ position: 'absolute', width: 0, height: 0 }}>
               <defs>
